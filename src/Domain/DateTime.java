@@ -1,8 +1,8 @@
-package Domain;
-
 /**
  * Made by: Roberto
  */
+
+package Domain;
 
 public class DateTime {
 
@@ -24,14 +24,16 @@ public class DateTime {
 
 	private WeekDay weekday;
 	private Integer hour;
+	private Integer duration;
 
 	/**
 	 * Constructor / Destructor
 	 */
 
-	DateTime(WeekDay weekDay, Integer hour) {
+	DateTime(WeekDay weekDay, Integer startHour, Integer duration) {
 		setWeekday(weekDay);
-		setHour(hour);
+		setStartHour(startHour);
+		setDuration(duration);
 	}
 
 	/**
@@ -39,7 +41,7 @@ public class DateTime {
 	 */
 
 	public WeekDay getWeekday() {
-		return weekday;
+		return this.weekday;
 	}
 
 	public boolean setWeekday(WeekDay weekday) {
@@ -47,12 +49,36 @@ public class DateTime {
 		return true;
 	}
 
-	public Integer getHour() {
-		return hour;
+	public Integer getStartHour() {
+		return this.hour;
 	}
 
-	public boolean setHour(Integer hour) {
-		this.hour = hour;
+	public boolean setStartHour(Integer startHour) {
+		this.hour = startHour;
 		return true;
 	}
+
+	public Integer getEndHour() {
+		return (this.hour + this.duration) % 24;
+	}
+
+	public boolean setEndHour(Integer endHour) {
+		// Error checking
+		if (endHour < this.hour) {
+			return false;
+		}
+
+		this.duration = endHour - this.hour;
+		return true;
+	}
+
+	public Integer getDuration() {
+		return this.duration;
+	}
+
+	public boolean setDuration(Integer duration) {
+		this.duration = duration;
+		return true;
+	}
+
 }
