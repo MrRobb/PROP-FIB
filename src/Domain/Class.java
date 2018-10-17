@@ -5,19 +5,25 @@
 package Domain;
 
 public class Class {
-	/**
-	 * Data Structures
-	 */
 
 	/**
 	 * Attributes
 	 */
+	DateTime dateTime;
+	Group group;
+	Classroom classroom;
 
 	/**
 	 * Constructor / Destructor
 	 */
 
-	/**
-	 * Getters / Setters
-	 */
+	Class() {
+
+	}
+
+	Class(DateTime dateTime, Group group, Classroom classroom) {
+		this.dateTime = dateTime;
+		this.group = group;
+		this.classroom = classroom;
+	}
 }
