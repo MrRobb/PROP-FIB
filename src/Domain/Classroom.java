@@ -1,5 +1,7 @@
 package Domain;
 
+import java.util.ArrayList;
+
 public class Classroom {
 
     /**
@@ -8,7 +10,17 @@ public class Classroom {
 
     private String name;
     private Integer capacity;
-    private String [] extras;
+    private ArrayList<String> extras;
+
+    /**
+     * Constructor / Destructor
+     */
+
+    Classroom(String name, Integer capacity){
+        this.name = name;
+        this.capacity = capacity;
+        extras = new ArrayList<>(0);
+    }
 
 
     /**
@@ -24,8 +36,8 @@ public class Classroom {
     }
 
     public Boolean hasExtra(String e){
-        for(int i=0; i<extras.length; ++i){
-            if (extras[i] == e) return true;
+        for(String ex : extras) {
+            if (ex == e) return true;
         }
         return false;
     }
@@ -42,10 +54,7 @@ public class Classroom {
     public boolean addExtra(String e){
         if(this.hasExtra(e)) return false;
         else{
-            String [] aux = new String[extras.length + 1];
-            System.arraycopy(extras, 0, aux, 0, extras.length);
-            aux[aux.length-1] = e;
-            extras = aux;
+            extras.add(e);
             return true;
         }
     }
