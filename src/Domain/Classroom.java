@@ -46,7 +46,7 @@ public class Classroom {
         this.name = name;
     }
 
-    public void setCapacidad(Integer capacity) {
+    public void setCapacity(Integer capacity) {
         this.capacity = capacity;
     }
 
