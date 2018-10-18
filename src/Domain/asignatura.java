@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 package Domain;
 
 import javafx.util.Pair;
@@ -60,3 +61,9 @@ public class asignatura {
         horasSemanales.put(tipo,horas);
     }
 }
+=======
+package Domain;
+
+public class asignatura {
+}
+>>>>>>> master
