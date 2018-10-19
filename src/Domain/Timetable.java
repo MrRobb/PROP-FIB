@@ -1,7 +1,5 @@
 package Domain;
 
-import org.bouncycastle.asn1.isismtt.x509.Restriction;
-
 public class Timetable {
 
     /**

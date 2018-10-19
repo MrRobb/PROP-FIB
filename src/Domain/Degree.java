@@ -7,7 +7,7 @@ public class Degree {
 
      enum Curriculum{
         Quarterly,
-        Half-yearly
+        Half_yearly
     }
 
     /**

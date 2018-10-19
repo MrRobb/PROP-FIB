@@ -56,8 +56,7 @@ public class Subject {
     }
 
     public Integer getWeeklyHours(String type) {
-        if(weeklyHours.containsKey(type)) return weeklyHours.get(type);
-        else return -1;
+        return weeklyHours.getOrDefault(type, -1);
     }
 
     public void setName(String name) {
