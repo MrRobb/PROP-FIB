@@ -1,6 +1,6 @@
 package Domain;
 
-public class Timetable {
+public class Schedule {
 
     /**
      * Attributes
@@ -12,11 +12,11 @@ public class Timetable {
      * Constructors / Destructors
      */
 
-    public Timetable () {
+    public Schedule() {
         restrictions = null;
     }
 
-    public Timetable (Restrictions restrictions) {
+    public Schedule(Restrictions restrictions) {
         this.restrictions = restrictions;
     }
 
