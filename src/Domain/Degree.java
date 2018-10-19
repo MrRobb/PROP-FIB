@@ -5,18 +5,12 @@ import java.util.ArrayList;
 
 public class Degree {
 
-     enum Curriculum{
-        Quarterly,
-        Half_yearly
-    }
-
     /**
      * Attributes
      */
 
     private String name;
     private Integer credits;
-    private Curriculum type;
     private ArrayList<String> typeOfGroups;
 
     /**
@@ -26,14 +20,12 @@ public class Degree {
     public Degree() {
         this.name = null;
         this.credits = null;
-        this.type = null;
         this.typeOfGroups = null;
     }
 
-    public Degree(String name, Integer credits, Curriculum type, ArrayList<String> typeOfGroups) {
+    public Degree(String name, Integer credits, ArrayList<String> typeOfGroups) {
         this.name = name;
         this.credits = credits;
-        this.type = type;
         this.typeOfGroups = typeOfGroups;
     }
 
@@ -62,15 +54,7 @@ public class Degree {
         this.credits = credits;
         return true;
     }
-
-    public Curriculum getType() {
-        return type;
-    }
-
-    public boolean setType(Curriculum type) {
-        this.type = type;
-        return true;
-    }
+    
 
     public ArrayList<String> getTypeOfGroups() {
         return typeOfGroups;
