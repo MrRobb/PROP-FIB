@@ -22,6 +22,12 @@ public class Classroom {
         extras = new ArrayList<>(0);
     }
 
+    Classroom(String name){
+        this.name = name;
+        this.capacity = 0;
+        extras = new ArrayList<>(0);
+    }
+
 
     /**
      * Getters / Setters
@@ -34,6 +40,9 @@ public class Classroom {
     public Integer getCapacity() {
         return capacity;
     }
+
+    public ArrayList<String> getExtras() { return extras; }
+
 
     public Boolean hasExtra(String e){
         for(String ex : extras) {
@@ -49,7 +58,6 @@ public class Classroom {
     public void setCapacity(Integer capacity) {
         this.capacity = capacity;
     }
-
 
     public boolean addExtra(String e){
         if(this.hasExtra(e)) return false;
