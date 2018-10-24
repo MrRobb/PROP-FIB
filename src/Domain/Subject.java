@@ -12,7 +12,7 @@ public class Subject {
 
     private String name;
     private Integer semester;
-    private Integer credits;
+    private Double credits;
     private Boolean mandatory;
     private String speciality;
     private Map<String,Integer> weeklyHours;
@@ -22,12 +22,21 @@ public class Subject {
      * Constructor / Destructor
      */
 
-    Subject(String name, Integer semester, Integer credits, Boolean mandatory, String speciality){
+    Subject(String name, Integer semester, Double credits, Boolean mandatory, String speciality){
         this.name = name;
         this.semester = semester;
         this.credits = credits;
         this.mandatory = mandatory;
         this.speciality = speciality;
+        weeklyHours = new HashMap<String, Integer>();
+
+    }
+    Subject(String name){
+        this.name = name;
+        this.semester = 0;
+        this.credits = 6.0;
+        this.mandatory = true;
+        this.speciality = null;
         weeklyHours = new HashMap<String, Integer>();
 
     }
@@ -43,7 +52,7 @@ public class Subject {
         return semester;
     }
 
-    public Integer getCredits() {
+    public Double getCredits() {
         return credits;
     }
 
@@ -56,7 +65,7 @@ public class Subject {
     }
 
     public Integer getWeeklyHours(String type) {
-        return weeklyHours.getOrDefault(type, -1);
+        return weeklyHours.getOrDefault(type, 0);
     }
 
     public void setName(String name) {
@@ -67,7 +76,7 @@ public class Subject {
         this.semester = semester;
     }
 
-    public void setCredits(Integer credits) { this.credits = credits; }
+    public void setCredits(Double credits) { this.credits = credits; }
 
     public void setMandatory(Boolean mandatory) { this.mandatory = mandatory; }
 
