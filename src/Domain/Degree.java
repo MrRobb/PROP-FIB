@@ -12,6 +12,8 @@ public class Degree {
     private String name;
     private Integer credits;
     private ArrayList<String> typeOfGroups;
+    private ArrayList<Subject> subjects;
+
 
     /**
      * Constructor / Destructor
@@ -23,10 +25,11 @@ public class Degree {
         this.typeOfGroups = null;
     }
 
-    public Degree(String name, Integer credits, ArrayList<String> typeOfGroups) {
+    public Degree(String name, Integer credits, Curriculum type, ArrayList<String> typeOfGroups, ArrayList<Subject> subjects) {
         this.name = name;
         this.credits = credits;
         this.typeOfGroups = typeOfGroups;
+        this.subjects = subjects;
     }
 
     public Degree (File f) {
@@ -62,6 +65,15 @@ public class Degree {
 
     public boolean setTypeOfGroups(ArrayList<String> typeOfGroups) {
         this.typeOfGroups = typeOfGroups;
+        return true;
+    }
+
+    public ArrayList<Subject> getSubjects() {
+        return subjects;
+    }
+
+    public boolean setSubjects(ArrayList<Subject> subjects) {
+        this.subjects = subjects;
         return true;
     }
 
