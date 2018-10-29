@@ -11,7 +11,6 @@ public class Group {
 	/**
 	 * Attributes
 	 */
-	private Integer id;
 	private String name;
 	private ArrayList<String> types;
 	private Integer level;
@@ -24,7 +23,6 @@ public class Group {
 	 */
 
 	Group(Integer id, String name, Integer duration) {
-		this.id = id;
 		this.name = name;
 		this.types = new ArrayList<String>(0);
 		this.level = 0;
@@ -36,15 +34,6 @@ public class Group {
 	/**
 	 * Getters / Setters
 	 */
-
-	public Integer getId() {
-		return id;
-	}
-
-	public boolean setId(Integer id) {
-		this.id = id;
-		return true;
-	}
 
 	public String getName() {
 		return name;

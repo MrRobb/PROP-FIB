@@ -1,7 +1,7 @@
 package Domain;
 
-import java.util.Map;
 import java.util.HashMap;
+import java.util.Map;
 
 
 public class Subject {
@@ -31,6 +31,7 @@ public class Subject {
         weeklyHours = new HashMap<String, Integer>();
 
     }
+
     Subject(String name){
         this.name = name;
         this.semester = 0;

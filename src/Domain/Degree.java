@@ -1,6 +1,5 @@
 package Domain;
 
-import java.io.File;
 import java.util.ArrayList;
 
 public class Degree {
@@ -12,25 +11,28 @@ public class Degree {
     private String name;
     private Integer credits;
     private ArrayList<String> typeOfGroups;
+    private static Degree instance = null;
 
     /**
      * Constructor / Destructor
      */
 
-    public Degree() {
-        this.name = null;
-        this.credits = null;
-        this.typeOfGroups = null;
+    private Degree() {
+
     }
 
-    public Degree(String name, Integer credits, ArrayList<String> typeOfGroups) {
+    private Degree(String name, Integer credits, ArrayList<String> typeOfGroups) {
         this.name = name;
         this.credits = credits;
         this.typeOfGroups = typeOfGroups;
     }
 
-    public Degree (File f) {
+    public static Degree getInstance() {
+        if (instance == null) {
+            instance = new Degree();
+        }
 
+        return instance;
     }
 
     /**

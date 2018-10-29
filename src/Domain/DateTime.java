@@ -81,4 +81,12 @@ public class DateTime {
 		return true;
 	}
 
+	@Override
+	public boolean equals(Object obj) {
+		if (!(obj instanceof DateTime)) {
+			return false;
+		}
+		DateTime d = (DateTime)obj;
+		return this.weekday == d.weekday && this.hour.equals(d.hour);
+	}
 }
