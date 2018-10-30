@@ -1,0 +1,106 @@
+package Domain;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class DateTimes {
+
+	public static Integer invalidID = -1;
+	private static DateTimes instance = null;
+
+	private HashMap<Integer, DateTime> datetimes;
+
+	private DateTimes() {
+		datetimes = new HashMap<Integer, DateTime>(0);
+	}
+
+	static DateTimes getInstance() {
+		if (instance == null) {
+			instance = new DateTimes();
+		}
+
+		return instance;
+	}
+
+	boolean exists(Integer id) {
+		return datetimes.containsKey(id);
+	}
+
+	boolean exists(DateTime datetime) {
+		return datetimes.containsValue(datetime);
+	}
+
+	Integer addDateTime(DateTime datetime) {
+		if (datetime == null) {
+			return invalidID;
+		}
+		else {
+			Integer id = datetimes.size();
+			datetimes.put(id, datetime);
+			return id;
+		}
+	}
+
+	DateTime get(Integer id) {
+		return datetimes.get(id);
+	}
+
+	Integer getID(DateTime datetime) {
+		for (Map.Entry<Integer, DateTime> value : datetimes.entrySet()) {
+			if (value.getValue().equals(datetime)) {
+				return value.getKey();
+			}
+		}
+		return DateTimes.invalidID;
+	}
+
+	Integer getNewID() {
+		return datetimes.size();
+	}
+
+	Integer size() {
+		return datetimes.size();
+	}
+
+	boolean clear() {
+		DateTimes.getInstance().datetimes.clear();
+		return true;
+	}
+
+	public DateTime first() {
+		return datetimes.get(0);
+	}
+
+	public DateTime firstPossible() {
+		return new DateTime(DateTime.WeekDay.Monday, 0, 1);
+	}
+
+	public DateTime next(DateTime datetime) {
+
+		DateTime.WeekDay weekday = datetime.getWeekday();
+		Integer hour = datetime.getStartHour();
+		Integer duration = 1;
+		DateTime nextValue = new DateTime(weekday, hour, duration);
+
+		if (nextValue.equals(lastPossible())) {
+			return null;
+		}
+		else {
+			if (hour == 23) {
+				nextValue.setWeekday(DateTime.WeekDay.values()[weekday.ordinal() + 1]);
+			}
+			nextValue.setStartHour((++hour) % 24);
+		}
+
+		return nextValue;
+	}
+
+	public DateTime last() {
+		Integer lastIndex = datetimes.size() -1;
+		return datetimes.get(lastIndex);
+	}
+
+	public DateTime lastPossible() {
+		return new DateTime(DateTime.WeekDay.Friday, 23, 1);
+	}
+}
