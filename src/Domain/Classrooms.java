@@ -54,10 +54,6 @@ public class Classrooms {
 		return Classrooms.invalidID;
 	}
 
-	Integer getNewID() {
-		return classrooms.size();
-	}
-
 	Integer size() {
 		return classrooms.size();
 	}

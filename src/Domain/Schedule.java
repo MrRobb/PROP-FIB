@@ -18,10 +18,13 @@ public class Schedule {
 
     public Schedule() {
         restrictions = null;
+        classes = null;
     }
 
-    public Schedule(Restrictions restrictions) {
+    public Schedule(Restrictions restrictions, ArrayList<Class> classes)
+    {
         this.restrictions = restrictions;
+        this.classes = classes;
     }
 
 

@@ -54,10 +54,6 @@ public class DateTimes {
 		return DateTimes.invalidID;
 	}
 
-	Integer getNewID() {
-		return datetimes.size();
-	}
-
 	Integer size() {
 		return datetimes.size();
 	}

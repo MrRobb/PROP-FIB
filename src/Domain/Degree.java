@@ -11,31 +11,27 @@ public class Degree {
     private String name;
     private Integer credits;
     private ArrayList<String> typeOfGroups;
-    private static Degree instance = null;
+    private ArrayList<Subject> subjects;
 
 
     /**
      * Constructor / Destructor
      */
 
-    private Degree() {
-
+    public Degree () {
+        name = null;
+        credits = null;
+        typeOfGroups = null;
+        subjects = null;
     }
 
-    private Degree(String name, Integer credits, ArrayList<String> typeOfGroups) {
+    public Degree(String name, Integer credits, ArrayList<String> typeOfGroups, ArrayList<Subject> subjects) {
         this.name = name;
         this.credits = credits;
         this.typeOfGroups = typeOfGroups;
         this.subjects = subjects;
     }
 
-    public static Degree getInstance() {
-        if (instance == null) {
-            instance = new Degree();
-        }
-
-        return instance;
-    }
 
     /**
      * Getters / Setters
@@ -69,12 +65,26 @@ public class Degree {
         return true;
     }
 
+    public boolean addTypeOfGroups(String tg) {
+        if (this.hasTypeOfGroup(tg)) return false;
+        typeOfGroups.add(tg);
+        return true;
+    }
+
     public ArrayList<Subject> getSubjects() {
         return subjects;
     }
 
     public boolean setSubjects(ArrayList<Subject> subjects) {
         this.subjects = subjects;
+        return true;
+    }
+
+    public boolean addSubject (Subject subject) {
+        for (Subject s: this.subjects) {
+            if (s.getClass().equals(subject.getClass())) return true;
+        }
+        subjects.add(subject);
         return true;
     }
 
@@ -89,10 +99,11 @@ public class Degree {
         return false;
     }
 
-    public boolean addTypeOfGroups(String tg) {
-        if (this.hasTypeOfGroup(tg)) return false;
-        typeOfGroups.add(tg);
-        return true;
+    public boolean hasSubject(Subject subject) {
+        for (Subject s: this.subjects) {
+            if (s.getClass().equals(subject.getClass())) return true;
+        }
+        return false;
     }
 
 }

@@ -39,13 +39,12 @@ public class DomainCtrl {
 		if (instance == null) {
 			instance = new DomainCtrl();
 		}
-
 		return instance;
 	}
 
 	boolean generateSchedule() {
 
-		DegreeFactory.produce();
+		DegreesFactory.produce();
 		ClassroomsFactory.produce();
 		DateTimesFactory.produce();
 

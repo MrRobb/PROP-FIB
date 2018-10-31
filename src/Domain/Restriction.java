@@ -3,16 +3,8 @@ package Domain;
 import java.util.ArrayList;
 
 public class Restriction {
-
-    enum WeekDay {
-        Monday,
-        Tuesday,
-        Wednesday,
-        Thursday,
-        Friday
-    }
-
-    public Boolean noClassOnDayBetweenSHEH(Schedule s, WeekDay day, Integer startHour, Integer endHour){
+    
+    public Boolean noClassOnDayBetweenSHEH(Schedule s, DateTime.WeekDay day, Integer startHour, Integer endHour){
         ArrayList<Class> classes = s.getClasses();
         for(int i = 0; i<classes.size(); ++i){
             Class c = classes.get(i);

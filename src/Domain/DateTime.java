@@ -30,7 +30,7 @@ public class DateTime {
 	 * Constructor / Destructor
 	 */
 
-	DateTime(WeekDay weekDay, Integer startHour, Integer duration) {
+	public DateTime(WeekDay weekDay, Integer startHour, Integer duration) {
 		setWeekday(weekDay);
 		setStartHour(startHour);
 		setDuration(duration);
