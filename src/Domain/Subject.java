@@ -3,6 +3,10 @@ package Domain;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * @author Alberto Gimenez Aragon
+ */
+
 
 public class Subject {
 
@@ -15,7 +19,6 @@ public class Subject {
     private Double credits;
     private Boolean mandatory;
     private String speciality;
-    private Map<String,Integer> weeklyHours;
 
 
     /**
@@ -28,7 +31,6 @@ public class Subject {
         this.credits = credits;
         this.mandatory = mandatory;
         this.speciality = speciality;
-        weeklyHours = new HashMap<String, Integer>();
 
     }
 
@@ -38,7 +40,6 @@ public class Subject {
         this.credits = 6.0;
         this.mandatory = true;
         this.speciality = null;
-        weeklyHours = new HashMap<String, Integer>();
 
     }
 
@@ -65,10 +66,6 @@ public class Subject {
         return speciality;
     }
 
-    public Integer getWeeklyHours(String type) {
-        return weeklyHours.getOrDefault(type, 0);
-    }
-
     public void setName(String name) {
         this.name = name;
     }
@@ -85,7 +82,4 @@ public class Subject {
         this.speciality = speciality;
     }
 
-    public void addWeeklyHours(String type, Integer hours) {
-        weeklyHours.put(type,hours);
-    }
 }
