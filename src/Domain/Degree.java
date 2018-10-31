@@ -11,6 +11,7 @@ public class Degree {
     private String name;
     private Integer credits;
     private ArrayList<String> typeOfGroups;
+    private ArrayList<Subject> subjects;
     private static Degree instance = null;
 
 
