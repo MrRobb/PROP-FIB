@@ -19,8 +19,8 @@ public class Restriction {
     public boolean add(String blockName, Object[] args) {
 
         // Get block
-        if (Blocks.existsBlock(blockName)) {
-            Function<In, Out> b = Blocks.getBlock(blockName);
+        if (Blocks.getInstance().exists(blockName)) {
+            Function<In, Out> b = Blocks.getInstance().get(blockName);
             restriccion.add(b);
             return true;
         }
