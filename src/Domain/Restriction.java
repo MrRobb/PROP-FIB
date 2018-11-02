@@ -54,34 +54,7 @@ public class Restriction {
      * @return true if no classes on this day between [startHour, endHour], false otherwise.
      */
 
-    public Object[] noClassOnDayBetweenSHEH(Object[] args) {
 
-        // Casting args
-        Schedule s = (Schedule) args[0];
-        String day = (String) args[1];
-        Integer startHour = (Integer) args[2];
-        Integer endHour = (Integer) args[3];
-
-        ArrayList<Class> classes = s.getClasses();
-        for(int i = 0; i<classes.size(); ++i){
-            Class c = classes.get(i);
-            DateTime cDT = c.getDateTime();
-            if(cDT != null){
-                if(cDT.getWeekday().toString().equals(day)){
-                    Integer sh = cDT.getStartHour();
-                    Integer d = cDT.getDuration();
-                    if((sh >= startHour && sh < endHour) ||
-                            (sh+d >= startHour && sh+d < endHour) ||
-                            (sh < startHour && sh+d > endHour)) {
-                        return new Object[] {Boolean.FALSE};
-
-                    }
-                }
-            }
-        }
-
-        return new Object[] {Boolean.TRUE};
-    }
 
 
     /**
