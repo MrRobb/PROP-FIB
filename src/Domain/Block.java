@@ -82,15 +82,18 @@ public class Block {
     }
 
     /**
-     * Checks the number of classes.
-     * @param input in[] the list of classes.
-     * @return the number of classes.
+     * Checks that there is no class on week day Day between startHour and endHour.
+     * @param input in[0] The schedule we want to check.
+                     in[1] The day we want to restrict classes
+                     args[0] The start hour of the interval with no classes
+                     args[1] The end hour of the interval with no classes
+     * @return true if no classes on this day between [startHour, endHour], false otherwise.
      */
 
     public Out everyClassBetweenStartAndEndHour(In input){
-        Schedule s = (Schedule) input.get(0);
-        Integer startHour = (Integer) input.get(1);
-        Integer endHour = (Integer) input.get(2);
+        Schedule s = (Schedule) input.getIn(0);
+        Integer startHour = (Integer) input.getArgs(0);
+        Integer endHour = (Integer) input.getArgs(1);
         ArrayList<Class> classes = s.getClasses();
         for(Class c : classes){
             Integer sh = c.getDateTime().getStartHour();
@@ -131,18 +134,7 @@ public class Block {
      * @return true if it's possible, otherwise false.
      */
 
-    public static Out countHoursDays(In input) {
-        Schedule s = (Schedule) input.getIn(0);
-        for (Class c: s.getClasses()) {
-            DateTime dT = DateTimes.getInstance().get(c.getDateTimeID());
-            String dtWeekDay = dT.getWeekday().toString();
-            for (Object o: input.getArgs()) {
-                String weekDay = (String) o;
-                if (weekDay.equals(dtWeekDay)) count += dT.getDuration();
-            }
-        }
-        return new Out(count);
-    }
+
 
 
 
