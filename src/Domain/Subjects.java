@@ -26,17 +26,17 @@ public class Subjects {
         return subjects.containsKey(id);
     }
 
-    boolean exists(Subject datetime) {
-        return subjects.containsValue(datetime);
+    boolean exists(Subject subj) {
+        return subjects.containsValue(subj);
     }
 
-    Integer addSubject(Subject datetime) {
-        if (datetime == null) {
+    Integer addSubject(Subject subj) {
+        if (subj == null) {
             return invalidID;
         }
         else {
             Integer id = subjects.size();
-            subjects.put(id, datetime);
+            subjects.put(id, subj);
             return id;
         }
     }
@@ -45,9 +45,9 @@ public class Subjects {
         return subjects.get(id);
     }
 
-    Integer getID(Subject datetime) {
+    Integer getID(Subject subj) {
         for (Map.Entry<Integer, Subject> value : subjects.entrySet()) {
-            if (value.getValue().equals(datetime)) {
+            if (value.getValue().equals(subj)) {
                 return value.getKey();
             }
         }

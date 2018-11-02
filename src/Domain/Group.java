@@ -17,6 +17,7 @@ public class Group {
 	private Group parentGroup;
 	private Integer duration;
 	private Integer capacity;
+	private Integer subjectID;
 
 	/**
 	 * Constructor / Destructor
@@ -29,6 +30,7 @@ public class Group {
 		this.parentGroup = null;
 		this.duration = duration;
 		this.capacity = 0;
+		this.subjectID = 0;
 	}
 
 	/**
@@ -89,7 +91,13 @@ public class Group {
 		return true;
 	}
 
-	/**
+    public Integer getSubjectID() { return subjectID; }
+    public Boolean setSubjectID(Integer id){
+	    subjectID = id;
+	    return true;
+    }
+
+    /**
 	 * Consultors
 	 */
 
