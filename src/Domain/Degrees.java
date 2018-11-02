@@ -15,7 +15,7 @@ public class Degrees {
         degrees = new HashMap<Integer, Degree>(0);
     }
 
-    static Degrees getInstance() {
+    public static Degrees getInstance() {
         if (instance == null) {
             instance = new Degrees();
         }
@@ -23,15 +23,15 @@ public class Degrees {
         return instance;
     }
 
-    boolean exists(Integer id) {
+    public boolean exists(Integer id) {
         return degrees.containsKey(id);
     }
 
-    boolean exists(Degree degree) {
+    public boolean exists(Degree degree) {
         return degrees.containsValue(degree);
     }
 
-    Integer addDegree(Degree degree) {
+    public Integer addDegree(Degree degree) {
         if (degree == null) {
             return invalidID;
         }
@@ -42,11 +42,11 @@ public class Degrees {
         }
     }
 
-    Degree get(Integer id) {
+    public Degree get(Integer id) {
         return degrees.get(id);
     }
 
-    Integer getID(Degree degree) {
+    public Integer getID(Degree degree) {
         for (Map.Entry<Integer, Degree> value : degrees.entrySet()) {
             if (value.getValue().equals(degree)) {
                 return value.getKey();
@@ -55,18 +55,16 @@ public class Degrees {
         return invalidID;
     }
 
-    Integer getNewID() {
+    public Integer getNewID() {
         return degrees.size();
     }
 
-    Integer size() {
+    public Integer size() {
         return degrees.size();
     }
 
-    boolean clear() {
+    public boolean clear() {
         Degrees.getInstance().degrees.clear();
         return true;
     }
-
-
 }

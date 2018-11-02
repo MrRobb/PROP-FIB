@@ -42,7 +42,7 @@ public class DomainCtrl {
 		return instance;
 	}
 
-	boolean generateSchedule() {
+	public boolean generateSchedule() {
 
 		DegreesFactory.produce();
 		ClassroomsFactory.produce();

@@ -14,7 +14,7 @@ public class DateTimes {
 		datetimes = new HashMap<Integer, DateTime>(0);
 	}
 
-	static DateTimes getInstance() {
+	public static DateTimes getInstance() {
 		if (instance == null) {
 			instance = new DateTimes();
 		}
@@ -22,15 +22,15 @@ public class DateTimes {
 		return instance;
 	}
 
-	boolean exists(Integer id) {
+	public boolean exists(Integer id) {
 		return datetimes.containsKey(id);
 	}
 
-	boolean exists(DateTime datetime) {
+	public boolean exists(DateTime datetime) {
 		return datetimes.containsValue(datetime);
 	}
 
-	Integer addDateTime(DateTime datetime) {
+	public Integer addDateTime(DateTime datetime) {
 		if (datetime == null) {
 			return invalidID;
 		}
@@ -41,11 +41,11 @@ public class DateTimes {
 		}
 	}
 
-	DateTime get(Integer id) {
+	public DateTime get(Integer id) {
 		return datetimes.get(id);
 	}
 
-	Integer getID(DateTime datetime) {
+	public Integer getID(DateTime datetime) {
 		for (Map.Entry<Integer, DateTime> value : datetimes.entrySet()) {
 			if (value.getValue().equals(datetime)) {
 				return value.getKey();
@@ -54,11 +54,11 @@ public class DateTimes {
 		return DateTimes.invalidID;
 	}
 
-	Integer size() {
+	public Integer size() {
 		return datetimes.size();
 	}
 
-	boolean clear() {
+	public boolean clear() {
 		DateTimes.getInstance().datetimes.clear();
 		return true;
 	}
@@ -98,5 +98,10 @@ public class DateTimes {
 
 	public DateTime lastPossible() {
 		return new DateTime(DateTime.WeekDay.Friday, 23, 1);
+	}
+
+	@Override
+	public Object clone() throws CloneNotSupportedException {
+		throw new CloneNotSupportedException();
 	}
 }

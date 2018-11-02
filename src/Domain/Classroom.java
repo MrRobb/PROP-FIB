@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * @author Alberto Gimenez Aragon
  */
-class Classroom {
+public class Classroom {
 
 	/**
 	 * Attributes
@@ -19,13 +19,13 @@ class Classroom {
 	 * Constructor / Destructor
 	 */
 
-	Classroom(String name, Integer capacity) {
+	public Classroom(String name, Integer capacity) {
 		this.name = name;
 		this.capacity = capacity;
 		extras = new ArrayList<>(0);
 	}
 
-	Classroom(String name) {
+	public Classroom(String name) {
 		this(name, 0);
 	}
 
@@ -33,34 +33,34 @@ class Classroom {
 	 * Getters / Setters
 	 */
 
-	String getName() {
+	public String getName() {
 		return name;
 	}
 
-	Integer getCapacity() {
+	public Integer getCapacity() {
 		return capacity;
 	}
 
-	ArrayList<String> getExtras() {
+	public ArrayList<String> getExtras() {
 		return extras;
 	}
 
-	Boolean hasExtra(String e) {
+	public Boolean hasExtra(String e) {
 		for (String ex : extras) {
 			if (ex.equals(e)) return true;
 		}
 		return false;
 	}
 
-	void setName(String name) {
+	public void setName(String name) {
 		this.name = name;
 	}
 
-	void setCapacity(Integer capacity) {
+	public void setCapacity(Integer capacity) {
 		this.capacity = capacity;
 	}
 
-	boolean addExtra(String e) {
+	public boolean addExtra(String e) {
 		if (this.hasExtra(e)) return false;
 		else {
 			extras.add(e);

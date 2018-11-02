@@ -1,6 +1,7 @@
 package Domain;
 
 import java.util.ArrayList;
+import java.util.function.Function;
 
 public class Block {
 
