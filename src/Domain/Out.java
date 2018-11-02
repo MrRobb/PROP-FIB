@@ -1,6 +1,7 @@
 package Domain;
 
 public class Out {
+
 	private Object[] out;
 
 	public Out(Object out) {

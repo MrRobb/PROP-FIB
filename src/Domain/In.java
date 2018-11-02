@@ -1,6 +1,7 @@
 package Domain;
 
 public class In {
+
 	private Object[] in;
 
 	public In(Object in) {
