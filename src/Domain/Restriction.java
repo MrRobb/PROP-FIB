@@ -21,15 +21,14 @@ public class Restriction {
     boolean AddBlock(String blockName) {
 
         // Get block
-        if (Blocks::existsBlock(blockName)){
-            Function<In, Out> b = Blocks::getBlock(blockName);
+        if (Blocks.existsBlock(blockName)) {
+            Function<In, Out> b = Blocks.getBlock(blockName);
+            restriccion.add(b);
+            return true;
         }
-
-
-        // Add block
-        restriccion.add(b);
-
-        return true;
+        else {
+            return false;
+        }
     }
 
     Boolean apply(Object[] o) {
@@ -37,7 +36,7 @@ public class Restriction {
         Object[] ret = o;
 
         try {
-            for (Function<Object[], Object[]> block : restriccion) {
+            for (Function<In, Out> block : restriccion) {
                 ret = block.apply(ret);
             }
 

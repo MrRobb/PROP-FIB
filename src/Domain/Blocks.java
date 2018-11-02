@@ -5,15 +5,15 @@ import java.util.function.Function;
 
 public class Blocks {
 
-    private static HashMap<String, Function<In, Out>> blocks;
+    private static HashMap<String, Function<In, Out>> blocks = createBlock();
 
-    /**
-     * Constructor / Destructor
-     */
-
-    Blocks(HashMap<String, Function<In, Out>> blocks) {
-        this.blocks = blocks;
+    private static HashMap<String, Function<In, Out>> createBlock() {
+        HashMap<String, Function<In, Out>> b = new HashMap<String, Function<In, Out>>();
+        blocks.put("No class Between", Block::noClassOnDayBetweenSHEH);
+        blocks.put("No overlapping classroom and time", Block::noTwoClassesAtSameHourSameClassroom);
+        return b;
     }
+
 
     /**
      * Getter / Setter

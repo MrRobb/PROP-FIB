@@ -6,7 +6,7 @@ public class Restrictions {
 
     private HashMap<String,Restriction> restrictions;
 
-    public HashMap<Integer, Restriction> getRestrictions() {
+    public HashMap<String, Restriction> getRestrictions() {
         return restrictions;
     }
 

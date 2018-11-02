@@ -8,18 +8,18 @@ public class Block {
      * Checks that there is no class on week day Day between startHour and endHour.
      * @param input in[0] The schedule we want to check.
                      in[1] The day we want to restrict classes
-                     in[2] The start hour of the interval with no classes
-                     in[3] The end hour of the interval with no classes
+                     args[0] The start hour of the interval with no classes
+                     args[1] The end hour of the interval with no classes
      * @return true if no classes on this day between [startHour, endHour], false otherwise.
      */
 
-	public Out noClassOnDayBetweenSHEH(In input) {
+	public static Out noClassOnDayBetweenSHEH(In input) {
 
 		// Casting args
-		Schedule s = (Schedule) input.get(0);
-		String day = (String) input.get(1);
-		Integer startHour = (Integer) input.get(2);
-		Integer endHour = (Integer) input.get(3);
+		Schedule s = (Schedule) input.getIn(0);
+		String day = (String) input.getIn(1);
+		Integer startHour = (Integer) input.getArgs(0);
+		Integer endHour = (Integer) input.getArgs(1);
 
 		ArrayList<Class> classes = s.getClasses();
 		for (Class c : classes) {
@@ -46,8 +46,8 @@ public class Block {
      * @return true if no classes overlapped at the same classroom, false otherwise.
      */
 
-    public Out noTwoClassesAtSameHourSameClassroom(In input){
-        Schedule s = (Schedule) input.get(0);
+    public static Out noTwoClassesAtSameHourSameClassroom(In input){
+        Schedule s = (Schedule) input.getIn(0);
         ArrayList<Class> classes = s.getClasses();
         for(int i = 0; i<classes.size(); ++i){
             Class c = classes.get(i);
@@ -82,7 +82,9 @@ public class Block {
     }
 
     /**
-     *
+     * Checks the number of classes.
+     * @param input in[] the list of classes.
+     * @return the number of classes.
      */
 
     public Out everyClassBetweenStartAndEndHour(In input){
@@ -97,5 +99,51 @@ public class Block {
         }
         return new Out(Boolean.TRUE);
     }
+
+    public static Out count(In input) {
+        return new Out(input.getIn().length);
+    }
+
+    /**
+     * Checks the number of hours of class in these days.
+     * @param input in[0] the schedule.
+     *              args[] the days we want to count hours in String.
+     * @return total hours of in args[] days.
+     */
+
+    public static Out countHoursDays(In input) {
+        Schedule s = (Schedule) input.getIn(0);
+        int count = 0;
+        for (Class c: s.getClasses()) {
+            DateTime dT = DateTimes.getInstance().get(c.getDateTimeID());
+            String dtWeekDay = dT.getWeekday().toString();
+            for (Object o: input.getArgs()) {
+                String weekDay = (String) o;
+                if (weekDay.equals(dtWeekDay)) count += dT.getDuration();
+            }
+        }
+        return new Out(count);
+    }
+
+    /**
+     * Checks if the schedule is possible considering the condition of precedence between subjects.
+     * @param input in[0] the schedule.
+     * @return true if it's possible, otherwise false.
+     */
+
+    public static Out countHoursDays(In input) {
+        Schedule s = (Schedule) input.getIn(0);
+        for (Class c: s.getClasses()) {
+            DateTime dT = DateTimes.getInstance().get(c.getDateTimeID());
+            String dtWeekDay = dT.getWeekday().toString();
+            for (Object o: input.getArgs()) {
+                String weekDay = (String) o;
+                if (weekDay.equals(dtWeekDay)) count += dT.getDuration();
+            }
+        }
+        return new Out(count);
+    }
+
+
 
 }
