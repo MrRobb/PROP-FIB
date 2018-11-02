@@ -10,7 +10,7 @@ public class Class {
 	 */
 	private Integer dateTimeID;
 	private Integer groupID;
-	private Integer classroomID;
+	private String classroomID;
 
 	/**
 	 * Constructor
@@ -144,7 +144,7 @@ public class Class {
 	 * Getter of the ID of Classroom assigned.
 	 * @return The ID of the Classroom.
 	 */
-	public Integer getClassroomID() {
+	public String getClassroomID() {
 		return classroomID;
 	}
 
@@ -153,7 +153,7 @@ public class Class {
 	 * @param classroomID The ID of the Classroom that you want to set.
 	 * @return true if it was set correctly, false if the ID does not exist and it is not invalidID.
 	 */
-	public boolean setClassroomID(Integer classroomID) {
+	public boolean setClassroomID(String classroomID) {
 
 		if (Classrooms.getInstance().exists(classroomID) || classroomID.equals(Classrooms.invalidID)) {
 			this.classroomID = classroomID;

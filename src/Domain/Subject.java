@@ -1,5 +1,6 @@
 package Domain;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -19,7 +20,6 @@ public class Subject {
     private Double credits;
     private Boolean mandatory;
     private String speciality;
-
 
     /**
      * Constructor / Destructor

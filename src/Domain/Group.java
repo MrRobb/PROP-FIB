@@ -14,28 +14,39 @@ public class Group {
 	private String name;
 	private ArrayList<String> types;
 	private Integer level;
-	private Group parentGroup;
+	private Integer parentGroupID;
+	private String classroomID;
 	private Integer duration;
 	private Integer capacity;
-	private Integer subjectID;
+	private String subjectID;
 
 	/**
 	 * Constructor / Destructor
 	 */
 
-	Group(Integer id, String name, Integer duration) {
+	Group(Integer id, String name, Integer duration, Integer capacity, String subjectID, Integer level, ArrayList<String> types, Integer parentGroup, String classroomID) {
 		this.name = name;
-		this.types = new ArrayList<String>(0);
-		this.level = 0;
-		this.parentGroup = null;
+		this.types = types;
+		this.level = level;
+		this.classroomID = classroomID;
+		this.parentGroupID = parentGroupID;
 		this.duration = duration;
-		this.capacity = 0;
-		this.subjectID = 0;
+		this.capacity = capacity;
+		this.subjectID = subjectID;
 	}
 
 	/**
 	 * Getters / Setters
 	 */
+
+	public String getClassroomID() {
+		return classroomID;
+	}
+
+	public Boolean setClassroomID(String classroomID) {
+		this.classroomID = classroomID;
+		return true;
+	}
 
 	public String getName() {
 		return name;
@@ -64,12 +75,12 @@ public class Group {
 		return true;
 	}
 
-	public Group getParentGroup() {
-		return parentGroup;
+	public Integer getParentGroupID() {
+		return parentGroupID;
 	}
 
-	public boolean setParentGroup(Group parentGroup) {
-		this.parentGroup = parentGroup;
+	public boolean setParentGroup(Integer parentGroupID) {
+		this.parentGroupID = parentGroupID;
 		return true;
 	}
 
@@ -91,8 +102,8 @@ public class Group {
 		return true;
 	}
 
-    public Integer getSubjectID() { return subjectID; }
-    public Boolean setSubjectID(Integer id){
+    public String getSubjectID() { return subjectID; }
+    public Boolean setSubjectID(String id){
 	    subjectID = id;
 	    return true;
     }

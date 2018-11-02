@@ -5,13 +5,13 @@ import java.util.Map;
 
 public class Subjects {
 
-    public static Integer invalidID = -1;
+    public static String invalidID = "";
     private static Subjects instance = null;
 
-    private HashMap<Integer, Subject> subjects;
+    private HashMap<String, Subject> subjects;
 
     private Subjects() {
-        subjects = new HashMap<Integer, Subject>(0);
+        subjects = new HashMap<String, Subject>(0);
     }
 
     static Subjects getInstance() {
@@ -30,23 +30,23 @@ public class Subjects {
         return subjects.containsValue(subj);
     }
 
-    Integer addSubject(Subject subj) {
+    String addSubject(Subject subj) {
         if (subj == null) {
             return invalidID;
         }
         else {
-            Integer id = subjects.size();
+            String id = subj.getName();
             subjects.put(id, subj);
             return id;
         }
     }
 
-    Subject get(Integer id) {
+    Subject get(String id) {
         return subjects.get(id);
     }
 
-    Integer getID(Subject subj) {
-        for (Map.Entry<Integer, Subject> value : subjects.entrySet()) {
+    String getID(Subject subj) {
+        for (Map.Entry<String, Subject> value : subjects.entrySet()) {
             if (value.getValue().equals(subj)) {
                 return value.getKey();
             }

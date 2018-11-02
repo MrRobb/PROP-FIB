@@ -19,4 +19,8 @@ public class Out {
 	public Object[] get() {
 		return out;
 	}
+
+	public Boolean add(Object o) {
+		
+	}
 }

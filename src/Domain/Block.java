@@ -1,5 +1,7 @@
 package Domain;
 
+import com.sun.org.apache.xpath.internal.operations.Bool;
+
 import java.util.ArrayList;
 
 public class Block {
@@ -17,9 +19,9 @@ public class Block {
 
 		// Casting args
 		Schedule s = (Schedule) input.getIn(0);
-		String day = (String) input.getIn(1);
-		Integer startHour = (Integer) input.getArgs(0);
-		Integer endHour = (Integer) input.getArgs(1);
+		String day = (String) input.getArgs(0);
+		Integer startHour = (Integer) input.getArgs(1);
+		Integer endHour = (Integer) input.getArgs(2);
 
 		ArrayList<Class> classes = s.getClasses();
 		for (Class c : classes) {
@@ -129,13 +131,71 @@ public class Block {
     }
 
     /**
-     * Checks if the schedule is possible considering the condition of precedence between subjects.
+     * Get a specific subject
      * @param input in[0] the schedule.
-     * @return true if it's possible, otherwise false.
+     *              args[0] the subject we want to get.
+     * @return return the subject if found, otherwise null
      */
 
+    public static Out getSubject(In input) {
+        Schedule s = (Schedule) input.getIn(0);
+        String subName = (String) input.getArgs(0);
+        for (Class c: s.getClasses()) {
+            Group g = Groups.getInstance().get(c.getGroupID());
+            Subject sub = Subjects.getInstance().get(g.getSubjectID());
+            if (sub.getName().equals(subName)) return new Out(sub);
+        }
+        return null;
+    }
 
+    /**
+     * Get a specific subject
+     * @param input in[0] the schedule.
+     *              args[0] the subject we want to get.
+     * @return return the subject if found, otherwise null
+     */
 
+    public static Out getClassroom(In input) {
+        Schedule s = (Schedule) input.getIn(0);
+        String subName = (String) input.getArgs(0);
+        for (Class c: s.getClasses()) {
+            Group g = Groups.getInstance().get(c.getGroupID());
+            Subject sub = Subjects.getInstance().get(g.getSubjectID());
+            if (sub.getName().equals(subName)) return new Out(sub);
+        }
+        return null;
+    }
+
+    public static Out hasClassroom (In input) {
+        Schedule s = (Schedule) input.getIn(0);
+        String clName = (String) input.getArgs(0);
+        for (Class c: s.getClasses()) {
+            Group g = Groups.getInstance().get(c.getGroupID());
+            if (g.getClassroomID().equals(clName)) return new Out(Boolean.TRUE);
+        }
+        return new Out(Boolean.FALSE);
+    }
+
+    public static Out hasSubject (In input) {
+        Schedule s = (Schedule) input.getIn(0);
+        String subName = (String) input.getArgs(0);
+        for (Class c: s.getClasses()) {
+            Group g = Groups.getInstance().get(c.getGroupID());
+            if (g.getSubjectID(.equals(subName)) return new Out(Boolean.TRUE);
+        }
+        return new Out(Boolean.FALSE);
+    }
+
+    public static Out filterClassroom (In input) {
+        Object[] objs = input.getIn();
+        String clName = (String) input.getArgs(0);
+        for (Object obj: objs) {
+            Class c = (Class) obj;
+            Classroom cR = Classrooms.getInstance().get(c.getClassroomID());
+            if (classroom.getName().equals(clName)) return new Out(Boolean.TRUE);
+        }
+        return new Out(Boolean.FALSE);
+    }
 
 
 }

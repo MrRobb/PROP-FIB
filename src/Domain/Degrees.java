@@ -6,13 +6,13 @@ import java.util.Map;
 
 public class Degrees {
 
-    public static Integer invalidID = -1;
+    public static String invalidID = "";
     private static Degrees instance = null;
 
-    private HashMap<Integer, Degree> degrees;
+    private HashMap<String, Degree> degrees;
 
     private Degrees() {
-        degrees = new HashMap<Integer, Degree>(0);
+        degrees = new HashMap<String, Degree>(0);
     }
 
     static Degrees getInstance() {
@@ -31,23 +31,23 @@ public class Degrees {
         return degrees.containsValue(degree);
     }
 
-    Integer addDegree(Degree degree) {
+    String addDegree(Degree degree) {
         if (degree == null) {
             return invalidID;
         }
         else {
-            Integer id = degrees.size();
+            String id = degree.getName();
             degrees.put(id, degree);
             return id;
         }
     }
 
-    Degree get(Integer id) {
+    Degree get(String id) {
         return degrees.get(id);
     }
 
-    Integer getID(Degree degree) {
-        for (Map.Entry<Integer, Degree> value : degrees.entrySet()) {
+    String getID(Degree degree) {
+        for (Map.Entry<String, Degree> value : degrees.entrySet()) {
             if (value.getValue().equals(degree)) {
                 return value.getKey();
             }
