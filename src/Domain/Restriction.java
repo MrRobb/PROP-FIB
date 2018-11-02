@@ -7,7 +7,9 @@ import java.util.function.Function;
 
 public class Restriction {
 
-    private ArrayList<Function<Object[], Object[]>> restriccion;
+    private ArrayList<Function<In, Out>> restriccion;
+    private String name;
+    private ArrayList<Object> args;
     
 
     Restriction() {
@@ -19,10 +21,13 @@ public class Restriction {
     boolean AddBlock(String blockName) {
 
         // Get block
-        Function<Object[], Object[]> func = blocks.get(blockName);
+        if (Blocks::existsBlock(blockName)){
+            Function<In, Out> b = Blocks::getBlock(blockName);
+        }
+
 
         // Add block
-        restriccion.add(func);
+        restriccion.add(b);
 
         return true;
     }

@@ -5,13 +5,13 @@ import java.util.function.Function;
 
 public class Blocks {
 
-    HashMap<String, Block> blocks;
+    private static HashMap<String, Function<In, Out>> blocks;
 
     /**
      * Constructor / Destructor
      */
 
-    Blocks(HashMap<String, Block> blocks) {
+    Blocks(HashMap<String, Function<In, Out>> blocks) {
         this.blocks = blocks;
     }
 
@@ -19,12 +19,12 @@ public class Blocks {
      * Getter / Setter
      */
 
-    public HashMap<String, Block> getBlocks() {
+    public static HashMap<String, Function<In, Out>> getBlocks() {
         return blocks;
     }
 
-    public Boolean setBlocks(HashMap<String, Block> blocks) {
-        this.blocks = blocks;
+    public static Boolean setBlocks(HashMap<String, Function<In, Out>> b) {
+        blocks = b;
         return true;
     }
 
@@ -32,7 +32,7 @@ public class Blocks {
      * Modifier
      */
 
-    public Boolean addBlock(String s, Block b) {
+    public static Boolean addBlock(String s, Function<In, Out> b) {
         if (blocks.get(s) != null) return false;
         blocks.put(s,b);
         return true;
@@ -43,7 +43,11 @@ public class Blocks {
      * Consultant
      */
 
-    public Boolean existsBlock(String s) {
+    public static Function<In, Out> getBlock(String s) {
+        return blocks.get(s);
+    }
+
+    public static Boolean existsBlock(String s) {
         if (blocks.get(s) != null) return true;
         else return false;
     }
