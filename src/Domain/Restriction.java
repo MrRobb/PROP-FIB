@@ -45,14 +45,6 @@ public class Restriction {
         return (Boolean) ret[0];
     }
 
-    /**
-     * Checks that there is no class on week day Day between startHour and endHour.
-     * @param args [0] The schedule we want to check.
-     * @param args [1] The day we want to restrict classes
-     * @param args [2] The start hour of the interval with no classes
-     * @param args [3] The end hour of the interval with no classes
-     * @return true if no classes on this day between [startHour, endHour], false otherwise.
-     */
 
 
 
