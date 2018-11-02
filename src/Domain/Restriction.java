@@ -1,20 +1,67 @@
 package Domain;
 
+import java.lang.reflect.Method;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.function.Function;
 
 public class Restriction {
 
+    ArrayList<Function<Object[], Object[]>> restriccion;
+    HashMap<String, Function<Object[], Object[]>> blocks;
+    // ArrayList<Object[]>
+
+    Restriction() {
+
+        //blocks.put("No class on day...", this::noClassOnDayBetweenSHEH);
+
+    }
+
+    boolean AddBlock(String blockName) {
+
+        // Get block
+        Function<Object[], Object[]> func = blocks.get(blockName);
+
+        // Add block
+        restriccion.add(func);
+
+        return true;
+    }
+
+    Boolean apply(Object[] o) {
+
+        Object[] ret = o;
+
+        try {
+            for (Function<Object[], Object[]> block : restriccion) {
+                ret = block.apply(ret);
+            }
+
+        }
+        catch (Exception e) {
+
+        }
+
+        return (Boolean) ret[0];
+    }
 
     /**
      * Checks that there is no class on week day Day between startHour and endHour.
-     * @param s The schedule we want to check.
-     * @param day The day we want to restrict classes
-     * @param startHour The start hour of the interval with no classes
-     * @param endHour The end hour of the interval with no classes
+     * @param args [0] The schedule we want to check.
+     * @param args [1] The day we want to restrict classes
+     * @param args [2] The start hour of the interval with no classes
+     * @param args [3] The end hour of the interval with no classes
      * @return true if no classes on this day between [startHour, endHour], false otherwise.
      */
 
-    public Boolean noClassOnDayBetweenSHEH(Schedule s, String day, Integer startHour, Integer endHour){
+    public Object[] noClassOnDayBetweenSHEH(Object[] args) {
+
+        // Casting args
+        Schedule s = (Schedule) args[0];
+        String day = (String) args[1];
+        Integer startHour = (Integer) args[2];
+        Integer endHour = (Integer) args[3];
+
         ArrayList<Class> classes = s.getClasses();
         for(int i = 0; i<classes.size(); ++i){
             Class c = classes.get(i);
@@ -25,11 +72,15 @@ public class Restriction {
                     Integer d = cDT.getDuration();
                     if((sh >= startHour && sh < endHour) ||
                             (sh+d >= startHour && sh+d < endHour) ||
-                            (sh < startHour && sh+d > endHour)) return false;
+                            (sh < startHour && sh+d > endHour)) {
+                        return new Object[] {Boolean.FALSE};
+
+                    }
                 }
             }
         }
-        return true;
+
+        return new Object[] {Boolean.TRUE};
     }
 
 
