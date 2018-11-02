@@ -4,6 +4,14 @@ import java.util.ArrayList;
 
 public class Block {
 
+	/**
+	 * Checks that there is no class on week day Day between startHour and endHour.
+	 * @param input [0] The schedule we want to check.
+	 *              [1] The day we want to restrict classes
+	 *              [2] The start hour of the interval with no classes
+	 *              [3] The end hour of the interval with no classes
+	 * @return true if no classes on this day between [startHour, endHour], false otherwise.
+	 */
 	public Out noClassOnDayBetweenSHEH(In input) {
 
 		// Casting args
