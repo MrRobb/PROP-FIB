@@ -85,4 +85,17 @@ public class Block {
      *
      */
 
+    public Out everyClassBetweenStartAndEndHour(In input){
+        Schedule s = (Schedule) input.get(0);
+        Integer startHour = (Integer) input.get(1);
+        Integer endHour = (Integer) input.get(2);
+        ArrayList<Class> classes = s.getClasses();
+        for(Class c : classes){
+            Integer sh = c.getDateTime().getStartHour();
+            Integer eh = c.getDateTime().getEndHour();
+            if(sh < startHour || eh >= endHour) return new Out(Boolean.FALSE);
+        }
+        return new Out(Boolean.TRUE);
+    }
+
 }
