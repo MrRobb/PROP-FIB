@@ -67,4 +67,9 @@ public class Degrees {
         Degrees.getInstance().degrees.clear();
         return true;
     }
+
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        throw new CloneNotSupportedException();
+    }
 }

@@ -48,4 +48,9 @@ public class Restrictions {
     public Restriction getRestriccion(String name) {
         return restrictions.get(name);
     }
+
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        throw new CloneNotSupportedException();
+    }
 }
