@@ -3,26 +3,24 @@ package Domain;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Objects;
 import java.util.function.Function;
 
 public class Restriction {
 
-    private ArrayList<Function<In, Out>> restriccion;
     private String name;
-    private ArrayList<Object> args;
-    
+    private ArrayList<Function<In, Out>> restriccion;
+    private ArrayList<Object[]> args;
 
-    Restriction() {
-
-        //blocks.put("No class on day...", this::noClassOnDayBetweenSHEH);
+    public Restriction() {
 
     }
 
-    boolean AddBlock(String blockName) {
+    public boolean add(String blockName, Object[] args) {
 
         // Get block
-        if (Blocks.existsBlock(blockName)) {
-            Function<In, Out> b = Blocks.getBlock(blockName);
+        if (Blocks.getInstance().exists(blockName)) {
+            Function<In, Out> b = Blocks.getInstance().get(blockName);
             restriccion.add(b);
             return true;
         }
@@ -31,21 +29,23 @@ public class Restriction {
         }
     }
 
-    Boolean apply(Object[] o) {
-
-        Object[] ret = o;
+    public boolean apply(In input) {
 
         try {
+
+            Out output = new Out(Boolean.FALSE);
+
             for (Function<In, Out> block : restriccion) {
-                ret = block.apply(ret);
+                output = block.apply(input);
             }
 
+            return (boolean) output.get(0);
         }
+
         catch (Exception e) {
-
+            System.out.println("Checking restriction failed!");
+            return false;
         }
-
-        return (Boolean) ret[0];
     }
 
 }

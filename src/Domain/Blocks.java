@@ -1,55 +1,73 @@
 package Domain;
 
 import java.util.HashMap;
+import java.util.Set;
 import java.util.function.Function;
 
 public class Blocks {
 
-    private static HashMap<String, Function<In, Out>> blocks = createBlock();
+    public static String invalidID = "";
+    private static Blocks instance = null;
 
-    private static HashMap<String, Function<In, Out>> createBlock() {
-        HashMap<String, Function<In, Out>> b = new HashMap<String, Function<In, Out>>();
-        blocks.put("No class Between", Block::noClassOnDayBetweenSHEH);
-        blocks.put("No overlapping classroom and time", Block::noTwoClassesAtSameHourSameClassroom);
-        return b;
+    private HashMap<String, Function<In, Out>> blocks;
+
+    private Blocks() {
+        blocks = new HashMap<>(0);
     }
 
+    public static Blocks getInstance() {
+        if (instance == null) {
+            instance = new Blocks();
+        }
+
+        return instance;
+    }
 
     /**
-     * Getter / Setter
+     * Getters / Setters
      */
 
-    public static HashMap<String, Function<In, Out>> getBlocks() {
-        return blocks;
+    public Set<String> getNames() {
+        return blocks.keySet();
     }
 
-    public static Boolean setBlocks(HashMap<String, Function<In, Out>> b) {
-        blocks = b;
+    /**
+     * Modifiers
+     */
+
+    public boolean add(String id, Function<In, Out> block) {
+        if (blocks.containsKey(id)) {
+            return false;
+        }
+
+        blocks.put(id, block);
         return true;
     }
 
+    public boolean delete(String id) {
+        if (exists(id)) {
+            blocks.remove(id);
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
     /**
-     * Modifier
+     * Consultants
      */
 
-    public static Boolean addBlock(String s, Function<In, Out> b) {
-        if (blocks.get(s) != null) return false;
-        blocks.put(s,b);
-        return true;
+    public Function<In, Out> get(String id) {
+        return blocks.get(id);
     }
 
-
-    /**
-     * Consultant
-     */
-
-    public static Function<In, Out> getBlock(String s) {
-        return blocks.get(s);
+    public boolean exists(String id) {
+        return blocks.containsKey(id);
     }
 
-    public static Boolean existsBlock(String s) {
-        if (blocks.get(s) != null) return true;
-        else return false;
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        throw new CloneNotSupportedException();
     }
-
 }

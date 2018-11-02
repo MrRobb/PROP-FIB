@@ -1,6 +1,6 @@
 package Domain;
 
-public class SubjectFactory {
+public class SubjectsFactory {
 
     public static void main(String[] args) {
         Subject s1 = new Subject("PROP", 5, 6.0,true, null);

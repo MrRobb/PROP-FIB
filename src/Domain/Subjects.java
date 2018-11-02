@@ -14,7 +14,7 @@ public class Subjects {
         subjects = new HashMap<String, Subject>(0);
     }
 
-    static Subjects getInstance() {
+    public static Subjects getInstance() {
         if (instance == null) {
             instance = new Subjects();
         }
@@ -22,11 +22,11 @@ public class Subjects {
         return instance;
     }
 
-    boolean exists(Integer id) {
+    public boolean exists(Integer id) {
         return subjects.containsKey(id);
     }
 
-    boolean exists(Subject subj) {
+    public boolean exists(Subject subj) {
         return subjects.containsValue(subj);
     }
 
@@ -54,17 +54,21 @@ public class Subjects {
         return Subjects.invalidID;
     }
 
-    Integer getNewID() {
+    public Integer getNewID() {
         return subjects.size();
     }
 
-    Integer size() {
+    public Integer size() {
         return subjects.size();
     }
 
-    boolean clear() {
+    public boolean clear() {
         Subjects.getInstance().subjects.clear();
         return true;
     }
 
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        throw new CloneNotSupportedException();
+    }
 }

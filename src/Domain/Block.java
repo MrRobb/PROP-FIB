@@ -3,6 +3,7 @@ package Domain;
 import com.sun.org.apache.xpath.internal.operations.Bool;
 
 import java.util.ArrayList;
+import java.util.function.Function;
 
 public class Block {
 
@@ -21,7 +22,7 @@ public class Block {
 		Schedule s = (Schedule) input.getIn(0);
 		String day = (String) input.getArgs(0);
 		Integer startHour = (Integer) input.getArgs(1);
-		Integer endHour = (Integer) input.getArgs(2);
+		Integer endHour = (Integer) input.getArgs(1);
 
 		ArrayList<Class> classes = s.getClasses();
 		for (Class c : classes) {
@@ -84,12 +85,11 @@ public class Block {
     }
 
     /**
-     * Checks that there is no class on week day Day between startHour and endHour.
+     * Checks that every class is between startHour and endHour.
      * @param input in[0] The schedule we want to check.
-                     in[1] The day we want to restrict classes
-                     args[0] The start hour of the interval with no classes
-                     args[1] The end hour of the interval with no classes
-     * @return true if no classes on this day between [startHour, endHour], false otherwise.
+     *              args[1] The start hour of classes.
+     *              args[2] The end hour of classes.
+     * @return true if all classes are set between startHour and endHour, false otherwise.
      */
 
     public Out everyClassBetweenStartAndEndHour(In input){
@@ -105,97 +105,40 @@ public class Block {
         return new Out(Boolean.TRUE);
     }
 
-    public static Out count(In input) {
-        return new Out(input.getIn().length);
-    }
 
     /**
-     * Checks the number of hours of class in these days.
-     * @param input in[0] the schedule.
-     *              args[] the days we want to count hours in String.
-     * @return total hours of in args[] days.
+     * Checks if every subgroup of type type1 is set later than the group
+     * of the same subject which the subgroup belongs.
+     *      .
+     * @param input in[0] The schedule we want to check.
+     *              args[0] The subject we want to check.
+     *              args[2] Type of the group that must go after.
+     *
+     * @return true if all subgroups of type type1 have the class later
+     * than the group of which they belong, false otherwise.
      */
 
-    public static Out countHoursDays(In input) {
+    public Out groupOfATypeMustBeSetBefore(In input){
         Schedule s = (Schedule) input.getIn(0);
-        int count = 0;
-        for (Class c: s.getClasses()) {
-            DateTime dT = DateTimes.getInstance().get(c.getDateTimeID());
-            String dtWeekDay = dT.getWeekday().toString();
-            for (Object o: input.getArgs()) {
-                String weekDay = (String) o;
-                if (weekDay.equals(dtWeekDay)) count += dT.getDuration();
+        String subj = (String) input.getArgs(0);
+        String type1 = (String) input.getArgs(1);
+        ArrayList<Class> classes = s.getClasses();
+        for(Class c : classes){
+            Group g = c.getGroup();
+            DateTime subgroupDT = c.getDateTime();
+            String subject = Subjects.getInstance().get(g.getSubjectID()).getName();
+            // it is a candidate to check -> it's a subgroup of subject of type1
+            if(subject.equals(subj) && g.hasType(type1) && g.getLevel() > 0){
+                for(Class c1 : classes){
+                    Group g1 = c1.getGroup();
+                    if(g1.getName() == g.getParentGroup().getName()){
+                        DateTime gparentDT = c1.getDateTime();
+                        if(subgroupDT.compareTo(gparentDT) == -1)  return new Out(Boolean.FALSE);
+                    }
+
+                }
             }
         }
-        return new Out(count);
+        return new Out(Boolean.TRUE);
     }
-
-    /**
-     * Get a specific subject
-     * @param input in[0] the schedule.
-     *              args[0] the subject we want to get.
-     * @return return the subject if found, otherwise null
-     */
-
-    public static Out getSubject(In input) {
-        Schedule s = (Schedule) input.getIn(0);
-        String subName = (String) input.getArgs(0);
-        for (Class c: s.getClasses()) {
-            Group g = Groups.getInstance().get(c.getGroupID());
-            Subject sub = Subjects.getInstance().get(g.getSubjectID());
-            if (sub.getName().equals(subName)) return new Out(sub);
-        }
-        return null;
-    }
-
-    /**
-     * Get a specific subject
-     * @param input in[0] the schedule.
-     *              args[0] the subject we want to get.
-     * @return return the subject if found, otherwise null
-     */
-
-    public static Out getClassroom(In input) {
-        Schedule s = (Schedule) input.getIn(0);
-        String subName = (String) input.getArgs(0);
-        for (Class c: s.getClasses()) {
-            Group g = Groups.getInstance().get(c.getGroupID());
-            Subject sub = Subjects.getInstance().get(g.getSubjectID());
-            if (sub.getName().equals(subName)) return new Out(sub);
-        }
-        return null;
-    }
-
-    public static Out hasClassroom (In input) {
-        Schedule s = (Schedule) input.getIn(0);
-        String clName = (String) input.getArgs(0);
-        for (Class c: s.getClasses()) {
-            Group g = Groups.getInstance().get(c.getGroupID());
-            if (g.getClassroomID().equals(clName)) return new Out(Boolean.TRUE);
-        }
-        return new Out(Boolean.FALSE);
-    }
-
-    public static Out hasSubject (In input) {
-        Schedule s = (Schedule) input.getIn(0);
-        String subName = (String) input.getArgs(0);
-        for (Class c: s.getClasses()) {
-            Group g = Groups.getInstance().get(c.getGroupID());
-            if (g.getSubjectID(.equals(subName)) return new Out(Boolean.TRUE);
-        }
-        return new Out(Boolean.FALSE);
-    }
-
-    public static Out filterClassroom (In input) {
-        Object[] objs = input.getIn();
-        String clName = (String) input.getArgs(0);
-        for (Object obj: objs) {
-            Class c = (Class) obj;
-            Classroom cR = Classrooms.getInstance().get(c.getClassroomID());
-            if (classroom.getName().equals(clName)) return new Out(Boolean.TRUE);
-        }
-        return new Out(Boolean.FALSE);
-    }
-
-
 }

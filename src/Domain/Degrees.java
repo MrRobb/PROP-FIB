@@ -15,7 +15,7 @@ public class Degrees {
         degrees = new HashMap<String, Degree>(0);
     }
 
-    static Degrees getInstance() {
+    public static Degrees getInstance() {
         if (instance == null) {
             instance = new Degrees();
         }
@@ -23,11 +23,11 @@ public class Degrees {
         return instance;
     }
 
-    boolean exists(Integer id) {
+    public boolean exists(Integer id) {
         return degrees.containsKey(id);
     }
 
-    boolean exists(Degree degree) {
+    public boolean exists(Degree degree) {
         return degrees.containsValue(degree);
     }
 
@@ -55,18 +55,21 @@ public class Degrees {
         return invalidID;
     }
 
-    Integer getNewID() {
+    public Integer getNewID() {
         return degrees.size();
     }
 
-    Integer size() {
+    public Integer size() {
         return degrees.size();
     }
 
-    boolean clear() {
+    public boolean clear() {
         Degrees.getInstance().degrees.clear();
         return true;
     }
 
-
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        throw new CloneNotSupportedException();
+    }
 }

@@ -14,7 +14,7 @@ public class Groups {
 		groups = new HashMap<Integer, Group>(0);
 	}
 
-	static Groups getInstance() {
+	public static Groups getInstance() {
 		if (instance == null) {
 			instance = new Groups();
 		}
@@ -22,15 +22,15 @@ public class Groups {
 		return instance;
 	}
 
-	boolean exists(Integer id) {
+	public boolean exists(Integer id) {
 		return groups.containsKey(id);
 	}
 
-	boolean exists(Group group) {
+	public boolean exists(Group group) {
 		return groups.containsValue(group);
 	}
 
-	Integer addGroup(Group group) {
+	public Integer addGroup(Group group) {
 		if (group == null) {
 			return invalidID;
 		}
@@ -41,11 +41,11 @@ public class Groups {
 		}
 	}
 
-	Group get(Integer id) {
+	public Group get(Integer id) {
 		return groups.get(id);
 	}
 
-	Integer getID(Group group) {
+	public Integer getID(Group group) {
 		for (Map.Entry<Integer, Group> value : groups.entrySet()) {
 			if (value.getValue().equals(group)) {
 				return value.getKey();
@@ -54,16 +54,21 @@ public class Groups {
 		return Groups.invalidID;
 	}
 
-	Integer getNewID() {
+	public Integer getNewID() {
 		return groups.size();
 	}
 
-	Integer size() {
+	public Integer size() {
 		return groups.size();
 	}
 
-	boolean clear() {
+	public boolean clear() {
 		Groups.getInstance().groups.clear();
 		return true;
+	}
+
+	@Override
+	public Object clone() throws CloneNotSupportedException {
+		throw new CloneNotSupportedException();
 	}
 }

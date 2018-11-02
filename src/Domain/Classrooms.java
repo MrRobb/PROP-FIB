@@ -14,7 +14,7 @@ public class Classrooms {
 		classrooms = new HashMap<String, Classroom>(0);
 	}
 
-	static Classrooms getInstance() {
+	public static Classrooms getInstance() {
 		if (instance == null) {
 			instance = new Classrooms();
 		}
@@ -26,7 +26,7 @@ public class Classrooms {
 		return classrooms.containsKey(id);
 	}
 
-	boolean exists(Classroom classroom) {
+	public boolean exists(Classroom classroom) {
 		return classrooms.containsValue(classroom);
 	}
 
@@ -54,12 +54,17 @@ public class Classrooms {
 		return Classrooms.invalidID;
 	}
 
-	Integer size() {
+	public Integer size() {
 		return classrooms.size();
 	}
 
-	boolean clear() {
+	public boolean clear() {
 		Classrooms.getInstance().classrooms.clear();
 		return true;
+	}
+
+	@Override
+	public Object clone() throws CloneNotSupportedException {
+		throw new CloneNotSupportedException();
 	}
 }

@@ -1,6 +1,6 @@
 package Domain;
 
-class ClassroomsFactory {
+public class ClassroomsFactory {
 
 	public static boolean produce() {
 
