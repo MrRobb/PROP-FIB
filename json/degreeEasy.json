@@ -1,0 +1,101 @@
+[
+  {
+    "name": "Degree",
+    "credits": 250,
+    "groupTypes": [
+        "problems",
+        "laboratory",
+        "theory"
+    ],
+    "subjects": 
+    [
+      {
+        "name": "PROP",
+        "credits": 6.0,
+        "mandatory": true,
+        "speciality": null
+      },
+      {
+        "name": "A",
+        "credits": 6.0,
+        "mandatory": true,
+        "speciality": "computing"
+      }
+    ],
+    "groups": 
+    [
+      {
+        "name": 10, 
+        "types": 
+          [
+            "theory"
+          ],
+        "level": 0,
+        "nameParent": null,
+        "duration": 2,
+        "capacity": 60,
+        "subject": "A"
+      },
+      {
+        "name": 11, 
+        "types": 
+          [
+            "problems"
+          ],
+        "level": 1,
+        "nameParent": 10,
+        "duration": 2,
+        "capacity": 30,
+        "subject": "A"
+      },
+      {
+        "name": 12, 
+        "types": 
+          [
+            "problems"
+          ],
+        "level": 1,
+        "nameParent": 10,
+        "duration": 2,
+        "capacity": 30,
+        "subject": "A"
+      },
+      {
+        "name": 40, 
+        "types": 
+          [
+            "theory"
+          ],
+        "level": 0,
+        "nameParent": null,
+        "duration": 2,
+        "capacity": 60,
+        "subject": "PROP"
+      },
+      {
+        "name": 43, 
+        "types": 
+          [
+            "laboratory"
+          ],
+        "level": 1,
+        "nameParent": 40,
+        "duration": 2,
+        "capacity": 30,
+        "subject": "PROP"
+      },
+      {
+        "name": 44, 
+        "types": 
+          [
+            "theory"
+          ],
+        "level": 1,
+        "nameParent": 40,
+        "duration": 2,
+        "capacity": 30,
+        "subject": "PROP"
+      }
+    ]
+  }
+]

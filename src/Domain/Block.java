@@ -131,11 +131,10 @@ public class Block {
             if(subject.equals(subj) && g.hasType(type1) && g.getLevel() > 0){
                 for(Class c1 : classes){
                     Group g1 = c1.getGroup();
-                    if(g1.getName() == g.getParentGroup().getName()){
+                    if(g1.equals(g.getParentGroupID())){
                         DateTime gparentDT = c1.getDateTime();
                         if(subgroupDT.compareTo(gparentDT) == -1)  return new Out(Boolean.FALSE);
                     }
-
                 }
             }
         }

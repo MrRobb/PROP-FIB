@@ -15,7 +15,6 @@ public class Group {
 	private ArrayList<String> types;
 	private Integer level;
 	private Integer parentGroupID;
-	private String classroomID;
 	private Integer duration;
 	private Integer capacity;
 	private String subjectID;
@@ -28,7 +27,6 @@ public class Group {
 		this.name = name;
 		this.types = types;
 		this.level = level;
-		this.classroomID = classroomID;
 		this.parentGroupID = parentGroupID;
 		this.duration = duration;
 		this.capacity = capacity;
@@ -39,14 +37,6 @@ public class Group {
 	 * Getters / Setters
 	 */
 
-	public String getClassroomID() {
-		return classroomID;
-	}
-
-	public Boolean setClassroomID(String classroomID) {
-		this.classroomID = classroomID;
-		return true;
-	}
 
 	public String getName() {
 		return name;

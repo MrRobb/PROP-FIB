@@ -1,14 +1,20 @@
 package Domain;
 
 import java.util.ArrayList;
+import java.io.FileReader;
+import java.util.Iterator;
+import java.util.Map;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.*;
 
 public class DegreesFactory {
 
 	public static boolean produce() {
 
 		Degrees.getInstance().clear();
-
-		String name = "FIB";
+		/*String name = "FIB";
 		Integer credits = 240;
 		ArrayList<String> typeOfGroups = new ArrayList<>(0);
 		ArrayList<Subject> subjects = new ArrayList<>(0);
@@ -28,5 +34,8 @@ public class DegreesFactory {
 
 
 		return  ok;
+		*/
+
+
 	}
 }
