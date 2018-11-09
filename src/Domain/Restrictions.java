@@ -5,7 +5,21 @@ import java.util.Set;
 
 public class Restrictions {
 
-    private HashMap<String,Restriction> restrictions;
+    private HashMap<String, Restriction> restrictions;
+    private static Restrictions instance = null;
+
+    /*
+        Constructor / Destructor
+     */
+    private Restrictions() {}
+
+    public static Restrictions getInstance() {
+        if (instance == null) {
+            instance = new Restrictions();
+        }
+
+        return instance;
+    }
 
     /*
         Modifiers
@@ -32,6 +46,15 @@ public class Restrictions {
     /*
         Consultors
      */
+
+    public boolean Check(Schedule schedule) {
+
+        schedule.setScore(0);
+
+        /* To-Do: Check restriction and assign a score for the schedule */
+
+        return true;
+    }
 
     public Set<String> getNames() {
         return restrictions.keySet();

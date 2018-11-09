@@ -2,7 +2,7 @@ package Domain;
 
 import java.util.ArrayList;
 
-public class Schedule {
+public class Schedule implements Comparable {
 
     public ArrayList<Class> getClasses;
     /**
@@ -10,6 +10,7 @@ public class Schedule {
      */
 
     ArrayList<Class> classes;
+    Integer score = null;
 
     /**
      * Constructors / Destructors
@@ -117,6 +118,21 @@ public class Schedule {
      */
     public boolean addClass(Class c) {
         classes.add(c);
+        return true;
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        /* To-Do: Implement this to compare schedules and be able to select the very best */
+        return 0;
+    }
+
+    public Integer getScore() {
+        return score;
+    }
+
+    public boolean setScore(Integer score) {
+        this.score = score;
         return true;
     }
 }

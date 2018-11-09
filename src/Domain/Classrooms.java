@@ -1,6 +1,6 @@
 package Domain;
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class Classrooms {
@@ -8,10 +8,10 @@ public class Classrooms {
 	public static String invalidID = "";
 	private static Classrooms instance = null;
 
-	private HashMap<String, Classroom> classrooms;
+	private LinkedHashMap<String, Classroom> classrooms;
 
 	private Classrooms() {
-		classrooms = new HashMap<String, Classroom>(0);
+		classrooms = new LinkedHashMap<>(0);
 	}
 
 	public static Classrooms getInstance() {
@@ -52,6 +52,10 @@ public class Classrooms {
 			}
 		}
 		return Classrooms.invalidID;
+	}
+
+	LinkedHashMap<String, Classroom> get() {
+		return classrooms;
 	}
 
 	public Integer size() {

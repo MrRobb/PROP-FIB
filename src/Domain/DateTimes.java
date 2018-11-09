@@ -1,6 +1,6 @@
 package Domain;
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class DateTimes {
@@ -8,10 +8,10 @@ public class DateTimes {
 	public static Integer invalidID = -1;
 	private static DateTimes instance = null;
 
-	private HashMap<Integer, DateTime> datetimes;
+	private LinkedHashMap<Integer, DateTime> datetimes;
 
 	private DateTimes() {
-		datetimes = new HashMap<Integer, DateTime>(0);
+		datetimes = new LinkedHashMap<>(0);
 	}
 
 	public static DateTimes getInstance() {
@@ -52,6 +52,10 @@ public class DateTimes {
 			}
 		}
 		return DateTimes.invalidID;
+	}
+
+	public LinkedHashMap<Integer, DateTime> get() {
+		return datetimes;
 	}
 
 	public Integer size() {

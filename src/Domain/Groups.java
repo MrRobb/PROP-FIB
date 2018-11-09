@@ -1,6 +1,6 @@
 package Domain;
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class Groups {
@@ -8,10 +8,10 @@ public class Groups {
 	public static Integer invalidID = -1;
 	private static Groups instance = null;
 
-	private HashMap<Integer, Group> groups;
+	private LinkedHashMap<Integer, Group> groups;
 
 	private Groups() {
-		groups = new HashMap<Integer, Group>(0);
+		groups = new LinkedHashMap<>(0);
 	}
 
 	public static Groups getInstance() {
@@ -52,6 +52,10 @@ public class Groups {
 			}
 		}
 		return Groups.invalidID;
+	}
+
+	public LinkedHashMap<Integer, Group> get() {
+		return groups;
 	}
 
 	public Integer getNewID() {

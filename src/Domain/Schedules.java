@@ -5,6 +5,7 @@ import java.util.*;
 public class Schedules {
 
 	private static Schedules instance = null;
+	private static Integer maxSize = 10;
 
 	private Set<Schedule> schedules;
 
@@ -55,6 +56,18 @@ public class Schedules {
 
 	public Integer size() {
 		return schedules.size();
+	}
+
+	public static boolean setMaxSize(Integer max) {
+		if (max >= 0) {
+			maxSize = max;
+			return true;
+		}
+		return false;
+	}
+
+	public static Integer getMaxSize() {
+		return maxSize;
 	}
 
 	public boolean clear() {
