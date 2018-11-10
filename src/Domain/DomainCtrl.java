@@ -91,7 +91,7 @@ public class DomainCtrl {
     }
 
 	public static boolean eraseSchedule() {
-	    // eliminar horarios de la capa de datos
+	    // eliminar horarios de la capa de d    atos
         return true;
     }
 
