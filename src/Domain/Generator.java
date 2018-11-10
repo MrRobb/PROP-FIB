@@ -5,10 +5,20 @@ import java.util.*;
 
 public class Generator {
 
+	private static Generator instance = null;
+
 	/**
 	 * Constructor / Destructor
 	 */
 	private Generator() {}
+
+	public static Generator getInstance() {
+		if (instance == null) {
+			instance = new Generator();
+		}
+
+		return instance;
+	}
 
 	/**
 	 * Consultor
