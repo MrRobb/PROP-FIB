@@ -6,7 +6,7 @@ import java.util.Set;
 
 public class Restrictions {
 
-    private HashMap<String, Restriction> restrictions;
+    private HashMap<String, Restriction> applieds;
     private HashMap<String, Restriction> available;
     private static Restrictions instance = null;
 
@@ -28,7 +28,7 @@ public class Restrictions {
     /*
         Modifiers
      */
-    public boolean add(String name, ArrayList<Object[]> args) {
+    public boolean addApplied(String name, ArrayList<Object[]> args) {
 
         if (exists(name)) {
             return false;
@@ -42,7 +42,12 @@ public class Restrictions {
 
         restriction.setParameters(args);
 
-        restrictions.put(name, restriction);
+        applieds.put(name, restriction);
+        return true;
+    }
+
+    public boolean clearApplied() {
+        applieds.clear();
         return true;
     }
 
@@ -57,13 +62,13 @@ public class Restrictions {
         return true;
     }
 
-    public boolean delete(String name) {
+    public boolean deleteApplyed(String name) {
 
         if (!exists(name)) {
             return false;
         }
 
-        restrictions.remove(name);
+        applieds.remove(name);
         return true;
     }
 
@@ -73,7 +78,7 @@ public class Restrictions {
             return false;
         }
 
-        restrictions.remove(name);
+        applieds.remove(name);
         available.remove(name);
 
         return true;
@@ -89,7 +94,7 @@ public class Restrictions {
 
         In commonInput = new In(schedule, null);
 
-        for(Restriction restriction : restrictions.values()) {
+        for(Restriction restriction : applieds.values()) {
             if (restriction.apply(commonInput)) {
                 score += restriction.getScore();
             }
@@ -107,8 +112,8 @@ public class Restrictions {
         return true;
     }
 
-    public Set<String> getRestrictionNames() {
-        return restrictions.keySet();
+    public Set<String> getAppliedRestrictionNames() {
+        return applieds.keySet();
     }
 
     public Set<String> getAvailableRestriccionsNames() {
@@ -120,15 +125,15 @@ public class Restrictions {
     }
 
     public boolean exists(String name) {
-        return restrictions.containsKey(name);
+        return applieds.containsKey(name);
     }
 
     public boolean exists(Restriction restriction) {
-        return restrictions.containsValue(restriction);
+        return applieds.containsValue(restriction);
     }
 
-    public Restriction getRestriccion(String name) {
-        return restrictions.get(name);
+    public Restriction getAppliedRestriccion(String name) {
+        return applieds.get(name);
     }
 
     public Restriction getAvailableRestriction(String name) {

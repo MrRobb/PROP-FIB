@@ -97,15 +97,66 @@ public class DomainCtrl {
 
     public static void modifyRestrictions() {
 	    Scanner user_input = new Scanner(System.in);
-        System.out.println("1. Add new ones" + "\n" + "2. Erase existing ones");
+        System.out.println("1. Add new ones" + "\n" + "2. Erase existing ones" + "3. Choose which to apply");
         int restr_action = user_input.nextInt();
-        if (restr_action == 1) {
-
+        switch (restr_action) {
+            case (1) :  addNewAvailableRestrictions();
+                break;
+            case (2) :  eraseAvailableRestrictions();
+                break;
+            case (3) : whichToApply();
+                break;
+                default: optionError();
         }
-        else if (restr_action == 2) {
+    }
 
+    public static void addNewAvailableRestrictions(){
+        
+    }
+
+    public static void eraseAvailableRestrictions() {
+        Scanner user_input = new Scanner(System.in);
+        // Chose of the available ones
+        System.out.println("Enter the number of the restrictions you want to erase, enter -1 to stage");
+        Set<String> all_restrictions = Restrictions.getInstance().getAvailableRestriccionsNames();
+        int i = 1;
+        HashMap<Integer, String> map = new HashMap<Integer, String>();
+        for (String s: all_restrictions) {
+            System.out.println(i + ". " + s);
+            map.put(i, s);
         }
-        else optionError();
+        int restrToErase = user_input.nextInt();
+        while (restrToErase != -1) {
+            Boolean b = Restrictions.getInstance().deleteAvailable(map.get(restrToErase));
+            System.out.println(map.get(restrToErase) + "deleted from available restrictions");
+            restrToErase = user_input.nextInt();
+        }
+        System.out.println("Change staged!");
+    }
+
+    public static void whichToApply() {
+	    Scanner user_input = new Scanner(System.in);
+	    // Show applied ones
+	    Set<String> applyeds = Restrictions.getInstance().getAppliedRestrictionNames();
+	    System.out.println("Already applied restrictions:");
+	    for (String s: applyeds) System.out.print(s + " || ");
+	    Set<String> all_restrictions = Restrictions.getInstance().getAvailableRestriccionsNames();
+	    // Chose of the available ones
+	    System.out.println("Enter the number of the restrictions you want to apply from the available ones, enter -1 to stage");
+	    Restrictions.getInstance().clearApplied();
+	    int i = 1;
+	    HashMap<Integer, String> map = new HashMap<Integer, String>();
+	    for (String s: all_restrictions) {
+	        System.out.println(i + ". " + s);
+	        map.put(i, s);
+        }
+	    int restrToApply = user_input.nextInt();
+	    while (restrToApply != -1) {
+	        Restriction restriction = Restrictions.getInstance().getAvailableRestriction(map.get(restrToApply));
+            Restrictions.getInstance().addApplied(map.get(restrToApply), new  ArrayList<Object[]>());
+            restrToApply = user_input.nextInt();
+        }
+        System.out.println("Change staged!");
     }
 
     public static void optionError() {
