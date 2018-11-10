@@ -92,7 +92,7 @@ public class Block {
      * @return true if all classes are set between startHour and endHour, false otherwise.
      */
 
-    public Out everyClassBetweenStartAndEndHour(In input){
+    public static Out everyClassBetweenStartAndEndHour(In input){
         Schedule s = (Schedule) input.getIn(0);
         Integer startHour = (Integer) input.getArgs(0);
         Integer endHour = (Integer) input.getArgs(1);
@@ -118,7 +118,7 @@ public class Block {
      * than the group of which they belong, false otherwise.
      */
 
-    public Out groupOfATypeMustBeSetBefore(In input){
+    public static Out groupOfATypeMustBeSetBefore(In input){
         Schedule s = (Schedule) input.getIn(0);
         String subj = (String) input.getArgs(0);
         String type1 = (String) input.getArgs(1);
