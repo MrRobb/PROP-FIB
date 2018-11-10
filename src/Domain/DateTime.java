@@ -4,7 +4,7 @@
 
 package Domain;
 
-public class DateTime implements Comparable {
+public class DateTime implements Comparable<DateTime> {
 
 
 
@@ -93,13 +93,12 @@ public class DateTime implements Comparable {
 	}
 
 	@Override
-	public int compareTo(Object o) {
-		DateTime d = (DateTime)o;
+	public int compareTo(DateTime other) {
 
-		if (this.weekday.ordinal() != d.weekday.ordinal()) {
-			return this.weekday.ordinal() - d.weekday.ordinal();
+		if (this.weekday.ordinal() != other.weekday.ordinal()) {
+			return this.weekday.ordinal() - other.weekday.ordinal();
 		}
 
-		return this.hour - d.hour;
+		return this.hour - other.hour;
 	}
 }

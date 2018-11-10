@@ -11,25 +11,24 @@ public class Degree {
     private String name;
     private Integer credits;
     private ArrayList<String> typeOfGroups;
-    private ArrayList<Subject> subjects;
+    private static Degree instance = null;
 
 
     /**
      * Constructor / Destructor
      */
 
-    public Degree () {
+    private Degree () {
         name = null;
         credits = null;
         typeOfGroups = null;
-        subjects = null;
     }
 
-    public Degree(String name, Integer credits, ArrayList<String> typeOfGroups, ArrayList<Subject> subjects) {
-        this.name = name;
-        this.credits = credits;
-        this.typeOfGroups = typeOfGroups;
-        this.subjects = subjects;
+    public static Degree getInstance(){
+        if (instance == null) {
+            instance = new Degree();
+        }
+        return instance;
     }
 
 
@@ -71,22 +70,6 @@ public class Degree {
         return true;
     }
 
-    public ArrayList<Subject> getSubjects() {
-        return subjects;
-    }
-
-    public boolean setSubjects(ArrayList<Subject> subjects) {
-        this.subjects = subjects;
-        return true;
-    }
-
-    public boolean addSubject (Subject subject) {
-        for (Subject s: this.subjects) {
-            if (s.getClass().equals(subject.getClass())) return true;
-        }
-        subjects.add(subject);
-        return true;
-    }
 
     /**
      * Consultants
@@ -99,11 +82,11 @@ public class Degree {
         return false;
     }
 
-    public boolean hasSubject(Subject subject) {
-        for (Subject s: this.subjects) {
-            if (s.getClass().equals(subject.getClass())) return true;
-        }
-        return false;
+    public boolean clear() {
+        Degree.getInstance().name = null;
+        Degree.getInstance().credits = null;
+        Degree.getInstance().typeOfGroups.clear();
+        return true;
     }
 
 }

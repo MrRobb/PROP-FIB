@@ -1,13 +1,13 @@
 [
   {
-    "name": "Degree",
+    "name": "FIB",
     "credits": 250,
     "groupTypes": [
         "problems",
         "laboratory",
         "theory"
     ],
-    "subjects": 
+    "subjects":
     [
       {
         "name": "PROP",
@@ -22,11 +22,11 @@
         "speciality": "computing"
       }
     ],
-    "groups": 
+    "groups":
     [
       {
-        "name": 10, 
-        "types": 
+        "name": 10,
+        "types":
           [
             "theory"
           ],
@@ -37,8 +37,8 @@
         "subject": "A"
       },
       {
-        "name": 11, 
-        "types": 
+        "name": 11,
+        "types":
           [
             "problems"
           ],
@@ -49,8 +49,8 @@
         "subject": "A"
       },
       {
-        "name": 12, 
-        "types": 
+        "name": 12,
+        "types":
           [
             "problems"
           ],
@@ -61,8 +61,8 @@
         "subject": "A"
       },
       {
-        "name": 40, 
-        "types": 
+        "name": 40,
+        "types":
           [
             "theory"
           ],
@@ -73,8 +73,8 @@
         "subject": "PROP"
       },
       {
-        "name": 43, 
-        "types": 
+        "name": 43,
+        "types":
           [
             "laboratory"
           ],
@@ -85,8 +85,8 @@
         "subject": "PROP"
       },
       {
-        "name": 44, 
-        "types": 
+        "name": 44,
+        "types":
           [
             "theory"
           ],
@@ -95,6 +95,47 @@
         "duration": 2,
         "capacity": 30,
         "subject": "PROP"
+      }
+    ],
+    "classrooms":
+    [
+      {
+        "name": "A6001",
+        "capacity": 100,
+        "extras":
+        [
+          "projector",
+          "disabled_access"
+        ]
+      },
+      {
+        "name": "A6002",
+        "capacity": 100,
+        "extras":
+        [
+          "projector",
+          "disabled_access"
+        ]
+      },
+      {
+        "name": "A6E01",
+        "capacity": 80,
+        "extras":
+        [
+          "projector",
+          "disabled_access",
+          "fans"
+        ]
+      },
+      {
+        "name": "A6E02",
+        "capacity": 80,
+        "extras":
+        [
+          "projector",
+          "disabled_access",
+          "fans"
+        ]
       }
     ]
   }

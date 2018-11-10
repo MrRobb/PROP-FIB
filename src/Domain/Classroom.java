@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * @author Alberto Gimenez Aragon
  */
-public class Classroom {
+public class Classroom implements Comparable<Classroom> {
 
 	/**
 	 * Attributes
@@ -23,6 +23,12 @@ public class Classroom {
 		this.name = name;
 		this.capacity = capacity;
 		extras = new ArrayList<>(0);
+	}
+
+	public Classroom(String name, Integer capacity, ArrayList<String> extras) {
+		this.name = name;
+		this.capacity = capacity;
+		this.extras = extras;
 	}
 
 	public Classroom(String name) {
@@ -66,5 +72,10 @@ public class Classroom {
 			extras.add(e);
 			return true;
 		}
+	}
+
+	@Override
+	public int compareTo(Classroom other) {
+		return this.getName().compareTo(other.getName());
 	}
 }

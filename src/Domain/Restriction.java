@@ -14,7 +14,7 @@ public class Restriction {
     private int score = 0;
     private boolean mandatory = true;
 
-    public Restriction(String name, int score, boolean mandatory) {
+    public Restriction(String name) {
         this.name = name;
         this.restriccion = new ArrayList<>();
         this.args = new ArrayList<>();
@@ -22,13 +22,13 @@ public class Restriction {
         setMandatory(mandatory);
     }
 
-    public boolean add(String blockName, Object[] args) {
+    public boolean add(String blockName) {
 
         // Get block
         if (Blocks.getInstance().exists(blockName)) {
             Function<In, Out> b = Blocks.getInstance().get(blockName);
             restriccion.add(b);
-            this.args.add(args);
+            this.args.add(new Object[]{});
             return true;
         }
         else {
@@ -73,6 +73,15 @@ public class Restriction {
 
     public void setMandatory(boolean mandatory) {
         this.mandatory = mandatory;
+    }
+
+    public boolean setParameter(int blockIndex, Object[] args) {
+        return this.args.set(blockIndex, args) == args;
+    }
+
+    public boolean setParameters(ArrayList<Object[]> args) {
+        this.args = args;
+        return true;
     }
 }
 
