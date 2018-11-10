@@ -49,9 +49,22 @@ public class Restrictions {
 
     public boolean Check(Schedule schedule) {
 
-        schedule.setScore(0);
+        Integer score = 0;
 
-        /* To-Do: Check restriction and assign a score for the schedule */
+        In commonInput = new In(schedule, null);
+
+        for(Restriction restriction : restrictions.values()) {
+            if (restriction.apply(commonInput)) {
+                score += restriction.getScore();
+            }
+            else if (restriction.isMandatory()) {
+                schedule.setScore(Integer.MIN_VALUE);
+                return false;
+            }
+            else {
+                score -= restriction.getScore();
+            }
+        }
 
         return true;
     }
