@@ -1,9 +1,6 @@
 package Domain;
 
-import javafx.scene.transform.MatrixType;
 import javafx.util.Pair;
-import jdk.internal.org.objectweb.asm.tree.IincInsnNode;
-
 import java.util.*;
 
 public class Generator {
@@ -19,12 +16,12 @@ public class Generator {
 	 */
 	public TreeSet<Schedule> generate() {
 
-		LinkedHashMap<Integer, Group> groups = new LinkedHashMap<>(Groups.getInstance().get()));
+		LinkedHashMap<Integer, Group> groups = new LinkedHashMap<>(Groups.getInstance().get());
 		LinkedHashMap<Integer, DateTime> dates = new LinkedHashMap<>(DateTimes.getInstance().get());
 		LinkedHashMap<String, Classroom> classrooms = new LinkedHashMap<>(Classrooms.getInstance().get());
 
 		TreeSet<Schedule> schedules = new TreeSet<>();
-		Schedule schedule = new Schedule(dates, classrooms);
+		Schedule schedule = new Schedule(dates.keySet(), classrooms.keySet());
 
 		if (generateSchedules(schedules, schedule, groups, groups.entrySet().iterator())) {
 			return schedules;
@@ -52,21 +49,24 @@ public class Generator {
 		Map.Entry<Integer, Group> entry = it.next();
 		Integer id = entry.getKey();
 		Group group = entry.getValue();
+		boolean anySolution = false;
 
-		for (Pair<DateTime, Classroom> slot : schedule.getAvailableSlots()) {
+		for (Pair<Integer, String> slot : schedule.getAvailableSlots()) {
 
 			Class c = new Class();
 			c.setGroup(group);
-			c.setDateTime(slot.getKey());
-			c.setClassroom(slot.getValue());
+			c.setDateTimeID(slot.getKey());
+			c.setClassroomID(slot.getValue());
 
 			schedule.addClass(c);
 
 			if (Restrictions.getInstance().Check(schedule)) {
-
+				anySolution = anySolution | generateSchedules(schedules, schedule, groups, it);
 			}
 
 			schedule.removeClass(c);
 		}
+
+		return anySolution;
 	}
 }

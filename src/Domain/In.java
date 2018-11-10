@@ -15,7 +15,6 @@ public class In {
 		this.args = args;
 	}
 
-
 	public Object getIn(int index) {
 		return in[index];
 	}

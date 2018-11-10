@@ -1,6 +1,13 @@
 package Domain;
 
+import apple.laf.JRSUIUtils;
+import javafx.util.Pair;
+import jdk.nashorn.internal.parser.JSONParser;
+
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.Set;
+import java.util.TreeSet;
 
 public class Schedule implements Comparable {
 
@@ -11,18 +18,24 @@ public class Schedule implements Comparable {
 
     ArrayList<Class> classes;
     Integer score = null;
+    LinkedHashMap<Pair<Integer, String>, Integer> schedule = null;
+    TreeSet<Pair<Integer, String>> keys = null;
 
     /**
      * Constructors / Destructors
      */
 
-    public Schedule() {
-        classes = null;
-    }
+    public Schedule(Set<Integer> dates, Set<String> classrooms) {
+        classes = new ArrayList<>(0);
 
-    public Schedule(Restrictions restrictions, ArrayList<Class> classes)
-    {
-        this.classes = classes;
+        keys = new TreeSet<>();
+        for (String classroom : classrooms) {
+            for (Integer date : dates) {
+                keys.add(new Pair<>(date, classroom));
+            }
+        }
+
+        schedule = new LinkedHashMap<>(Groups.getInstance().size());
     }
 
 
@@ -121,10 +134,8 @@ public class Schedule implements Comparable {
         return true;
     }
 
-    @Override
-    public int compareTo(Object o) {
-        /* To-Do: Implement this to compare schedules and be able to select the very best */
-        return 0;
+    public boolean removeClass(Class c) {
+        return classes.remove(c);
     }
 
     public Integer getScore() {
@@ -135,4 +146,21 @@ public class Schedule implements Comparable {
         this.score = score;
         return true;
     }
+
+    public TreeSet<Pair<Integer, String>> getAvailableSlots() {
+        TreeSet<Pair<Integer, String>> slots = new TreeSet<>(keys);
+
+        for (Class c : classes) {
+            slots.remove(new Pair<>(c.getDateTimeID(), c.getClassroomID()));
+        }
+
+        return slots;
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        /* To-Do: Implement this to compare schedules and be able to select the very best */
+        return 0;
+    }
+
 }

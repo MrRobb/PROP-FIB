@@ -22,6 +22,7 @@ public class Restriction {
         if (Blocks.getInstance().exists(blockName)) {
             Function<In, Out> b = Blocks.getInstance().get(blockName);
             restriccion.add(b);
+            this.args.add(args);
             return true;
         }
         else {
@@ -34,9 +35,11 @@ public class Restriction {
         try {
 
             Out output = new Out(Boolean.FALSE);
+            int i = 0;
 
             for (Function<In, Out> block : restriccion) {
                 output = block.apply(input);
+                input = new In(output.get(), args.get(i));
             }
 
             return (boolean) output.get(0);

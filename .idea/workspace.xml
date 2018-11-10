@@ -3,9 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="aa2f1aa1-9b69-405b-87b4-eb516390aa6d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Block.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/DegreesFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/DegreesFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Group.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Group.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/DomainCtrl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/DomainCtrl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Generator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Generator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/In.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/In.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Out.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Out.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Restriction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Restriction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Schedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Schedule.java" afterDir="false" />
     </list>
     <list id="2359001d-d985-4a8b-8ebc-422acdf50f2f" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -77,22 +80,22 @@
     <session id="941953483">
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="3498" />
+          <entry key="java" value="4619" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="3498" />
+          <entry key="JAVA" value="4619" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="33" />
+          <entry key="java" value="38" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="33" />
+          <entry key="JAVA" value="38" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.lifecycle.project">
@@ -106,43 +109,62 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Domain/Generator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="25" column="26" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Domain/Group.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="99">
-              <caret line="17" column="29" lean-forward="true" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
+            <state relative-caret-position="603">
+              <caret line="56" column="22" lean-forward="true" selection-start-line="56" selection-start-column="22" selection-end-line="56" selection-end-column="22" />
               <folding>
-                <element signature="method#setName#0;class#Group#0" />
-                <element signature="method#setTypes#0;class#Group#0" />
-                <element signature="method#setLevel#0;class#Group#0" />
-                <element signature="method#setParentGroup#0;class#Group#0" />
-                <element signature="method#setDuration#0;class#Group#0" />
-                <element signature="method#setCapacity#0;class#Group#0" />
-                <element signature="docComment;method#hasType#0;class#Group#0" />
-                <element signature="method#hasType#0;class#Group#0" />
-                <element signature="method#addType#0;class#Group#0" />
-                <element signature="method#eraseType#0;class#Group#0" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Domain/DegreesFactory.java">
+        <entry file="file://$PROJECT_DIR$/src/Domain/DomainCtrl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="9" column="32" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
+            <state relative-caret-position="780">
+              <caret line="52" selection-start-line="52" selection-end-line="52" />
               <folding>
                 <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Domain/Schedule.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="603">
+              <caret line="143" column="44" lean-forward="true" selection-start-line="143" selection-start-column="44" selection-end-line="143" selection-end-column="44" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="docComment;method#addClass#0;class#Schedule#0" />
+                <element signature="e#2403#2404#0" expanded="true" />
+                <element signature="e#2443#2444#0" expanded="true" />
+                <element signature="e#2476#2477#0" expanded="true" />
+                <element signature="e#2504#2505#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Domain/Restrictions.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="450">
+              <caret line="31" column="20" selection-start-line="31" selection-start-column="20" selection-end-line="31" selection-end-column="20" />
+              <folding>
+                <element signature="method#delete#0;class#Restrictions#0" />
+                <element signature="e#1035#1036#0" expanded="true" />
+                <element signature="e#1079#1080#0" expanded="true" />
+                <element signature="e#1121#1122#0" expanded="true" />
+                <element signature="e#1174#1175#0" expanded="true" />
+                <element signature="e#1228#1229#0" expanded="true" />
+                <element signature="e#1290#1291#0" expanded="true" />
+                <element signature="e#1344#1345#0" expanded="true" />
+                <element signature="e#1389#1390#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -151,8 +173,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Domain/Restriction.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="26" column="14" selection-start-line="26" selection-start-column="14" selection-end-line="26" selection-end-column="14" />
+            <state relative-caret-position="510">
+              <caret line="40" column="44" selection-start-line="40" selection-start-column="44" selection-end-line="40" selection-end-column="44" />
               <folding>
                 <element signature="method#Restriction#0;class#Restriction#0" />
               </folding>
@@ -160,48 +182,57 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Domain/Block.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Domain/In.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="331">
-              <caret line="133" column="43" lean-forward="true" selection-start-line="133" selection-start-column="43" selection-end-line="133" selection-end-column="43" />
+            <state relative-caret-position="225">
+              <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Domain/Out.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="33" column="20" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="method#Out#1;class#Out#0" />
+                <element signature="e#250#251#0" expanded="true" />
+                <element signature="e#274#275#0" expanded="true" />
+                <element signature="e#300#301#0" expanded="true" />
+                <element signature="e#317#318#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Domain/Class.java">
+        <entry file="file://$PROJECT_DIR$/src/Domain/Schedules.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
+            <state relative-caret-position="135">
+              <caret line="9" column="36" selection-start-line="9" selection-start-column="36" selection-end-line="9" selection-end-column="36" />
+              <folding>
+                <element signature="method#getInstance#0;class#Schedules#0" />
+                <element signature="e#1084#1085#0" expanded="true" />
+                <element signature="e#1105#1106#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Domain/Groups.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
               <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
               <folding>
-                <element signature="docComment;class#Class#0" />
-                <element signature="docComment;field#dateTimeID#0;class#Class#0" />
-                <element signature="docComment;method#Class#0;class#Class#0" />
-                <element signature="method#Class#0;class#Class#0" />
-                <element signature="docComment;method#isOK#0;class#Class#0" />
-                <element signature="method#isOK#0;class#Class#0" />
-                <element signature="docComment;method#getDateTimeID#0;class#Class#0" />
-                <element signature="docComment;method#setDateTimeID#0;class#Class#0" />
-                <element signature="method#setDateTimeID#0;class#Class#0" />
-                <element signature="docComment;method#getDateTime#0;class#Class#0" />
-                <element signature="docComment;method#setDateTime#0;class#Class#0" />
-                <element signature="method#setDateTime#0;class#Class#0" />
-                <element signature="docComment;method#getGroupID#0;class#Class#0" />
-                <element signature="docComment;method#setGroupID#0;class#Class#0" />
-                <element signature="method#setGroupID#0;class#Class#0" />
-                <element signature="docComment;method#getGroup#0;class#Class#0" />
-                <element signature="docComment;method#setGroup#0;class#Class#0" />
-                <element signature="method#setGroup#0;class#Class#0" />
-                <element signature="docComment;method#getClassroomID#0;class#Class#0" />
-                <element signature="docComment;method#setClassroomID#0;class#Class#0" />
-                <element signature="method#setClassroomID#0;class#Class#0" />
-                <element signature="docComment;method#getClassroom#0;class#Class#0" />
-                <element signature="docComment;method#setClassroom#0;class#Class#0" />
-                <element signature="method#setClassroom#0;class#Class#0" />
+                <element signature="imports" expanded="true" />
+                <element signature="method#getInstance#0;class#Groups#0" />
+                <element signature="method#addGroup#0;class#Groups#0" />
+                <element signature="method#getID#0;class#Groups#0" />
+                <element signature="method#clear#0;class#Groups#0" />
               </folding>
             </state>
           </provider>
@@ -225,6 +256,7 @@
       <find>classroom</find>
       <find>Subjects</find>
       <find>subject</find>
+      <find>add</find>
     </findStrings>
     <replaceStrings>
       <replace>Classrooms</replace>
@@ -245,21 +277,24 @@
         <option value="$PROJECT_DIR$/src/Domain/ClassroomsFactory.java" />
         <option value="$PROJECT_DIR$/src/Domain/DateTimesFactory.java" />
         <option value="$PROJECT_DIR$/src/Domain/DegreeFactory.java" />
-        <option value="$PROJECT_DIR$/src/Domain/DomainCtrl.java" />
         <option value="$PROJECT_DIR$/src/Domain/Subject.java" />
-        <option value="$PROJECT_DIR$/src/Domain/Restriction.java" />
         <option value="$PROJECT_DIR$/src/Domain/SubjectFactory.java" />
         <option value="$PROJECT_DIR$/src/Domain/BlocksFactory.java" />
         <option value="$PROJECT_DIR$/src/Domain/DateTimes.java" />
         <option value="$PROJECT_DIR$/src/Domain/Classrooms.java" />
         <option value="$PROJECT_DIR$/src/Domain/Groups.java" />
         <option value="$PROJECT_DIR$/src/Domain/Schedules.java" />
-        <option value="$PROJECT_DIR$/src/Domain/Schedule.java" />
-        <option value="$PROJECT_DIR$/src/Domain/Generator.java" />
+        <option value="$PROJECT_DIR$/src/Domain/Restrictions.java" />
+        <option value="$PROJECT_DIR$/src/Domain/DomainCtrl.java" />
+        <option value="$PROJECT_DIR$/src/Domain/In.java" />
+        <option value="$PROJECT_DIR$/src/Domain/Restriction.java" />
+        <option value="$PROJECT_DIR$/src/Domain/Out.java" />
         <option value="$PROJECT_DIR$/src/Domain/Restrictions.java" />
         <option value="$PROJECT_DIR$/src/Domain/DegreesFactory.java" />
         <option value="$PROJECT_DIR$/src/Domain/Group.java" />
         <option value="$PROJECT_DIR$/src/Domain/Block.java" />
+        <option value="$PROJECT_DIR$/src/Domain/Schedule.java" />
+        <option value="$PROJECT_DIR$/src/Domain/Generator.java" />
       </list>
     </option>
   </component>
@@ -272,6 +307,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -294,14 +331,12 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="Course" />
       <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541184933785" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541859129554" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -392,10 +427,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1280" height="720" extended-state="0" />
+    <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17990276" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25274727" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -472,8 +507,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Domain/Out.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1401">
-          <caret line="96" column="20" selection-start-line="96" selection-start-column="20" selection-end-line="96" selection-end-column="20" />
+        <state relative-caret-position="360">
+          <caret line="33" column="20" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#Out#1;class#Out#0" />
+            <element signature="e#250#251#0" expanded="true" />
+            <element signature="e#274#275#0" expanded="true" />
+            <element signature="e#300#301#0" expanded="true" />
+            <element signature="e#317#318#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -483,12 +526,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="540">
           <caret line="69" column="10" selection-start-line="69" selection-start-column="10" selection-end-line="69" selection-end-column="10" />
-          <folding>
-            <element signature="method#getInstance#0;class#Blocks#0" />
-            <element signature="method#add#0;class#Blocks#0" />
-            <element signature="method#delete#0;class#Blocks#0" />
-            <element signature="docComment;method#get#0;class#Blocks#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -496,19 +533,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
           <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
-          <folding>
-            <element signature="docComment;field#restrictions#0;class#Schedule#0" />
-            <element signature="docComment;method#Schedule#0;class#Schedule#0" />
-            <element signature="docComment;field#h#0;class#Schedule#0" />
-            <element signature="method#fiClassroom#0;class#Schedule#0" />
-            <element signature="method#fiDateTime#0;class#Schedule#0" />
-            <element signature="method#fiGroup#0;class#Schedule#0" />
-            <element signature="method#hasClassroom#1;class#Schedule#0" />
-            <element signature="method#hasDateTime#1;class#Schedule#0" />
-            <element signature="method#hasGroup#1;class#Schedule#0" />
-            <element signature="docComment;method#addClass#0;class#Schedule#0" />
-            <element signature="method#addClass#0;class#Schedule#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -533,8 +557,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Domain/DomainCtrl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="51" column="5" selection-start-line="51" selection-start-column="5" selection-end-line="51" selection-end-column="5" />
+        <state relative-caret-position="780">
+          <caret line="52" selection-start-line="52" selection-end-line="52" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -565,18 +592,33 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Domain/Schedules.java" />
-    <entry file="file://$PROJECT_DIR$/src/Domain/Schedule.java">
+    <entry file="file://$PROJECT_DIR$/src/Domain/Schedules.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="16" column="7" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
+        <state relative-caret-position="135">
+          <caret line="9" column="36" selection-start-line="9" selection-start-column="36" selection-end-line="9" selection-end-column="36" />
+          <folding>
+            <element signature="method#getInstance#0;class#Schedules#0" />
+            <element signature="e#1084#1085#0" expanded="true" />
+            <element signature="e#1105#1106#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Domain/Restrictions.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
-          <caret line="26" column="61" selection-start-line="26" selection-start-column="61" selection-end-line="26" selection-end-column="61" />
+          <caret line="31" column="20" selection-start-line="31" selection-start-column="20" selection-end-line="31" selection-end-column="20" />
+          <folding>
+            <element signature="method#delete#0;class#Restrictions#0" />
+            <element signature="e#1035#1036#0" expanded="true" />
+            <element signature="e#1079#1080#0" expanded="true" />
+            <element signature="e#1121#1122#0" expanded="true" />
+            <element signature="e#1174#1175#0" expanded="true" />
+            <element signature="e#1228#1229#0" expanded="true" />
+            <element signature="e#1290#1291#0" expanded="true" />
+            <element signature="e#1344#1345#0" expanded="true" />
+            <element signature="e#1389#1390#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -610,10 +652,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Domain/Groups.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
+        <state relative-caret-position="75">
           <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#getInstance#0;class#Groups#0" />
+            <element signature="method#addGroup#0;class#Groups#0" />
+            <element signature="method#getID#0;class#Groups#0" />
             <element signature="method#clear#0;class#Groups#0" />
           </folding>
         </state>
@@ -623,39 +668,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding>
-            <element signature="docComment;class#Class#0" />
-            <element signature="docComment;field#dateTimeID#0;class#Class#0" />
-            <element signature="docComment;method#Class#0;class#Class#0" />
-            <element signature="method#Class#0;class#Class#0" />
-            <element signature="docComment;method#isOK#0;class#Class#0" />
-            <element signature="method#isOK#0;class#Class#0" />
-            <element signature="docComment;method#getDateTimeID#0;class#Class#0" />
-            <element signature="docComment;method#setDateTimeID#0;class#Class#0" />
-            <element signature="method#setDateTimeID#0;class#Class#0" />
-            <element signature="docComment;method#getDateTime#0;class#Class#0" />
-            <element signature="docComment;method#setDateTime#0;class#Class#0" />
-            <element signature="method#setDateTime#0;class#Class#0" />
-            <element signature="docComment;method#getGroupID#0;class#Class#0" />
-            <element signature="docComment;method#setGroupID#0;class#Class#0" />
-            <element signature="method#setGroupID#0;class#Class#0" />
-            <element signature="docComment;method#getGroup#0;class#Class#0" />
-            <element signature="docComment;method#setGroup#0;class#Class#0" />
-            <element signature="method#setGroup#0;class#Class#0" />
-            <element signature="docComment;method#getClassroomID#0;class#Class#0" />
-            <element signature="docComment;method#setClassroomID#0;class#Class#0" />
-            <element signature="method#setClassroomID#0;class#Class#0" />
-            <element signature="docComment;method#getClassroom#0;class#Class#0" />
-            <element signature="docComment;method#setClassroom#0;class#Class#0" />
-            <element signature="method#setClassroom#0;class#Class#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Domain/Generator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="25" column="26" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="26" />
         </state>
       </provider>
     </entry>
@@ -671,8 +683,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Domain/Restriction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="26" column="14" selection-start-line="26" selection-start-column="14" selection-end-line="26" selection-end-column="14" />
+        <state relative-caret-position="510">
+          <caret line="40" column="44" selection-start-line="40" selection-start-column="44" selection-end-line="40" selection-end-column="44" />
           <folding>
             <element signature="method#Restriction#0;class#Restriction#0" />
           </folding>
@@ -702,6 +714,31 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="331">
           <caret line="133" column="43" lean-forward="true" selection-start-line="133" selection-start-column="43" selection-end-line="133" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Domain/Schedule.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="603">
+          <caret line="143" column="44" lean-forward="true" selection-start-line="143" selection-start-column="44" selection-end-line="143" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;method#addClass#0;class#Schedule#0" />
+            <element signature="e#2403#2404#0" expanded="true" />
+            <element signature="e#2443#2444#0" expanded="true" />
+            <element signature="e#2476#2477#0" expanded="true" />
+            <element signature="e#2504#2505#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Domain/Generator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="603">
+          <caret line="56" column="22" lean-forward="true" selection-start-line="56" selection-start-column="22" selection-end-line="56" selection-end-column="22" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
