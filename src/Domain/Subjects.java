@@ -1,5 +1,6 @@
 package Domain;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -53,6 +54,15 @@ public class Subjects {
         }
         return Subjects.invalidID;
     }
+
+    public ArrayList<String> getAllKeys(){
+        ArrayList<String> subjectKeys = new ArrayList<>();
+        for (Map.Entry<String, Subject> value : subjects.entrySet()) {
+            subjectKeys.add(value.getKey());
+        }
+        return  subjectKeys;
+    }
+
 
     public String getIDfromName(String nameSubj){
         for (Map.Entry<String, Subject> value : subjects.entrySet()) {

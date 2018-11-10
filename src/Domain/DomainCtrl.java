@@ -58,9 +58,34 @@ public class DomainCtrl {
 
 	public static void generateSchedule() {
 		SubjectsFactory.produce();
+        System.out.println("*************************");
+        System.out.println(Subjects.getInstance().size() + " subjects generated:");
+        ArrayList<String> subjs = Subjects.getInstance().getAllKeys();
+        for(String subID : subjs){
+            System.out.println(subID);
+        }
+        System.out.println("*************************");
+
 		DegreesFactory.produce();
+        System.out.println("New degree created: " + Degree.getInstance().getName());
+        System.out.println("*************************");
+        System.out.println(Groups.getInstance().size() + " groups generated:");
+        LinkedHashMap<Integer, Group> allGroups = Groups.getInstance().get();
+        for(Map.Entry<Integer, Group> g : allGroups.entrySet()){
+            System.out.println(g.getValue().getSubject().getName() + " " + g.getValue().getName());
+        }
+        System.out.println("*************************");
+
 		ClassroomsFactory.produce();
+        System.out.println(Classrooms.getInstance().size() + " classrooms produced:");
+        ArrayList<String> rooms = Classrooms.getInstance().getAllKeys();
+        for(String classID : rooms){
+            System.out.println(classID);
+        }
+        System.out.println("*************************");
+
 		DateTimesFactory.produce();
+
 		TreeSet<Schedule> schedules = Generator.getInstance().generate();
 		Scanner user_input = new Scanner(System.in);
         if (schedules.isEmpty()) System.out.println("Enable to generate any schedule with the actual restrictions");

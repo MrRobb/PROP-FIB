@@ -1,5 +1,6 @@
 package Domain;
 
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -52,6 +53,14 @@ public class Classrooms {
 			}
 		}
 		return Classrooms.invalidID;
+	}
+
+	public ArrayList<String> getAllKeys(){
+		ArrayList<String>classroomsKeys = new ArrayList<>();
+		for (Map.Entry<String, Classroom> value : classrooms.entrySet()) {
+			classroomsKeys.add(value.getKey());
+		}
+		return  classroomsKeys;
 	}
 
 	LinkedHashMap<String, Classroom> get() {
