@@ -17,7 +17,7 @@ public class Schedule implements Comparable {
      */
 
     ArrayList<Class> classes;
-    Integer score = null;
+    int score = 0;
     LinkedHashMap<Pair<Integer, String>, Integer> schedule = null;
     TreeSet<Pair<Integer, String>> keys = null;
 
@@ -142,7 +142,7 @@ public class Schedule implements Comparable {
         return score;
     }
 
-    public boolean setScore(Integer score) {
+    public boolean setScore(int score) {
         this.score = score;
         return true;
     }
