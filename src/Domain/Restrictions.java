@@ -66,6 +66,8 @@ public class Restrictions {
             }
         }
 
+        schedule.setScore(score);
+
         return true;
     }
 
