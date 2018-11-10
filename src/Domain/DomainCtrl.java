@@ -1,7 +1,5 @@
 package Domain;
 
-import jdk.nashorn.internal.ir.debug.JSONWriter;
-import jdk.nashorn.internal.parser.JSONParser;
 
 public class DomainCtrl {
 
@@ -50,7 +48,9 @@ public class DomainCtrl {
 		DegreesFactory.produce();
 		ClassroomsFactory.produce();
 		DateTimesFactory.produce();
-
+		SubjectsFactory.produce();
+		RestrictionsFactory.produce();
+		BlocksFactory.produce();
 		return true;
 	}
 

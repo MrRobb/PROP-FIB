@@ -33,41 +33,10 @@ public class DegreesFactory {
 				types.add((String) itrgr.next());
 			}
 
-			// Treat subjects
-			ArrayList<Subject> subjectsDegree = new ArrayList<>();
-			JSONArray subjs = (JSONArray) jo.get("subjects");
-			Iterator itrs = subjs.iterator();
-			while (itrs.hasNext()){
-				JSONObject subj = (JSONObject) itrs.next();
-				String namesubj = (String) subj.get("name");
-				Double crts = (Double) subj.get("credits");
-				Integer sem = (Integer) subj.get("semester");
-				Boolean mand = (Boolean) subj.get("mandatory");
-				String spec = (String) subj.get("speciality");
-				Subject s = new Subject(namesubj, sem, crts, mand, spec);
-				Subjects.getInstance().addSubject(s);
-				subjectsDegree.add(s);
-			}
 
-			Degree degree = new Degree(degname,ncredits,types,subjectsDegree);
+			Degree degree = new Degree(degname,ncredits,types);
 			Degrees.getInstance().addDegree(degree);
 
-			// treat classrooms
-			JSONArray cls =(JSONArray) jo.get("classrooms");
-			Iterator itrc = cls.iterator();
-			while(itrc.hasNext()){
-				JSONObject croom = (JSONObject) itrc.next();
-				String cname = (String) croom.get("name");
-				Integer capacity = (Integer) croom.get("capacity");
-				JSONArray ex = (JSONArray) croom.get("extras");
-				ArrayList<String> extras = new ArrayList<>();
-				Iterator itrce = ex.iterator();
-				while(itrce.hasNext()){
-					extras.add((String) itrce.next());
-				}
-				Classroom c = new Classroom(cname,capacity,extras);
-				Classrooms.getInstance().addClassroom(c);
-			}
 
 			JSONArray grps = (JSONArray) jo.get("groups");
 			Iterator itr2 = grps.iterator();
@@ -77,6 +46,9 @@ public class DegreesFactory {
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
+
+
+
 		/*String name = "FIB";
 		Integer credits = 240;
 		ArrayList<String> typeOfGroups = new ArrayList<>(0);
@@ -96,9 +68,6 @@ public class DegreesFactory {
 		if (ok) ok = fib.setTypeOfGroups(typeOfGroups);
 
 		*/
-		return  ok;
-
-
-
+		return true;
 	}
 }

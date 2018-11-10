@@ -25,6 +25,12 @@ public class Classroom implements Comparable<Classroom> {
 		extras = new ArrayList<>(0);
 	}
 
+	public Classroom(String name, Integer capacity, ArrayList<String> extras) {
+		this.name = name;
+		this.capacity = capacity;
+		this.extras = extras;
+	}
+
 	public Classroom(String name) {
 		this(name, 0);
 	}
