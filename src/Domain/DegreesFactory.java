@@ -32,6 +32,6 @@ public class DegreesFactory {
 		return  ok;
 		*/
 
-
+		return true;
 	}
 }
