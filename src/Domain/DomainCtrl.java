@@ -1,4 +1,5 @@
 package Domain;
+import java.util.Scanner;
 
 import jdk.nashorn.internal.ir.debug.JSONWriter;
 import jdk.nashorn.internal.parser.JSONParser;
@@ -8,34 +9,9 @@ public class DomainCtrl {
 	private static DomainCtrl instance = null;
 
 	public static void main(String[] args) {
-//		Classroom c1 = new Classroom("A6202", 80);
-//		Classroom c2 = new Classroom("A5E02");
-//
-//		System.out.println("Name: " + c1.getName());
-//		System.out.println("Name: " + c1.getCapacity());
-//		ArrayList<String> ex = c1.getExtras();
-//
-//		for (int i = 0; i < ex.size(); ++i) {
-//			System.out.print(ex.get(i) + ", ");
-//		}
-//
-//		System.out.println(c2.hasExtra("fans"));
-//		c2.addExtra("fans");
-//		System.out.println(c2.hasExtra("fans"));
-//		System.out.println(c2.addExtra("fans"));
-//
-//		c2.addExtra("computers");
-//		c2.addExtra("projector");
-//		ex = c2.getExtras();
-//
-//		for (int i = 0; i < ex.size(); ++i) {
-//			System.out.print(ex.get(i) + ", ");
-//		}
-//
-//		c2.setCapacity(55);
-//		System.out.println(c2.getCapacity());
-
-		DomainCtrl.getInstance().generateSchedule();
+		System.out.println("Introduce the type of user:" + "\n" + "1. Normal user" + "\n" + "2. Administrator");
+        int typeOfUser = System.in.read();
+        //DomainCtrl.getInstance().generateSchedule();
 	}
 
 	public static DomainCtrl getInstance() {
@@ -45,13 +21,13 @@ public class DomainCtrl {
 		return instance;
 	}
 
-	public boolean generateSchedule() {
+	/*public boolean generateSchedule() {
 
 		DegreesFactory.produce();
 		ClassroomsFactory.produce();
 		DateTimesFactory.produce();
 
 		return true;
-	}
+	}*/
 
 }
