@@ -17,7 +17,7 @@ public class DegreesFactory {
 
 	public static boolean produce() {
 
-		Degrees.getInstance().clear();
+		Degree.getInstance().clear();
 
 		try {
 			Object obj = new JSONParser().parse(new FileReader("json/degreeEasy.json"));
@@ -33,9 +33,8 @@ public class DegreesFactory {
 				types.add((String) itrgr.next());
 			}
 
+			Degree.getInstance().setName(degname);
 
-			Degree degree = new Degree(degname,ncredits,types);
-			Degrees.getInstance().addDegree(degree);
 
 
 			JSONArray grps = (JSONArray) jo.get("groups");
