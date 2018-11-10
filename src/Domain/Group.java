@@ -6,7 +6,7 @@ package Domain;
 
 import java.util.ArrayList;
 
-public class Group {
+public class Group implements Comparable<Group> {
 
 	/**
 	 * Attributes
@@ -119,5 +119,10 @@ public class Group {
 	public boolean eraseType(String type) {
 		this.types.remove(type);
 		return true;
+	}
+
+	@Override
+	public int compareTo(Group other) {
+		return this.getName().compareTo(other.getName());
 	}
 }

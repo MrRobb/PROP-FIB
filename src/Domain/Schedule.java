@@ -1,32 +1,25 @@
 package Domain;
 
-import apple.laf.JRSUIUtils;
 import javafx.util.Pair;
-import jdk.nashorn.internal.parser.JSONParser;
+import java.util.*;
 
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.Set;
-import java.util.TreeSet;
+public class Schedule implements Comparable<Schedule> {
 
-public class Schedule implements Comparable {
-
-    public ArrayList<Class> getClasses;
     /**
      * Attributes
      */
 
-    ArrayList<Class> classes;
-    int score = 0;
-    LinkedHashMap<Pair<Integer, String>, Integer> schedule = null;
-    TreeSet<Pair<Integer, String>> keys = null;
+    private LinkedHashSet<Class> classes;
+    private int score = 0;
+    private TreeSet<Pair<Integer, String>> keys = null;
 
     /**
      * Constructors / Destructors
      */
 
     public Schedule(Set<Integer> dates, Set<String> classrooms) {
-        classes = new ArrayList<>(0);
+
+        classes = new LinkedHashSet<>(Groups.getInstance().size());
 
         keys = new TreeSet<>();
         for (String classroom : classrooms) {
@@ -34,22 +27,15 @@ public class Schedule implements Comparable {
                 keys.add(new Pair<>(date, classroom));
             }
         }
-
-        schedule = new LinkedHashMap<>(Groups.getInstance().size());
     }
-
-
-    public ArrayList<Class> getClasses() {
-        return classes;
-    }
-
-    /**
-     * Getters / Setters
-     */
 
     /**
      * Consultants
      */
+    public LinkedHashSet<Class> getClasses() {
+        return classes;
+    }
+
     public boolean hasClass(Class c) {
         return classes.contains(c);
     }
@@ -158,9 +144,8 @@ public class Schedule implements Comparable {
     }
 
     @Override
-    public int compareTo(Object o) {
-        /* To-Do: Implement this to compare schedules and be able to select the very best */
-        return 0;
+    public int compareTo(Schedule other) {
+        return this.getScore().compareTo(other.getScore());
     }
 
 }
