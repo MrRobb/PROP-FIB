@@ -34,11 +34,32 @@ public class DegreesFactory {
 			}
 
 			Degree.getInstance().setName(degname);
+			Degree.getInstance().setCredits(ncredits);
+			Degree.getInstance().setTypeOfGroups(types);
 
-
-
+			// Treat groups
 			JSONArray grps = (JSONArray) jo.get("groups");
-			Iterator itr2 = grps.iterator();
+			Iterator itrg = grps.iterator();
+			while(itrg.hasNext()){
+				JSONObject gr = (JSONObject) itrg.next();
+				String name = (String) gr.get("name");
+				Integer level = (Integer) gr.get("level");
+				String nameParent = (String) gr.get("nameParent");
+				Integer duration = (Integer) gr.get("duration");
+				Integer capacity = (Integer) gr.get("capacity");
+				String subj = (String) gr.get("subject");
+				JSONArray groupTypes = (JSONArray) gr.get("types");
+				ArrayList<String> grtypes = new ArrayList<>();
+				Iterator itgrt = groupTypes.iterator();
+				while(itgrt.hasNext()){
+					grtypes.add((String) itgrt.next());
+				}
+				String subjID = Subjects.getInstance().getIDfromName(subj);
+				Integer parentID = Groups.getInstance().getIDfromNameAndSubject(nameParent,subjID);
+				Group g = new Group(name,duration,capacity,subjID,level,grtypes,parentID);
+				Groups.getInstance().addGroup(g);
+			}
+
 
 		} catch (IOException e) {
 			e.printStackTrace();

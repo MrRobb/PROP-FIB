@@ -53,6 +53,14 @@ public class Groups {
 		}
 		return Groups.invalidID;
 	}
+	public Integer getIDfromNameAndSubject(String groupName, String subjID) {
+		for (Map.Entry<Integer, Group> value : groups.entrySet()) {
+			if (value.getValue().getName().equals(groupName) && value.getValue().getSubjectID().equals(subjID)) {
+				return value.getKey();
+			}
+		}
+		return Groups.invalidID;
+	}
 
 	public LinkedHashMap<Integer, Group> get() {
 		return groups;

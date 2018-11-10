@@ -23,7 +23,7 @@ public class Group implements Comparable<Group> {
 	 * Constructor / Destructor
 	 */
 
-	Group(Integer id, String name, Integer duration, Integer capacity, String subjectID, Integer level, ArrayList<String> types, Integer parentGroup, String classroomID) {
+	Group(String name, Integer duration, Integer capacity, String subjectID, Integer level, ArrayList<String> types, Integer parentGroupID) {
 		this.name = name;
 		this.types = types;
 		this.level = level;

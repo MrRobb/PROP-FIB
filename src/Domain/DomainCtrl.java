@@ -52,6 +52,7 @@ public class DomainCtrl {
 
 
 	public static void generateSchedule() {
+		SubjectsFactory.produce();
 		DegreesFactory.produce();
 		ClassroomsFactory.produce();
 		DateTimesFactory.produce();

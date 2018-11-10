@@ -30,7 +30,7 @@ public class Subjects {
         return subjects.containsValue(subj);
     }
 
-    String addSubject(Subject subj) {
+    public String addSubject(Subject subj) {
         if (subj == null) {
             return invalidID;
         }
@@ -41,11 +41,11 @@ public class Subjects {
         }
     }
 
-    Subject get(String id) {
+    public Subject get(String id) {
         return subjects.get(id);
     }
 
-    String getID(Subject subj) {
+    public String getID(Subject subj) {
         for (Map.Entry<String, Subject> value : subjects.entrySet()) {
             if (value.getValue().equals(subj)) {
                 return value.getKey();
@@ -53,6 +53,16 @@ public class Subjects {
         }
         return Subjects.invalidID;
     }
+
+    public String getIDfromName(String nameSubj){
+        for (Map.Entry<String, Subject> value : subjects.entrySet()) {
+            if (value.getValue().getName().equals(nameSubj)) {
+                return value.getKey();
+            }
+        }
+        return Subjects.invalidID;
+    }
+
 
     public Integer getNewID() {
         return subjects.size();

@@ -3,6 +3,7 @@ package Domain;
 import com.sun.org.apache.xpath.internal.operations.Bool;
 
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.function.Function;
 
 public class Block {
@@ -24,7 +25,7 @@ public class Block {
 		Integer startHour = (Integer) input.getArgs(1);
 		Integer endHour = (Integer) input.getArgs(1);
 
-		ArrayList<Class> classes = s.getClasses();
+		LinkedHashSet<Class> classes = s.getClasses();
 		for (Class c : classes) {
 			DateTime cDT = c.getDateTime();
 			if (cDT != null) {
@@ -51,9 +52,8 @@ public class Block {
 
     public static Out noTwoClassesAtSameHourSameClassroom(In input){
         Schedule s = (Schedule) input.getIn(0);
-        ArrayList<Class> classes = s.getClasses();
-        for(int i = 0; i<classes.size(); ++i){
-            Class c = classes.get(i);
+        LinkedHashSet<Class> classes = s.getClasses();
+        for(Class c : classes){
             DateTime cDT = c.getDateTime();
             Classroom cClassroom = c.getClassroom();
             // if class c has a classroom and date assigned
@@ -63,12 +63,11 @@ public class Block {
                 Integer duration = cDT.getDuration();
                 String classroom = cClassroom.getName();
                 // inspect every other class cj
-                for(int j=0; j<classes.size(); ++j){
-                    Class cj = classes.get(j);
+                for(Class cj : classes){
                     DateTime cjDT = cj.getDateTime();
                     Classroom cjClassroom = cj.getClassroom();
                     // possible conflict if both classes have the same classroom and week day
-                    if(i != j && cjDT != null && cjClassroom != null){
+                    if(c != cj && cjDT != null && cjClassroom != null){
                         if(wday == cjDT.getWeekday().toString() && classroom == cjClassroom.getName()){
                             int jShour = cjDT.getStartHour();
                             int jDuration = cjDT.getDuration();
@@ -96,7 +95,7 @@ public class Block {
         Schedule s = (Schedule) input.getIn(0);
         Integer startHour = (Integer) input.getArgs(0);
         Integer endHour = (Integer) input.getArgs(1);
-        ArrayList<Class> classes = s.getClasses();
+        LinkedHashSet<Class> classes = s.getClasses();
         for(Class c : classes){
             Integer sh = c.getDateTime().getStartHour();
             Integer eh = c.getDateTime().getEndHour();
@@ -122,7 +121,7 @@ public class Block {
         Schedule s = (Schedule) input.getIn(0);
         String subj = (String) input.getArgs(0);
         String type1 = (String) input.getArgs(1);
-        ArrayList<Class> classes = s.getClasses();
+        LinkedHashSet<Class> classes = s.getClasses();
         for(Class c : classes){
             Group g = c.getGroup();
             DateTime subgroupDT = c.getDateTime();
