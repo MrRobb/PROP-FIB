@@ -14,7 +14,8 @@ public class Restrictions {
         Constructor / Destructor
      */
     private Restrictions() {
-
+        applieds = new HashMap<>();
+        available = new HashMap<>();
     }
 
     public static Restrictions getInstance() {

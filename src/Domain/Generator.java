@@ -47,7 +47,7 @@ public class Generator {
 	private boolean generateSchedules(TreeSet<Schedule> schedules, Schedule schedule, LinkedHashMap<Integer, Group> groups, Iterator<Map.Entry<Integer, Group>> it) {
 
 		if (!it.hasNext()) {
-			schedules.add(schedule);
+			schedules.add(new Schedule(schedule));
 
 			if (schedules.size() > Schedules.getMaxSize()) {
 				schedules.pollLast();
@@ -61,7 +61,7 @@ public class Generator {
 		Group group = entry.getValue();
 		boolean anySolution = false;
 
-		for (Pair<Integer, String> slot : schedule.getAvailableSlots()) {
+		for (ScheduleKey slot : schedule.getAvailableSlots()) {
 
 			Class c = new Class();
 			c.setGroup(group);

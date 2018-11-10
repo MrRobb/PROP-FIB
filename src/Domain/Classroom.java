@@ -78,4 +78,9 @@ public class Classroom implements Comparable<Classroom> {
 	public int compareTo(Classroom other) {
 		return this.getName().compareTo(other.getName());
 	}
+
+	@Override
+	public String toString() {
+		return getName();
+	}
 }

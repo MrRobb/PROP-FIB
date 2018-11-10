@@ -31,7 +31,12 @@ public class DomainCtrl {
     public static void admin() {
 	    Scanner user_input = new Scanner(System.in);
         System.out.println("Now you are administrator");
-        System.out.println("Choose what you want to do:" + "\n" + "1. Generate schedules" + "\n" + "2. Erase existing schedules" + "\n" + "3. Modify restrictions");
+
+        System.out.println("Choose what you want to do:" + "\n" +
+		        "1. Generate schedules" + "\n" +
+		        "2. Erase existing schedules" + "\n" +
+		        "3. Modify restrictions");
+
         int action = user_input.nextInt();
         switch (action) {
             case (1) :  generateSchedule();
@@ -97,7 +102,7 @@ public class DomainCtrl {
 
     public static void modifyRestrictions() {
 	    Scanner user_input = new Scanner(System.in);
-        System.out.println("1. Add new ones" + "\n" + "2. Erase existing ones" + "3. Choose which to apply");
+        System.out.println("1. Add new ones" + "\n" + "2. Erase existing ones" + '\n' + "3. Choose which to apply");
         int restr_action = user_input.nextInt();
         switch (restr_action) {
             case (1) :  addNewAvailableRestrictions();

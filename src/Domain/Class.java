@@ -204,4 +204,19 @@ public class Class implements Comparable<Class> {
 
 		return this.getGroup().compareTo(other.getGroup());
 	}
+
+	@Override
+	public String toString() {
+		StringBuilder c = new StringBuilder();
+
+		c.append(getDateTime().toString());
+		c.append(" ");
+		c.append(getClassroom().toString());
+		c.append(" ");
+		c.append(getGroup().getSubject().toString());
+		c.append(" ");
+		c.append(getGroup().toString());
+
+		return c.toString();
+	}
 }

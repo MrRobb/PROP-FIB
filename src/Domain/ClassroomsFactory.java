@@ -17,7 +17,8 @@ public class ClassroomsFactory {
 		Classrooms.getInstance().clear();
 		try {
 			Object obj = new JSONParser().parse(new FileReader("json/degreeEasy.json"));
-			JSONObject jo =  (JSONObject) obj;
+			JSONArray ja = (JSONArray) obj;
+			JSONObject jo = (JSONObject) ja.get(0);
 
 			// treat classrooms
 			JSONArray cls =(JSONArray) jo.get("classrooms");
@@ -25,7 +26,7 @@ public class ClassroomsFactory {
 			while(itrc.hasNext()){
 				JSONObject croom = (JSONObject) itrc.next();
 				String cname = (String) croom.get("name");
-				Integer capacity = (Integer) croom.get("capacity");
+				Integer capacity = (int)(long) croom.get("capacity");
 				JSONArray ex = (JSONArray) croom.get("extras");
 				ArrayList<String> extras = new ArrayList<>();
 				Iterator itrce = ex.iterator();

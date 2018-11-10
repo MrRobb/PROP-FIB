@@ -98,6 +98,10 @@ public class Group implements Comparable<Group> {
 	    return true;
     }
 
+	public Subject getSubject() {
+		return Subjects.getInstance().get(getSubjectID());
+	}
+
     /**
 	 * Consultors
 	 */
@@ -124,5 +128,10 @@ public class Group implements Comparable<Group> {
 	@Override
 	public int compareTo(Group other) {
 		return this.getName().compareTo(other.getName());
+	}
+
+	@Override
+	public String toString() {
+		return name;
 	}
 }

@@ -19,8 +19,6 @@ public class RestrictionsFactory {
 			if (ok) ok = Restrictions.getInstance().addAvailable(name, restriction);
 		}
 
-
-
 		return ok;
 	}
 }

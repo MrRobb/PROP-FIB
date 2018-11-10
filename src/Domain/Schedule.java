@@ -11,7 +11,7 @@ public class Schedule implements Comparable<Schedule> {
 
     private LinkedHashSet<Class> classes;
     private int score = 0;
-    private TreeSet<Pair<Integer, String>> keys = null;
+    private TreeSet<ScheduleKey> keys = null;
 
     /**
      * Constructors / Destructors
@@ -24,9 +24,15 @@ public class Schedule implements Comparable<Schedule> {
         keys = new TreeSet<>();
         for (String classroom : classrooms) {
             for (Integer date : dates) {
-                keys.add(new Pair<>(date, classroom));
+                keys.add(new ScheduleKey(date, classroom));
             }
         }
+    }
+
+    public Schedule(Schedule schedule) {
+        this.classes = new LinkedHashSet<>(schedule.classes);
+        this.score = schedule.getScore();
+        this.keys = new TreeSet<>(schedule.keys);
     }
 
     /**
@@ -133,11 +139,16 @@ public class Schedule implements Comparable<Schedule> {
         return true;
     }
 
-    public TreeSet<Pair<Integer, String>> getAvailableSlots() {
-        TreeSet<Pair<Integer, String>> slots = new TreeSet<>(keys);
+    public TreeSet<ScheduleKey> getAvailableSlots() {
+        TreeSet<ScheduleKey> slots = new TreeSet<>(keys);
 
         for (Class c : classes) {
-            slots.remove(new Pair<>(c.getDateTimeID(), c.getClassroomID()));
+            DateTime date = c.getDateTime();
+
+            for (int i = 0; i < date.getDuration(); i++) {
+                slots.remove(new ScheduleKey(DateTimes.getInstance().getID(date), c.getClassroomID()));
+                date = DateTimes.getInstance().next(date);
+            }
         }
 
         return slots;
@@ -148,4 +159,16 @@ public class Schedule implements Comparable<Schedule> {
         return this.getScore().compareTo(other.getScore());
     }
 
+    @Override
+    public String toString() {
+
+        StringBuilder schedule = new StringBuilder();
+
+        for (Class c : classes) {
+            schedule.append(c.toString())
+                    .append('\n');
+        }
+
+        return schedule.toString();
+    }
 }

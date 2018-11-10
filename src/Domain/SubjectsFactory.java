@@ -19,8 +19,9 @@ public class SubjectsFactory {
         Subjects.getInstance().clear();
 
         try {
-            Object obj = new JSONParser().parse(new FileReader("json/degreeEasy.json"));
-            JSONObject jo =  (JSONObject) obj;
+            Object obj = new JSONParser().parse(new FileReader("./json/degreeEasy.json"));
+            JSONArray ja = (JSONArray) obj;
+            JSONObject jo = (JSONObject) ja.get(0);
 
             // Treat subjects
             ArrayList<Subject> subjectsDegree = new ArrayList<>();

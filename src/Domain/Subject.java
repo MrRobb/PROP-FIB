@@ -82,4 +82,8 @@ public class Subject {
         this.speciality = speciality;
     }
 
+    @Override
+    public String toString() {
+        return name;
+    }
 }

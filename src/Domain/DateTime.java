@@ -101,4 +101,18 @@ public class DateTime implements Comparable<DateTime> {
 
 		return this.hour - other.hour;
 	}
+
+	@Override
+	public String toString() {
+		StringBuilder d = new StringBuilder();
+
+
+		d.append(getWeekday());
+		d.append(" ");
+		d.append(getStartHour());
+		d.append(" ");
+		d.append(getEndHour());
+
+		return d.toString();
+	}
 }

@@ -19,12 +19,12 @@ public class Degree {
      */
 
     private Degree () {
-        name = null;
-        credits = null;
-        typeOfGroups = null;
+        name = "";
+        credits = 0;
+        typeOfGroups = new ArrayList<>();
     }
 
-    public static Degree getInstance(){
+    public static Degree getInstance() {
         if (instance == null) {
             instance = new Degree();
         }

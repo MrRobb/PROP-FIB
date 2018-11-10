@@ -2,3 +2,5 @@
 *.docx
 
 out/
+
+.DS_Store

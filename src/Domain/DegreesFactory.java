@@ -21,12 +21,13 @@ public class DegreesFactory {
 
 		try {
 			Object obj = new JSONParser().parse(new FileReader("json/degreeEasy.json"));
-			JSONObject jo =  (JSONObject) obj;
+			JSONArray ja = (JSONArray) obj;
+			JSONObject jo = (JSONObject) ja.get(0);
 
 			// Treat degree
 			String degname = (String) jo.get("name");
-			Integer ncredits = (Integer) jo.get("credits");
-			JSONArray gtypes = (JSONArray) jo.get("types");
+			Integer ncredits = (int)(long) jo.get("credits");
+			JSONArray gtypes = (JSONArray) jo.get("groupTypes");
 			ArrayList<String> types = new ArrayList<>();
 			Iterator itrgr = gtypes.iterator();
 			while (itrgr.hasNext()){
@@ -43,10 +44,10 @@ public class DegreesFactory {
 			while(itrg.hasNext()){
 				JSONObject gr = (JSONObject) itrg.next();
 				String name = (String) gr.get("name");
-				Integer level = (Integer) gr.get("level");
+				Integer level = (int)(long) gr.get("level");
 				String nameParent = (String) gr.get("nameParent");
-				Integer duration = (Integer) gr.get("duration");
-				Integer capacity = (Integer) gr.get("capacity");
+				Integer duration = (int)(long) gr.get("duration");
+				Integer capacity = (int)(long) gr.get("capacity");
 				String subj = (String) gr.get("subject");
 				JSONArray groupTypes = (JSONArray) gr.get("types");
 				ArrayList<String> grtypes = new ArrayList<>();
