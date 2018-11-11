@@ -16,13 +16,15 @@ public class ClassroomsFactory {
 
 		Classrooms.getInstance().clear();
 		try {
-			Object obj = new JSONParser().parse(new FileReader("json/degreeReal.json"));
+			Object obj = new JSONParser().parse(new FileReader("json/degreeEasy.json"));
 			JSONArray ja = (JSONArray) obj;
 			JSONObject jo = (JSONObject) ja.get(0);
 
 			// treat classrooms
-			JSONArray cls =(JSONArray) jo.get("classrooms");
+			JSONArray cls = (JSONArray) jo.get("classrooms");
+			System.out.println("//////////////////////////////////////////////////////////////");
 			Iterator itrc = cls.iterator();
+			System.out.println("//////////////////////////////////////////////////////////////");
 			while(itrc.hasNext()){
 				JSONObject croom = (JSONObject) itrc.next();
 				String cname = (String) croom.get("name");
