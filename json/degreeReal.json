@@ -1,13 +1,13 @@
 [
   {
-    "name": "Degree",
+    "name": "FIB",
     "credits": 250,
     "groupTypes": [
         "problems",
         "laboratory",
         "theory"
     ],
-    "subjects": 
+    "subjects":
     [
       {
         "name": "PROP",
@@ -20,37 +20,13 @@
         "credits": 6.0,
         "mandatory": true,
         "speciality": "computing"
-      },
-      {
-        "name": "LP",
-        "credits": 6.0,
-        "mandatory": true,
-        "speciality": "computing"
-      },
-      {
-        "name": "LI",
-        "credits": 6.0,
-        "mandatory": true,
-        "speciality": "computing"
-      },
-      {
-        "name": "IA",
-        "credits": 6.0,
-        "mandatory": true,
-        "speciality": "computing"
-      },
-      {
-        "name": "DBD",
-        "credits": 6.0,
-        "mandatory": true,
-        "speciality": "software"
       }
     ],
-    "groups": 
+    "groups":
     [
       {
-        "name": 10, 
-        "types": 
+        "name": "10",
+        "types":
           [
             "theory"
           ],
@@ -61,28 +37,578 @@
         "subject": "A"
       },
       {
-        "name": 11, 
-        "types": 
+        "name": "11",
+        "types":
           [
             "problems"
           ],
         "level": 1,
-        "nameParent": 10,
+        "nameParent": "10",
         "duration": 2,
         "capacity": 30,
         "subject": "A"
       },
       {
-        "name": 12, 
-        "types": 
+        "name": "12",
+        "types":
           [
             "problems"
           ],
         "level": 1,
-        "nameParent": 10,
+        "nameParent": "10",
         "duration": 2,
         "capacity": 30,
         "subject": "A"
+      },
+      {
+        "name": "40",
+        "types":
+          [
+            "theory"
+          ],
+        "level": 0,
+        "nameParent": null,
+        "duration": 2,
+        "capacity": 60,
+        "subject": "PROP"
+      },
+      {
+        "name": "43",
+        "types":
+          [
+            "laboratory"
+          ],
+        "level": 1,
+        "nameParent": "40",
+        "duration": 2,
+        "capacity": 30,
+        "subject": "PROP"
+      },
+      {
+        "name": "44",
+        "types":
+          [
+            "theory"
+          ],
+        "level": 1,
+        "nameParent": "40",
+        "duration": 2,
+        "capacity": 30,
+        "subject": "PROP"
+      }
+    ],
+    "classes":
+    [
+      {
+        "name": "A6001",
+        "capacity": 100,
+        "extras":
+        [
+          "projector",
+          "disabled_access"
+        ]
+      },
+      {
+        "name": "A6002",
+        "capacity": 100,
+        "extras":
+        [
+          "projector",
+          "disabled_access"
+        ]
+      },
+      {
+        "name": "A6E01",
+        "capacity": 80,
+        "extras":
+        [
+          "projector",
+          "disabled_access",
+          "fans"
+        ]
+      },
+      {
+        "name": "A6E02",
+        "capacity": 80,
+        "extras":
+        [
+          "projector",
+          "disabled_access",
+          "fans"
+        ]
+      },
+      {
+        "name": "A6101",
+        "capacity": 70,
+        "extras":
+        [
+          "projector",
+          "disabled_access",
+          "fans",
+          "heating"
+        ]
+      },
+      {
+        "name": "A6102",
+        "capacity": 70,
+        "extras":
+        [
+          "projector",
+          "disabled_access",
+          "fans",
+          "heating"
+        ]
+      },
+      {
+        "name": "A6103",
+        "capacity": 70,
+        "extras":
+        [
+          "projector",
+          "disabled_access",
+          "fans",
+          "heating"
+        ]
+      },
+      {
+        "name": "A6104",
+        "capacity": 70,
+        "extras":
+        [
+          "projector",
+          "disabled_access",
+          "fans",
+          "heating"
+        ]
+      },
+      {
+        "name": "A6105",
+        "capacity": 70,
+        "extras":
+        [
+          "projector",
+          "disabled_access",
+          "fans",
+          "heating"
+        ]
+      },
+      {
+        "name": "A6201",
+        "capacity": 70,
+        "extras":
+        [
+          "projector",
+          "disabled_access",
+          "fans",
+          "heating"
+        ]
+      },
+      {
+        "name": "A6202",
+        "capacity": 70,
+        "extras":
+        [
+          "projector",
+          "disabled_access",
+          "fans",
+          "heating"
+        ]
+      },
+      {
+        "name": "A6203",
+        "capacity": 70,
+        "extras":
+        [
+          "projector",
+          "disabled_access",
+          "fans",
+          "heating"
+        ]
+      },
+      {
+        "name": "A6204",
+        "capacity": 70,
+        "extras":
+        [
+          "projector",
+          "disabled_access",
+          "fans",
+          "heating"
+        ]
+      },
+      {
+        "name": "A6205",
+        "capacity": 70,
+        "extras":
+        [
+          "projector",
+          "disabled_access",
+          "fans",
+          "heating"
+        ]
+      },
+      {
+        "name": "A5001",
+        "capacity": 100,
+        "extras":
+        [
+          "projector",
+          "disabled_access"
+        ]
+      },
+      {
+        "name": "A5002",
+        "capacity": 100,
+        "extras":
+        [
+          "projector",
+          "disabled_access"
+        ]
+      },
+      {
+        "name": "A5E01",
+        "capacity": 80,
+        "extras":
+        [
+          "projector",
+          "disabled_access",
+          "fans"
+        ]
+      },
+      {
+        "name": "A5E02",
+        "capacity": 80,
+        "extras":
+        [
+          "projector",
+          "disabled_access",
+          "fans"
+        ]
+      },
+      {
+        "name": "A5101",
+        "capacity": 70,
+        "extras":
+        [
+          "projector",
+          "disabled_access",
+          "fans",
+          "heating"
+        ]
+      },
+      {
+        "name": "A5102",
+        "capacity": 70,
+        "extras":
+        [
+          "projector",
+          "disabled_access",
+          "fans",
+          "heating"
+        ]
+      },
+      {
+        "name": "A5103",
+        "capacity": 70,
+        "extras":
+        [
+          "projector",
+          "disabled_access",
+          "fans",
+          "heating"
+        ]
+      },
+      {
+        "name": "A5104",
+        "capacity": 70,
+        "extras":
+        [
+          "projector",
+          "disabled_access",
+          "fans",
+          "heating"
+        ]
+      },
+      {
+        "name": "A5105",
+        "capacity": 70,
+        "extras":
+        [
+          "projector",
+          "disabled_access",
+          "fans",
+          "heating"
+        ]
+      },
+      {
+        "name": "A5201",
+        "capacity": 70,
+        "extras":
+        [
+          "projector",
+          "disabled_access",
+          "fans",
+          "heating"
+        ]
+      },
+      {
+        "name": "A5202",
+        "capacity": 70,
+        "extras":
+        [
+          "projector",
+          "disabled_access",
+          "fans",
+          "heating"
+        ]
+      },
+      {
+        "name": "A5203",
+        "capacity": 70,
+        "extras":
+        [
+          "projector",
+          "disabled_access",
+          "fans",
+          "heating"
+        ]
+      },
+      {
+        "name": "A5204",
+        "capacity": 70,
+        "extras":
+        [
+          "projector",
+          "disabled_access",
+          "fans",
+          "heating"
+        ]
+      },
+      {
+        "name": "A5205",
+        "capacity": 70,
+        "extras":
+        [
+          "projector",
+          "disabled_access",
+          "fans",
+          "heating"
+        ]
+      },
+      {
+        "name": "A5S102",
+        "capacity": 25,
+        "extras":
+        [
+          "computers",
+          "projector",
+          "disabled_access",
+          "A/C",
+          "heating"
+        ]
+      },
+      {
+        "name": "A5S103",
+        "capacity": 12,
+        "extras":
+        [
+          "computers",
+          "projector",
+          "disabled_access",
+          "A/C",
+          "heating"
+        ]
+      },
+      {
+        "name": "A5S105",
+        "capacity": 25,
+        "extras":
+        [
+          "computers",
+          "projector",
+          "disabled_access",
+          "A/C",
+          "heating"
+        ]
+      },
+      {
+        "name": "A5S108",
+        "capacity": 25,
+        "extras":
+        [
+          "computers",
+          "projector",
+          "disabled_access",
+          "A/C",
+          "heating"
+        ]
+      },
+      {
+        "name": "A5S109",
+        "capacity": 25,
+        "extras":
+        [
+          "computers",
+          "projector",
+          "disabled_access",
+          "A/C",
+          "heating"
+        ]
+      },
+      {
+        "name": "A5S111",
+        "capacity": 13,
+        "extras":
+        [
+          "computers",
+          "projector",
+          "disabled_access",
+          "A/C",
+          "heating"
+        ]
+      },
+      {
+        "name": "A5S112",
+        "capacity": 13,
+        "extras":
+        [
+          "computers",
+          "projector",
+          "disabled_access",
+          "A/C",
+          "heating"
+        ]
+      },
+      {
+        "name": "A5S113",
+        "capacity": 25,
+        "extras":
+        [
+          "computers",
+          "projector",
+          "disabled_access",
+          "A/C",
+          "heating"
+        ]
+      },
+      {
+        "name": "B5S101",
+        "capacity": 21,
+        "extras":
+        [
+          "computers",
+          "projector",
+          "disabled_access",
+          "A/C",
+          "heating"
+        ]
+      },
+      {
+        "name": "B5S201",
+        "capacity": 21,
+        "extras":
+        [
+          "computers",
+          "projector",
+          "disabled_access",
+          "A/C",
+          "heating"
+        ]
+      },
+      {
+        "name": "B5S202",
+        "capacity": 21,
+        "extras":
+        [
+          "computers",
+          "projector",
+          "disabled_access",
+          "A/C",
+          "heating"
+        ]
+      },
+      {
+        "name": "C6S301",
+        "capacity": 14,
+        "extras":
+        [
+          "computers",
+          "projector",
+          "disabled_access",
+          "A/C",
+          "heating"
+        ]
+      },
+      {
+        "name": "C6S302",
+        "capacity": 28,
+        "extras":
+        [
+          "computers",
+          "projector",
+          "disabled_access",
+          "A/C",
+          "heating"
+        ]
+      },
+      {
+        "name": "C6S303",
+        "capacity": 15,
+        "extras":
+        [
+          "computers",
+          "projector",
+          "disabled_access",
+          "A/C",
+          "heating"
+        ]
+      },
+      {
+        "name": "C6S304",
+        "capacity": 10,
+        "extras":
+        [
+          "computers",
+          "disabled_access",
+          "A/C",
+          "heating"
+        ]
+      },
+      {
+        "name": "C6S306",
+        "capacity": 20,
+        "extras":
+        [
+          "computers",
+          "projector",
+          "disabled_access",
+          "A/C",
+          "heating"
+        ]
+      },
+      {
+        "name": "C6S308",
+        "capacity": 20,
+        "extras":
+        [
+          "computers",
+          "projector",
+          "disabled_access",
+          "A/C",
+          "heating"
+        ]
+      },
+      {
+        "name": "C6S309",
+        "capacity": 20,
+        "extras":
+        [
+          "computers",
+          "projector",
+          "disabled_access",
+          "A/C",
+          "heating"
+        ]
       }
     ]
   }
