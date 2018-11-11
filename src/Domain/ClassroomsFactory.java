@@ -22,9 +22,7 @@ public class ClassroomsFactory {
 
 			// treat classrooms
 			JSONArray cls = (JSONArray) jo.get("classrooms");
-			System.out.println("//////////////////////////////////////////////////////////////");
 			Iterator itrc = cls.iterator();
-			System.out.println("//////////////////////////////////////////////////////////////");
 			while(itrc.hasNext()){
 				JSONObject croom = (JSONObject) itrc.next();
 				String cname = (String) croom.get("name");

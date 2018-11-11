@@ -10,6 +10,114 @@
     "subjects":
     [
       {
+        "name": "F",
+        "credits": 7.5,
+        "mandatory": true,
+        "speciality": null
+      },
+      {
+        "name": "IC",
+        "credits": 7.5,
+        "mandatory": true,
+        "speciality": null
+      },
+      {
+        "name": "PRO1",
+        "credits": 7.5,
+        "mandatory": true,
+        "speciality": null
+      },
+      {
+        "name": "FM",
+        "credits": 7.5,
+        "mandatory": true,
+        "speciality": null
+      },
+      {
+        "name": "EC",
+        "credits": 7.5,
+        "mandatory": true,
+        "speciality": null
+      },
+      {
+        "name": "M1",
+        "credits": 7.5,
+        "mandatory": true,
+        "speciality": null
+      },
+      {
+        "name": "M2",
+        "credits": 6.0,
+        "mandatory": true,
+        "speciality": null
+      },
+      {
+        "name": "BD",
+        "credits": 6.0,
+        "mandatory": true,
+        "speciality": null
+      },
+      {
+        "name": "CI",
+        "credits": 6.0,
+        "mandatory": true,
+        "speciality": null
+      },
+      {
+        "name": "EDA",
+        "credits": 6.0,
+        "mandatory": true,
+        "speciality": null
+      },
+      {
+        "name": "PE",
+        "credits": 6.0,
+        "mandatory": true,
+        "speciality": null
+      },
+      {
+        "name": "SO",
+        "credits": 6.0,
+        "mandatory": true,
+        "speciality": null
+      },
+      {
+        "name": "AC",
+        "credits": 6.0,
+        "mandatory": true,
+        "speciality": null
+      },
+      {
+        "name": "EEE",
+        "credits": 6.0,
+        "mandatory": true,
+        "speciality": null
+      },
+      {
+        "name": "IES",
+        "credits": 6.0,
+        "mandatory": true,
+        "speciality": null
+      },
+      {
+        "name": "IDI",
+        "credits": 6.0,
+        "mandatory": true,
+        "speciality": null
+      },
+      {
+        "name": "XC",
+        "credits": 6.0,
+        "mandatory": true,
+        "speciality": null
+      },
+      {
+        "name": "PAR",
+        "credits": 6.0,
+        "mandatory": true,
+        "speciality": null
+      },
+      {
         "name": "PROP",
         "credits": 6.0,
         "mandatory": true,
@@ -20,6 +128,492 @@
         "credits": 6.0,
         "mandatory": true,
         "speciality": "computing"
+      },
+      {
+        "name": "G",
+        "credits": 6.0,
+        "mandatory": true,
+        "speciality": "computing"
+      },
+      {
+        "name": "IA",
+        "credits": 6.0,
+        "mandatory": true,
+        "speciality": "computing"
+      },
+      {
+        "name": "LI",
+        "credits": 6.0,
+        "mandatory": true,
+        "speciality": "computing"
+      },
+      {
+        "name": "LP",
+        "credits": 6.0,
+        "mandatory": true,
+        "speciality": "computing"
+      },
+      {
+        "name": "TC",
+        "credits": 6.0,
+        "mandatory": true,
+        "speciality": "computing"
+      },
+      {
+        "name": "AA",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": "computing"
+      },
+      {
+        "name": "APA",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": "computing"
+      },
+      {
+        "name": "CAIM",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": "computing"
+      },
+      {
+        "name": "CL",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": "computing"
+      },
+      {
+        "name": "CN",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": "computing"
+      },
+      {
+        "name": "IO",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": "computing"
+      },
+      {
+        "name": "SID",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": "computing"
+      },
+      {
+        "name": "AC2",
+        "credits": 6.0,
+        "mandatory": true,
+        "speciality": "hardware"
+      },
+      {
+        "name": "DSBM",
+        "credits": 6.0,
+        "mandatory": true,
+        "speciality": "hardware"
+      },
+      {
+        "name": "MP",
+        "credits": 6.0,
+        "mandatory": true,
+        "speciality": "hardware"
+      },
+      {
+        "name": "PEC",
+        "credits": 6.0,
+        "mandatory": true,
+        "speciality": "hardware"
+      },
+      {
+        "name": "SO2",
+        "credits": 6.0,
+        "mandatory": true,
+        "speciality": "hardware"
+      },
+      {
+        "name": "XC2",
+        "credits": 6.0,
+        "mandatory": true,
+        "speciality": "hardware"
+      },
+      {
+        "name": "CASO",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": "hardware"
+      },
+      {
+        "name": "CPD",
+        "credits": 6.0,
+        "mandatory":false,
+        "speciality": "hardware"
+      },
+      {
+        "name": "PAP",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": "hardware"
+      },
+      {
+        "name": "PCA",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": "hardware"
+      },
+      {
+        "name": "PDS",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": "hardware"
+      },
+      {
+        "name": "STR",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": "hardware"
+      },
+      {
+        "name": "VLSI",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": "hardware"
+      },
+      {
+        "name": "AS",
+        "credits": 6.0,
+        "mandatory": true,
+        "speciality": "software"
+      },
+      {
+        "name": "ASW",
+        "credits": 6.0,
+        "mandatory": true,
+        "speciality": "software"
+      },
+      {
+        "name": "DBD",
+        "credits": 6.0,
+        "mandatory": true,
+        "speciality": "software"
+      },
+      {
+        "name": "ER",
+        "credits": 6.0,
+        "mandatory": true,
+        "speciality": "software"
+      },
+      {
+        "name": "GPS",
+        "credits": 6.0,
+        "mandatory": true,
+        "speciality": "software"
+      },
+      {
+        "name": "PES",
+        "credits": 6.0,
+        "mandatory": true,
+        "speciality": "software"
+      },
+      {
+        "name": "CAP",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": "software"
+      },
+      {
+        "name": "CBDE",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": "software"
+      },
+      {
+        "name": "CSI",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": "software"
+      },
+      {
+        "name": "ECSDI",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": "software"
+      },
+      {
+        "name": "SIM",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": "software"
+      },
+      {
+        "name": "SOAD",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": "software"
+      },
+      {
+        "name": "ADEI",
+        "credits": 6.0,
+        "mandatory": true,
+        "speciality": "information systems"
+      },
+      {
+        "name": "DSI",
+        "credits": 6.0,
+        "mandatory": true,
+        "speciality": "information systems"
+      },
+      {
+        "name": "ER",
+        "credits": 6.0,
+        "mandatory": true,
+        "speciality": "information systems"
+      },
+      {
+        "name": "NE",
+        "credits": 6.0,
+        "mandatory": true,
+        "speciality": "information systems"
+      },
+      {
+        "name": "PSI",
+        "credits": 6.0,
+        "mandatory": true,
+        "speciality": "information systems"
+      },
+      {
+        "name": "SIO",
+        "credits": 6.0,
+        "mandatory": true,
+        "speciality": "information systems"
+      },
+      {
+        "name": "ABD",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": "information systems"
+      },
+      {
+        "name": "CAIM",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": "information systems"
+      },
+      {
+        "name": "EDO",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": "information systems"
+      },
+      {
+        "name": "IO",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": "information systems"
+      },
+      {
+        "name": "MI",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": "information systems"
+      },
+      {
+        "name": "VPE",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": "information systems"
+      },
+      {
+        "name": "ASO",
+        "credits": 6.0,
+        "mandatory": true,
+        "speciality": "tic"
+      },
+      {
+        "name": "PI",
+        "credits": 6.0,
+        "mandatory": true,
+        "speciality": "tic"
+      },
+      {
+        "name": "PTI",
+        "credits": 6.0,
+        "mandatory": true,
+        "speciality": "tic"
+      },
+      {
+        "name": "SI",
+        "credits": 6.0,
+        "mandatory": true,
+        "speciality": "tic"
+      },
+      {
+        "name": "SOA",
+        "credits": 6.0,
+        "mandatory": true,
+        "speciality": "tic"
+      },
+      {
+        "name": "TXC",
+        "credits": 6.0,
+        "mandatory": true,
+        "speciality": "tic"
+      },
+      {
+        "name": "AD",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": "tic"
+      },
+      {
+        "name": "CASO",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": "tic"
+      },
+      {
+        "name": "CPD",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": "tic"
+      },
+      {
+        "name": "IM",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": "tic"
+      },
+      {
+        "name": "SDX",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": "tic"
+      },
+      {
+        "name": "TCI",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": "tic"
+      },
+      {
+        "name": "APC",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": null
+      },
+      {
+        "name": "APSS",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": null
+      },
+      {
+        "name": "ASDP",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": null
+      },
+      {
+        "name": "ASMI",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": null
+      },
+      {
+        "name": "C",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": null
+      },
+      {
+        "name": "CCQ",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": null
+      },
+      {
+        "name": "CDI",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": null
+      },
+      {
+        "name": "DCS",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": null
+      },
+      {
+        "name": "FDM",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": null
+      },
+      {
+        "name": "FOMAR",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": null
+      },
+      {
+        "name": "GCS",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": null
+      },
+      {
+        "name": "GEOC",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": null
+      },
+      {
+        "name": "MD",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": null
+      },
+      {
+        "name": "PAE",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": null
+      },
+      {
+        "name": "ROB",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": null
+      },
+      {
+        "name": "SLDS",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": null
+      },
+      {
+        "name": "TGA",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": null
+      },
+      {
+        "name": "VC",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": null
+      },
+      {
+        "name": "VJ",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": null
+      },
+      {
+        "name": "WSE",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": null
       }
     ],
     "groups":
