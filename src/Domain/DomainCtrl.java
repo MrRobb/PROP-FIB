@@ -72,7 +72,7 @@ public class DomainCtrl {
         System.out.println(Groups.getInstance().size() + " groups generated:");
         LinkedHashMap<Integer, Group> allGroups = Groups.getInstance().get();
         for(Map.Entry<Integer, Group> g : allGroups.entrySet()){
-            System.out.println(g.getValue().getSubject().getName() + " " + g.getValue().getName());
+            System.out.println(g.getValue().getSubject().getName() + " " + g.getValue().getName() + " " + g.getValue().getTypes());
         }
         System.out.println("*************************");
 

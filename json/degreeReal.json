@@ -10,6 +10,120 @@
     "subjects":
     [
       {
+        "name": "F",
+        "credits": 7.5,
+        "mandatory": true,
+        "speciality": null
+      },
+      {
+        "name": "IC",
+        "credits": 7.5,
+        "mandatory": true,
+        "speciality": null
+      },
+      {
+        "name": "PRO1",
+        "credits": 7.5,
+        "mandatory": true,
+        "speciality": null
+      },
+      {
+        "name": "PRO2",
+        "credits": 7.5,
+        "mandatory": true,
+        "speciality": null
+      },
+      {
+        "name": "FM",
+        "credits": 7.5,
+        "mandatory": true,
+        "speciality": null
+      },
+      {
+        "name": "EC",
+        "credits": 7.5,
+        "mandatory": true,
+        "speciality": null
+      },
+      {
+        "name": "M1",
+        "credits": 7.5,
+        "mandatory": true,
+        "speciality": null
+      },
+      {
+        "name": "M2",
+        "credits": 6.0,
+        "mandatory": true,
+        "speciality": null
+      },
+      {
+        "name": "BD",
+        "credits": 6.0,
+        "mandatory": true,
+        "speciality": null
+      },
+      {
+        "name": "CI",
+        "credits": 6.0,
+        "mandatory": true,
+        "speciality": null
+      },
+      {
+        "name": "EDA",
+        "credits": 6.0,
+        "mandatory": true,
+        "speciality": null
+      },
+      {
+        "name": "PE",
+        "credits": 6.0,
+        "mandatory": true,
+        "speciality": null
+      },
+      {
+        "name": "SO",
+        "credits": 6.0,
+        "mandatory": true,
+        "speciality": null
+      },
+      {
+        "name": "AC",
+        "credits": 6.0,
+        "mandatory": true,
+        "speciality": null
+      },
+      {
+        "name": "EEE",
+        "credits": 6.0,
+        "mandatory": true,
+        "speciality": null
+      },
+      {
+        "name": "IES",
+        "credits": 6.0,
+        "mandatory": true,
+        "speciality": null
+      },
+      {
+        "name": "IDI",
+        "credits": 6.0,
+        "mandatory": true,
+        "speciality": null
+      },
+      {
+        "name": "XC",
+        "credits": 6.0,
+        "mandatory": true,
+        "speciality": null
+      },
+      {
+        "name": "PAR",
+        "credits": 6.0,
+        "mandatory": true,
+        "speciality": null
+      },
+      {
         "name": "PROP",
         "credits": 6.0,
         "mandatory": true,
@@ -20,6 +134,492 @@
         "credits": 6.0,
         "mandatory": true,
         "speciality": "computing"
+      },
+      {
+        "name": "G",
+        "credits": 6.0,
+        "mandatory": true,
+        "speciality": "computing"
+      },
+      {
+        "name": "IA",
+        "credits": 6.0,
+        "mandatory": true,
+        "speciality": "computing"
+      },
+      {
+        "name": "LI",
+        "credits": 6.0,
+        "mandatory": true,
+        "speciality": "computing"
+      },
+      {
+        "name": "LP",
+        "credits": 6.0,
+        "mandatory": true,
+        "speciality": "computing"
+      },
+      {
+        "name": "TC",
+        "credits": 6.0,
+        "mandatory": true,
+        "speciality": "computing"
+      },
+      {
+        "name": "AA",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": "computing"
+      },
+      {
+        "name": "APA",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": "computing"
+      },
+      {
+        "name": "CAIM",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": "computing"
+      },
+      {
+        "name": "CL",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": "computing"
+      },
+      {
+        "name": "CN",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": "computing"
+      },
+      {
+        "name": "IO",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": "computing"
+      },
+      {
+        "name": "SID",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": "computing"
+      },
+      {
+        "name": "AC2",
+        "credits": 6.0,
+        "mandatory": true,
+        "speciality": "hardware"
+      },
+      {
+        "name": "DSBM",
+        "credits": 6.0,
+        "mandatory": true,
+        "speciality": "hardware"
+      },
+      {
+        "name": "MP",
+        "credits": 6.0,
+        "mandatory": true,
+        "speciality": "hardware"
+      },
+      {
+        "name": "PEC",
+        "credits": 6.0,
+        "mandatory": true,
+        "speciality": "hardware"
+      },
+      {
+        "name": "SO2",
+        "credits": 6.0,
+        "mandatory": true,
+        "speciality": "hardware"
+      },
+      {
+        "name": "XC2",
+        "credits": 6.0,
+        "mandatory": true,
+        "speciality": "hardware"
+      },
+      {
+        "name": "CASO",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": "hardware"
+      },
+      {
+        "name": "CPD",
+        "credits": 6.0,
+        "mandatory":false,
+        "speciality": "hardware"
+      },
+      {
+        "name": "PAP",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": "hardware"
+      },
+      {
+        "name": "PCA",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": "hardware"
+      },
+      {
+        "name": "PDS",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": "hardware"
+      },
+      {
+        "name": "STR",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": "hardware"
+      },
+      {
+        "name": "VLSI",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": "hardware"
+      },
+      {
+        "name": "AS",
+        "credits": 6.0,
+        "mandatory": true,
+        "speciality": "software"
+      },
+      {
+        "name": "ASW",
+        "credits": 6.0,
+        "mandatory": true,
+        "speciality": "software"
+      },
+      {
+        "name": "DBD",
+        "credits": 6.0,
+        "mandatory": true,
+        "speciality": "software"
+      },
+      {
+        "name": "ER",
+        "credits": 6.0,
+        "mandatory": true,
+        "speciality": "software"
+      },
+      {
+        "name": "GPS",
+        "credits": 6.0,
+        "mandatory": true,
+        "speciality": "software"
+      },
+      {
+        "name": "PES",
+        "credits": 6.0,
+        "mandatory": true,
+        "speciality": "software"
+      },
+      {
+        "name": "CAP",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": "software"
+      },
+      {
+        "name": "CBDE",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": "software"
+      },
+      {
+        "name": "CSI",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": "software"
+      },
+      {
+        "name": "ECSDI",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": "software"
+      },
+      {
+        "name": "SIM",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": "software"
+      },
+      {
+        "name": "SOAD",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": "software"
+      },
+      {
+        "name": "ADEI",
+        "credits": 6.0,
+        "mandatory": true,
+        "speciality": "information systems"
+      },
+      {
+        "name": "DSI",
+        "credits": 6.0,
+        "mandatory": true,
+        "speciality": "information systems"
+      },
+      {
+        "name": "ER",
+        "credits": 6.0,
+        "mandatory": true,
+        "speciality": "information systems"
+      },
+      {
+        "name": "NE",
+        "credits": 6.0,
+        "mandatory": true,
+        "speciality": "information systems"
+      },
+      {
+        "name": "PSI",
+        "credits": 6.0,
+        "mandatory": true,
+        "speciality": "information systems"
+      },
+      {
+        "name": "SIO",
+        "credits": 6.0,
+        "mandatory": true,
+        "speciality": "information systems"
+      },
+      {
+        "name": "ABD",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": "information systems"
+      },
+      {
+        "name": "CAIM",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": "information systems"
+      },
+      {
+        "name": "EDO",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": "information systems"
+      },
+      {
+        "name": "IO",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": "information systems"
+      },
+      {
+        "name": "MI",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": "information systems"
+      },
+      {
+        "name": "VPE",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": "information systems"
+      },
+      {
+        "name": "ASO",
+        "credits": 6.0,
+        "mandatory": true,
+        "speciality": "tic"
+      },
+      {
+        "name": "PI",
+        "credits": 6.0,
+        "mandatory": true,
+        "speciality": "tic"
+      },
+      {
+        "name": "PTI",
+        "credits": 6.0,
+        "mandatory": true,
+        "speciality": "tic"
+      },
+      {
+        "name": "SI",
+        "credits": 6.0,
+        "mandatory": true,
+        "speciality": "tic"
+      },
+      {
+        "name": "SOA",
+        "credits": 6.0,
+        "mandatory": true,
+        "speciality": "tic"
+      },
+      {
+        "name": "TXC",
+        "credits": 6.0,
+        "mandatory": true,
+        "speciality": "tic"
+      },
+      {
+        "name": "AD",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": "tic"
+      },
+      {
+        "name": "CASO",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": "tic"
+      },
+      {
+        "name": "CPD",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": "tic"
+      },
+      {
+        "name": "IM",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": "tic"
+      },
+      {
+        "name": "SDX",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": "tic"
+      },
+      {
+        "name": "TCI",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": "tic"
+      },
+      {
+        "name": "APC",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": null
+      },
+      {
+        "name": "APSS",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": null
+      },
+      {
+        "name": "ASDP",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": null
+      },
+      {
+        "name": "ASMI",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": null
+      },
+      {
+        "name": "C",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": null
+      },
+      {
+        "name": "CCQ",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": null
+      },
+      {
+        "name": "CDI",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": null
+      },
+      {
+        "name": "DCS",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": null
+      },
+      {
+        "name": "FDM",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": null
+      },
+      {
+        "name": "FOMAR",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": null
+      },
+      {
+        "name": "GCS",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": null
+      },
+      {
+        "name": "GEOC",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": null
+      },
+      {
+        "name": "MD",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": null
+      },
+      {
+        "name": "PAE",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": null
+      },
+      {
+        "name": "ROB",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": null
+      },
+      {
+        "name": "SLDS",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": null
+      },
+      {
+        "name": "TGA",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": null
+      },
+      {
+        "name": "VC",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": null
+      },
+      {
+        "name": "VJ",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": null
+      },
+      {
+        "name": "WSE",
+        "credits": 6.0,
+        "mandatory": false,
+        "speciality": null
       }
     ],
     "groups":
@@ -34,8 +634,3978 @@
         "nameParent": null,
         "duration": 2,
         "capacity": 60,
-        "subject": "A"
+        "subject": "EC"
       },
+      {
+        "name": "11",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "10",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "EC"
+      },
+      {
+        "name": "12",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "10",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "EC"
+      },
+      {
+        "name": "13",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "10",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "EC"
+      },
+
+      {
+        "name": "40",
+        "types":
+          [
+            "theory"
+          ],
+        "level": 0,
+        "nameParent": null,
+        "duration": 2,
+        "capacity": 60,
+        "subject": "EC"
+      },
+      {
+        "name": "41",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent":"40",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "EC"
+      },
+      {
+        "name": "42",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "40",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "EC"
+      },
+      {
+        "name": "43",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "40",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "EC"
+      },
+
+
+      {
+        "name": "10",
+        "types":
+          [
+            "theory"
+          ],
+        "level": 0,
+        "nameParent": null,
+        "duration": 2,
+        "capacity": 60,
+        "subject": "F"
+      },
+      {
+        "name": "11",
+        "types":
+          [
+            "laboratory"
+          ],
+        "level": 1,
+        "nameParent": "10",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "F"
+      },
+      {
+        "name": "12",
+        "types":
+          [
+            "laboratory"
+          ],
+        "level": 1,
+        "nameParent": "10",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "F"
+      },
+      {
+        "name": "13",
+        "types":
+          [
+            "laboratory"
+          ],
+        "level": 1,
+        "nameParent": "10",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "F"
+      },
+      {
+        "name": "14",
+        "types":
+          [
+          "laboratory"
+          ],
+        "level": 1,
+        "nameParent": "10",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "F"
+      },
+
+      {
+        "name": "20",
+        "types":
+          [
+            "theory"
+          ],
+        "level": 0,
+        "nameParent": null,
+        "duration": 2,
+        "capacity": 60,
+        "subject": "F"
+      },
+      {
+        "name": "21",
+        "types":
+          [
+          "laboratory"
+          ],
+        "level": 1,
+        "nameParent": "20",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "F"
+      },
+      {
+        "name": "22",
+        "types":
+          [
+            "laboratory"
+          ],
+        "level": 1,
+        "nameParent": "20",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "F"
+      },
+      {
+        "name": "23",
+        "types":
+          [
+            "laboratory"
+          ],
+        "level": 1,
+        "nameParent": "20",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "F"
+      },
+      {
+        "name": "24",
+        "types":
+          [
+            "laboratory"
+          ],
+        "level": 1,
+        "nameParent": "20",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "F"
+      },
+
+      {
+        "name": "30",
+        "types":
+          [
+            "theory"
+          ],
+        "level": 0,
+        "nameParent": null,
+        "duration": 2,
+        "capacity": 60,
+        "subject": "F"
+      },
+      {
+        "name": "31",
+        "types":
+          [
+            "laboratory"
+          ],
+        "level": 1,
+        "nameParent": "30",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "F"
+      },
+      {
+        "name": "32",
+        "types":
+          [
+            "laboratory"
+          ],
+        "level": 1,
+        "nameParent": "30",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "F"
+      },
+      {
+        "name": "33",
+        "types":
+          [
+            "laboratory"
+          ],
+        "level": 1,
+        "nameParent": "30",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "F"
+      },
+      {
+        "name": "34",
+        "types":
+          [
+            "laboratory"
+          ],
+        "level": 1,
+        "nameParent": "30",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "F"
+      },
+
+      {
+        "name": "40",
+        "types":
+          [
+            "theory"
+          ],
+        "level": 0,
+        "nameParent": null,
+        "duration": 2,
+        "capacity": 60,
+        "subject": "F"
+      },
+      {
+        "name": "41",
+        "types":
+          [
+            "laboratory"
+          ],
+        "level": 1,
+        "nameParent": "40",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "F"
+      },
+      {
+        "name": "42",
+        "types":
+          [
+          "laboratory"
+          ],
+        "level": 1,
+        "nameParent": "40",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "F"
+      },
+      {
+        "name": "43",
+        "types":
+          [
+            "laboratory"
+          ],
+        "level": 1,
+        "nameParent": "40",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "F"
+      },
+      {
+        "name": "44",
+        "types":
+          [
+            "laboratory"
+          ],
+        "level": 1,
+        "nameParent": "40",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "F"
+      },
+
+      {
+        "name": "50",
+        "types":
+          [
+            "theory"
+          ],
+        "level": 0,
+        "nameParent": null,
+        "duration": 2,
+        "capacity": 60,
+        "subject": "F"
+      },
+      {
+        "name": "51",
+        "types":
+          [
+            "laboratory"
+          ],
+        "level": 1,
+        "nameParent": "50",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "F"
+      },
+      {
+        "name": "52",
+        "types":
+          [
+            "laboratory"
+          ],
+        "level": 1,
+        "nameParent": "50",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "F"
+      },
+      {
+        "name": "53",
+        "types":
+          [
+            "laboratory"
+          ],
+        "level": 1,
+        "nameParent": "50",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "F"
+      },
+      {
+        "name": "54",
+        "types":
+          [
+            "laboratory"
+          ],
+        "level": 1,
+        "nameParent": "50",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "F"
+      },
+
+      {
+        "name": "60",
+        "types":
+          [
+            "theory"
+          ],
+        "level": 0,
+        "nameParent": null,
+        "duration": 2,
+        "capacity": 60,
+        "subject": "F"
+      },
+      {
+        "name": "61",
+        "types":
+          [
+            "laboratory"
+          ],
+        "level": 1,
+        "nameParent": "60",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "F"
+      },
+      {
+        "name": "62",
+        "types":
+          [
+            "laboratory"
+          ],
+        "level": 1,
+        "nameParent": "60",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "F"
+      },
+      {
+        "name": "63",
+        "types":
+          [
+            "laboratory"
+          ],
+        "level": 1,
+        "nameParent": "60",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "F"
+      },
+      {
+        "name": "64",
+        "types":
+          [
+            "laboratory"
+          ],
+        "level": 1,
+        "nameParent": "60",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "F"
+      },
+
+      {
+        "name": "70",
+        "types":
+          [
+            "theory"
+          ],
+        "level": 0,
+        "nameParent": null,
+        "duration": 2,
+        "capacity": 60,
+        "subject": "F"
+      },
+      {
+        "name": "71",
+        "types":
+          [
+            "laboratory"
+          ],
+        "level": 1,
+        "nameParent": "10",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "F"
+      },
+      {
+        "name": "72",
+        "types":
+          [
+            "laboratory"
+          ],
+        "level": 1,
+        "nameParent": "10",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "F"
+      },
+      {
+        "name": "73",
+        "types":
+          [
+            "laboratory"
+          ],
+        "level": 1,
+        "nameParent": "70",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "F"
+      },
+      {
+        "name": "74",
+        "types":
+          [
+            "laboratory"
+          ],
+        "level": 1,
+        "nameParent": "70",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "F"
+      },
+
+
+      {
+        "name": "10",
+        "types":
+          [
+            "theory"
+          ],
+        "level": 0,
+        "nameParent": null,
+        "duration": 2,
+        "capacity": 60,
+        "subject": "FM"
+      },
+      {
+        "name": "11",
+        "types":
+          [
+            "problems"
+          ],
+        "level": 1,
+        "nameParent": "10",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "FM"
+      },
+      {
+        "name": "12",
+        "types":
+          [
+            "problems"
+          ],
+        "level": 1,
+        "nameParent": "10",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "FM"
+      },
+      {
+        "name": "13",
+        "types":
+          [
+            "problems"
+          ],
+        "level": 1,
+        "nameParent": "10",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "FM"
+      },
+      {
+        "name": "14",
+        "types":
+          [
+          "problems"
+          ],
+        "level": 1,
+        "nameParent": "10",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "FM"
+      },
+
+      {
+        "name": "20",
+        "types":
+          [
+            "theory"
+          ],
+        "level": 0,
+        "nameParent": null,
+        "duration": 2,
+        "capacity": 60,
+        "subject": "FM"
+      },
+      {
+        "name": "21",
+        "types":
+          [
+          "problems"
+          ],
+        "level": 1,
+        "nameParent": "20",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "FM"
+      },
+      {
+        "name": "22",
+        "types":
+          [
+            "problems"
+          ],
+        "level": 1,
+        "nameParent": "20",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "FM"
+      },
+      {
+        "name": "23",
+        "types":
+          [
+            "problems"
+          ],
+        "level": 1,
+        "nameParent": "20",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "FM"
+      },
+      {
+        "name": "24",
+        "types":
+          [
+            "problems"
+          ],
+        "level": 1,
+        "nameParent": "20",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "FM"
+      },
+
+      {
+        "name": "30",
+        "types":
+          [
+            "theory"
+          ],
+        "level": 0,
+        "nameParent": null,
+        "duration": 2,
+        "capacity": 60,
+        "subject": "FM"
+      },
+      {
+        "name": "31",
+        "types":
+          [
+            "problems"
+          ],
+        "level": 1,
+        "nameParent": "30",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "FM"
+      },
+      {
+        "name": "32",
+        "types":
+          [
+            "problems"
+          ],
+        "level": 1,
+        "nameParent": "30",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "FM"
+      },
+      {
+        "name": "33",
+        "types":
+          [
+            "problems"
+          ],
+        "level": 1,
+        "nameParent": "30",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "FM"
+      },
+      {
+        "name": "34",
+        "types":
+          [
+            "problems"
+          ],
+        "level": 1,
+        "nameParent": "30",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "FM"
+      },
+
+      {
+        "name": "40",
+        "types":
+          [
+            "theory"
+          ],
+        "level": 0,
+        "nameParent": null,
+        "duration": 2,
+        "capacity": 60,
+        "subject": "FM"
+      },
+      {
+        "name": "41",
+        "types":
+          [
+            "problems"
+          ],
+        "level": 1,
+        "nameParent": "40",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "FM"
+      },
+      {
+        "name": "42",
+        "types":
+          [
+          "problems"
+          ],
+        "level": 1,
+        "nameParent": "40",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "FM"
+      },
+      {
+        "name": "43",
+        "types":
+          [
+            "problems"
+          ],
+        "level": 1,
+        "nameParent": "40",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "FM"
+      },
+      {
+        "name": "44",
+        "types":
+          [
+            "problems"
+          ],
+        "level": 1,
+        "nameParent": "40",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "FM"
+      },
+
+      {
+        "name": "50",
+        "types":
+          [
+            "theory"
+          ],
+        "level": 0,
+        "nameParent": null,
+        "duration": 2,
+        "capacity": 60,
+        "subject": "FM"
+      },
+      {
+        "name": "51",
+        "types":
+          [
+            "problems"
+          ],
+        "level": 1,
+        "nameParent": "50",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "FM"
+      },
+      {
+        "name": "52",
+        "types":
+          [
+            "problems"
+          ],
+        "level": 1,
+        "nameParent": "50",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "FM"
+      },
+      {
+        "name": "53",
+        "types":
+          [
+            "problems"
+          ],
+        "level": 1,
+        "nameParent": "50",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "FM"
+      },
+      {
+        "name": "54",
+        "types":
+          [
+            "problems"
+          ],
+        "level": 1,
+        "nameParent": "50",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "FM"
+      },
+
+      {
+        "name": "60",
+        "types":
+          [
+            "theory"
+          ],
+        "level": 0,
+        "nameParent": null,
+        "duration": 2,
+        "capacity": 60,
+        "subject": "FM"
+      },
+      {
+        "name": "61",
+        "types":
+          [
+            "problems"
+          ],
+        "level": 1,
+        "nameParent": "60",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "FM"
+      },
+      {
+        "name": "62",
+        "types":
+          [
+            "problems"
+          ],
+        "level": 1,
+        "nameParent": "60",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "FM"
+      },
+      {
+        "name": "63",
+        "types":
+          [
+            "problems"
+          ],
+        "level": 1,
+        "nameParent": "60",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "FM"
+      },
+      {
+        "name": "64",
+        "types":
+          [
+            "problems"
+          ],
+        "level": 1,
+        "nameParent": "60",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "FM"
+      },
+
+      {
+        "name": "70",
+        "types":
+          [
+            "theory"
+          ],
+        "level": 0,
+        "nameParent": null,
+        "duration": 2,
+        "capacity": 60,
+        "subject": "FM"
+      },
+      {
+        "name": "71",
+        "types":
+          [
+            "problems"
+          ],
+        "level": 1,
+        "nameParent": "10",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "FM"
+      },
+      {
+        "name": "72",
+        "types":
+          [
+            "problems"
+          ],
+        "level": 1,
+        "nameParent": "10",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "FM"
+      },
+      {
+        "name": "73",
+        "types":
+          [
+            "problems"
+          ],
+        "level": 1,
+        "nameParent": "70",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "FM"
+      },
+      {
+        "name": "74",
+        "types":
+          [
+            "problems"
+          ],
+        "level": 1,
+        "nameParent": "70",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "FM"
+      },
+
+
+      {
+        "name": "10",
+        "types":
+          [
+            "theory"
+          ],
+        "level": 0,
+        "nameParent": null,
+        "duration": 2,
+        "capacity": 60,
+        "subject": "IC"
+      },
+      {
+        "name": "11",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "10",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "IC"
+      },
+      {
+        "name": "12",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "10",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "IC"
+      },
+      {
+        "name": "13",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "10",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "IC"
+      },
+      {
+        "name": "14",
+        "types":
+          [
+          "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "10",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "IC"
+      },
+
+      {
+        "name": "20",
+        "types":
+          [
+            "theory"
+          ],
+        "level": 0,
+        "nameParent": null,
+        "duration": 2,
+        "capacity": 60,
+        "subject": "IC"
+      },
+      {
+        "name": "21",
+        "types":
+          [
+          "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "20",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "IC"
+      },
+      {
+        "name": "22",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "20",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "IC"
+      },
+      {
+        "name": "23",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "20",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "IC"
+      },
+      {
+        "name": "24",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "20",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "IC"
+      },
+
+      {
+        "name": "30",
+        "types":
+          [
+            "theory"
+          ],
+        "level": 0,
+        "nameParent": null,
+        "duration": 2,
+        "capacity": 60,
+        "subject": "IC"
+      },
+      {
+        "name": "31",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "30",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "IC"
+      },
+      {
+        "name": "32",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "30",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "IC"
+      },
+      {
+        "name": "33",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "30",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "IC"
+      },
+      {
+        "name": "34",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "30",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "IC"
+      },
+
+      {
+        "name": "40",
+        "types":
+          [
+            "theory"
+          ],
+        "level": 0,
+        "nameParent": null,
+        "duration": 2,
+        "capacity": 60,
+        "subject": "IC"
+      },
+      {
+        "name": "41",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "40",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "IC"
+      },
+      {
+        "name": "42",
+        "types":
+          [
+          "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "40",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "IC"
+      },
+      {
+        "name": "43",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "40",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "IC"
+      },
+      {
+        "name": "44",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "40",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "IC"
+      },
+
+      {
+        "name": "50",
+        "types":
+          [
+            "theory"
+          ],
+        "level": 0,
+        "nameParent": null,
+        "duration": 2,
+        "capacity": 60,
+        "subject": "IC"
+      },
+      {
+        "name": "51",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "50",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "IC"
+      },
+      {
+        "name": "52",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "50",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "IC"
+      },
+      {
+        "name": "53",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "50",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "IC"
+      },
+      {
+        "name": "54",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "50",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "IC"
+      },
+
+      {
+        "name": "60",
+        "types":
+          [
+            "theory"
+          ],
+        "level": 0,
+        "nameParent": null,
+        "duration": 2,
+        "capacity": 60,
+        "subject": "IC"
+      },
+      {
+        "name": "61",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "60",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "IC"
+      },
+      {
+        "name": "62",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "60",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "IC"
+      },
+      {
+        "name": "63",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "60",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "IC"
+      },
+      {
+        "name": "64",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "60",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "IC"
+      },
+
+      {
+        "name": "70",
+        "types":
+          [
+            "theory"
+          ],
+        "level": 0,
+        "nameParent": null,
+        "duration": 2,
+        "capacity": 60,
+        "subject": "IC"
+      },
+      {
+        "name": "71",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "10",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "IC"
+      },
+      {
+        "name": "72",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "10",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "IC"
+      },
+      {
+        "name": "73",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "70",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "IC"
+      },
+      {
+        "name": "74",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "70",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "IC"
+      },
+
+
+      {
+        "name": "10",
+        "types":
+          [
+            "theory"
+          ],
+        "level": 0,
+        "nameParent": null,
+        "duration": 2,
+        "capacity": 60,
+        "subject": "M1"
+      },
+      {
+        "name": "11",
+        "types":
+          [
+            "problems"
+          ],
+        "level": 1,
+        "nameParent": "10",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "M1"
+      },
+      {
+        "name": "12",
+        "types":
+          [
+            "problems"
+          ],
+        "level": 1,
+        "nameParent": "10",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "M1"
+      },
+      {
+        "name": "13",
+        "types":
+          [
+            "problems"
+          ],
+        "level": 1,
+        "nameParent": "10",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "M1"
+      },
+
+      {
+        "name": "40",
+        "types":
+          [
+            "theory"
+          ],
+        "level": 0,
+        "nameParent": null,
+        "duration": 2,
+        "capacity": 60,
+        "subject": "M1"
+      },
+      {
+        "name": "41",
+        "types":
+          [
+            "problems"
+          ],
+        "level": 1,
+        "nameParent":"40",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "M1"
+      },
+      {
+        "name": "42",
+        "types":
+          [
+            "problems"
+          ],
+        "level": 1,
+        "nameParent": "40",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "M1"
+      },
+      {
+        "name": "43",
+        "types":
+          [
+            "problems"
+          ],
+        "level": 1,
+        "nameParent": "40",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "M1"
+      },
+
+
+      {
+        "name": "10",
+        "types":
+          [
+            "theory"
+          ],
+        "level": 0,
+        "nameParent": null,
+        "duration": 2,
+        "capacity": 60,
+        "subject": "M2"
+      },
+      {
+        "name": "11",
+        "types":
+          [
+            "problems"
+          ],
+        "level": 1,
+        "nameParent": "10",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "M2"
+      },
+      {
+        "name": "12",
+        "types":
+          [
+            "problems"
+          ],
+        "level": 1,
+        "nameParent": "10",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "M2"
+      },
+      {
+        "name": "13",
+        "types":
+          [
+            "problems"
+          ],
+        "level": 1,
+        "nameParent": "10",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "M2"
+      },
+
+      {
+        "name": "40",
+        "types":
+          [
+            "theory"
+          ],
+        "level": 0,
+        "nameParent": null,
+        "duration": 2,
+        "capacity": 60,
+        "subject": "M2"
+      },
+      {
+        "name": "41",
+        "types":
+          [
+            "problems"
+          ],
+        "level": 1,
+        "nameParent":"40",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "M2"
+      },
+      {
+        "name": "42",
+        "types":
+          [
+            "problems"
+          ],
+        "level": 1,
+        "nameParent": "40",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "M2"
+      },
+      {
+        "name": "43",
+        "types":
+          [
+            "problems"
+          ],
+        "level": 1,
+        "nameParent": "40",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "M2"
+      },
+
+
+      {
+        "name": "10",
+        "types":
+          [
+            "theory"
+          ],
+        "level": 0,
+        "nameParent": null,
+        "duration": 2,
+        "capacity": 60,
+        "subject": "PRO1"
+      },
+      {
+        "name": "11",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "10",
+        "duration": 3,
+        "capacity": 20,
+        "subject": "PRO1"
+      },
+      {
+        "name": "12",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "10",
+        "duration": 3,
+        "capacity": 20,
+        "subject": "PRO1"
+      },
+      {
+        "name": "13",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "10",
+        "duration": 3,
+        "capacity": 20,
+        "subject": "PRO1"
+      },
+      {
+        "name": "14",
+        "types":
+          [
+          "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "10",
+        "duration": 3,
+        "capacity": 20,
+        "subject": "PRO1"
+      },
+
+      {
+        "name": "20",
+        "types":
+          [
+            "theory"
+          ],
+        "level": 0,
+        "nameParent": null,
+        "duration": 2,
+        "capacity": 60,
+        "subject": "PRO1"
+      },
+      {
+        "name": "21",
+        "types":
+          [
+          "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "20",
+        "duration": 3,
+        "capacity": 20,
+        "subject": "PRO1"
+      },
+      {
+        "name": "22",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "20",
+        "duration": 3,
+        "capacity": 20,
+        "subject": "PRO1"
+      },
+      {
+        "name": "23",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "20",
+        "duration": 3,
+        "capacity": 20,
+        "subject": "PRO1"
+      },
+      {
+        "name": "24",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "20",
+        "duration": 3,
+        "capacity": 20,
+        "subject": "PRO1"
+      },
+
+      {
+        "name": "30",
+        "types":
+          [
+            "theory"
+          ],
+        "level": 0,
+        "nameParent": null,
+        "duration": 2,
+        "capacity": 60,
+        "subject": "PRO1"
+      },
+      {
+        "name": "31",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "30",
+        "duration": 3,
+        "capacity": 20,
+        "subject": "PRO1"
+      },
+      {
+        "name": "32",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "30",
+        "duration": 3,
+        "capacity": 20,
+        "subject": "PRO1"
+      },
+      {
+        "name": "33",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "30",
+        "duration": 3,
+        "capacity": 20,
+        "subject": "PRO1"
+      },
+      {
+        "name": "34",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "30",
+        "duration": 3,
+        "capacity": 20,
+        "subject": "PRO1"
+      },
+
+      {
+        "name": "40",
+        "types":
+          [
+            "theory"
+          ],
+        "level": 0,
+        "nameParent": null,
+        "duration": 2,
+        "capacity": 60,
+        "subject": "PRO1"
+      },
+      {
+        "name": "41",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "40",
+        "duration": 3,
+        "capacity": 20,
+        "subject": "PRO1"
+      },
+      {
+        "name": "42",
+        "types":
+          [
+          "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "40",
+        "duration": 3,
+        "capacity": 20,
+        "subject": "PRO1"
+      },
+      {
+        "name": "43",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "40",
+        "duration": 3,
+        "capacity": 20,
+        "subject": "PRO1"
+      },
+      {
+        "name": "44",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "40",
+        "duration": 3,
+        "capacity": 20,
+        "subject": "PRO1"
+      },
+
+      {
+        "name": "50",
+        "types":
+          [
+            "theory"
+          ],
+        "level": 0,
+        "nameParent": null,
+        "duration": 2,
+        "capacity": 60,
+        "subject": "PRO1"
+      },
+      {
+        "name": "51",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "50",
+        "duration": 3,
+        "capacity": 20,
+        "subject": "PRO1"
+      },
+      {
+        "name": "52",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "50",
+        "duration": 3,
+        "capacity": 20,
+        "subject": "PRO1"
+      },
+      {
+        "name": "53",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "50",
+        "duration": 3,
+        "capacity": 20,
+        "subject": "PRO1"
+      },
+      {
+        "name": "54",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "50",
+        "duration": 3,
+        "capacity": 20,
+        "subject": "PRO1"
+      },
+
+      {
+        "name": "60",
+        "types":
+          [
+            "theory"
+          ],
+        "level": 0,
+        "nameParent": null,
+        "duration": 2,
+        "capacity": 60,
+        "subject": "PRO1"
+      },
+      {
+        "name": "61",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "60",
+        "duration": 3,
+        "capacity": 20,
+        "subject": "PRO1"
+      },
+      {
+        "name": "62",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "60",
+        "duration": 3,
+        "capacity": 20,
+        "subject": "PRO1"
+      },
+      {
+        "name": "63",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "60",
+        "duration": 3,
+        "capacity": 20,
+        "subject": "PRO1"
+      },
+      {
+        "name": "64",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "60",
+        "duration": 3,
+        "capacity": 20,
+        "subject": "PRO1"
+      },
+
+      {
+        "name": "70",
+        "types":
+          [
+            "theory"
+          ],
+        "level": 0,
+        "nameParent": null,
+        "duration": 2,
+        "capacity": 60,
+        "subject": "PRO1"
+      },
+      {
+        "name": "71",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "10",
+        "duration": 3,
+        "capacity": 20,
+        "subject": "PRO1"
+      },
+      {
+        "name": "72",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "10",
+        "duration": 3,
+        "capacity": 20,
+        "subject": "PRO1"
+      },
+      {
+        "name": "73",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "70",
+        "duration": 3,
+        "capacity": 20,
+        "subject": "PRO1"
+      },
+      {
+        "name": "74",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "70",
+        "duration": 3,
+        "capacity": 20,
+        "subject": "PRO1"
+      },
+
+
+      {
+        "name": "10",
+        "types":
+          [
+            "theory"
+          ],
+        "level": 0,
+        "nameParent": null,
+        "duration": 2,
+        "capacity": 60,
+        "subject": "PRO2"
+      },
+      {
+        "name": "11",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "10",
+        "duration": 3,
+        "capacity": 20,
+        "subject": "PRO2"
+      },
+      {
+        "name": "12",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "10",
+        "duration": 3,
+        "capacity": 20,
+        "subject": "PRO2"
+      },
+      {
+        "name": "13",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "10",
+        "duration": 3,
+        "capacity": 20,
+        "subject": "PRO2"
+      },
+      {
+        "name": "14",
+        "types":
+          [
+          "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "10",
+        "duration": 3,
+        "capacity": 20,
+        "subject": "PRO2"
+      },
+
+      {
+        "name": "40",
+        "types":
+          [
+            "theory"
+          ],
+        "level": 0,
+        "nameParent": null,
+        "duration": 2,
+        "capacity": 60,
+        "subject": "PRO2"
+      },
+      {
+        "name": "41",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "40",
+        "duration": 3,
+        "capacity": 20,
+        "subject": "PRO2"
+      },
+      {
+        "name": "42",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "40",
+        "duration": 3,
+        "capacity": 20,
+        "subject": "PRO2"
+      },
+
+
+      {
+        "name": "10",
+        "types":
+          [
+            "theory"
+          ],
+        "level": 0,
+        "nameParent": null,
+        "duration": 2,
+        "capacity": 60,
+        "subject": "BD"
+      },
+      {
+        "name": "11",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "10",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "BD"
+      },
+      {
+        "name": "12",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "10",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "BD"
+      },
+      {
+        "name": "13",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "10",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "BD"
+      },
+
+      {
+        "name": "20",
+        "types":
+          [
+            "theory"
+          ],
+        "level": 0,
+        "nameParent": null,
+        "duration": 2,
+        "capacity": 60,
+        "subject": "BD"
+      },
+      {
+        "name": "21",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "20",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "BD"
+      },
+      {
+        "name": "22",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "20",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "BD"
+      },
+      {
+        "name": "23",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "20",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "BD"
+      },
+
+      {
+        "name": "30",
+        "types":
+          [
+            "theory"
+          ],
+        "level": 0,
+        "nameParent": null,
+        "duration": 2,
+        "capacity": 60,
+        "subject": "BD"
+      },
+      {
+        "name": "31",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "30",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "BD"
+      },
+      {
+        "name": "32",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "30",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "BD"
+      },
+      {
+        "name": "33",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "30",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "BD"
+      },
+
+      {
+        "name": "40",
+        "types":
+          [
+            "theory"
+          ],
+        "level": 0,
+        "nameParent": null,
+        "duration": 2,
+        "capacity": 60,
+        "subject": "BD"
+      },
+      {
+        "name": "41",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "40",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "BD"
+      },
+      {
+        "name": "42",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "40",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "BD"
+      },
+      {
+        "name": "43",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "40",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "BD"
+      },
+
+
+      {
+        "name": "10",
+        "types":
+          [
+            "theory"
+          ],
+        "level": 0,
+        "nameParent": null,
+        "duration": 2,
+        "capacity": 60,
+        "subject": "CI"
+      },
+      {
+        "name": "11",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "10",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "CI"
+      },
+      {
+        "name": "12",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "10",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "CI"
+      },
+      {
+        "name": "13",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "10",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "CI"
+      },
+
+      {
+        "name": "20",
+        "types":
+          [
+            "theory"
+          ],
+        "level": 0,
+        "nameParent": null,
+        "duration": 2,
+        "capacity": 60,
+        "subject": "CI"
+      },
+      {
+        "name": "21",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "20",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "CI"
+      },
+      {
+        "name": "22",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "20",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "CI"
+      },
+      {
+        "name": "23",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "20",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "CI"
+      },
+
+      {
+        "name": "30",
+        "types":
+          [
+            "theory"
+          ],
+        "level": 0,
+        "nameParent": null,
+        "duration": 2,
+        "capacity": 60,
+        "subject": "CI"
+      },
+      {
+        "name": "31",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "30",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "CI"
+      },
+      {
+        "name": "32",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "30",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "CI"
+      },
+      {
+        "name": "33",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "30",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "CI"
+      },
+
+      {
+        "name": "40",
+        "types":
+          [
+            "theory"
+          ],
+        "level": 0,
+        "nameParent": null,
+        "duration": 2,
+        "capacity": 60,
+        "subject": "CI"
+      },
+      {
+        "name": "41",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "40",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "CI"
+      },
+      {
+        "name": "42",
+        "types":
+          [
+            "laboratory"
+          ],
+        "level": 1,
+        "nameParent": "40",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "CI"
+      },
+      {
+        "name": "43",
+        "types":
+          [
+            "laboratory"
+          ],
+        "level": 1,
+        "nameParent": "40",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "CI"
+      },
+
+
+      {
+        "name": "10",
+        "types":
+          [
+            "theory"
+          ],
+        "level": 0,
+        "nameParent": null,
+        "duration": 2,
+        "capacity": 60,
+        "subject": "EDA"
+      },
+      {
+        "name": "11",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "10",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "EDA"
+      },
+      {
+        "name": "12",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "10",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "EDA"
+      },
+      {
+        "name": "13",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "10",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "EDA"
+      },
+
+      {
+        "name": "20",
+        "types":
+          [
+            "theory"
+          ],
+        "level": 0,
+        "nameParent": null,
+        "duration": 2,
+        "capacity": 60,
+        "subject": "EDA"
+      },
+      {
+        "name": "21",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "20",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "EDA"
+      },
+      {
+        "name": "22",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "20",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "EDA"
+      },
+      {
+        "name": "23",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "20",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "EDA"
+      },
+
+      {
+        "name": "30",
+        "types":
+          [
+            "theory"
+          ],
+        "level": 0,
+        "nameParent": null,
+        "duration": 2,
+        "capacity": 60,
+        "subject": "EDA"
+      },
+      {
+        "name": "31",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "30",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "EDA"
+      },
+      {
+        "name": "32",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "30",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "EDA"
+      },
+      {
+        "name": "33",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "30",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "EDA"
+      },
+
+      {
+        "name": "40",
+        "types":
+          [
+            "theory"
+          ],
+        "level": 0,
+        "nameParent": null,
+        "duration": 2,
+        "capacity": 60,
+        "subject": "EDA"
+      },
+      {
+        "name": "41",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "40",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "EDA"
+      },
+      {
+        "name": "42",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "40",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "EDA"
+      },
+      {
+        "name": "43",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "40",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "EDA"
+      },
+
+
+      {
+        "name": "10",
+        "types":
+          [
+            "theory"
+          ],
+        "level": 0,
+        "nameParent": null,
+        "duration": 2,
+        "capacity": 60,
+        "subject": "SO"
+      },
+      {
+        "name": "11",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "10",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "SO"
+      },
+      {
+        "name": "12",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "10",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "SO"
+      },
+      {
+        "name": "13",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "10",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "SO"
+      },
+
+      {
+        "name": "20",
+        "types":
+          [
+            "theory"
+          ],
+        "level": 0,
+        "nameParent": null,
+        "duration": 2,
+        "capacity": 60,
+        "subject": "SO"
+      },
+      {
+        "name": "21",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "20",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "SO"
+      },
+      {
+        "name": "22",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "20",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "SO"
+      },
+      {
+        "name": "23",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "20",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "SO"
+      },
+
+      {
+        "name": "30",
+        "types":
+          [
+            "theory"
+          ],
+        "level": 0,
+        "nameParent": null,
+        "duration": 2,
+        "capacity": 60,
+        "subject": "SO"
+      },
+      {
+        "name": "31",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "30",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "SO"
+      },
+      {
+        "name": "32",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "30",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "SO"
+      },
+      {
+        "name": "33",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "30",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "SO"
+      },
+
+      {
+        "name": "40",
+        "types":
+          [
+            "theory"
+          ],
+        "level": 0,
+        "nameParent": null,
+        "duration": 2,
+        "capacity": 60,
+        "subject": "SO"
+      },
+      {
+        "name": "41",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "40",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "SO"
+      },
+      {
+        "name": "42",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "40",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "SO"
+      },
+      {
+        "name": "43",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "40",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "SO"
+      },
+
+
+      {
+        "name": "11",
+        "types":
+          [
+            "theory",
+            "problems"
+          ],
+        "level": 0,
+        "nameParent": null,
+        "duration": 4,
+        "capacity": 20,
+        "subject": "PE"
+      },
+      {
+        "name": "12",
+        "types":
+          [
+              "theory",
+              "problems"
+          ],
+        "level": 0,
+        "nameParent": null,
+        "duration": 4,
+        "capacity": 20,
+        "subject": "PE"
+      },
+
+      {
+        "name": "21",
+        "types":
+          [
+              "theory",
+              "problems"
+          ],
+        "level": 0,
+        "nameParent": null,
+        "duration": 4,
+        "capacity": 20,
+        "subject": "PE"
+      },
+      {
+        "name": "22",
+        "types":
+          [
+              "theory",
+              "problems"
+          ],
+        "level": 0,
+        "nameParent": null,
+        "duration": 4,
+        "capacity": 20,
+        "subject": "PE"
+      },
+
+      {
+        "name": "31",
+        "types":
+          [
+              "theory",
+              "problems"
+          ],
+        "level": 0,
+        "nameParent": null,
+        "duration": 4,
+        "capacity": 20,
+        "subject": "PE"
+      },
+      {
+        "name": "32",
+        "types":
+          [
+              "theory",
+              "problems"
+          ],
+        "level": 0,
+        "nameParent": null,
+        "duration": 4,
+        "capacity": 20,
+        "subject": "PE"
+      },
+
+      {
+        "name": "41",
+        "types":
+          [
+              "theory",
+              "problems"
+          ],
+        "level": 0,
+        "nameParent": null,
+        "duration": 4,
+        "capacity": 20,
+        "subject": "PE"
+      },
+      {
+        "name": "42",
+        "types":
+          [
+              "theory",
+              "problems"
+          ],
+        "level": 0,
+        "nameParent": null,
+        "duration": 4,
+        "capacity": 20,
+        "subject": "PE"
+      },
+
+
+      {
+        "name": "10",
+        "types":
+          [
+            "theory"
+          ],
+        "level": 0,
+        "nameParent": null,
+        "duration": 2,
+        "capacity": 60,
+        "subject": "AC"
+      },
+      {
+        "name": "11",
+        "types":
+          [
+            "laboratoryPC",
+            "problems"
+          ],
+        "level": 1,
+        "nameParent": "10",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "AC"
+      },
+      {
+        "name": "12",
+        "types":
+          [
+              "laboratoryPC",
+              "problems"
+          ],
+        "level": 1,
+        "nameParent": "10",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "AC"
+      },
+      {
+        "name": "13",
+        "types":
+          [
+              "laboratoryPC",
+              "problems"
+          ],
+        "level": 1,
+        "nameParent": "10",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "AC"
+      },
+
+      {
+        "name": "20",
+        "types":
+          [
+            "theory"
+          ],
+        "level": 0,
+        "nameParent": null,
+        "duration": 2,
+        "capacity": 60,
+        "subject": "AC"
+      },
+      {
+        "name": "21",
+        "types":
+          [
+              "laboratoryPC",
+              "problems"
+          ],
+        "level": 1,
+        "nameParent": "20",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "AC"
+      },
+      {
+        "name": "22",
+        "types":
+          [
+              "laboratoryPC",
+              "problems"
+          ],
+        "level": 1,
+        "nameParent": "20",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "AC"
+      },
+      {
+        "name": "23",
+        "types":
+          [
+              "laboratoryPC",
+              "problems"
+          ],
+        "level": 1,
+        "nameParent": "20",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "AC"
+      },
+
+      {
+        "name": "40",
+        "types":
+          [
+            "theory"
+          ],
+        "level": 0,
+        "nameParent": null,
+        "duration": 2,
+        "capacity": 60,
+        "subject": "AC"
+      },
+      {
+        "name": "41",
+        "types":
+          [
+              "laboratoryPC",
+              "problems"
+          ],
+        "level": 1,
+        "nameParent": "40",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "AC"
+      },
+      {
+        "name": "42",
+        "types":
+          [
+              "laboratoryPC",
+              "problems"
+          ],
+        "level": 1,
+        "nameParent": "40",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "AC"
+      },
+
+
+
+      {
+        "name": "10",
+        "types":
+          [
+              "theory"
+          ],
+        "level": 0,
+        "nameParent": null,
+        "duration": 4,
+        "capacity": 60,
+        "subject": "EEE"
+      },
+
+      {
+        "name": "20",
+        "types":
+          [
+              "theory"
+          ],
+        "level": 0,
+        "nameParent": null,
+        "duration": 4,
+        "capacity": 60,
+        "subject": "EEE"
+      },
+
+      {
+        "name": "40",
+        "types":
+          [
+              "theory"
+          ],
+        "level": 0,
+        "nameParent": null,
+        "duration": 4,
+        "capacity": 60,
+        "subject": "EEE"
+      },
+
+
+      {
+        "name": "10",
+        "types":
+          [
+            "theory"
+          ],
+        "level": 0,
+        "nameParent": null,
+        "duration": 2,
+        "capacity": 60,
+        "subject": "IES"
+      },
+      {
+        "name": "11",
+        "types":
+          [
+            "problems"
+          ],
+        "level": 1,
+        "nameParent": "10",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "IES"
+      },
+      {
+        "name": "12",
+        "types":
+          [
+            "problems"
+          ],
+        "level": 1,
+        "nameParent": "10",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "IES"
+      },
+      {
+        "name": "13",
+        "types":
+          [
+            "problems"
+          ],
+        "level": 1,
+        "nameParent": "10",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "IES"
+      },
+
+      {
+        "name": "20",
+        "types":
+          [
+            "theory"
+          ],
+        "level": 0,
+        "nameParent": null,
+        "duration": 2,
+        "capacity": 60,
+        "subject": "IES"
+      },
+      {
+        "name": "21",
+        "types":
+          [
+            "problems"
+          ],
+        "level": 1,
+        "nameParent": "20",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "IES"
+      },
+      {
+        "name": "22",
+        "types":
+          [
+            "problems"
+          ],
+        "level": 1,
+        "nameParent": "20",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "IES"
+      },
+      {
+        "name": "23",
+        "types":
+          [
+            "problems"
+          ],
+        "level": 1,
+        "nameParent": "20",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "IES"
+      },
+
+      {
+        "name": "40",
+        "types":
+          [
+            "theory"
+          ],
+        "level": 0,
+        "nameParent": null,
+        "duration": 2,
+        "capacity": 60,
+        "subject": "IES"
+      },
+      {
+        "name": "41",
+        "types":
+          [
+            "problems"
+          ],
+        "level": 1,
+        "nameParent": "40",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "IES"
+      },
+      {
+        "name": "42",
+        "types":
+          [
+            "problems"
+          ],
+        "level": 1,
+        "nameParent": "40",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "IES"
+      },
+
+
+      {
+        "name": "10",
+        "types":
+          [
+            "theory"
+          ],
+        "level": 0,
+        "nameParent": null,
+        "duration": 3,
+        "capacity": 60,
+        "subject": "XC"
+      },
+      {
+        "name": "11",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "10",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "XC"
+      },
+      {
+        "name": "12",
+        "types":
+          [
+              "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "10",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "XC"
+      },
+      {
+        "name": "13",
+        "types":
+          [
+              "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "10",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "XC"
+      },
+
+      {
+        "name": "20",
+        "types":
+          [
+            "theory"
+          ],
+        "level": 0,
+        "nameParent": null,
+        "duration": 3,
+        "capacity": 60,
+        "subject": "XC"
+      },
+      {
+        "name": "21",
+        "types":
+          [
+              "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "20",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "XC"
+      },
+      {
+        "name": "22",
+        "types":
+          [
+              "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "20",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "XC"
+      },
+      {
+        "name": "23",
+        "types":
+          [
+              "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "20",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "XC"
+      },
+
+      {
+        "name": "40",
+        "types":
+          [
+            "theory"
+          ],
+        "level": 0,
+        "nameParent": null,
+        "duration": 3,
+        "capacity": 60,
+        "subject": "XC"
+      },
+      {
+        "name": "41",
+        "types":
+          [
+              "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "40",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "XC"
+      },
+      {
+        "name": "42",
+        "types":
+          [
+              "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "40",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "XC"
+      },
+
+
+      {
+        "name": "10",
+        "types":
+          [
+            "theory"
+          ],
+        "level": 0,
+        "nameParent": null,
+        "duration": 2,
+        "capacity": 60,
+        "subject": "IDI"
+      },
+      {
+        "name": "11",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "10",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "IDI"
+      },
+      {
+        "name": "12",
+        "types":
+          [
+              "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "10",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "IDI"
+      },
+      {
+        "name": "13",
+        "types":
+          [
+              "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "10",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "IDI"
+      },
+
+      {
+        "name": "20",
+        "types":
+          [
+            "theory"
+          ],
+        "level": 0,
+        "nameParent": null,
+        "duration": 2,
+        "capacity": 60,
+        "subject": "IDI"
+      },
+      {
+        "name": "21",
+        "types":
+          [
+              "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "20",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "IDI"
+      },
+      {
+        "name": "22",
+        "types":
+          [
+              "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "20",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "IDI"
+      },
+      {
+        "name": "23",
+        "types":
+          [
+              "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "20",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "IDI"
+      },
+
+      {
+        "name": "30",
+        "types":
+          [
+            "theory"
+          ],
+        "level": 0,
+        "nameParent": null,
+        "duration": 2,
+        "capacity": 60,
+        "subject": "IDI"
+      },
+      {
+        "name": "31",
+        "types":
+          [
+              "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "30",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "IDI"
+      },
+      {
+        "name": "32",
+        "types":
+          [
+              "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "30",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "IDI"
+      },
+
+      {
+        "name": "40",
+        "types":
+          [
+            "theory"
+          ],
+        "level": 0,
+        "nameParent": null,
+        "duration": 2,
+        "capacity": 60,
+        "subject": "IDI"
+      },
+      {
+        "name": "41",
+        "types":
+          [
+              "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "40",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "IDI"
+      },
+      {
+        "name": "42",
+        "types":
+          [
+              "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "40",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "IDI"
+      },
+      {
+        "name": "43",
+        "types":
+          [
+              "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "40",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "IDI"
+      },
+
+
+      {
+        "name": "10",
+        "types":
+          [
+            "theory"
+          ],
+        "level": 0,
+        "nameParent": null,
+        "duration": 2,
+        "capacity": 60,
+        "subject": "PAR"
+      },
+      {
+        "name": "11",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "10",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "PAR"
+      },
+      {
+        "name": "12",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "10",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "PAR"
+      },
+      {
+        "name": "13",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "10",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "PAR"
+      },
+
+      {
+        "name": "20",
+        "types":
+          [
+            "theory"
+          ],
+        "level": 0,
+        "nameParent": null,
+        "duration": 2,
+        "capacity": 60,
+        "subject": "PAR"
+      },
+      {
+        "name": "21",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "20",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "PAR"
+      },
+      {
+        "name": "22",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "20",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "PAR"
+      },
+      {
+        "name": "23",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "20",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "PAR"
+      },
+
+      {
+        "name": "40",
+        "types":
+          [
+            "theory"
+          ],
+        "level": 0,
+        "nameParent": null,
+        "duration": 2,
+        "capacity": 60,
+        "subject": "PAR"
+      },
+      {
+        "name": "41",
+        "types":
+          [
+            "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "40",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "PAR"
+      },
+      {
+        "name": "42",
+        "types":
+          [
+            "laboratoryPCPC"
+          ],
+        "level": 1,
+        "nameParent": "40",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "PAR"
+      },
+
+
+      {
+        "name": "10",
+        "types":
+          [
+            "theory"
+          ],
+        "level": 0,
+        "nameParent": null,
+        "duration": 2,
+        "capacity": 60,
+        "subject": "PROP"
+      },
+      {
+        "name": "11",
+        "types":
+          [
+            "laboratory"
+          ],
+        "level": 1,
+        "nameParent": "10",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "PROP"
+      },
+      {
+        "name": "12",
+        "types":
+          [
+            "laboratory"
+          ],
+        "level": 1,
+        "nameParent": "10",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "PROP"
+      },
+      {
+        "name": "13",
+        "types":
+          [
+            "laboratory"
+          ],
+        "level": 1,
+        "nameParent": "10",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "PROP"
+      },
+      {
+        "name": "14",
+        "types":
+          [
+            "laboratory"
+          ],
+        "level": 1,
+        "nameParent": "10",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "PROP"
+      },
+
+      {
+        "name": "20",
+        "types":
+          [
+            "theory"
+          ],
+        "level": 0,
+        "nameParent": null,
+        "duration": 2,
+        "capacity": 60,
+        "subject": "PROP"
+      },
+      {
+        "name": "21",
+        "types":
+          [
+            "laboratory"
+          ],
+        "level": 1,
+        "nameParent": "20",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "PROP"
+      },
+      {
+        "name": "22",
+        "types":
+          [
+            "laboratory"
+          ],
+        "level": 1,
+        "nameParent": "20",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "PROP"
+      },
+      {
+        "name": "23",
+        "types":
+          [
+            "laboratory"
+          ],
+        "level": 1,
+        "nameParent": "20",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "PROP"
+      },
+      {
+        "name": "24",
+        "types":
+          [
+            "laboratory"
+          ],
+        "level": 1,
+        "nameParent": "20",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "PROP"
+      },
+      {
+        "name": "25",
+        "types":
+          [
+            "laboratory"
+          ],
+        "level": 1,
+        "nameParent": "20",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "PROP"
+      },
+
+      {
+        "name": "40",
+        "types":
+          [
+            "theory"
+          ],
+        "level": 0,
+        "nameParent": null,
+        "duration": 2,
+        "capacity": 60,
+        "subject": "PROP"
+      },
+      {
+        "name": "41",
+        "types":
+          [
+            "laboratory"
+          ],
+        "level": 1,
+        "nameParent": "40",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "PROP"
+      },
+      {
+        "name": "42",
+        "types":
+          [
+            "laboratory"
+          ],
+        "level": 1,
+        "nameParent": "40",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "PROP"
+      },
+      {
+        "name": "43",
+        "types":
+          [
+            "laboratory"
+          ],
+        "level": 1,
+        "nameParent": "40",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "PROP"
+      },
+      {
+        "name": "44",
+        "types":
+          [
+            "laboratory"
+          ],
+        "level": 1,
+        "nameParent": "40",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "PROP"
+      },
+
+
+
+
+
       {
         "name": "11",
         "types":
@@ -59,42 +4629,6 @@
         "duration": 2,
         "capacity": 30,
         "subject": "A"
-      },
-      {
-        "name": "40",
-        "types":
-          [
-            "theory"
-          ],
-        "level": 0,
-        "nameParent": null,
-        "duration": 2,
-        "capacity": 60,
-        "subject": "PROP"
-      },
-      {
-        "name": "43",
-        "types":
-          [
-            "laboratory"
-          ],
-        "level": 1,
-        "nameParent": "40",
-        "duration": 2,
-        "capacity": 30,
-        "subject": "PROP"
-      },
-      {
-        "name": "44",
-        "types":
-          [
-            "theory"
-          ],
-        "level": 1,
-        "nameParent": "40",
-        "duration": 2,
-        "capacity": 30,
-        "subject": "PROP"
       }
     ],
     "classrooms":
