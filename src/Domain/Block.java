@@ -139,4 +139,52 @@ public class Block {
         }
         return new Out(Boolean.TRUE);
     }
+
+
+    /**
+     * Checks that a laboratoryPC group must be assigned to a classroom with PCs
+     * @param input in[0] The schedule we want to check.     *
+     * @return true if all groups of type "laboratoryPC are assigned to a classroom with computers.
+     */
+    public static Out laboratoryPCgroupHasPCs(In input) {
+        Schedule s = (Schedule) input.getIn(0);
+        LinkedHashSet<Class> classes = s.getClasses();
+        for (Class c : classes) {
+            Group g = c.getGroup();
+            if (g.hasType("laboratoryPC")) {
+                Classroom cl = c.getClassroom();
+                if (!cl.hasExtra("computers")) return new Out(Boolean.FALSE);
+            }
+        }
+        return new Out(Boolean.TRUE);
+    }
+
+    /**
+     * Checks that a group and a subgroup of the same subject cannot be overlapped
+     * @param input in[0] The schedule we want to check.
+     * @return true if no group is overlapped with its own subgroup of a subject.
+     */
+    public static Out noGroupSubGroupOverlapped(In input) {
+        Schedule s = (Schedule) input.getIn(0);
+        LinkedHashSet<Class> classes = s.getClasses();
+        for (Class c : classes) {
+            Group g = c.getGroup();
+            Group pg = Groups.getInstance().get(g.getParentGroupID());
+            for(Class cc : classes){
+                if(cc.getGroup().equals(pg)){
+                    if(areOverlapped(c,cc)) return new Out(Boolean.FALSE);
+                }
+            }
+        }
+        return new Out(Boolean.TRUE);
+    }
+
+    public static Boolean areOverlapped(Class c1, Class c2) {
+        Integer sh1 = c1.getDateTime().getStartHour();
+        Integer eh1 = c1.getDateTime().getEndHour();
+        Integer sh2 = c2.getDateTime().getStartHour();
+        Integer eh2 = c2.getDateTime().getEndHour();
+        if(c1.getDateTime().getWeekday().equals(c2.getDateTime().getWeekday()) && (eh1 <= sh2 || eh2 <= sh1)) return false;
+        else return true;
+    }
 }
