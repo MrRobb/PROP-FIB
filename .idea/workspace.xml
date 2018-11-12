@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+    <list id="2359001d-d985-4a8b-8ebc-422acdf50f2f" name="Default" comment="" />
     <list default="true" id="aa2f1aa1-9b69-405b-87b4-eb516390aa6d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/json/degreeReal.json" beforeDir="false" afterPath="$PROJECT_DIR$/json/degreeReal.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/ClassroomsFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/ClassroomsFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/DomainCtrl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/DomainCtrl.java" afterDir="false" />
     </list>
-    <list id="2359001d-d985-4a8b-8ebc-422acdf50f2f" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -122,53 +122,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Group.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Domain/Group.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1836">
-              <caret line="118" column="29" selection-start-line="118" selection-start-column="29" selection-end-line="118" selection-end-column="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DomainCtrl.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="DomainCtrl.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Domain/DomainCtrl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="156">
+            <state relative-caret-position="534">
               <caret line="74" selection-start-line="74" selection-end-line="74" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DegreesFactory.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Domain/DegreesFactory.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-288">
-              <caret line="19" column="37" lean-forward="true" selection-start-line="19" selection-start-column="37" selection-end-line="19" selection-end-column="37" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SubjectsFactory.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Domain/SubjectsFactory.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="26" column="66" lean-forward="true" selection-start-line="26" selection-start-column="66" selection-end-line="26" selection-end-column="66" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Classrooms.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Domain/Classrooms.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="457">
-              <caret line="71" column="5" selection-start-line="71" selection-start-column="5" selection-end-line="71" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -259,6 +217,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
@@ -287,7 +246,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="Course" />
     </panes>
@@ -444,12 +402,12 @@
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" weight="0.32921174" />
       <window_info anchor="right" id="Maven Projects" order="7" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.44952178" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.4484591" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32959184" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Designer" order="3" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.253778" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2527358" />
       <window_info id="Learn" order="5" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.2496617" />
@@ -457,35 +415,14 @@
       <window_info anchor="right" id="Theme Preview" order="5" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" order="7" side_tool="true" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Theme Preview" order="5" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.2496617" />
       <window_info anchor="bottom" id="Run with VisualVM" order="11" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Debug with VisualVM" order="12" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25274727" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32959184" />
-      <window_info anchor="right" id="Palette&#9;" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.4489796" />
-      <window_info id="Image Layers" order="2" />
-      <window_info id="Designer" order="3" />
-      <window_info id="UI Designer" order="4" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info id="Learn" order="5" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.32731137" />
+      <window_info anchor="bottom" id="Debug with VisualVM" order="12" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" weight="0.32921174" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info id="Capture Tool" order="6" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32959184" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32959184" />
-      <window_info anchor="right" id="Maven Projects" order="7" />
-      <window_info id="Favorites" order="7" side_tool="true" />
     </layout>
     <layout-to-restore>
       <window_info anchor="right" id="Palette" order="3" />
@@ -493,23 +430,23 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3631841" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25274727" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="UI Designer" order="4" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="right" id="Theme Preview" order="5" />
       <window_info id="Learn" order="5" />
       <window_info anchor="right" id="Palette&#9;" order="6" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.32857144" />
@@ -529,9 +466,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1098">
           <caret line="65" column="40" selection-start-line="65" selection-start-column="40" selection-end-line="65" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -546,31 +480,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1512">
           <caret line="222" selection-start-line="222" selection-end-line="222" />
-          <folding>
-            <element signature="docComment;class#Class#0" />
-            <element signature="docComment;field#dateTimeID#0;class#Class#0" />
-            <element signature="docComment;method#Class#0;class#Class#0" />
-            <element signature="method#Class#0;class#Class#0" />
-            <element signature="docComment;method#isOK#0;class#Class#0" />
-            <element signature="method#isOK#0;class#Class#0" />
-            <element signature="docComment;method#getDateTimeID#0;class#Class#0" />
-            <element signature="docComment;method#setDateTimeID#0;class#Class#0" />
-            <element signature="method#setDateTimeID#0;class#Class#0" />
-            <element signature="docComment;method#getDateTime#0;class#Class#0" />
-            <element signature="docComment;method#setDateTime#0;class#Class#0" />
-            <element signature="method#setDateTime#0;class#Class#0" />
-            <element signature="docComment;method#getGroupID#0;class#Class#0" />
-            <element signature="docComment;method#setGroupID#0;class#Class#0" />
-            <element signature="method#setGroupID#0;class#Class#0" />
-            <element signature="docComment;method#getGroup#0;class#Class#0" />
-            <element signature="docComment;method#setGroup#0;class#Class#0" />
-            <element signature="method#setGroup#0;class#Class#0" />
-            <element signature="docComment;method#getClassroomID#0;class#Class#0" />
-            <element signature="docComment;method#setClassroomID#0;class#Class#0" />
-            <element signature="method#setClassroomID#0;class#Class#0" />
-            <element signature="docComment;method#getClassroom#0;class#Class#0" />
-            <element signature="docComment;method#setClassroom#0;class#Class#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -578,18 +487,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1062">
           <caret line="118" selection-start-line="118" selection-end-line="118" />
-          <folding>
-            <element signature="docComment;class#WeekDay#0;class#DateTime#0" />
-            <element signature="docComment;field#weekday#0;class#DateTime#0" />
-            <element signature="docComment;method#DateTime#0;class#DateTime#0" />
-            <element signature="method#DateTime#0;class#DateTime#0" />
-            <element signature="docComment;method#getWeekday#0;class#DateTime#0" />
-            <element signature="method#setWeekday#0;class#DateTime#0" />
-            <element signature="method#setStartHour#0;class#DateTime#0" />
-            <element signature="method#setEndHour#0;class#DateTime#0" />
-            <element signature="method#setDuration#0;class#DateTime#0" />
-            <element signature="method#equals#0;class#DateTime#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -634,9 +531,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="81">
           <caret line="21" column="77" lean-forward="true" selection-start-line="21" selection-start-column="77" selection-end-line="21" selection-end-column="81" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -651,9 +545,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
           <caret line="19" column="37" lean-forward="true" selection-start-line="19" selection-start-column="37" selection-end-line="19" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -668,9 +559,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="156">
           <caret line="25" selection-start-line="25" selection-end-line="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -708,13 +596,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="334">
           <caret line="47" column="19" selection-start-line="47" selection-start-column="19" selection-end-line="47" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#4395#4412#0" expanded="true" />
-            <element signature="e#4281#4298#0" expanded="true" />
-            <element signature="e#3461#3462#0" expanded="true" />
-            <element signature="e#3533#3534#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -787,12 +668,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="11" column="28" lean-forward="true" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
-          <folding>
-            <element signature="method#getInstance#0;class#Blocks#0" />
-            <element signature="method#add#0;class#Blocks#0" />
-            <element signature="method#delete#0;class#Blocks#0" />
-            <element signature="docComment;method#get#0;class#Blocks#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -800,9 +675,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="975">
           <caret line="65" column="40" selection-start-line="65" selection-start-column="40" selection-end-line="65" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -817,31 +689,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="477">
           <caret line="219" column="28" lean-forward="true" selection-start-line="219" selection-start-column="28" selection-end-line="219" selection-end-column="28" />
-          <folding>
-            <element signature="docComment;class#Class#0" />
-            <element signature="docComment;field#dateTimeID#0;class#Class#0" />
-            <element signature="docComment;method#Class#0;class#Class#0" />
-            <element signature="method#Class#0;class#Class#0" />
-            <element signature="docComment;method#isOK#0;class#Class#0" />
-            <element signature="method#isOK#0;class#Class#0" />
-            <element signature="docComment;method#getDateTimeID#0;class#Class#0" />
-            <element signature="docComment;method#setDateTimeID#0;class#Class#0" />
-            <element signature="method#setDateTimeID#0;class#Class#0" />
-            <element signature="docComment;method#getDateTime#0;class#Class#0" />
-            <element signature="docComment;method#setDateTime#0;class#Class#0" />
-            <element signature="method#setDateTime#0;class#Class#0" />
-            <element signature="docComment;method#getGroupID#0;class#Class#0" />
-            <element signature="docComment;method#setGroupID#0;class#Class#0" />
-            <element signature="method#setGroupID#0;class#Class#0" />
-            <element signature="docComment;method#getGroup#0;class#Class#0" />
-            <element signature="docComment;method#setGroup#0;class#Class#0" />
-            <element signature="method#setGroup#0;class#Class#0" />
-            <element signature="docComment;method#getClassroomID#0;class#Class#0" />
-            <element signature="docComment;method#setClassroomID#0;class#Class#0" />
-            <element signature="method#setClassroomID#0;class#Class#0" />
-            <element signature="docComment;method#getClassroom#0;class#Class#0" />
-            <element signature="docComment;method#setClassroom#0;class#Class#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -849,18 +696,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="443">
           <caret line="115" column="28" selection-start-line="115" selection-start-column="28" selection-end-line="115" selection-end-column="28" />
-          <folding>
-            <element signature="docComment;class#WeekDay#0;class#DateTime#0" />
-            <element signature="docComment;field#weekday#0;class#DateTime#0" />
-            <element signature="docComment;method#DateTime#0;class#DateTime#0" />
-            <element signature="method#DateTime#0;class#DateTime#0" />
-            <element signature="docComment;method#getWeekday#0;class#DateTime#0" />
-            <element signature="method#setWeekday#0;class#DateTime#0" />
-            <element signature="method#setStartHour#0;class#DateTime#0" />
-            <element signature="method#setEndHour#0;class#DateTime#0" />
-            <element signature="method#setDuration#0;class#DateTime#0" />
-            <element signature="method#equals#0;class#DateTime#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -888,10 +723,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="533">
           <caret line="83" column="25" selection-start-line="83" selection-start-column="25" selection-end-line="83" selection-end-column="25" />
-          <folding>
-            <element signature="e#1366#1367#0" expanded="true" />
-            <element signature="e#1380#1381#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -932,9 +763,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
           <caret line="26" column="66" lean-forward="true" selection-start-line="26" selection-start-column="66" selection-end-line="26" selection-end-column="66" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -942,16 +770,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
           <caret line="23" column="61" selection-start-line="23" selection-start-column="61" selection-end-line="23" selection-end-column="61" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Domain/DomainCtrl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="74" selection-start-line="74" selection-end-line="74" />
         </state>
       </provider>
     </entry>
@@ -967,11 +785,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Domain/DegreesFactory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-288">
+        <state relative-caret-position="342">
           <caret line="19" column="37" lean-forward="true" selection-start-line="19" selection-start-column="37" selection-end-line="19" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Domain/DomainCtrl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="534">
+          <caret line="74" selection-start-line="74" selection-end-line="74" />
         </state>
       </provider>
     </entry>
