@@ -67,6 +67,10 @@ public class Restriction {
         }
     }
 
+    public String getName() {
+        return name;
+    }
+
     public boolean isMandatory() {
         return mandatory;
     }

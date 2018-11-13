@@ -12,4 +12,5 @@ public class BlocksFactory {
 		Blocks.getInstance().add("No group and subgroup overlapped", Block::noGroupSubGroupOverlapped);
 		return true;
 	}
+
 }

@@ -85,7 +85,8 @@ public class DomainCtrl {
         System.out.println("*************************");
 
 		DateTimesFactory.produce();
-
+        BlocksFactory.produce();
+		RestrictionsFactory.producePrueba();
 		TreeSet<Schedule> schedules = Generator.getInstance().generate();
 		Scanner user_input = new Scanner(System.in);
         if (schedules.isEmpty()) System.out.println("Enable to generate any schedule with the actual restrictions");

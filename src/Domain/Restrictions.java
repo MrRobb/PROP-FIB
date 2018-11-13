@@ -39,9 +39,9 @@ public class Restrictions {
             return false;
         }
 
-        Restriction restriction = getAvailableRestriction(name);
 
-        restriction.setParameters(args);
+        Restriction restriction = getAvailableRestriction(name + ": " + args.toString());
+        if(args.size() != 0) restriction.setParameters(args);
 
         applieds.put(name, restriction);
         return true;
@@ -52,7 +52,15 @@ public class Restrictions {
         return true;
     }
 
-    public boolean addAvailable(String name, Restriction restriction) {
+    public boolean clearAvailable() {
+        applieds.clear();
+        available.clear();
+        return true;
+    }
+
+    public boolean addAvailable(Restriction restriction) {
+
+        String name = restriction.getName();
 
         if (isAvailable(name)) {
             return false;
