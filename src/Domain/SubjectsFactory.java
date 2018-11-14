@@ -23,7 +23,7 @@ public class SubjectsFactory {
                 JSONObject subj = (JSONObject) itrs.next();
                 String namesubj = (String) subj.get("name");
                 Double crts = (Double) subj.get("credits");
-                Integer sem = (Integer) subj.get("semester");
+                Integer sem = (int)(long) subj.get("semester");
                 Boolean mand = (Boolean) subj.get("mandatory");
                 String spec = (String) subj.get("speciality");
                 Subject s = new Subject(namesubj, sem, crts, mand, spec);
