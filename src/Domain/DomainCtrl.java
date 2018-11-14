@@ -1,8 +1,13 @@
 package Domain;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.*;
 
 import jdk.nashorn.internal.ir.debug.JSONWriter;
-import jdk.nashorn.internal.parser.JSONParser;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 import static java.lang.System.exit;
 
@@ -75,13 +80,13 @@ public class DomainCtrl {
                     if (saveSchedule(s)) System.out.println("Schedule saved successfully!");
                     else System.out.println("Failed on saving!");
                 }
-                else if (saveOption == 2) {
-                    System.out.println("Schedule skipped!");
-                }
-                else optionError();
-                i++;
             }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ParseException e) {
+            e.printStackTrace();
         }
+
 	}
 
 	public static boolean showSchedule(Schedule s, int i) {

@@ -11,612 +11,714 @@
     [
       {
         "name": "F",
+        "semester": 1,
         "credits": 7.5,
         "mandatory": true,
         "speciality": null
       },
       {
         "name": "IC",
+        "semester": 1,
         "credits": 7.5,
         "mandatory": true,
         "speciality": null
       },
       {
         "name": "PRO1",
+        "semester": 1,
         "credits": 7.5,
         "mandatory": true,
         "speciality": null
       },
       {
         "name": "PRO2",
+        "semester": 2,
         "credits": 7.5,
         "mandatory": true,
         "speciality": null
       },
       {
         "name": "FM",
+        "semester": 1,
         "credits": 7.5,
         "mandatory": true,
         "speciality": null
       },
       {
         "name": "EC",
+        "semester": 2,
         "credits": 7.5,
         "mandatory": true,
         "speciality": null
       },
       {
         "name": "M1",
+        "semester": 2,
         "credits": 7.5,
         "mandatory": true,
         "speciality": null
       },
       {
         "name": "M2",
+        "semester": 2,
         "credits": 6.0,
         "mandatory": true,
         "speciality": null
       },
       {
         "name": "BD",
+        "semester": 3,
         "credits": 6.0,
         "mandatory": true,
         "speciality": null
       },
       {
         "name": "CI",
+        "semester": 3,
         "credits": 6.0,
         "mandatory": true,
         "speciality": null
       },
       {
         "name": "EDA",
+        "semester": 3,
         "credits": 6.0,
         "mandatory": true,
         "speciality": null
       },
       {
         "name": "PE",
+        "semester": 3,
         "credits": 6.0,
         "mandatory": true,
         "speciality": null
       },
       {
         "name": "SO",
+        "semester": 3,
         "credits": 6.0,
         "mandatory": true,
         "speciality": null
       },
       {
         "name": "AC",
+        "semester": 4,
         "credits": 6.0,
         "mandatory": true,
         "speciality": null
       },
       {
         "name": "EEE",
+        "semester": 4,
         "credits": 6.0,
         "mandatory": true,
         "speciality": null
       },
       {
         "name": "IES",
+        "semester": 4,
         "credits": 6.0,
         "mandatory": true,
         "speciality": null
       },
       {
         "name": "IDI",
+        "semester": 4,
         "credits": 6.0,
         "mandatory": true,
         "speciality": null
       },
       {
         "name": "XC",
+        "semester": 4,
         "credits": 6.0,
         "mandatory": true,
         "speciality": null
       },
       {
         "name": "PAR",
+        "semester": 5,
         "credits": 6.0,
         "mandatory": true,
         "speciality": null
       },
       {
         "name": "PROP",
+        "semester": 6,
         "credits": 6.0,
         "mandatory": true,
         "speciality": null
       },
       {
         "name": "A",
+        "semester": -1,
         "credits": 6.0,
         "mandatory": true,
         "speciality": "computing"
       },
       {
         "name": "G",
+        "semester": -1,
         "credits": 6.0,
         "mandatory": true,
         "speciality": "computing"
       },
       {
         "name": "IA",
+        "semester": -1,
         "credits": 6.0,
         "mandatory": true,
         "speciality": "computing"
       },
       {
         "name": "LI",
+        "semester": -1,
         "credits": 6.0,
         "mandatory": true,
         "speciality": "computing"
       },
       {
         "name": "LP",
+        "semester": -1,
         "credits": 6.0,
         "mandatory": true,
         "speciality": "computing"
       },
       {
         "name": "TC",
+        "semester": -1,
         "credits": 6.0,
         "mandatory": true,
         "speciality": "computing"
       },
       {
         "name": "AA",
+        "semester": -1,
         "credits": 6.0,
         "mandatory": false,
         "speciality": "computing"
       },
       {
         "name": "APA",
+        "semester": -1,
         "credits": 6.0,
         "mandatory": false,
         "speciality": "computing"
       },
       {
         "name": "CAIM",
+        "semester": -1,
         "credits": 6.0,
         "mandatory": false,
         "speciality": "computing"
       },
       {
         "name": "CL",
+        "semester": -1,
         "credits": 6.0,
         "mandatory": false,
         "speciality": "computing"
       },
       {
         "name": "CN",
+        "semester": -1,
         "credits": 6.0,
         "mandatory": false,
         "speciality": "computing"
       },
       {
         "name": "IO",
+        "semester": -1,
         "credits": 6.0,
         "mandatory": false,
         "speciality": "computing"
       },
       {
         "name": "SID",
+        "semester": -1,
         "credits": 6.0,
         "mandatory": false,
         "speciality": "computing"
       },
       {
         "name": "AC2",
+        "semester": -1,
         "credits": 6.0,
         "mandatory": true,
         "speciality": "hardware"
       },
       {
         "name": "DSBM",
+        "semester": -1,
         "credits": 6.0,
         "mandatory": true,
         "speciality": "hardware"
       },
       {
         "name": "MP",
+        "semester": -1,
         "credits": 6.0,
         "mandatory": true,
         "speciality": "hardware"
       },
       {
         "name": "PEC",
+        "semester": -1,
         "credits": 6.0,
         "mandatory": true,
         "speciality": "hardware"
       },
       {
         "name": "SO2",
+        "semester": -1,
         "credits": 6.0,
         "mandatory": true,
         "speciality": "hardware"
       },
       {
         "name": "XC2",
+        "semester": -1,
         "credits": 6.0,
         "mandatory": true,
         "speciality": "hardware"
       },
       {
         "name": "CASO",
+        "semester": -1,
         "credits": 6.0,
         "mandatory": false,
         "speciality": "hardware"
       },
       {
         "name": "CPD",
+        "semester": -1,
         "credits": 6.0,
         "mandatory":false,
         "speciality": "hardware"
       },
       {
         "name": "PAP",
+        "semester": -1,
         "credits": 6.0,
         "mandatory": false,
         "speciality": "hardware"
       },
       {
         "name": "PCA",
+        "semester": -1,
         "credits": 6.0,
         "mandatory": false,
         "speciality": "hardware"
       },
       {
         "name": "PDS",
+        "semester": -1,
         "credits": 6.0,
         "mandatory": false,
         "speciality": "hardware"
       },
       {
         "name": "STR",
+        "semester": -1,
         "credits": 6.0,
         "mandatory": false,
         "speciality": "hardware"
       },
       {
         "name": "VLSI",
+        "semester": -1,
         "credits": 6.0,
         "mandatory": false,
         "speciality": "hardware"
       },
       {
         "name": "AS",
+        "semester": -1,
         "credits": 6.0,
         "mandatory": true,
         "speciality": "software"
       },
       {
         "name": "ASW",
+        "semester": -1,
         "credits": 6.0,
         "mandatory": true,
         "speciality": "software"
       },
       {
         "name": "DBD",
+        "semester": -1,
         "credits": 6.0,
         "mandatory": true,
         "speciality": "software"
       },
       {
         "name": "ER",
+        "semester": -1,
         "credits": 6.0,
         "mandatory": true,
         "speciality": "software"
       },
       {
         "name": "GPS",
+        "semester": -1,
         "credits": 6.0,
         "mandatory": true,
         "speciality": "software"
       },
       {
         "name": "PES",
+        "semester": -1,
         "credits": 6.0,
         "mandatory": true,
         "speciality": "software"
       },
       {
         "name": "CAP",
+        "semester": -1,
         "credits": 6.0,
         "mandatory": false,
         "speciality": "software"
       },
       {
         "name": "CBDE",
+        "semester": -1,
         "credits": 6.0,
         "mandatory": false,
         "speciality": "software"
       },
       {
         "name": "CSI",
+        "semester": -1,
         "credits": 6.0,
         "mandatory": false,
         "speciality": "software"
       },
       {
         "name": "ECSDI",
+        "semester": -1,
         "credits": 6.0,
         "mandatory": false,
         "speciality": "software"
       },
       {
         "name": "SIM",
+        "semester": -1,
         "credits": 6.0,
         "mandatory": false,
         "speciality": "software"
       },
       {
         "name": "SOAD",
+        "semester": -1,
         "credits": 6.0,
         "mandatory": false,
         "speciality": "software"
       },
       {
         "name": "ADEI",
+        "semester": -1,
         "credits": 6.0,
         "mandatory": true,
         "speciality": "information systems"
       },
       {
         "name": "DSI",
+        "semester": -1,
         "credits": 6.0,
         "mandatory": true,
         "speciality": "information systems"
       },
       {
         "name": "ER",
+        "semester": -1,
         "credits": 6.0,
         "mandatory": true,
         "speciality": "information systems"
       },
       {
         "name": "NE",
+        "semester": -1,
         "credits": 6.0,
         "mandatory": true,
         "speciality": "information systems"
       },
       {
         "name": "PSI",
+        "semester": -1,
         "credits": 6.0,
         "mandatory": true,
         "speciality": "information systems"
       },
       {
         "name": "SIO",
+        "semester": -1,
         "credits": 6.0,
         "mandatory": true,
         "speciality": "information systems"
       },
       {
         "name": "ABD",
+        "semester": -1,
         "credits": 6.0,
         "mandatory": false,
         "speciality": "information systems"
       },
       {
         "name": "CAIM",
+        "semester": -1,
         "credits": 6.0,
         "mandatory": false,
         "speciality": "information systems"
       },
       {
         "name": "EDO",
+        "semester": -1,
         "credits": 6.0,
         "mandatory": false,
         "speciality": "information systems"
       },
       {
         "name": "IO",
+        "semester": -1,
         "credits": 6.0,
         "mandatory": false,
         "speciality": "information systems"
       },
       {
         "name": "MI",
+        "semester": -1,
         "credits": 6.0,
         "mandatory": false,
         "speciality": "information systems"
       },
       {
         "name": "VPE",
+        "semester": -1,
         "credits": 6.0,
         "mandatory": false,
         "speciality": "information systems"
       },
       {
         "name": "ASO",
+        "semester": -1,
         "credits": 6.0,
         "mandatory": true,
         "speciality": "tic"
       },
       {
         "name": "PI",
+        "semester": -1,
         "credits": 6.0,
         "mandatory": true,
         "speciality": "tic"
       },
       {
         "name": "PTI",
+        "semester": -1,
         "credits": 6.0,
         "mandatory": true,
         "speciality": "tic"
       },
       {
         "name": "SI",
+        "semester": -1,
         "credits": 6.0,
         "mandatory": true,
         "speciality": "tic"
       },
       {
         "name": "SOA",
+        "semester": -1,
         "credits": 6.0,
         "mandatory": true,
         "speciality": "tic"
       },
       {
         "name": "TXC",
+        "semester": -1,
         "credits": 6.0,
         "mandatory": true,
         "speciality": "tic"
       },
       {
         "name": "AD",
+        "semester": -1,
         "credits": 6.0,
         "mandatory": false,
         "speciality": "tic"
       },
       {
         "name": "CASO",
+        "semester": -1,
         "credits": 6.0,
         "mandatory": false,
         "speciality": "tic"
       },
       {
         "name": "CPD",
+        "semester": -1,
         "credits": 6.0,
         "mandatory": false,
         "speciality": "tic"
       },
       {
         "name": "IM",
+        "semester": -1,
         "credits": 6.0,
         "mandatory": false,
         "speciality": "tic"
       },
       {
         "name": "SDX",
+        "semester": -1,
         "credits": 6.0,
         "mandatory": false,
         "speciality": "tic"
       },
       {
         "name": "TCI",
+        "semester": -1,
         "credits": 6.0,
         "mandatory": false,
         "speciality": "tic"
       },
       {
         "name": "APC",
+        "semester": -1,
         "credits": 6.0,
         "mandatory": false,
         "speciality": null
       },
       {
         "name": "APSS",
+        "semester": -1,
         "credits": 6.0,
         "mandatory": false,
         "speciality": null
       },
       {
         "name": "ASDP",
+        "semester": -1,
         "credits": 6.0,
         "mandatory": false,
         "speciality": null
       },
       {
         "name": "ASMI",
+        "semester": -1,
         "credits": 6.0,
         "mandatory": false,
         "speciality": null
       },
       {
         "name": "C",
+        "semester": -1,
         "credits": 6.0,
         "mandatory": false,
         "speciality": null
       },
       {
         "name": "CCQ",
+        "semester": -1,
         "credits": 6.0,
         "mandatory": false,
         "speciality": null
       },
       {
         "name": "CDI",
+        "semester": -1,
         "credits": 6.0,
         "mandatory": false,
         "speciality": null
       },
       {
         "name": "DCS",
+        "semester": -1,
         "credits": 6.0,
         "mandatory": false,
         "speciality": null
       },
       {
         "name": "FDM",
+        "semester": -1,
         "credits": 6.0,
         "mandatory": false,
         "speciality": null
       },
       {
         "name": "FOMAR",
+        "semester": -1,
         "credits": 6.0,
         "mandatory": false,
         "speciality": null
       },
       {
         "name": "GCS",
+        "semester": -1,
         "credits": 6.0,
         "mandatory": false,
         "speciality": null
       },
       {
         "name": "GEOC",
+        "semester": -1,
         "credits": 6.0,
         "mandatory": false,
         "speciality": null
       },
       {
         "name": "MD",
+        "semester": -1,
         "credits": 6.0,
         "mandatory": false,
         "speciality": null
       },
       {
         "name": "PAE",
+        "semester": -1,
         "credits": 6.0,
         "mandatory": false,
         "speciality": null
       },
       {
         "name": "ROB",
+        "semester": -1,
         "credits": 6.0,
         "mandatory": false,
         "speciality": null
       },
       {
         "name": "SLDS",
+        "semester": -1,
         "credits": 6.0,
         "mandatory": false,
         "speciality": null
       },
       {
         "name": "TGA",
+        "semester": -1,
         "credits": 6.0,
         "mandatory": false,
         "speciality": null
       },
       {
         "name": "VC",
+        "semester": -1,
         "credits": 6.0,
         "mandatory": false,
         "speciality": null
       },
       {
         "name": "VJ",
+        "semester": -1,
         "credits": 6.0,
         "mandatory": false,
         "speciality": null
       },
       {
         "name": "WSE",
+        "semester": -1,
         "credits": 6.0,
         "mandatory": false,
         "speciality": null

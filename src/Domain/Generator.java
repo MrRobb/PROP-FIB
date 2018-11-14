@@ -1,5 +1,6 @@
 package Domain;
 
+import com.sun.xml.internal.ws.api.message.ExceptionHasMessage;
 import javafx.util.Pair;
 import java.util.*;
 
@@ -34,10 +35,11 @@ public class Generator {
 		TreeSet<Schedule> schedules = new TreeSet<>();
 		Schedule schedule = new Schedule(dates.keySet(), classrooms.keySet());
 
-		if (generateSchedules(schedules, schedule, groups, groups.entrySet().iterator())) {
+		try {
+			generateSchedules(schedules, schedule, groups, groups.entrySet().iterator());
 			return schedules;
 		}
-		else {
+		catch (Exception e) {
 			return new TreeSet<>();
 		}
 	}
@@ -45,7 +47,7 @@ public class Generator {
 	/*
 	 * Helpers
 	 */
-	private boolean generateSchedules(TreeSet<Schedule> schedules, Schedule schedule, LinkedHashMap<Integer, Group> groups, Iterator<Map.Entry<Integer, Group>> it) {
+	private Integer generateSchedules(TreeSet<Schedule> schedules, Schedule schedule, LinkedHashMap<Integer, Group> groups, Iterator<Map.Entry<Integer, Group>> it) {
 
 		if (!it.hasNext()) {
 			schedules.add(new Schedule(schedule));
@@ -54,7 +56,11 @@ public class Generator {
 				schedules.pollLast();
 			}
 
-			return schedule.getScore() != null && schedule.getScore() >= 0;
+			if (schedules.size() == Schedules.getMaxSize() && schedules.last().getScore() == Schedules.getMaxScore()) {
+				return null;
+			}
+
+			return schedule.getScore();
 		}
 
 		Map.Entry<Integer, Group> entry = it.next();
@@ -72,12 +78,18 @@ public class Generator {
 			schedule.addClass(c);
 
 			if (Restrictions.getInstance().Check(schedule)) {
-				anySolution = anySolution | generateSchedules(schedules, schedule, groups, it);
+
+				Integer score = generateSchedules(schedules, schedule, groups, it);
+
+				if (score == null) {
+					// We have filled all of the schedules necessary
+					return schedules.first() != null ? schedules.first().getScore() : Integer.MIN_VALUE;
+				}
 			}
 
 			schedule.removeClass(c);
 		}
 
-		return anySolution;
+		return schedules.first() != null ? schedules.first().getScore() : Integer.MIN_VALUE;
 	}
 }
