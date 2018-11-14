@@ -100,6 +100,75 @@ public class Functions {
         return new Out(Boolean.TRUE);
     }
 
+    /**
+     * Checks that a laboratoryPC group must be assigned to a classroom with PCs
+     * @param input in[0] The schedule we want to check.     *
+     * @return true if all groups of type "laboratoryPC are assigned to a classroom with computers.
+     */
+    public static Out groupRequiresClassroomWithExtras(In input) {
+        Schedule s = (Schedule) input.getIn(0);
+        String extra = (String) input.getArgs(0);
+        String type = (String) input.getArgs(0);
+        LinkedHashSet<Class> classes = s.getClasses();
+        for (Class c : classes) {
+            Group g = c.getGroup();
+            if (g.hasType(type)) {
+                Classroom cl = c.getClassroom();
+                if (!cl.hasExtra(extra)) return new Out(Boolean.FALSE);
+            }
+        }
+        return new Out(Boolean.TRUE);
+    }
+
+    /**
+     * Checks that two groups of the same level with the same name cannot be overlapped.
+     * @param input in[0] The schedule we want to check.
+     * @return true if no group is overlapped with a group of the same level and name.
+     */
+    /*public static Out ifSubjHasMoreThanNGroupsThenAfternoon (In input) {
+        Schedule s = (Schedule) input.getIn(0);
+        Integer n = (Integer) input.getArgs(0);
+        Integer minHour = (Integer) input.getArgs(1);
+        LinkedHashSet<Class> classes = s.getClasses();
+        for (Class c : classes) {
+            ArrayList<Class> groups = new ArrayList<>();
+            if(c.getGroup().getLevel() == 0){
+                subgroups.add(c);
+                subgroups.add(parent);
+
+            }
+
+        }
+        return new Out(Boolean.TRUE);
+    }
+*/
+
+
+    /**
+     * Checks that two groups of the same level with the same name cannot be overlapped.
+     * @param input in[0] The schedule we want to check.
+     * @return true if no group is overlapped with a group of the same level and name.
+     */
+    public static Out noTwoSameSemesterGroupsOverlappedWithSameName(In input) {
+        Schedule s = (Schedule) input.getIn(0);
+        LinkedHashSet<Class> classes = s.getClasses();
+        for (Class c : classes) {
+            Group g = c.getGroup();
+            Integer semester = g.getSubject().getSemester();
+            String name = g.getName();
+            for(Class cc : classes){
+                Group g2 = cc.getGroup();
+                if(semester.equals(g2.getSubject().getSemester()) && name.equals(g2.getName())){
+                    if(areOverlapped(c,cc)) return new Out(Boolean.FALSE);
+                }
+            }
+        }
+        return new Out(Boolean.TRUE);
+    }
+
+
+
+
 
     /**
      * Checks if every subgroup of type type1 is set later than the group
