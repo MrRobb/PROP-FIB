@@ -23,14 +23,4 @@ public class RestrictionsFactory {
 		return ok;
 	}
 
-	public static boolean producePrueba() {
-		boolean ok = true;
-
-		Restriction subclass_restr = new Restriction("No overlapping between class and subclass");
-		subclass_restr.add("No group and subgroup overlapped");
-		Restrictions.getInstance().addAvailable(subclass_restr);
-		Restrictions.getInstance().addApplied(subclass_restr.getName(), new ArrayList<Object[]>());
-
-		return ok;
-	}
 }

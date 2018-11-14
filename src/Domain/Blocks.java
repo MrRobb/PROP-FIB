@@ -9,7 +9,7 @@ public class Blocks {
     public static String invalidID = "";
     private static Blocks instance = null;
 
-    private HashMap<String, Function<In, Out>> blocks;
+    private HashMap<String, Block> blocks;
 
     private Blocks() {
         blocks = new HashMap<>(0);
@@ -35,7 +35,7 @@ public class Blocks {
      * Modifiers
      */
 
-    public boolean add(String id, Function<In, Out> block) {
+    public boolean add(String id, Block block) {
         if (blocks.containsKey(id)) {
             return false;
         }
@@ -58,7 +58,7 @@ public class Blocks {
      * Consultants
      */
 
-    public Function<In, Out> get(String id) {
+    public Block get(String id) {
         return blocks.get(id);
     }
 

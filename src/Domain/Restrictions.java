@@ -29,21 +29,9 @@ public class Restrictions {
     /*
         Modifiers
      */
-    public boolean addApplied(String name, ArrayList<Object[]> args) {
+    public boolean addApplied(Restriction restriction) {
 
-        if (exists(name)) {
-            return false;
-        }
-
-        if (!isAvailable(name)) {
-            return false;
-        }
-
-
-        Restriction restriction = getAvailableRestriction(name + ": " + args.toString());
-        if(args.size() != 0) restriction.setParameters(args);
-
-        applieds.put(name, restriction);
+        applieds.put(restriction.getName() + " :"+ restriction.getParams(), restriction);
         return true;
     }
 
@@ -152,5 +140,15 @@ public class Restrictions {
     @Override
     public Object clone() throws CloneNotSupportedException {
         throw new CloneNotSupportedException();
+    }
+
+    public String askParameters(String restrName, int blockIndex) {
+        if (!isAvailable(restrName)) return null;
+        return available.get(restrName).askParameters(blockIndex);
+    }
+
+    public boolean setParameter(String restrName, int blockIndex, Object[] args) {
+        if (!isAvailable(restrName)) return false;
+        return available.get(restrName).setParameter(blockIndex, args);
     }
 }

@@ -13,6 +13,7 @@ public class Generator {
 	private Generator() {}
 
 	public static Generator getInstance() {
+
 		if (instance == null) {
 			instance = new Generator();
 		}
