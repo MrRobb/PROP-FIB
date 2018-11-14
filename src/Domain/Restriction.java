@@ -98,13 +98,17 @@ public class Restriction {
         this.mandatory = mandatory;
     }
 
-    public boolean checkParam(int blockIndex, int paramIndex, Object arg1) {
+    public boolean checkParam(int blockIndex, int paramIndex, Object argGiven) {
         Block b = restriccion.get(blockIndex);
         if (b == null) return false;
-        Pair<String, java.lang.Class> arg2 = b.getArgs().get(paramIndex);
-        java.lang.Class c1 = arg2.getValue();
-        java.lang.Class c2 = arg1.getClass();
-        return c1 == c2;
+        Pair<String, java.lang.Class> argAsked = b.getArgs().get(paramIndex);
+        java.lang.Class c1 = argAsked.getValue();
+        try {
+            c1.cast(argGiven);
+            return true;
+        }catch (ClassCastException e) {
+            return false;
+        }
     }
 
     public boolean setParameter(int blockIndex, Object[] args) {

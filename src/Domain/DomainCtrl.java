@@ -81,10 +81,6 @@ public class DomainCtrl {
                     else System.out.println("Failed on saving!");
                 }
             }
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ParseException e) {
-            e.printStackTrace();
         }
 
 	}
@@ -238,33 +234,50 @@ public class DomainCtrl {
     }
 
     public static boolean produceFactory() {
-        SubjectsFactory.produce();
-        System.out.println("*************************");
-        System.out.println(Subjects.getInstance().size() + " subjects generated:");
-        ArrayList<String> subjs = Subjects.getInstance().getAllKeys();
-        for(String subID : subjs){
-            System.out.println(subID);
-        }
-        System.out.println("*************************");
 
-        DegreesFactory.produce();
-        System.out.println("New degree created: " + Degree.getInstance().getName());
-        System.out.println("*************************");
-        System.out.println(Groups.getInstance().size() + " groups generated:");
-        LinkedHashMap<Integer, Group> allGroups = Groups.getInstance().get();
-        for(Map.Entry<Integer, Group> g : allGroups.entrySet()){
-            System.out.println(g.getValue().getSubject().getName() + " " + g.getValue().getName() + " " + g.getValue().getTypes());
-        }
-        System.out.println("*************************");
+        try {
+            Object obj = new JSONParser().parse(new FileReader("json/degreeReal.json"));
+            JSONArray ja = (JSONArray) obj;
+            JSONObject jo = (JSONObject) ja.get(0);
+            JSONArray cls = (JSONArray) jo.get("classrooms");
+            JSONArray subjts = (JSONArray) jo.get("subjects");
+            String degname = (String) jo.get("name");
+            Integer ncredits = (int) (long) jo.get("credits");
+            JSONArray gtypes = (JSONArray) jo.get("groupTypes");
+            JSONArray grps = (JSONArray) jo.get("groups");
 
-        ClassroomsFactory.produce();
-        System.out.println(Classrooms.getInstance().size() + " classrooms produced:");
-        ArrayList<String> rooms = Classrooms.getInstance().getAllKeys();
-        for(String classID : rooms){
-            System.out.println(classID);
-        }
-        System.out.println("*************************");
 
+            SubjectsFactory.produce(subjts);
+            System.out.println("*************************");
+            System.out.println(Subjects.getInstance().size() + " subjects generated:");
+            ArrayList<String> subjs = Subjects.getInstance().getAllKeys();
+            for (String subID : subjs) {
+                System.out.println(subID);
+            }
+            System.out.println("*************************");
+
+            DegreesFactory.produce(degname, ncredits, gtypes, grps);
+            System.out.println("New degree created: " + Degree.getInstance().getName());
+            System.out.println("*************************");
+            System.out.println(Groups.getInstance().size() + " groups generated:");
+            LinkedHashMap<Integer, Group> allGroups = Groups.getInstance().get();
+            for (Map.Entry<Integer, Group> g : allGroups.entrySet()) {
+                System.out.println(g.getValue().getSubject().getName() + " " + g.getValue().getName() + " " + g.getValue().getTypes());
+            }
+            System.out.println("*************************");
+
+            ClassroomsFactory.produce(cls);
+            System.out.println(Classrooms.getInstance().size() + " classrooms produced:");
+            ArrayList<String> rooms = Classrooms.getInstance().getAllKeys();
+            for (String classID : rooms) {
+                System.out.println(classID);
+            }
+            System.out.println("*************************");
+        }catch (IOException e) {
+            e.printStackTrace();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
         DateTimesFactory.produce();
         BlocksFactory.produce();
         RestrictionsFactory.produce();

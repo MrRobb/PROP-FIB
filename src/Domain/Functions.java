@@ -19,7 +19,7 @@ public class Functions {
         Schedule s = (Schedule) input.getIn(0);
         String day = (String) input.getArgs(0);
         Integer startHour = (Integer) input.getArgs(1);
-        Integer endHour = (Integer) input.getArgs(1);
+        Integer endHour = (Integer) input.getArgs(2);
 
         LinkedHashSet<Class> classes = s.getClasses();
         for (Class c : classes) {

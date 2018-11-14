@@ -10,12 +10,13 @@ public class BlocksFactory {
 	public static boolean produce() {
 
 		ArrayList<Pair<String,java.lang.Class>> arrB1 = new ArrayList<Pair<String,java.lang.Class>>();
-		arrB1.add(Pair<"Start hour", Integer.class>);
-		arrB1.add(Integer.class);;
+		arrB1.add(new Pair<>("WeekDay", String.class));
+		arrB1.add(new Pair<>("Start hour", Integer.class));
+		arrB1.add(new Pair<>("End hour", Integer.class));
 		Block b1 = new Block(Functions::noClassOnDayBetweenSHEH, arrB1);
 		Blocks.getInstance().add("no class between start hour and end hour", b1);
 
-		ArrayList<java.lang.Class> arrB2 = new ArrayList<java.lang.Class>();
+		/*ArrayList<java.lang.Class> arrB2 = new ArrayList<java.lang.Class>();
 		Block b2 = new Block(Functions::noTwoClassesAtSameHourSameClassroom, arrB2);
 		Blocks.getInstance().add("no overlapping hour and classroom", b2);
 
@@ -37,7 +38,7 @@ public class BlocksFactory {
 
 		ArrayList<java.lang.Class> arrB6 = new ArrayList<java.lang.Class>();
 		Block b6 = new Block(Functions::noGroupSubGroupOverlapped, arrB6);
-		Blocks.getInstance().add("no overlapping between group and its subgroup", b6);
+		Blocks.getInstance().add("no overlapping between group and its subgroup", b6);*/
 
 		return true;
 	}
