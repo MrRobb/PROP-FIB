@@ -1,8 +1,13 @@
 package Domain;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.*;
 
 import jdk.nashorn.internal.ir.debug.JSONWriter;
-import jdk.nashorn.internal.parser.JSONParser;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 public class DomainCtrl {
 
@@ -57,56 +62,74 @@ public class DomainCtrl {
 
 
 	public static void generateSchedule() {
-		SubjectsFactory.produce();
-        System.out.println("*************************");
-        System.out.println(Subjects.getInstance().size() + " subjects generated:");
-        ArrayList<String> subjs = Subjects.getInstance().getAllKeys();
-        for(String subID : subjs){
-            System.out.println(subID);
-        }
-        System.out.println("*************************");
+	    try{
+            Object obj = new JSONParser().parse(new FileReader("json/degreeReal.json"));
+            JSONArray ja = (JSONArray) obj;
+            JSONObject jo = (JSONObject) ja.get(0);
+            JSONArray cls = (JSONArray) jo.get("classrooms");
+            JSONArray subjts = (JSONArray) jo.get("subjects");
+            String degname = (String) jo.get("name");
+            Integer ncredits = (int)(long) jo.get("credits");
+            JSONArray gtypes = (JSONArray) jo.get("groupTypes");
+            JSONArray grps = (JSONArray) jo.get("groups");
 
-		DegreesFactory.produce();
-        System.out.println("New degree created: " + Degree.getInstance().getName());
-        System.out.println("*************************");
-        System.out.println(Groups.getInstance().size() + " groups generated:");
-        LinkedHashMap<Integer, Group> allGroups = Groups.getInstance().get();
-        for(Map.Entry<Integer, Group> g : allGroups.entrySet()){
-            System.out.println(g.getValue().getSubject().getName() + " " + g.getValue().getName() + " " + g.getValue().getTypes());
-        }
-        System.out.println("*************************");
 
-		ClassroomsFactory.produce();
-        System.out.println(Classrooms.getInstance().size() + " classrooms produced:");
-        ArrayList<String> rooms = Classrooms.getInstance().getAllKeys();
-        for(String classID : rooms){
-            System.out.println(classID);
-        }
-        System.out.println("*************************");
-
-		DateTimesFactory.produce();
-        BlocksFactory.produce();
-		RestrictionsFactory.producePrueba();
-		TreeSet<Schedule> schedules = Generator.getInstance().generate();
-		Scanner user_input = new Scanner(System.in);
-        if (schedules.isEmpty()) System.out.println("Enable to generate any schedule with the actual restrictions");
-        else {
-            int i = 1;
-            for (Schedule s : schedules) {
-                showSchedule(s, i);
-                System.out.println("Do you want to save this schedule?" + "\n" + "1. Yes" + "\n" + "2. No");
-                int saveOption = user_input.nextInt();
-                if ( saveOption == 1) {
-                    if (saveSchedule(s)) System.out.println("Schedule saved successfully!");
-                    else System.out.println("Failed on saving!");
-                }
-                else if (saveOption == 2) {
-                    System.out.println("Schedule skipped!");
-                }
-                else optionError();
-                i++;
+            SubjectsFactory.produce(subjts);
+            System.out.println("*************************");
+            System.out.println(Subjects.getInstance().size() + " subjects generated:");
+            ArrayList<String> subjs = Subjects.getInstance().getAllKeys();
+            for(String subID : subjs){
+                System.out.println(subID);
             }
+            System.out.println("*************************");
+
+            DegreesFactory.produce(degname,ncredits,gtypes,grps);
+            System.out.println("New degree created: " + Degree.getInstance().getName());
+            System.out.println("*************************");
+            System.out.println(Groups.getInstance().size() + " groups generated:");
+            LinkedHashMap<Integer, Group> allGroups = Groups.getInstance().get();
+            for(Map.Entry<Integer, Group> g : allGroups.entrySet()){
+                System.out.println(g.getValue().getSubject().getName() + " " + g.getValue().getName() + " " + g.getValue().getTypes());
+            }
+            System.out.println("*************************");
+
+            ClassroomsFactory.produce(cls);
+            System.out.println(Classrooms.getInstance().size() + " classrooms produced:");
+            ArrayList<String> rooms = Classrooms.getInstance().getAllKeys();
+            for(String classID : rooms){
+                System.out.println(classID);
+            }
+            System.out.println("*************************");
+
+            DateTimesFactory.produce();
+            BlocksFactory.produce();
+            RestrictionsFactory.producePrueba();
+            TreeSet<Schedule> schedules = Generator.getInstance().generate();
+            Scanner user_input = new Scanner(System.in);
+            if (schedules.isEmpty()) System.out.println("Enable to generate any schedule with the actual restrictions");
+            else {
+                int i = 1;
+                for (Schedule s : schedules) {
+                    showSchedule(s, i);
+                    System.out.println("Do you want to save this schedule?" + "\n" + "1. Yes" + "\n" + "2. No");
+                    int saveOption = user_input.nextInt();
+                    if ( saveOption == 1) {
+                        if (saveSchedule(s)) System.out.println("Schedule saved successfully!");
+                        else System.out.println("Failed on saving!");
+                    }
+                    else if (saveOption == 2) {
+                        System.out.println("Schedule skipped!");
+                    }
+                    else optionError();
+                    i++;
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ParseException e) {
+            e.printStackTrace();
         }
+
 	}
 
 	public static boolean showSchedule(Schedule s, int i) {

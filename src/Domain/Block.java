@@ -179,6 +179,37 @@ public class Block {
         return new Out(Boolean.TRUE);
     }
 
+
+
+    /**
+     * Checks that two groups of the same level with the same name cannot be overlapped.
+     * @param input in[0] The schedule we want to check.
+     * @return true if no group is overlapped with a group of the same level and name.
+     */
+    public static Out noTwoSameLevelGroupsOverlappedWithSameName(In input) {
+        Schedule s = (Schedule) input.getIn(0);
+        LinkedHashSet<Class> classes = s.getClasses();
+        for (Class c : classes) {
+            Group g = c.getGroup();
+            Integer level = g.getLevel();
+            String name = g.getName();
+            for(Class cc : classes){
+                Group g2 = cc.getGroup();
+                if(level.equals(g2.getLevel()) && name.equals(g2.getName())){
+                    if(areOverlapped(c,cc)) return new Out(Boolean.FALSE);
+                }
+            }
+        }
+        return new Out(Boolean.TRUE);
+    }
+
+
+    /**
+     * Auxiliary function that checks if two classes are overlapped.
+     * @param c1 First class
+     *        c2 Second class
+     * @return true if both classes are overlapped.
+     */
     public static Boolean areOverlapped(Class c1, Class c2) {
         Integer sh1 = c1.getDateTime().getStartHour();
         Integer eh1 = c1.getDateTime().getEndHour();
@@ -187,4 +218,5 @@ public class Block {
         if(c1.getDateTime().getWeekday().equals(c2.getDateTime().getWeekday()) && (eh1 <= sh2 || eh2 <= sh1)) return false;
         else return true;
     }
+
 }
