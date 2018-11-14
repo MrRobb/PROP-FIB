@@ -149,6 +149,17 @@ public class Restrictions {
         return available.get(name);
     }
 
+    public int getMaxScore() {
+
+        int sum = 0;
+
+        for (Restriction restriction : applieds.values()) {
+            sum += restriction.getScore();
+        }
+
+        return sum;
+    }
+
     @Override
     public Object clone() throws CloneNotSupportedException {
         throw new CloneNotSupportedException();

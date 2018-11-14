@@ -5,7 +5,7 @@ import java.util.*;
 public class Schedules {
 
 	private static Schedules instance = null;
-	private static Integer maxSize = 10;
+	private static Integer maxSize = 1;
 
 	private Set<Schedule> schedules;
 
@@ -19,6 +19,10 @@ public class Schedules {
 		}
 
 		return instance;
+	}
+
+	public static int getMaxScore() {
+		return Restrictions.getInstance().getMaxScore();
 	}
 
 	public boolean exists(Schedule schedule) {
