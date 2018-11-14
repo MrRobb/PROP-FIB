@@ -110,8 +110,9 @@ public class DateTime implements Comparable<DateTime> {
 		d.append(getWeekday());
 		d.append(" ");
 		d.append(getStartHour());
-		d.append(" ");
+		d.append(":00" + " - ");
 		d.append(getEndHour());
+		d.append(":00");
 
 		return d.toString();
 	}

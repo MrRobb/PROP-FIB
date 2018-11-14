@@ -72,7 +72,7 @@ public class DomainCtrl {
         System.out.println(Groups.getInstance().size() + " groups generated:");
         LinkedHashMap<Integer, Group> allGroups = Groups.getInstance().get();
         for(Map.Entry<Integer, Group> g : allGroups.entrySet()){
-            System.out.println(g.getValue().getSubject().getName() + " " + g.getValue().getName());
+            System.out.println(g.getValue().getSubject().getName() + " " + g.getValue().getName() + " " + g.getValue().getTypes());
         }
         System.out.println("*************************");
 
@@ -85,7 +85,8 @@ public class DomainCtrl {
         System.out.println("*************************");
 
 		DateTimesFactory.produce();
-
+        BlocksFactory.produce();
+		RestrictionsFactory.producePrueba();
 		TreeSet<Schedule> schedules = Generator.getInstance().generate();
 		Scanner user_input = new Scanner(System.in);
         if (schedules.isEmpty()) System.out.println("Enable to generate any schedule with the actual restrictions");
