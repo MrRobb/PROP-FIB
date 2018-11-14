@@ -130,7 +130,7 @@ public class Schedule implements Comparable<Schedule> {
         return classes.remove(c);
     }
 
-    public Integer getScore() {
+    public int getScore() {
         return score;
     }
 
@@ -156,7 +156,7 @@ public class Schedule implements Comparable<Schedule> {
 
     @Override
     public int compareTo(Schedule other) {
-        return this.getScore().compareTo(other.getScore());
+        return this.getScore() - other.getScore();
     }
 
     @Override
