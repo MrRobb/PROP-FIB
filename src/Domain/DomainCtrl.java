@@ -177,7 +177,7 @@ public class DomainCtrl {
         System.out.println("Enter the number of the restrictions you want to eliminate, -1 to finish");
         int restrID = user_input.nextInt();
         while (restrID != -1) {
-            if (Restrictions.getInstance().deleteApplyed(map.get(restrID)))
+            if (Restrictions.getInstance().deleteApplied(map.get(restrID)))
                 System.out.println("Eliminated successfully!");
             else  System.out.println("Error on elimination, try a valid number");
             restrID = user_input.nextInt();

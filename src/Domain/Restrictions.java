@@ -59,7 +59,7 @@ public class Restrictions {
         return true;
     }
 
-    public boolean deleteApplyed(String name) {
+    public boolean deleteApplied(String name) {
 
         if (!exists(name)) {
             return false;
