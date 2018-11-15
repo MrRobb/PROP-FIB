@@ -144,8 +144,9 @@ public class Schedule implements Comparable<Schedule> {
 
         for (Class c : classes) {
             DateTime date = c.getDateTime();
+            Group group = c.getGroup();
 
-            for (int i = 0; i < date.getDuration(); i++) {
+            for (int i = 0; i < group.getDuration(); i++) {
                 slots.remove(new ScheduleKey(DateTimes.getInstance().getID(date), c.getClassroomID()));
                 date = DateTimes.getInstance().next(date);
             }

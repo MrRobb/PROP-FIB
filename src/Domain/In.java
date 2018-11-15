@@ -30,4 +30,12 @@ public class In {
 	public Object[] getArgs() {
 		return args;
 	}
+
+	public void setArgs(Object[] objects) {
+		this.args = objects;
+	}
+
+	public void setInput(Out output) {
+		this.in = output.get();
+	}
 }

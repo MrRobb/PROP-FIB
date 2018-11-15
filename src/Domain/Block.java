@@ -6,6 +6,7 @@ import javafx.util.Pair;
 import jdk.nashorn.internal.ir.FunctionCall;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.function.Function;
 

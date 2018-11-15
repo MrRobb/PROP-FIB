@@ -1,5 +1,6 @@
 package Domain;
 
+import java.util.Date;
 import java.util.LinkedHashSet;
 import java.util.function.Function;
 
@@ -22,17 +23,23 @@ public class Functions {
         Integer endHour = (Integer) input.getArgs(2);
 
         LinkedHashSet<Class> classes = s.getClasses();
+
         for (Class c : classes) {
-            DateTime cDT = c.getDateTime();
-            if (cDT != null) {
+            if (c.isOK()) {
+
+                DateTime cDT = c.getDateTime();
                 if (cDT.getWeekday().toString().equals(day)) {
+
                     Integer sh = cDT.getStartHour();
-                    Integer d = cDT.getDuration();
-                    if ((sh >= startHour && sh < endHour) ||
-                            (sh + d >= startHour && sh + d < endHour) ||
-                            (sh < startHour && sh + d > endHour)) {
+                    Integer eh = cDT.getEndHour(c.getGroup().getDuration());
+
+                    if ((sh >= startHour && sh <= endHour) ||
+                            (eh >= startHour && eh <= endHour) ||
+                            (sh <= startHour && eh >= endHour))
+                    {
                         return new Out(Boolean.FALSE);
                     }
+
                 }
             }
         }
@@ -52,21 +59,23 @@ public class Functions {
         for(Class c : classes){
             DateTime cDT = c.getDateTime();
             Classroom cClassroom = c.getClassroom();
+            Group cGroup = c.getGroup();
             // if class c has a classroom and date assigned
             if(cDT != null && cClassroom != null){
                 String wday = cDT.getWeekday().toString();
                 Integer shour = cDT.getStartHour();
-                Integer duration = cDT.getDuration();
+                Integer duration = cGroup.getDuration();
                 String classroom = cClassroom.getName();
                 // inspect every other class cj
                 for(Class cj : classes){
                     DateTime cjDT = cj.getDateTime();
                     Classroom cjClassroom = cj.getClassroom();
+                    Group cjGroup = cj.getGroup();
                     // possible conflict if both classes have the same classroom and week day
                     if(c != cj && cjDT != null && cjClassroom != null){
                         if(wday == cjDT.getWeekday().toString() && classroom == cjClassroom.getName()){
                             int jShour = cjDT.getStartHour();
-                            int jDuration = cjDT.getDuration();
+                            int jDuration = cjGroup.getDuration();
                             //conflict if overlapped
                             if((jShour >= shour && jShour < shour+duration) ||
                                     (jShour+jDuration >= shour && jShour+jDuration < shour+duration) ||
@@ -94,7 +103,7 @@ public class Functions {
         LinkedHashSet<Class> classes = s.getClasses();
         for(Class c : classes){
             Integer sh = c.getDateTime().getStartHour();
-            Integer eh = c.getDateTime().getEndHour();
+            Integer eh = c.getDateTime().getEndHour(c.getGroup().getDuration());
             if(sh < startHour || eh >= endHour) return new Out(Boolean.FALSE);
         }
         return new Out(Boolean.TRUE);
@@ -246,9 +255,9 @@ public class Functions {
 
     public static Boolean areOverlapped(Class c1, Class c2) {
         Integer sh1 = c1.getDateTime().getStartHour();
-        Integer eh1 = c1.getDateTime().getEndHour();
+        Integer eh1 = c1.getDateTime().getEndHour(c1.getGroup().getDuration());
         Integer sh2 = c2.getDateTime().getStartHour();
-        Integer eh2 = c2.getDateTime().getEndHour();
+        Integer eh2 = c2.getDateTime().getEndHour(c2.getGroup().getDuration());
         if(c1.getDateTime().getWeekday().equals(c2.getDateTime().getWeekday()) && (eh1 <= sh2 || eh2 <= sh1)) return false;
         else return true;
     }

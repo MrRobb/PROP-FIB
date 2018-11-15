@@ -26,16 +26,14 @@ public class DateTime implements Comparable<DateTime> {
 
 	private WeekDay weekday;
 	private Integer hour;
-	private Integer duration;
 
 	/**
 	 * Constructor / Destructor
 	 */
 
-	public DateTime(WeekDay weekDay, Integer startHour, Integer duration) {
+	public DateTime(WeekDay weekDay, Integer startHour) {
 		setWeekday(weekDay);
 		setStartHour(startHour);
-		setDuration(duration);
 	}
 
 	/**
@@ -60,27 +58,8 @@ public class DateTime implements Comparable<DateTime> {
 		return true;
 	}
 
-	public Integer getEndHour() {
-		return (this.hour + this.duration) % 24;
-	}
-
-	public boolean setEndHour(Integer endHour) {
-		// Error checking
-		if (endHour < this.hour) {
-			return false;
-		}
-
-		this.duration = endHour - this.hour;
-		return true;
-	}
-
-	public Integer getDuration() {
-		return this.duration;
-	}
-
-	public boolean setDuration(Integer duration) {
-		this.duration = duration;
-		return true;
+	public Integer getEndHour(int duration) {
+		return (this.hour + duration) % 24;
 	}
 
 	@Override
@@ -106,12 +85,22 @@ public class DateTime implements Comparable<DateTime> {
 	public String toString() {
 		StringBuilder d = new StringBuilder();
 
+		d.append(getWeekday());
+		d.append(" ");
+		d.append(getStartHour());
+		d.append(":00");
+
+		return d.toString();
+	}
+
+	public String toString(int duration) {
+		StringBuilder d = new StringBuilder();
 
 		d.append(getWeekday());
 		d.append(" ");
 		d.append(getStartHour());
 		d.append(":00" + " - ");
-		d.append(getEndHour());
+		d.append(getEndHour(duration));
 		d.append(":00");
 
 		return d.toString();

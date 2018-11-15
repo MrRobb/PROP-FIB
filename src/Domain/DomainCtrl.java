@@ -208,7 +208,7 @@ public class DomainCtrl {
             else {
                 Restriction new_restr = available.clone();
                 for (int blockIndex = 0; blockIndex < new_restr.getNumberOfBlocks(); blockIndex++ ) {
-                    ArrayList<Object> params = new ArrayList<Object>();
+                    ArrayList<Object> params = new ArrayList<>();
                     for (int j = 0; j < new_restr.getSizeArgsBlock(blockIndex); j++) {
                         String param = new_restr.askParameter(blockIndex,j);
                         System.out.println("Enter the parameter" + " " + param);
@@ -217,7 +217,7 @@ public class DomainCtrl {
                             System.out.println("Enter a valid parameter!");
                             input_param = user_input.next();
                         }
-                        params.add((Object) input_param);
+                        params.add(input_param);
                     }
                     new_restr.setParameter(blockIndex, params.toArray());
                 }

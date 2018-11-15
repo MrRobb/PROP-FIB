@@ -209,7 +209,7 @@ public class Class implements Comparable<Class> {
 	public String toString() {
 		StringBuilder c = new StringBuilder();
 
-		c.append(getDateTime().toString());
+		c.append(getDateTime().toString(getGroup().getDuration()));
 		c.append(" ");
 		c.append(getClassroom().toString());
 		c.append(" ");

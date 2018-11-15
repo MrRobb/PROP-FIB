@@ -89,9 +89,10 @@ public class Restrictions {
 
         Integer score = 0;
 
-        In commonInput = new In(schedule, null);
-
         for(Restriction restriction : applieds.values()) {
+
+            In commonInput = new In(schedule, null);
+
             if (restriction.apply(commonInput)) {
                 score += restriction.getScore();
             }
@@ -102,6 +103,7 @@ public class Restrictions {
             else {
                 score -= restriction.getScore();
             }
+
         }
 
         schedule.setScore(score);

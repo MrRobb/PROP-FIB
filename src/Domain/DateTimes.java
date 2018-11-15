@@ -72,15 +72,14 @@ public class DateTimes {
 	}
 
 	public DateTime firstPossible() {
-		return new DateTime(DateTime.WeekDay.Monday, 0, 1);
+		return new DateTime(DateTime.WeekDay.Monday, 0);
 	}
 
 	public DateTime next(DateTime datetime) {
 
 		DateTime.WeekDay weekday = datetime.getWeekday();
 		Integer hour = datetime.getStartHour();
-		Integer duration = 1;
-		DateTime nextValue = new DateTime(weekday, hour, duration);
+		DateTime nextValue = new DateTime(weekday, hour);
 
 		if (nextValue.equals(lastPossible())) {
 			return null;
@@ -101,7 +100,7 @@ public class DateTimes {
 	}
 
 	public DateTime lastPossible() {
-		return new DateTime(DateTime.WeekDay.Friday, 23, 1);
+		return new DateTime(DateTime.WeekDay.Friday, 23);
 	}
 
 	@Override

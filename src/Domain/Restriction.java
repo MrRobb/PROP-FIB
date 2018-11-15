@@ -2,6 +2,7 @@ package Domain;
 
 import javafx.util.Pair;
 
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -59,12 +60,13 @@ public class Restriction {
 
         try {
 
-            Out output = new Out(Boolean.FALSE);
+            Out output = new Out(Boolean.TRUE);
             int i = 0;
 
-            for (Function<In, Out> block : restriccion) {
+            for (Block block : restriccion) {
+                input.setArgs(args.get(i));
                 output = block.apply(input);
-                input = new In(output.get(), args.get(i));
+                input.setInput(output);
             }
 
             return (boolean) output.get(0);
@@ -99,29 +101,63 @@ public class Restriction {
     }
 
     public boolean checkParam(int blockIndex, int paramIndex, Object argGiven) {
+
         Block b = restriccion.get(blockIndex);
         if (b == null) return false;
-        Pair<String, java.lang.Class> argAsked = b.getArgs().get(paramIndex);
-        java.lang.Class c1 = argAsked.getValue();
+
+        java.lang.Class<?> c = b.getArgs().get(paramIndex).getValue();
+
         try {
-            c1.cast(argGiven);
+            if (c != argGiven.getClass()) {
+                c.getMethod("valueOf", new java.lang.Class[]{String.class}).invoke(null, (String)argGiven);
+            }
             return true;
-        }catch (ClassCastException e) {
+        }
+        catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
             return false;
         }
     }
 
-    public boolean setParameter(int blockIndex, Object[] args) {
+    public Object castParam(int blockIndex, int paramIndex, Object argGiven) {
+
         Block b = restriccion.get(blockIndex);
         if (b == null) return false;
-        if (args.length != b.getArgs().size()) return false;
-        int i = 0;
-        for (Pair<String, java.lang.Class> arg : b.getArgs()) {
-            java.lang.Class c1 = arg.getValue();
-            java.lang.Class c2 = args[i].getClass();
-            if (c1 != c2) return false;
-            i++;
+
+        java.lang.Class<?> c = b.getArgs().get(paramIndex).getValue();
+
+        try {
+            if (c == argGiven.getClass()) {
+                return argGiven;
+            }
+            else {
+                return c.getMethod("valueOf", new java.lang.Class[]{String.class}).invoke(null, (String)argGiven);
+            }
         }
+        catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
+            return null;
+        }
+    }
+
+    public boolean setParameter(int blockIndex, Object[] args) {
+
+        Block b = restriccion.get(blockIndex);
+
+        if (b == null) {
+            return false;
+        }
+
+        if (args.length != b.getArgs().size()) {
+            return false;
+        }
+
+        for (int argIndex = 0; argIndex < b.getArgs().size(); argIndex++) {
+            if (!checkParam(blockIndex, argIndex, args[argIndex])) {
+                return false;
+            }
+
+            args[argIndex] = castParam(blockIndex, argIndex, args[argIndex]);
+        }
+
         return this.args.set(blockIndex, args) == args;
     }
 
@@ -135,11 +171,6 @@ public class Restriction {
         return b.toStringArg(i);
     }
 
-    public boolean setParameters(ArrayList<Object[]> args) {
-        this.args = args;
-        return true;
-    }
-
     public int getNumberOfBlocks() {
         return restriccion.size();
     }
@@ -151,7 +182,13 @@ public class Restriction {
 
     @Override
     protected Restriction clone() {
-        return new Restriction(this.name, this.restriccion, this.args, this.score, this.mandatory);
+        return new Restriction(
+                this.name,
+                (ArrayList<Block>) this.restriccion.clone(),
+                (ArrayList<Object[]>) this.args.clone(),
+                this.score,
+                this.mandatory
+        );
     }
 }
 

@@ -66,7 +66,6 @@ public class Generator {
 		Map.Entry<Integer, Group> entry = it.next();
 		Integer id = entry.getKey();
 		Group group = entry.getValue();
-		boolean anySolution = false;
 
 		for (ScheduleKey slot : schedule.getAvailableSlots()) {
 
