@@ -31,7 +31,7 @@ public class Restrictions {
      */
     public boolean addApplied(Restriction restriction) {
 
-        applieds.put(restriction.getName() + " :"+ restriction.getParams(), restriction);
+        applieds.put(restriction.getName() + " -> "+ restriction.getParams(), restriction);
         return true;
     }
 

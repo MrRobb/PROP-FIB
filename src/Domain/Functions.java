@@ -110,21 +110,35 @@ public class Functions {
     }
 
     /**
-     * Checks that a laboratoryPC group must be assigned to a classroom with PCs
+     * Checks that all groups must belong to a certain type
      * @param input in[0] The schedule we want to check.     *
-     * @return true if all groups of type "laboratoryPC are assigned to a classroom with computers.
+     *              args[0] The type of group
+     * @return true if all groups have this type.
      */
-    public static Out groupRequiresClassroomWithExtras(In input) {
+    public static Out allGroupMustHaveType(In input) {
         Schedule s = (Schedule) input.getIn(0);
-        String extra = (String) input.getArgs(0);
         String type = (String) input.getArgs(0);
         LinkedHashSet<Class> classes = s.getClasses();
         for (Class c : classes) {
             Group g = c.getGroup();
-            if (g.hasType(type)) {
-                Classroom cl = c.getClassroom();
-                if (!cl.hasExtra(extra)) return new Out(Boolean.FALSE);
-            }
+            if (!g.hasType(type)) return new Out(Boolean.FALSE);
+        }
+        return new Out(Boolean.TRUE);
+    }
+
+    /**
+     * Checks that all classrooms must have a certain equipment (extra)
+     * @param input in[0] The schedule we want to check.     *
+     *              args[0] The extra
+     * @return true if all classroom have this extra
+     */
+    public static Out allClassroomMustHaveExtra(In input) {
+        Schedule s = (Schedule) input.getIn(0);
+        String extra = (String) input.getArgs(0);
+        LinkedHashSet<Class> classes = s.getClasses();
+        for (Class c : classes) {
+            Classroom cl = c.getClassroom();
+            if (!cl.hasExtra(extra)) return new Out(Boolean.FALSE);
         }
         return new Out(Boolean.TRUE);
     }
@@ -236,6 +250,8 @@ public class Functions {
         return new Out(Boolean.TRUE);
     }
 
+
+    // auxiliar function not block
     public static Boolean areOverlapped(Class c1, Class c2) {
         Integer sh1 = c1.getDateTime().getStartHour();
         Integer eh1 = c1.getDateTime().getEndHour(c1.getGroup().getDuration());
@@ -243,6 +259,25 @@ public class Functions {
         Integer eh2 = c2.getDateTime().getEndHour(c2.getGroup().getDuration());
         if(c1.getDateTime().getWeekday().equals(c2.getDateTime().getWeekday()) && (eh1 <= sh2 || eh2 <= sh1)) return false;
         else return true;
+    }
+
+    /**
+     * Checks that a subject subj cannot be placed before an hour h
+     * @param input in[0] The schedule we want to check.
+     *              args[0] The subject we want to check.
+     *              args[1] The start hour in which subj can be placed.
+     * @return true if both classes are overlapped.
+     */
+    public static Out subjectMustBeSetAlwaysAfterHour(In input){
+        Schedule s = (Schedule) input.getIn(0);
+        String subj = (String) input.getArgs(0);
+        Integer iniHour = (Integer) input.getArgs(1);
+        LinkedHashSet<Class> classes = s.getClasses();
+        for(Class c : classes) {
+            if(c.getGroup().getSubject().getName().equals(subj) && c.getDateTime().getStartHour() < iniHour)
+                return new Out(Boolean.FALSE);
+        }
+        return new Out(Boolean.TRUE);
     }
 
 }

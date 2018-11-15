@@ -77,23 +77,5 @@ public class Block implements Function<In,Out>{
     }
 
 
-    /**
-     * Checks that a subject subj cannot be placed before an hour h
-     * @param ìnput in[0] The schedule we want to check.
-     *              args[0] The subject we want to check.
-     *              args[1] The start hour in which subj can be placed.
-     * @return true if both classes are overlapped.
-     */
-    public static Out groupMustBeSetAlwaysAfterHour(In input){
-        Schedule s = (Schedule) input.getIn(0);
-        String subj = (String) input.getArgs(0);
-        Integer iniHour = (Integer) input.getArgs(1);
-        LinkedHashSet<Class> classes = s.getClasses();
-        for(Class c : classes) {
-            if(c.getGroup().getSubject().getName().equals(subj) && c.getDateTime().getStartHour() < iniHour)
-                return new Out(Boolean.FALSE);
-        }
-        return new Out(Boolean.TRUE);
-    }
 
 }

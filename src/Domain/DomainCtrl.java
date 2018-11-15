@@ -53,7 +53,8 @@ public class DomainCtrl {
                 break;
             case (2) :  eraseSchedule();
                 break;
-            case (3) :  modifyRestrictions();
+            case (3) :  //modifyRestrictions();
+                        modifyApplied();
                 break;
 
                 default :  optionError();
@@ -102,6 +103,8 @@ public class DomainCtrl {
         return true;
     }
 
+    /*
+    // We don't use this function, the case 1 is not implemented, the user can't create a restriction from zero
     public static void modifyRestrictions() {
 	    Scanner user_input = new Scanner(System.in);
         System.out.println("1. Add new ones" + "\n" + "2. Erase existing ones" + '\n' + "3. Choose which to apply");
@@ -115,10 +118,11 @@ public class DomainCtrl {
                 break;
                 default: optionError();
         }
+
     }
 
     public static void addNewAvailableRestrictions(){
-        
+        // Not implemented functionality
     }
 
     public static void eraseAvailableRestrictions() {
@@ -139,18 +143,22 @@ public class DomainCtrl {
             restrToErase = user_input.nextInt();
         }
         System.out.println("Change staged!");
-    }
+    }*/
 
     public static void modifyApplied() {
 	    Scanner user_input = new Scanner(System.in);
         // Show already applieds
-        System.out.println("Already applied restrictions:");
+
 	    Set<String> applieds = Restrictions.getInstance().getAppliedRestrictionNames();
-	    for (String s: applieds) System.out.println(s + " || ");
+	    if (applieds.isEmpty()) System.out.println("There are no applied restrictions");
+	    else {
+            System.out.println("These are the applied restrictions: ");
+            for (String s : applieds) System.out.println(s + " || ");
+        }
 
         System.out.println("What do you want to do?" + "\n"
-                + "1. Erase already applieds" + "\n"
-                + "2. Add more from availables");
+                + "1. Erase already applied restrictions" + "\n"
+                + "2. Add/create more from the available ones");
 
 	    int option = user_input.nextInt();
 	    switch (option) {
@@ -165,26 +173,31 @@ public class DomainCtrl {
 
     public static void eraseApplieds() {
         Scanner user_input = new Scanner(System.in);
-        System.out.println("Showing already restrictions:");
         Set<String> applieds = Restrictions.getInstance().getAppliedRestrictionNames();
-        HashMap<Integer, String> map = new HashMap<Integer, String>();
-        int i = 1;
-        for (String s: applieds) {
-            System.out.println(i + ". " + s);
-            map.put(i,s);
-            i++;
+        if (applieds.isEmpty()) System.out.println("There are no applied restrictions to erase");
+        else {
+            HashMap<Integer, String> map = new HashMap<Integer, String>();
+            int i = 1;
+            for (String s : applieds) {
+                System.out.println(i + ". " + s);
+                map.put(i, s);
+                i++;
+            }
+            System.out.println("Enter the number of the restrictions you want to eliminate, -1 to finish");
+            int restrID = user_input.nextInt();
+            while (restrID != -1) {
+                if (Restrictions.getInstance().deleteApplied(map.get(restrID)))
+                    System.out.println("Restriction " + restrID + " eliminated successfully from the applied ones!, enter the next restriction to eliminate or -1 to stage change");
+                else {
+                    if (Restrictions.getInstance().getAppliedRestrictionNames().isEmpty()) System.out.println("There are no more applied restriction to erase");
+                    else System.out.println("Error on elimination, try a valid number");
+                }
+                restrID = user_input.nextInt();
+            }
+            System.out.println("This is the resulting applied restrictions:");
+            Set<String> applieds_res = Restrictions.getInstance().getAppliedRestrictionNames();
+            for (String s : applieds_res) System.out.println(s);
         }
-        System.out.println("Enter the number of the restrictions you want to eliminate, -1 to finish");
-        int restrID = user_input.nextInt();
-        while (restrID != -1) {
-            if (Restrictions.getInstance().deleteApplied(map.get(restrID)))
-                System.out.println("Eliminated successfully!");
-            else  System.out.println("Error on elimination, try a valid number");
-            restrID = user_input.nextInt();
-        }
-        System.out.println("This is the resulting applied restrictions:");
-        Set<String> applieds_res = Restrictions.getInstance().getAppliedRestrictionNames();
-        for (String s: applieds_res) System.out.println(s + " || ");
     }
 
     public static void addAppliedFromAvailable() {
@@ -200,11 +213,14 @@ public class DomainCtrl {
         for (String s: availables) {
             System.out.println(i + ". " + s);
             map.put(i, s);
+            ++i;
         }
         int restrID = user_input.nextInt();
+        boolean[] already_applied = new boolean[map.size()];
         while (restrID != -1) {
             Restriction available = Restrictions.getInstance().getAvailableRestriction(map.get(restrID));
-            if (available == null) System.out.println("Enter a valid number of restriction!");
+            if (available == null) System.out.println("Try again, and enter a valid number of restriction!");
+            else if (available.getTotalNumOfArgs() == 0 && already_applied[restrID]) System.out.println("You have already applied the restriction number " + restrID + " which has no argument");
             else {
                 Restriction new_restr = available.clone();
                 for (int blockIndex = 0; blockIndex < new_restr.getNumberOfBlocks(); blockIndex++ ) {
@@ -222,11 +238,18 @@ public class DomainCtrl {
                     new_restr.setParameter(blockIndex, params.toArray());
                 }
                 Restrictions.getInstance().addApplied(new_restr);
+                already_applied[restrID] = true;
+                System.out.println("Restriction " + restrID + " applied, enter the next restriction to apply or -1 to stage change");
             }
-            System.out.println("New restriction applied");
             restrID = user_input.nextInt();
         }
         System.out.println("Change staged!");
+        Set<String> applieds = Restrictions.getInstance().getAppliedRestrictionNames();
+        if (applieds.isEmpty()) System.out.println("No applied restriction");
+        else {
+            System.out.println("This is the resulting applied restrictions:");
+            for (String s : applieds) System.out.println(s);
+        }
     }
 
     public static void optionError() {
