@@ -19,7 +19,7 @@ public class Functions {
 
         // Casting args
         Schedule s = (Schedule) input.getIn(0);
-        String day = (String) input.getArgs(0);
+        DateTime.WeekDay day = (DateTime.WeekDay) input.getArgs(0);
         Integer startHour = (Integer) input.getArgs(1);
         Integer endHour = (Integer) input.getArgs(2);
 
@@ -29,14 +29,14 @@ public class Functions {
             if (c.isOK()) {
 
                 DateTime cDT = c.getDateTime();
-                if (cDT.getWeekday().toString().equals(day)) {
+                if (cDT.getWeekday() == day) {
 
                     Integer sh = cDT.getStartHour();
                     Integer eh = cDT.getEndHour(c.getGroup().getDuration());
 
-                    if ((sh >= startHour && sh <= endHour) ||
-                            (eh >= startHour && eh <= endHour) ||
-                            (sh <= startHour && eh >= endHour))
+                    if ((sh >= startHour && sh < endHour) ||
+                            (eh >= startHour && eh < endHour) ||
+                            (sh <= startHour && eh > endHour))
                     {
                         return new Out(Boolean.FALSE);
                     }
@@ -83,6 +83,7 @@ public class Functions {
      */
 
     public static Out everyClassBetweenStartAndEndHour(In input){
+
         Schedule s = (Schedule) input.getIn(0);
         Integer startHour = (Integer) input.getArgs(0);
         Integer endHour = (Integer) input.getArgs(1);

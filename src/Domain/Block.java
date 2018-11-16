@@ -32,9 +32,11 @@ public class Block implements Function<In,Out>{
         StringBuilder s = new StringBuilder();
         if (args != null) {
             int i = 0;
-            for ( Pair<String, java.lang.Class> arg: args) {
+            for ( Pair<String, java.lang.Class> arg : args) {
+                if (i != 0) {
+                    s.append(", ");
+                }
                 s.append(toStringArg(i));
-                s.append(", ");
                 i++;
             }
         }
@@ -49,7 +51,7 @@ public class Block implements Function<In,Out>{
                 s.append(arg.getKey());
                 s.append(" ");
                 s.append("(");
-                s.append(arg.getValue().getName());
+                s.append(arg.getValue().getSimpleName());
                 s.append(")");
             }
         }
