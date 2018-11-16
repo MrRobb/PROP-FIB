@@ -133,16 +133,12 @@ public class Functions {
     public static Out allClassroomMustHaveExtra(In input) {
 
         Schedule s = (Schedule) input.getIn(0);
-
         String extra = (String) input.getArgs(0);
-
+        String type = (String) input.getArgs(1);
         TreeSet<Class> classes = s.getClasses();
-
         for (Class c : classes) {
-
             Classroom cl = c.getClassroom();
-
-            if (!cl.hasExtra(extra)) {
+            if (!cl.hasExtra(extra) && c.getGroup().hasType(type)) {
                 return new Out(Boolean.FALSE);
             }
         }

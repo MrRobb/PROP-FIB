@@ -39,8 +39,10 @@ public class BlocksFactory {
 
 		ArrayList<Pair<String,java.lang.Class>> arrB6 = new ArrayList<>();
 		arrB6.add(new Pair<>("Extra (ex: " + Classrooms.getInstance().getExtras().first() + ")",String.class));
+		arrB6.add(new Pair<>("Type of group (ex: " + Degree.getInstance().getTypeOfGroups().get(0) + ")",String.class));
 		Block b6 = new Block(Functions::allClassroomMustHaveExtra, arrB6);
-		Blocks.getInstance().add("Every classroom must have a certain [Extra]", b6);
+		Blocks.getInstance().add("Every group of [type] must be assigned to a class with [Extra]", b6);
+
 
 		ArrayList<Pair<String,java.lang.Class>> arrB7 = new ArrayList<>();
 		Block b7 = new Block(Functions::noGroupSubGroupOverlapped, arrB7);
