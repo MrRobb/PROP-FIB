@@ -11,7 +11,7 @@ public class Schedule implements Comparable<Schedule> {
 
     private LinkedHashSet<Class> classes;
     private int score = 0;
-    private TreeSet<ScheduleKey> keys = null;
+    private TreeSet<ScheduleKey> keys;
 
     /**
      * Constructors / Destructors
@@ -164,6 +164,7 @@ public class Schedule implements Comparable<Schedule> {
     public String toString() {
 
         StringBuilder schedule = new StringBuilder();
+
 
         for (Class c : classes) {
             schedule.append(c.toString())
