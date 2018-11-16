@@ -168,7 +168,8 @@ public class Schedule implements Comparable<Schedule> {
             schedule.append(c.toString())
                     .append('\n');
         }
-
         return schedule.toString();
     }
+
+
 }
