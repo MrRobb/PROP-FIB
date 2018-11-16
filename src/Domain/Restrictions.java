@@ -31,7 +31,8 @@ public class Restrictions {
      */
     public boolean addApplied(Restriction restriction) {
 
-        applieds.put(restriction.getName() + " -> "+ restriction.getParams(), restriction);
+        if (restriction.getTotalNumOfArgs() != 0) applieds.put(restriction.getName() + " -> "+ restriction.getParams(), restriction);
+        else   applieds.put(restriction.getName(), restriction);
         return true;
     }
 

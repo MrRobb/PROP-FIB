@@ -199,7 +199,7 @@ public class DomainCtrl {
                     System.out.println("Failed while saving!");
                 }
             }
-            
+
         }
 
 	}
@@ -247,18 +247,20 @@ public class DomainCtrl {
 
         while (true) {
 
-            // Show already applieds
-            System.out.println("Already applied restrictions:");
             Set<String> applieds = Restrictions.getInstance().getAppliedRestrictionNames();
 
             if (applieds.isEmpty()) {
-                System.out.println("You are not applying any restriction");
+                System.out.println("You have no applied restriction");
             }
 
-            for (String s : applieds) {
-                System.out.println(s);
+            else {
+                // Show already applieds
+                System.out.println("Already applied restrictions:");
+                for (String s : applieds) {
+                    System.out.println(s);
+                }
+                System.out.println();
             }
-            System.out.println();
 
             // Ask for action
 
@@ -292,16 +294,15 @@ public class DomainCtrl {
     public void eraseApplied() {
 
         // Show already applieds
-        System.out.println("Already applied restrictions:");
         Set<String> applieds = Restrictions.getInstance().getAppliedRestrictionNames();
 
         if (applieds.isEmpty()) {
             System.out.println("You are not applying any restriction");
             System.out.println("Therefore you can not delete any");
+            System.out.println();
             return;
         }
 
-        System.out.println("0. Exit");
 
         int i = 1;
         HashMap<Integer, String> map = new HashMap<>(applieds.size());
@@ -326,11 +327,15 @@ public class DomainCtrl {
         System.out.println("This is the resulting applied restrictions:");
         Set<String> applied = Restrictions.getInstance().getAppliedRestrictionNames();
 
-        i = 0;
-        for (String s: applied) {
-            System.out.println(i + ". " + s);
+        if (applied.isEmpty()) System.out.println("You have no applied restrictions");
+        else {
+            i = 0;
+            for (String s : applied) {
+                System.out.println(i + ". " + s);
+            }
         }
         System.out.println();
+
     }
 
     public void addApplied() {
