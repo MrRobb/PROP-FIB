@@ -1,19 +1,16 @@
 package Domain;
 
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.TreeSet;
+import java.util.*;
 
 public class Classrooms {
 
 	public static String invalidID = "";
 	private static Classrooms instance = null;
 
-	private LinkedHashMap<String, Classroom> classrooms;
+	private TreeMap<String, Classroom> classrooms;
 
 	private Classrooms() {
-		classrooms = new LinkedHashMap<>(0);
+		classrooms = new TreeMap<>();
 	}
 
 	public static Classrooms getInstance() {
@@ -64,7 +61,7 @@ public class Classrooms {
 		return  classroomsKeys;
 	}
 
-	LinkedHashMap<String, Classroom> get() {
+	TreeMap<String, Classroom> get() {
 		return classrooms;
 	}
 

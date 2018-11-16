@@ -1,9 +1,6 @@
 package Domain;
 
-import java.util.Date;
-import java.util.Iterator;
-import java.util.LinkedHashSet;
-import java.util.Set;
+import java.util.*;
 import java.util.function.Function;
 
 public class Functions {
@@ -24,7 +21,7 @@ public class Functions {
         Integer startHour = (Integer) input.getArgs(1);
         Integer endHour = (Integer) input.getArgs(2);
 
-        LinkedHashSet<Class> classes = s.getClasses();
+        TreeSet<Class> classes = s.getClasses();
 
         for (Class c : classes) {
             if (c.isOK()) {
@@ -59,7 +56,7 @@ public class Functions {
 
         Schedule s = (Schedule) input.getIn(0);
 
-        LinkedHashSet<Class> classes = s.getClasses();
+        TreeSet<Class> classes = s.getClasses();
 
         for (Class ci : classes) {
             for (Class cj : classes) {
@@ -89,7 +86,7 @@ public class Functions {
         Integer startHour = (Integer) input.getArgs(0);
         Integer endHour = (Integer) input.getArgs(1);
 
-        LinkedHashSet<Class> classes = s.getClasses();
+        TreeSet<Class> classes = s.getClasses();
 
         for (Class c : classes) {
 
@@ -114,7 +111,7 @@ public class Functions {
         Schedule s = (Schedule) input.getIn(0);
         String type = (String) input.getArgs(0);
 
-        LinkedHashSet<Class> classes = s.getClasses();
+        TreeSet<Class> classes = s.getClasses();
 
         for (Class c : classes) {
             Group g = c.getGroup();
@@ -139,7 +136,7 @@ public class Functions {
 
         String extra = (String) input.getArgs(0);
 
-        LinkedHashSet<Class> classes = s.getClasses();
+        TreeSet<Class> classes = s.getClasses();
 
         for (Class c : classes) {
 
@@ -162,7 +159,7 @@ public class Functions {
         Schedule s = (Schedule) input.getIn(0);
         Integer n = (Integer) input.getArgs(0);
         Integer minHour = (Integer) input.getArgs(1);
-        LinkedHashSet<Class> classes = s.getClasses();
+        TreeSet<Class> classes = s.getClasses();
         for (Class c : classes) {
             ArrayList<Class> groups = new ArrayList<>();
             if(c.getGroup().getLevel() == 0){
@@ -185,7 +182,7 @@ public class Functions {
 
         Schedule s = (Schedule) input.getIn(0);
 
-        LinkedHashSet<Class> classes = s.getClasses();
+        TreeSet<Class> classes = s.getClasses();
 
         for (Class c : classes) {
             Group g = c.getGroup();
@@ -227,7 +224,7 @@ public class Functions {
         String givenS = (String) input.getArgs(0);
         String givenT = (String) input.getArgs(1);
 
-        LinkedHashSet<Class> classes = s.getClasses();
+        TreeSet<Class> classes = s.getClasses();
 
         for(Class c1 : classes){
 
@@ -268,7 +265,7 @@ public class Functions {
 
         Schedule s = (Schedule) input.getIn(0);
 
-        LinkedHashSet<Class> classes = s.getClasses();
+        TreeSet<Class> classes = s.getClasses();
 
         for (Class c : classes) {
 
@@ -302,7 +299,7 @@ public class Functions {
         String subj = (String) input.getArgs(0);
         Integer iniHour = (Integer) input.getArgs(1);
 
-        LinkedHashSet<Class> classes = s.getClasses();
+        TreeSet<Class> classes = s.getClasses();
 
         for(Class c : classes) {
 
@@ -324,7 +321,7 @@ public class Functions {
      */
     public static Out groupFitsInClassroom(In input) {
         Schedule s = (Schedule) input.getIn(0);
-        LinkedHashSet<Class> classes = s.getClasses();
+        TreeSet<Class> classes = s.getClasses();
         for (Class c : classes) {
             Integer groupCap = c.getGroup().getCapacity();
             Integer ccap = c.getClassroom().getCapacity();
@@ -342,8 +339,8 @@ public class Functions {
     public static Out atMostNClassroomsCanBeUsed(In input) {
         Schedule s = (Schedule) input.getIn(0);
         Integer max = (Integer) input.getArgs(0);
-        LinkedHashSet<Class> classes = s.getClasses();
-        LinkedHashSet<Classroom> classrooms_used = new LinkedHashSet<>();
+        TreeSet<Class> classes = s.getClasses();
+        TreeSet<Classroom> classrooms_used = new TreeSet<>();
         for (Class c : classes) {
             classrooms_used.add(c.getClassroom());
         }

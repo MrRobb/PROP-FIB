@@ -194,15 +194,17 @@ public class Class implements Comparable<Class> {
 	@Override
 	public int compareTo(Class other) {
 
-		if (!this.getDateTimeID().equals(other.getDateTimeID())) {
+		if (!(this.getDateTimeID().equals(other.getDateTimeID()))) {
 			return this.getDateTime().compareTo(other.getDateTime());
 		}
 
-		if (!this.getClassroomID().equals(other.getClassroomID())) {
+		else if (!(this.getClassroomID().equals(other.getClassroomID()))) {
 			return this.getClassroom().compareTo(other.getClassroom());
 		}
 
-		return this.getGroup().compareTo(other.getGroup());
+		else {
+			return this.getGroup().compareTo(other.getGroup());
+		}
 	}
 
 	@Override

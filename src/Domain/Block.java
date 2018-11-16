@@ -14,10 +14,6 @@ public class Block implements Function<In,Out>{
 
     private Function<In, Out> function;
     private ArrayList<Pair<String, java.lang.Class>> args;
-    public Block () {
-        function = null;
-        args = null;
-    }
 
     public Block (Function<In, Out> function,  ArrayList<Pair<String, java.lang.Class>> args) {
         this.function = function;

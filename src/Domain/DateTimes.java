@@ -1,17 +1,17 @@
 package Domain;
 
-import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.TreeMap;
 
 public class DateTimes {
 
 	public static Integer invalidID = -1;
 	private static DateTimes instance = null;
 
-	private LinkedHashMap<Integer, DateTime> datetimes;
+	private TreeMap<Integer, DateTime> datetimes;
 
 	private DateTimes() {
-		datetimes = new LinkedHashMap<>(0);
+		datetimes = new TreeMap<>();
 	}
 
 	public static DateTimes getInstance() {
@@ -54,7 +54,7 @@ public class DateTimes {
 		return DateTimes.invalidID;
 	}
 
-	public LinkedHashMap<Integer, DateTime> get() {
+	public TreeMap<Integer, DateTime> get() {
 		return datetimes;
 	}
 
