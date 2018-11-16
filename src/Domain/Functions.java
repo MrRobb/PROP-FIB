@@ -264,17 +264,54 @@ public class Functions {
      * @return true if no group is overlapped with its own subgroup of a subject.
      */
     public static Out noGroupSubGroupOverlapped(In input) {
+
         Schedule s = (Schedule) input.getIn(0);
+
         LinkedHashSet<Class> classes = s.getClasses();
+
         for (Class c : classes) {
+
             Group g = c.getGroup();
             Group pg = Groups.getInstance().get(g.getParentGroupID());
-            for(Class cc : classes){
-                if(cc.getGroup().equals(pg)){
-                    if(areOverlapped(c,cc)) return new Out(Boolean.FALSE);
+
+            if (pg != null) {
+                for (Class cc : classes) {
+
+                    if(cc.getGroup().equals(pg)) {
+                        if(areOverlapped(c, cc)) {
+                            return new Out(Boolean.FALSE);
+                        }
+                    }
                 }
             }
         }
+        return new Out(Boolean.TRUE);
+    }
+
+    /**
+     * Checks that a subject subj cannot be placed before an hour h
+     * @param input in[0] The schedule we want to check.
+     *              args[0] The subject we want to check.
+     *              args[1] The start hour in which subj can be placed.
+     * @return true if both classes are overlapped.
+     */
+    public static Out subjectMustBeSetAlwaysAfterHour(In input){
+
+        Schedule s = (Schedule) input.getIn(0);
+        String subj = (String) input.getArgs(0);
+        Integer iniHour = (Integer) input.getArgs(1);
+
+        LinkedHashSet<Class> classes = s.getClasses();
+
+        for(Class c : classes) {
+
+            Group g = c.getGroup();
+
+            if(g.getSubject().getName().equals(subj) && c.getDateTime().getAbsEndHour(g.getDuration()) < iniHour) {
+                return new Out(Boolean.FALSE);
+            }
+        }
+        
         return new Out(Boolean.TRUE);
     }
 
@@ -291,25 +328,6 @@ public class Functions {
             return eh1 > sh2 && eh2 > sh1;
         }
         return true;
-    }
-
-    /**
-     * Checks that a subject subj cannot be placed before an hour h
-     * @param input in[0] The schedule we want to check.
-     *              args[0] The subject we want to check.
-     *              args[1] The start hour in which subj can be placed.
-     * @return true if both classes are overlapped.
-     */
-    public static Out subjectMustBeSetAlwaysAfterHour(In input){
-        Schedule s = (Schedule) input.getIn(0);
-        String subj = (String) input.getArgs(0);
-        Integer iniHour = (Integer) input.getArgs(1);
-        LinkedHashSet<Class> classes = s.getClasses();
-        for(Class c : classes) {
-            if(c.getGroup().getSubject().getName().equals(subj) && c.getDateTime().getStartHour() < iniHour)
-                return new Out(Boolean.FALSE);
-        }
-        return new Out(Boolean.TRUE);
     }
 
 }
