@@ -37,7 +37,7 @@ public class BlocksFactory {
 		arrB6.add(new Pair<>("Extra (ex: " + Classrooms.getInstance().getExtras().first() + ")",String.class));
 		arrB6.add(new Pair<>("Type of group (ex: " + Degree.getInstance().getTypeOfGroups().get(0) + ")",String.class));
 		Block b6 = new Block(Functions::allGroupMustHaveClassromWithExtra, arrB6);
-		Blocks.getInstance().add("Every group of [type] must be assigned to a class with [Extra]", b6);
+		Blocks.getInstance().add("Every group of [Type] must be assigned to a class with [Extra]", b6);
 
 
 		ArrayList<Pair<String,java.lang.Class>> arrB7 = new ArrayList<>();
@@ -59,9 +59,9 @@ public class BlocksFactory {
 		Blocks.getInstance().add("All groups capacity must fit in classroom", b10);
 
 		ArrayList<Pair<String,java.lang.Class>> arrB11 = new ArrayList<>();
-		arrB11.add(new Pair<>("Max number of classrooms ",Integer.class));
+		arrB11.add(new Pair<>("Max number of classrooms (ex: 15)",Integer.class));
 		Block b11 = new Block(Functions::atMostNClassroomsCanBeUsed, arrB11);
-		Blocks.getInstance().add("At most n classrooms can be used", b11);
+		Blocks.getInstance().add("At most [Max] classrooms can be used", b11);
 
 		return true;
 	}
