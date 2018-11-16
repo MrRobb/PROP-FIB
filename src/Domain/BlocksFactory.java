@@ -56,6 +56,15 @@ public class BlocksFactory {
 		Block b9 = new Block(Functions::subjectMustBeSetAlwaysAfterHour, arrB9);
 		Blocks.getInstance().add("[Subject] must be set after [Hour]", b9);
 
+		ArrayList<Pair<String,java.lang.Class>> arrB10 = new ArrayList<>();
+		Block b10 = new Block(Functions::groupFitsInClassroom, arrB10);
+		Blocks.getInstance().add("All groups capacity must fit in classroom", b10);
+
+		ArrayList<Pair<String,java.lang.Class>> arrB11 = new ArrayList<>();
+		arrB11.add(new Pair<>("Max number of classrooms ",Integer.class));
+		Block b11 = new Block(Functions::atMostNClassroomsCanBeUsed, arrB11);
+		Blocks.getInstance().add("At most n classrooms can be used", b11);
+
 		return true;
 	}
 

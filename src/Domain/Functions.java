@@ -3,6 +3,7 @@ package Domain;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
+import java.util.Set;
 import java.util.function.Function;
 
 public class Functions {
@@ -312,6 +313,41 @@ public class Functions {
             }
         }
         
+        return new Out(Boolean.TRUE);
+    }
+
+
+    /**
+     * Checks that a group must be assigned to a classroom with enough capacity
+     * @param input in[0] The schedule we want to check.
+     * @return true if no group is overlapped with its own subgroup of a subject.
+     */
+    public static Out groupFitsInClassroom(In input) {
+        Schedule s = (Schedule) input.getIn(0);
+        LinkedHashSet<Class> classes = s.getClasses();
+        for (Class c : classes) {
+            Integer groupCap = c.getGroup().getCapacity();
+            Integer ccap = c.getClassroom().getCapacity();
+            if(ccap < groupCap) return new Out(Boolean.FALSE);
+        }
+        return new Out(Boolean.TRUE);
+    }
+
+
+    /**
+     * Checks that a group must be assigned to a classroom with enough capacity
+     * @param input in[0] The schedule we want to check.
+     * @return true if no group is overlapped with its own subgroup of a subject.
+     */
+    public static Out atMostNClassroomsCanBeUsed(In input) {
+        Schedule s = (Schedule) input.getIn(0);
+        Integer max = (Integer) input.getArgs(0);
+        LinkedHashSet<Class> classes = s.getClasses();
+        LinkedHashSet<Classroom> classrooms_used = new LinkedHashSet<>();
+        for (Class c : classes) {
+            classrooms_used.add(c.getClassroom());
+        }
+        if(classrooms_used.size() > max) return new Out(Boolean.FALSE);
         return new Out(Boolean.TRUE);
     }
 
