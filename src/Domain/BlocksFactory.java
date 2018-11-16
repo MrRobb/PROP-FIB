@@ -30,7 +30,7 @@ public class BlocksFactory {
 		arrB4.add(new Pair<>("Subject (ex: " + Subjects.getInstance().getAllKeys().get(0) + ")", String.class));
 		arrB4.add(new Pair<>("Type of group (ex: " + Degree.getInstance().getTypeOfGroups().get(0) + ")", String.class));
 		Block b4 = new Block(Functions::groupOfATypeMustBeSetBefore, arrB4);
-		Blocks.getInstance().add("Every group of [Subject] with [Type] must be set before the groups of the other types", b4);
+		Blocks.getInstance().add("Every group of [Subject] with [Type] must be set before the other groups of the same subject with other types", b4);
 
 		ArrayList<Pair<String,java.lang.Class>> arrB5 = new ArrayList<>();
 		arrB5.add(new Pair<>("Type of group (ex: " + Degree.getInstance().getTypeOfGroups().get(0) + ")",String.class));

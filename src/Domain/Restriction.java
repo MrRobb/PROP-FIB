@@ -86,10 +86,12 @@ public class Restriction {
         return score;
     }
 
-    public void setScore(int score) {
+    public boolean setScore(int score) {
         if (score >= 0) {
             this.score = score;
+            return true;
         }
+        return false;
     }
 
     public String getName() {
