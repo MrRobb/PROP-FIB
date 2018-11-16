@@ -123,7 +123,7 @@ public class Functions {
         String extra = (String) input.getArgs(0);
         LinkedHashSet<Class> classes = s.getClasses();
         for (Class c : classes) {
-            Classroom cl = c.getClassroom(); 
+            Classroom cl = c.getClassroom();
             if (!cl.hasExtra(extra)) return new Out(Boolean.FALSE);
         }
         return new Out(Boolean.TRUE);

@@ -12,7 +12,7 @@ public class DateTime implements Comparable<DateTime> {
 	 * Data Structures
 	 */
 
-	enum WeekDay {
+	public enum WeekDay {
 		Monday,
 		Tuesday,
 		Wednesday,
