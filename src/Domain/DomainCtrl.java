@@ -316,7 +316,7 @@ public class DomainCtrl {
         System.out.println("Which one do you want to delete?");
 
         int restrictionID = getInputAsInt(0, applieds.size());
-        if (Restrictions.getInstance().deleteApplyed(map.get(restrictionID))) {
+        if (Restrictions.getInstance().deleteApplied(map.get(restrictionID))) {
             System.out.println("Eliminated successfully!");
         }
         else {
@@ -324,10 +324,10 @@ public class DomainCtrl {
         }
 
         System.out.println("This is the resulting applied restrictions:");
-        Set<String> applieds_res = Restrictions.getInstance().getAppliedRestrictionNames();
+        Set<String> applied = Restrictions.getInstance().getAppliedRestrictionNames();
 
         i = 0;
-        for (String s: applieds_res) {
+        for (String s: applied) {
             System.out.println(i + ". " + s);
         }
         System.out.println();
