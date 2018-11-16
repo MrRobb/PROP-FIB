@@ -219,7 +219,7 @@ public class DomainCtrl {
         System.out.println();
 
         for (int i = 0; i < nSchedules; i++) {
-            System.out.println("Showing schedule nº " + i);
+            System.out.println("Showing schedule nº " + (i + 1));
             System.out.println(Schedules.getInstance().get(i).toString());
         }
     }

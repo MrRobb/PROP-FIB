@@ -87,11 +87,17 @@ public class Functions {
         Schedule s = (Schedule) input.getIn(0);
         Integer startHour = (Integer) input.getArgs(0);
         Integer endHour = (Integer) input.getArgs(1);
+
         LinkedHashSet<Class> classes = s.getClasses();
-        for(Class c : classes){
+
+        for (Class c : classes) {
+
             Integer sh = c.getDateTime().getStartHour();
             Integer eh = c.getDateTime().getAbsEndHour(c.getGroup().getDuration());
-            if(sh < startHour || eh > endHour) return new Out(Boolean.FALSE);
+
+            if (sh < startHour || eh > endHour) {
+                return new Out(Boolean.FALSE);
+            }
         }
         return new Out(Boolean.TRUE);
     }
@@ -103,13 +109,20 @@ public class Functions {
      * @return true if all groups have this type.
      */
     public static Out allGroupMustHaveType(In input) {
+
         Schedule s = (Schedule) input.getIn(0);
         String type = (String) input.getArgs(0);
+
         LinkedHashSet<Class> classes = s.getClasses();
+
         for (Class c : classes) {
             Group g = c.getGroup();
-            if (!g.hasType(type)) return new Out(Boolean.FALSE);
+
+            if (!g.hasType(type)) {
+                return new Out(Boolean.FALSE);
+            }
         }
+
         return new Out(Boolean.TRUE);
     }
 
@@ -120,13 +133,22 @@ public class Functions {
      * @return true if all classroom have this extra
      */
     public static Out allClassroomMustHaveExtra(In input) {
+
         Schedule s = (Schedule) input.getIn(0);
+
         String extra = (String) input.getArgs(0);
+
         LinkedHashSet<Class> classes = s.getClasses();
+
         for (Class c : classes) {
+
             Classroom cl = c.getClassroom();
-            if (!cl.hasExtra(extra)) return new Out(Boolean.FALSE);
+
+            if (!cl.hasExtra(extra)) {
+                return new Out(Boolean.FALSE);
+            }
         }
+
         return new Out(Boolean.TRUE);
     }
 
@@ -151,8 +173,7 @@ public class Functions {
         }
         return new Out(Boolean.TRUE);
     }
-*/
-
+    */
 
     /**
      * Checks that two groups of the same level with the same name cannot be overlapped.
@@ -160,25 +181,32 @@ public class Functions {
      * @return true if no group is overlapped with a group of the same level and name.
      */
     public static Out noTwoSameSemesterGroupsOverlappedWithSameName(In input) {
+
         Schedule s = (Schedule) input.getIn(0);
+
         LinkedHashSet<Class> classes = s.getClasses();
+
         for (Class c : classes) {
             Group g = c.getGroup();
+
             Integer semester = g.getSubject().getSemester();
             String name = g.getName();
-            for(Class cc : classes){
+
+            for (Class cc : classes) {
+
                 Group g2 = cc.getGroup();
-                if(semester.equals(g2.getSubject().getSemester()) && name.equals(g2.getName())){
-                    if(areOverlapped(c,cc)) return new Out(Boolean.FALSE);
+
+                if (g != g2) {
+                    if(semester.equals(g2.getSubject().getSemester()) && name.equals(g2.getName())){
+                        if(areOverlapped(c, cc)) {
+                            return new Out(Boolean.FALSE);
+                        }
+                    }
                 }
             }
         }
         return new Out(Boolean.TRUE);
     }
-
-
-
-
 
     /**
      * Checks if every subgroup of type type1 is set later than the group
@@ -192,30 +220,43 @@ public class Functions {
      * than the group of which they belong, false otherwise.
      */
 
-    public static Out groupOfATypeMustBeSetBefore(In input){
+    public static Out groupOfATypeMustBeSetBefore(In input) {
+
         Schedule s = (Schedule) input.getIn(0);
-        String subj = (String) input.getArgs(0);
-        String type1 = (String) input.getArgs(1);
+        String givenS = (String) input.getArgs(0);
+        String givenT = (String) input.getArgs(1);
+
         LinkedHashSet<Class> classes = s.getClasses();
-        for(Class c : classes){
-            Group g = c.getGroup();
-            DateTime subgroupDT = c.getDateTime();
-            String subject = Subjects.getInstance().get(g.getSubjectID()).getName();
-            // it is a candidate to check -> it's a subgroup of subject of type1
-            if(subject.equals(subj) && g.hasType(type1) && g.getLevel() > 0){
-                for(Class c1 : classes){
-                    Group g1 = c1.getGroup();
-                    if(g1.equals(g.getParentGroupID())){
-                        DateTime gparentDT = c1.getDateTime();
-                        if(subgroupDT.compareTo(gparentDT) == -1)  return new Out(Boolean.FALSE);
+
+        for(Class c1 : classes){
+
+            if (c1.isOK()) {
+                Group g1 = c1.getGroup();
+                DateTime d1 = c1.getDateTime();
+                String s1 = g1.getSubject().getName();
+
+                // it is a candidate to check -> it's a subgroup of subject of givenT
+                if (s1.equals(givenS) && g1.hasType(givenT)) {
+
+                    for (Class c2 : classes) {
+
+                        Group g2 = c2.getGroup();
+                        DateTime d2 = c2.getDateTime();
+                        String s2 = g2.getSubject().getName();
+
+                        if (s2.equals(givenS) && !g2.hasType(givenT)) {
+
+                            if (d2.compareTo(d1) > 0) {
+                                return new Out(Boolean.FALSE);
+                            }
+                        }
                     }
                 }
             }
         }
+
         return new Out(Boolean.TRUE);
     }
-
-
 
     /**
      * Checks that a group and a subgroup of the same subject cannot be overlapped
@@ -239,13 +280,17 @@ public class Functions {
 
 
     // auxiliar function not block
-    public static Boolean areOverlapped(Class c1, Class c2) {
+    private static Boolean areOverlapped(Class c1, Class c2) {
+
         Integer sh1 = c1.getDateTime().getStartHour();
         Integer eh1 = c1.getDateTime().getEndHour(c1.getGroup().getDuration());
         Integer sh2 = c2.getDateTime().getStartHour();
         Integer eh2 = c2.getDateTime().getEndHour(c2.getGroup().getDuration());
-        if(c1.getDateTime().getWeekday().equals(c2.getDateTime().getWeekday()) && (eh1 <= sh2 || eh2 <= sh1)) return false;
-        else return true;
+
+        if (c1.getDateTime().getWeekday().equals(c2.getDateTime().getWeekday())) {
+            return eh1 > sh2 && eh2 > sh1;
+        }
+        return true;
     }
 
     /**
