@@ -324,10 +324,10 @@ public class DomainCtrl {
         }
 
         System.out.println("This is the resulting applied restrictions:");
-        Set<String> applieds_res = Restrictions.getInstance().getAppliedRestrictionNames();
+        Set<String> applied = Restrictions.getInstance().getAppliedRestrictionNames();
 
         i = 0;
-        for (String s: applieds_res) {
+        for (String s: applied) {
             System.out.println(i + ". " + s);
         }
         System.out.println();
