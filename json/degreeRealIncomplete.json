@@ -4500,7 +4500,7 @@
         "name": "42",
         "types":
           [
-            "laboratoryPCPC"
+            "laboratoryPC"
           ],
         "level": 1,
         "nameParent": "40",
