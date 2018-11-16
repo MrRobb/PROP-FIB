@@ -5,6 +5,7 @@
     "groupTypes": [
         "problems",
         "laboratory",
+        "laboratoryPC",
         "theory"
     ],
     "subjects":

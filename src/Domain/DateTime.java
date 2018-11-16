@@ -62,6 +62,10 @@ public class DateTime implements Comparable<DateTime> {
 		return (this.hour + duration) % 24;
 	}
 
+	public Integer getAbsEndHour(int duration) {
+		return (this.hour + duration);
+	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (!(obj instanceof DateTime)) {

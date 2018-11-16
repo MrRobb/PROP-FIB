@@ -89,8 +89,8 @@ public class Functions {
         LinkedHashSet<Class> classes = s.getClasses();
         for(Class c : classes){
             Integer sh = c.getDateTime().getStartHour();
-            Integer eh = c.getDateTime().getEndHour(c.getGroup().getDuration());
-            if(sh < startHour || eh >= endHour) return new Out(Boolean.FALSE);
+            Integer eh = c.getDateTime().getAbsEndHour(c.getGroup().getDuration());
+            if(sh < startHour || eh > endHour) return new Out(Boolean.FALSE);
         }
         return new Out(Boolean.TRUE);
     }

@@ -5,19 +5,22 @@
     "groupTypes": [
         "problems",
         "laboratory",
+        "laboratoryPC",
         "theory"
     ],
     "subjects":
     [
       {
         "name": "PROP",
-        "credits": 6.0,
+        "credits": 6.5,
+        "semester": 5,
         "mandatory": true,
         "speciality": null
       },
       {
-        "name": "A",
-        "credits": 6.0,
+        "name": "IDI",
+        "credits": 6.5,
+        "semester": 4,
         "mandatory": true,
         "speciality": "computing"
       }
@@ -34,32 +37,46 @@
         "nameParent": null,
         "duration": 2,
         "capacity": 60,
-        "subject": "A"
+        "subject": "IDI"
       },
       {
         "name": "11",
         "types":
           [
-            "problems"
+            "laboratoryPC"
           ],
         "level": 1,
         "nameParent": "10",
         "duration": 2,
-        "capacity": 30,
-        "subject": "A"
+        "capacity": 20,
+        "subject": "IDI"
       },
       {
         "name": "12",
         "types":
           [
-            "problems"
+              "laboratoryPC"
           ],
         "level": 1,
         "nameParent": "10",
         "duration": 2,
-        "capacity": 30,
-        "subject": "A"
+        "capacity": 20,
+        "subject": "IDI"
       },
+      {
+        "name": "13",
+        "types":
+          [
+              "laboratoryPC"
+          ],
+        "level": 1,
+        "nameParent": "10",
+        "duration": 2,
+        "capacity": 20,
+        "subject": "IDI"
+      },
+
+
       {
         "name": "40",
         "types":
@@ -88,7 +105,7 @@
         "name": "44",
         "types":
           [
-            "theory"
+            "laboratory"
           ],
         "level": 1,
         "nameParent": "40",
@@ -99,6 +116,42 @@
     ],
     "classrooms":
     [
+
+       {
+        "name": "C6S303",
+        "capacity": 15,
+        "extras":
+        [
+          "computers",
+          "projector",
+          "disabled_access",
+          "A/C",
+          "heating"
+        ]
+      },
+      {
+        "name": "C6S304",
+        "capacity": 10,
+        "extras":
+        [
+          "computers",
+          "disabled_access",
+          "A/C",
+          "heating"
+        ]
+      },
+      {
+        "name": "C6S306",
+        "capacity": 20,
+        "extras":
+        [
+          "computers",
+          "projector",
+          "disabled_access",
+          "A/C",
+          "heating"
+        ]
+      },	
       {
         "name": "A6001",
         "capacity": 100,
