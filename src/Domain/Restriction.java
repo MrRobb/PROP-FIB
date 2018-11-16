@@ -100,6 +100,14 @@ public class Restriction {
         return mandatory;
     }
 
+    public Integer getTotalNumOfArgs(){
+        int i = 0;
+        for (Object[] obj : args) {
+            for (Object o : obj) i++;
+        }
+        return i;
+    }
+
     public void setMandatory(boolean mandatory) {
         this.mandatory = mandatory;
     }

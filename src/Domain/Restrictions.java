@@ -31,8 +31,8 @@ public class Restrictions {
      */
     public boolean addApplied(Restriction restriction) {
 
-        Restriction r = applieds.put(restriction.getName() + " (" + restriction.getParams() + ")", restriction);
-        return r == restriction;
+        applieds.put(restriction.getName() + " -> "+ restriction.getParams(), restriction);
+        return true;
     }
 
     public boolean clearApplied() {
@@ -59,7 +59,7 @@ public class Restrictions {
         return true;
     }
 
-    public boolean deleteApplyed(String name) {
+    public boolean deleteApplied(String name) {
 
         if (!exists(name)) {
             return false;
