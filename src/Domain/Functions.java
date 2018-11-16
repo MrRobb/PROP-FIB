@@ -100,29 +100,7 @@ public class Functions {
         return new Out(Boolean.TRUE);
     }
 
-    /**
-     * Checks that all groups must belong to a certain type
-     * @param input in[0] The schedule we want to check.     *
-     *              args[0] The type of group
-     * @return true if all groups have this type.
-     */
-    public static Out allGroupMustHaveType(In input) {
 
-        Schedule s = (Schedule) input.getIn(0);
-        String type = (String) input.getArgs(0);
-
-        TreeSet<Class> classes = s.getClasses();
-
-        for (Class c : classes) {
-            Group g = c.getGroup();
-
-            if (!g.hasType(type)) {
-                return new Out(Boolean.FALSE);
-            }
-        }
-
-        return new Out(Boolean.TRUE);
-    }
 
     /**
      * Checks that all classrooms must have a certain equipment (extra)
@@ -130,7 +108,7 @@ public class Functions {
      *              args[0] The extra
      * @return true if all classroom have this extra
      */
-    public static Out allClassroomMustHaveExtra(In input) {
+    public static Out allGroupMustHaveClassromWithExtra(In input) {
 
         Schedule s = (Schedule) input.getIn(0);
         String extra = (String) input.getArgs(0);
