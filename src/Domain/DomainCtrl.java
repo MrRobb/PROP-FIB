@@ -10,14 +10,14 @@ import org.json.simple.parser.ParseException;
 
 public class DomainCtrl {
 
-	private static DomainCtrl instance = null;
+    private static DomainCtrl instance = null;
     private Scanner commandLine = new Scanner(System.in);
 
-	public static void main(String[] args) {
-	    DomainCtrl.getInstance().menu();
-	}
+    public static void main(String[] args) {
+        DomainCtrl.getInstance().menu();
+    }
 
-	private DomainCtrl() {}
+    private DomainCtrl() {}
 
     public static DomainCtrl getInstance() {
         if (instance == null) {
@@ -28,8 +28,10 @@ public class DomainCtrl {
 
     public void menu() {
 
-        // Load info from JSON
-        produceFactory();
+        // Ask for JSON
+        if (!produceFactory()) {
+            return;
+        }
 
         while (true) {
 
@@ -95,7 +97,7 @@ public class DomainCtrl {
 
     public void admin() {
 
-	    while (true) {
+        while (true) {
             System.out.println("Choose what you want to do:");
             System.out.println("0. Exit");
             System.out.println("1. Generate schedules");
@@ -134,9 +136,9 @@ public class DomainCtrl {
         }
     }
 
-	public void user() {
+    public void user() {
 
-	    while (true) {
+        while (true) {
             System.out.println("Choose what you want to do:");
             System.out.println("0. Exit");
             System.out.println("1. Show schedules");
@@ -160,12 +162,12 @@ public class DomainCtrl {
         }
     }
 
-	public void generateSchedule() {
+    public void generateSchedule() {
 
         System.out.println("Starting to generate...");
 
-	    // Generate
-		TreeSet<Schedule> schedules = Generator.getInstance().generate();
+        // Generate
+        TreeSet<Schedule> schedules = Generator.getInstance().generate();
 
         System.out.println("Finished generating");
         System.out.println();
@@ -198,16 +200,17 @@ public class DomainCtrl {
                 else {
                     System.out.println("Failed while saving!");
                 }
+                System.out.println();
             }
 
         }
 
-	}
+    }
 
-	public void showSavedSchedules() {
+    public void showSavedSchedules() {
 
-	    int nSchedules = Schedules.getInstance().size();
-	    if (nSchedules == 1) {
+        int nSchedules = Schedules.getInstance().size();
+        if (nSchedules == 1) {
             System.out.println("There is " + nSchedules + " schedule saved");
         }
         else {
@@ -215,17 +218,17 @@ public class DomainCtrl {
         }
         System.out.println();
 
-	    for (int i = 0; i < nSchedules; i++) {
-	        System.out.println("Showing schedule nº " + i);
+        for (int i = 0; i < nSchedules; i++) {
+            System.out.println("Showing schedule nº " + i);
             System.out.println(Schedules.getInstance().get(i).toString());
         }
     }
 
-	public boolean saveSchedule(Schedule s) {
-	    return Schedules.getInstance().addSchedule(s);
+    public boolean saveSchedule(Schedule s) {
+        return Schedules.getInstance().addSchedule(s);
     }
 
-	public boolean clearSavedSchedules() {
+    public boolean clearSavedSchedules() {
 
         // Ask for saving
         System.out.println("Are you sure you want to delete ALL saved schedules?");
@@ -237,7 +240,15 @@ public class DomainCtrl {
         System.out.println();
 
         if (option == 1) {
-            return Schedules.getInstance().clear();
+            boolean ok = Schedules.getInstance().clear();
+            if (ok) {
+                System.out.println("Deleted successfully");
+            }
+            else {
+                System.out.println("Error while deleting");
+            }
+            System.out.println();
+            return ok;
         }
 
         return false;
@@ -251,6 +262,7 @@ public class DomainCtrl {
 
             if (applieds.isEmpty()) {
                 System.out.println("You have no applied restriction");
+                System.out.println();
             }
 
             else {
@@ -317,25 +329,16 @@ public class DomainCtrl {
         System.out.println("Which one do you want to delete?");
 
         int restrictionID = getInputAsInt(0, applieds.size());
+        System.out.println();
+
         if (Restrictions.getInstance().deleteApplied(map.get(restrictionID))) {
-            System.out.println("Eliminated successfully!");
+            System.out.println("Deleted successfully!");
+            System.out.println();
         }
         else {
             System.out.println("Error while deleting");
+            System.out.println();
         }
-
-        System.out.println("This is the resulting applied restrictions:");
-        Set<String> applied = Restrictions.getInstance().getAppliedRestrictionNames();
-
-        if (applied.isEmpty()) System.out.println("You have no applied restrictions");
-        else {
-            i = 0;
-            for (String s : applied) {
-                System.out.println(i + ". " + s);
-            }
-        }
-        System.out.println();
-
     }
 
     public void addApplied() {
@@ -438,7 +441,34 @@ public class DomainCtrl {
     public boolean produceFactory() {
 
         try {
-            Object obj = new JSONParser().parse(new FileReader("json/degreeReal.json"));
+            System.out.println("What scenery do you want to load?");
+            System.out.println("0. Exit");
+            System.out.println("1. Simple scenery (json/degreeEasy.json)");
+            System.out.println("2. Full scenery (json/degreeReal.json)");
+
+            int option = getInputAsInt(0, 2);
+            System.out.println();
+
+            String filePath;
+
+            switch (option) {
+                case 0:
+                    return false;
+
+                case 1:
+                    filePath = "json/degreeEasy.json";
+                    break;
+
+                case 2:
+                    filePath = "json/degreeReal.json";
+                    break;
+
+                default:
+                    optionError();
+                    return false;
+            }
+
+            Object obj = new JSONParser().parse(new FileReader(filePath));
             JSONArray ja = (JSONArray) obj;
             JSONObject jo = (JSONObject) ja.get(0);
             JSONArray cls = (JSONArray) jo.get("classrooms");
@@ -475,15 +505,25 @@ public class DomainCtrl {
                 System.out.println(classID);
             }
             System.out.println("*************************");
-        }catch (IOException e) {
-            e.printStackTrace();
-        } catch (ParseException e) {
-            e.printStackTrace();
+            System.out.println();
+
+            DateTimesFactory.produce();
+            BlocksFactory.produce();
+            RestrictionsFactory.produce();
+
+            return true;
         }
-        DateTimesFactory.produce();
-        BlocksFactory.produce();
-        RestrictionsFactory.produce();
-        return true;
+        catch (IOException | ParseException e) {
+
+            System.out.println("Error while loading JSON, make sure it is inside the json folder");
+            System.out.println();
+
+            e.printStackTrace();
+            return false;
+        }
+        catch (Exception e) {
+            return false;
+        }
     }
 
 }

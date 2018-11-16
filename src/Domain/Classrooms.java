@@ -3,6 +3,7 @@ package Domain;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.TreeSet;
 
 public class Classrooms {
 
@@ -65,6 +66,17 @@ public class Classrooms {
 
 	LinkedHashMap<String, Classroom> get() {
 		return classrooms;
+	}
+
+	public TreeSet<String> getExtras() {
+
+		TreeSet<String> extras = new TreeSet<>();
+
+		for (Classroom classroom : classrooms.values()) {
+			extras.addAll(classroom.getExtras());
+		}
+
+		return extras;
 	}
 
 	public Integer size() {
