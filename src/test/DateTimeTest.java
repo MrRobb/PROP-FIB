@@ -6,13 +6,6 @@ import org.junit.Test;
 
 public class DateTimeTest {
 
-    enum WeekDay {
-        Monday,
-        Tuesday,
-        Wednesday,
-        Thursday,
-        Friday
-    }
 
     @org.junit.Test
     public void getWeekday() {
