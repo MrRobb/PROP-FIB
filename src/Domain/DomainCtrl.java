@@ -3,237 +3,434 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
 
-import jdk.nashorn.internal.ir.debug.JSONWriter;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-import static java.lang.System.exit;
-
 public class DomainCtrl {
 
 	private static DomainCtrl instance = null;
+    private Scanner commandLine = new Scanner(System.in);
 
 	public static void main(String[] args) {
+	    DomainCtrl.getInstance().menu();
+	}
+
+	private DomainCtrl() {}
+
+    public static DomainCtrl getInstance() {
+        if (instance == null) {
+            instance = new DomainCtrl();
+        }
+        return instance;
+    }
+
+    public void menu() {
+
+        // Load info from JSON
         produceFactory();
-		Scanner user_input = new Scanner(System.in);
-		while (true) {
-            System.out.println("Introduce the type of user(num):" + "\n" + "1. Normal user" + "\n" + "2. Administrator" + "\n" + "3. To exit");
-            int user_type = user_input.nextInt();
-            if (user_type == 1) {
-                normal_user();
-            } else if (user_type == 2) {
-                admin();
-            } else if (user_type == 3) {
-                break;
-            } else System.out.println("Enter a valid number!");
-        }
-	}
 
-	public static DomainCtrl getInstance() {
-		if (instance == null) {
-			instance = new DomainCtrl();
-		}
-		return instance;
-	}
+        while (true) {
 
-    public static void admin() {
-	    Scanner user_input = new Scanner(System.in);
-        System.out.println("Now you are administrator");
+            System.out.println("Select the type of user (Number):");
+            System.out.println("0. Exit");
+            System.out.println("1. User");
+            System.out.println("2. Administrator");
 
-        System.out.println("Choose what you want to do:" + "\n" +
-		        "1. Generate schedules" + "\n" +
-		        "2. Erase existing schedules" + "\n" +
-		        "3. Modify restrictions");
+            int option = getInputAsInt(0, 2);
+            System.out.println();
 
-        int action = user_input.nextInt();
-        switch (action) {
-            case (1) :  generateSchedule();
-                break;
-            case (2) :  eraseSchedule();
-                break;
-            case (3) :  modifyRestrictions();
-                break;
+            switch (option) {
 
-                default :  optionError();
-        }
-    }
+                case 0:
+                    return;
 
-	public static void normal_user() {
-        System.out.println("Now you are normal user");
-	    // consultar los horarios en capa de datos
-    }
+                case 1:
+                    System.out.println("Logged as: User\n");
+                    user();
+                    System.out.println("Logged out\n");
+                    break;
 
+                case 2:
+                    System.out.println("Logged as: Administrator\n");
+                    admin();
+                    System.out.println("Logged out\n");
+                    break;
 
-	public static void generateSchedule() {
-		TreeSet<Schedule> schedules = Generator.getInstance().generate();
-		Scanner user_input = new Scanner(System.in);
-        if (schedules.isEmpty()) System.out.println("Enable to generate any schedule with the actual restrictions");
-        else {
-            int i = 1;
-            for (Schedule s : schedules) {
-                showSchedule(s, i);
-                System.out.println("Do you want to save this schedule?" + "\n" + "1. Yes" + "\n" + "2. No");
-                int saveOption = user_input.nextInt();
-                if ( saveOption == 1) {
-                    if (saveSchedule(s)) System.out.println("Schedule saved successfully!");
-                    else System.out.println("Failed on saving!");
-                }
+                default:
+                    optionError();
+                    break;
             }
         }
+    }
+
+    public void optionError() {
+        System.out.println("Please enter a valid option (number)\n");
+    }
+
+    private int getInputAsInt(int min, int max) {
+
+        while (true) {
+            try {
+                int num = commandLine.nextInt();
+
+                while (min > num || num > max) {
+                    System.out.println("Please, enter a valid option (number between " + min + " and " + max + ")");
+                    num = commandLine.nextInt();
+                }
+
+                return num;
+
+            } catch (Exception e) {
+                commandLine.next();
+                System.out.println("It should be a number between " + min + " and " + max);
+            }
+        }
+    }
+
+    private String getInput() {
+        return commandLine.next();
+    }
+
+    public void admin() {
+
+	    while (true) {
+            System.out.println("Choose what you want to do:");
+            System.out.println("0. Exit");
+            System.out.println("1. Generate schedules");
+            System.out.println("2. Modify restrictions to apply");
+            System.out.println("3. Show saved schedules");
+            System.out.println("4. Delete all saved schedules");
+
+            int option = getInputAsInt(0, 4);
+            System.out.println();
+
+            switch (option) {
+
+                case 0:
+                    return;
+
+                case 1:
+                    generateSchedule();
+                    break;
+
+                case 2:
+                    selectRestrictions();
+                    break;
+
+                case 3:
+                    showSavedSchedules();
+                    break;
+
+                case 4:
+                    clearSavedSchedules();
+                    break;
+
+                default:
+                    optionError();
+                    break;
+            }
+        }
+    }
+
+	public void user() {
+
+	    while (true) {
+            System.out.println("Choose what you want to do:");
+            System.out.println("0. Exit");
+            System.out.println("1. Show schedules");
+
+            int option = getInputAsInt(0, 1);
+            System.out.println();
+
+            switch (option) {
+
+                case 0:
+                    return;
+
+                case 1:
+                    showSavedSchedules();
+                    break;
+
+                default:
+                    optionError();
+                    break;
+            }
+        }
+    }
+
+	public void generateSchedule() {
+
+        System.out.println("Starting to generate...");
+
+	    // Generate
+		TreeSet<Schedule> schedules = Generator.getInstance().generate();
+
+        System.out.println("Finished generating");
+        System.out.println();
+
+        if (schedules.isEmpty()) {
+            System.out.println("Unable to generate any schedule with the actual restrictions\n");
+            return;
+        }
+
+        int i = 1;
+        for (Schedule s : schedules) {
+
+            // Show schedule
+            System.out.println("Schedule " + i);
+            System.out.println(s.toString());
+
+            // Ask for saving
+            System.out.println("Do you want to save this schedule?");
+            System.out.println("1. Yes");
+            System.out.println("2. No");
+
+            // Get yes / no
+            int option = getInputAsInt(1, 2);
+            System.out.println();
+
+            if (option == 1) {
+                if (saveSchedule(s)) {
+                    System.out.println("Schedule saved successfully");
+                }
+                else {
+                    System.out.println("Failed while saving!");
+                }
+            }
+            
+        }
 
 	}
 
-	public static boolean showSchedule(Schedule s, int i) {
-        System.out.println("Schedule " + i);
-        String output = s.toString();
-        System.out.println(output);
-        return true;
-    }
+	public void showSavedSchedules() {
 
-	public static boolean saveSchedule(Schedule s) {
-	    // guardar horario a la capa de datos
-        return true;
-    }
+	    int nSchedules = Schedules.getInstance().size();
+	    if (nSchedules == 1) {
+            System.out.println("There is " + nSchedules + " schedule saved");
+        }
+        else {
+            System.out.println("There are " + nSchedules + " schedules saved");
+        }
+        System.out.println();
 
-	public static boolean eraseSchedule() {
-	    // eliminar horarios de la capa de d    atos
-        return true;
-    }
-
-    public static void modifyRestrictions() {
-	    Scanner user_input = new Scanner(System.in);
-        System.out.println("1. Add new ones" + "\n" + "2. Erase existing ones" + '\n' + "3. Choose which to apply");
-        int restr_action = user_input.nextInt();
-        switch (restr_action) {
-            case (1) :  addNewAvailableRestrictions();
-                break;
-            case (2) :  eraseAvailableRestrictions();
-                break;
-            case (3) : modifyApplied();
-                break;
-                default: optionError();
+	    for (int i = 0; i < nSchedules; i++) {
+	        System.out.println("Showing schedule nº " + i);
+            System.out.println(Schedules.getInstance().get(i).toString());
         }
     }
 
-    public static void addNewAvailableRestrictions(){
-        
+	public boolean saveSchedule(Schedule s) {
+	    return Schedules.getInstance().addSchedule(s);
     }
 
-    public static void eraseAvailableRestrictions() {
-        Scanner user_input = new Scanner(System.in);
-        // Chose of the available ones
-        System.out.println("Enter the number of the restrictions you want to erase, enter -1 to stage");
-        Set<String> all_restrictions = Restrictions.getInstance().getAvailableRestriccionsNames();
-        int i = 1;
-        HashMap<Integer, String> map = new HashMap<Integer, String>();
-        for (String s: all_restrictions) {
-            System.out.println(i + ". " + s);
-            map.put(i, s);
+	public boolean clearSavedSchedules() {
+
+        // Ask for saving
+        System.out.println("Are you sure you want to delete ALL saved schedules?");
+        System.out.println("1. Yes");
+        System.out.println("2. No");
+
+        // Get yes / no
+        int option = getInputAsInt(1, 2);
+        System.out.println();
+
+        if (option == 1) {
+            return Schedules.getInstance().clear();
         }
-        int restrToErase = user_input.nextInt();
-        while (restrToErase != -1) {
-            Boolean b = Restrictions.getInstance().deleteAvailable(map.get(restrToErase));
-            System.out.println(map.get(restrToErase) + "deleted from available restrictions");
-            restrToErase = user_input.nextInt();
-        }
-        System.out.println("Change staged!");
+
+        return false;
     }
 
-    public static void modifyApplied() {
-	    Scanner user_input = new Scanner(System.in);
+    public void selectRestrictions() {
+
+        while (true) {
+
+            // Show already applieds
+            System.out.println("Already applied restrictions:");
+            Set<String> applieds = Restrictions.getInstance().getAppliedRestrictionNames();
+
+            if (applieds.isEmpty()) {
+                System.out.println("You are not applying any restriction");
+            }
+
+            for (String s : applieds) {
+                System.out.println(s);
+            }
+            System.out.println();
+
+            // Ask for action
+
+            System.out.println("What do you want to do?");
+            System.out.println("0. Exit");
+            System.out.println("1. Add restriction");
+            System.out.println("2. Remove restriction");
+
+            int option = getInputAsInt(0, 2);
+            System.out.println();
+
+            switch (option) {
+                case 0:
+                    return;
+
+                case 1:
+                    addApplied();
+                    break;
+
+                case 2:
+                    eraseApplied();
+                    break;
+
+                default:
+                    optionError();
+                    break;
+            }
+        }
+    }
+
+    public void eraseApplied() {
+
         // Show already applieds
         System.out.println("Already applied restrictions:");
-	    Set<String> applieds = Restrictions.getInstance().getAppliedRestrictionNames();
-	    for (String s: applieds) System.out.println(s + " || ");
+        Set<String> applieds = Restrictions.getInstance().getAppliedRestrictionNames();
 
-        System.out.println("What do you want to do?" + "\n"
-                + "1. Erase already applieds" + "\n"
-                + "2. Add more from availables");
-
-	    int option = user_input.nextInt();
-	    switch (option) {
-            case (1) :  eraseApplieds();
-            break;
-            case (2) :  addAppliedFromAvailable();
-            break;
-            default: optionError();
+        if (applieds.isEmpty()) {
+            System.out.println("You are not applying any restriction");
+            System.out.println("Therefore you can not delete any");
+            return;
         }
 
-    }
+        System.out.println("0. Exit");
 
-    public static void eraseApplieds() {
-        Scanner user_input = new Scanner(System.in);
-        System.out.println("Showing already restrictions:");
-        Set<String> applieds = Restrictions.getInstance().getAppliedRestrictionNames();
-        HashMap<Integer, String> map = new HashMap<Integer, String>();
         int i = 1;
+        HashMap<Integer, String> map = new HashMap<>(applieds.size());
         for (String s: applieds) {
             System.out.println(i + ". " + s);
-            map.put(i,s);
+            map.put(i, s);
             i++;
         }
-        System.out.println("Enter the number of the restrictions you want to eliminate, -1 to finish");
-        int restrID = user_input.nextInt();
-        while (restrID != -1) {
-            if (Restrictions.getInstance().deleteApplyed(map.get(restrID)))
-                System.out.println("Eliminated successfully!");
-            else  System.out.println("Error on elimination, try a valid number");
-            restrID = user_input.nextInt();
+        System.out.println();
+
+        // Ask for action
+        System.out.println("Which one do you want to delete?");
+
+        int restrictionID = getInputAsInt(0, applieds.size());
+        if (Restrictions.getInstance().deleteApplyed(map.get(restrictionID))) {
+            System.out.println("Eliminated successfully!");
         }
+        else {
+            System.out.println("Error while deleting");
+        }
+
         System.out.println("This is the resulting applied restrictions:");
         Set<String> applieds_res = Restrictions.getInstance().getAppliedRestrictionNames();
-        for (String s: applieds_res) System.out.println(s + " || ");
+
+        i = 0;
+        for (String s: applieds_res) {
+            System.out.println(i + ". " + s);
+        }
+        System.out.println();
     }
 
-    public static void addAppliedFromAvailable() {
-	    Scanner user_input = new Scanner(System.in);
-        // Show all availables
+    public void addApplied() {
+
+        // Show applied
+        System.out.println("Already applied restrictions:");
+        Set<String> applied = Restrictions.getInstance().getAppliedRestrictionNames();
+
+        // No applied restrictions
+        if (applied.isEmpty()) {
+            System.out.println("You are not applying any restriction");
+        }
+
+        // Iterate applied
+        for (String s: applied) {
+            System.out.println(s);
+        }
+        System.out.println();
+
+        // Show available
         System.out.println("Available restrictions:");
-        Set<String> availables = Restrictions.getInstance().getAvailableRestriccionsNames();
-        for (String s: availables) System.out.print(s + " || ");
-        // Chose of the available ones
-        System.out.println("Enter the number of the restrictions you want to apply from the available ones, enter -1 to stage");
+        Set<String> availables = Restrictions.getInstance().getAvailableRestrictionsNames();
+
+        // No restrictions
+        if (availables.isEmpty()) {
+            System.out.println("There are no available restrictions");
+            System.out.println("Therefore you can not add any");
+            System.out.println();
+            return;
+        }
+
+        System.out.println("0. Exit");
+
+        // Iterate available
         int i = 1;
-        HashMap<Integer, String> map = new HashMap<Integer, String>();
-        for (String s: availables) {
+        HashMap<Integer, String> map = new HashMap<>();
+        for (String s : availables) {
             System.out.println(i + ". " + s);
             map.put(i, s);
+            i++;
         }
-        int restrID = user_input.nextInt();
-        while (restrID != -1) {
-            Restriction available = Restrictions.getInstance().getAvailableRestriction(map.get(restrID));
-            if (available == null) System.out.println("Enter a valid number of restriction!");
-            else {
-                Restriction new_restr = available.clone();
-                for (int blockIndex = 0; blockIndex < new_restr.getNumberOfBlocks(); blockIndex++ ) {
-                    ArrayList<Object> params = new ArrayList<>();
-                    for (int j = 0; j < new_restr.getSizeArgsBlock(blockIndex); j++) {
-                        String param = new_restr.askParameter(blockIndex,j);
-                        System.out.println("Enter the parameter" + " " + param);
-                        String input_param = user_input.next();
-                        while (!new_restr.checkParam(blockIndex, j, input_param)) {
-                            System.out.println("Enter a valid parameter!");
-                            input_param = user_input.next();
-                        }
-                        params.add(input_param);
+        System.out.println();
+
+        // Ask for action
+        System.out.println("Which one do you want to add?");
+
+        // Select restriction
+        int restrID = getInputAsInt(0, availables.size());
+        System.out.println();
+
+        if (restrID == 0) {
+            return;
+        }
+
+        Restriction available = Restrictions.getInstance().getAvailableRestriction(map.get(restrID));
+
+        if (available != null) {
+
+            // Available -> Applied
+            Restriction newRestriction = available.clone();
+
+            // Ask parameters if any
+            System.out.println("This restriction has " + newRestriction.getNumberOfTotalParams() + " parameters");
+
+            // For each block
+            for (int blockIndex = 0; blockIndex < newRestriction.getNumberOfBlocks(); blockIndex++) {
+
+                ArrayList<Object> params = new ArrayList<>();
+
+                // Ask for every parameter
+                for (int paramIndex = 0; paramIndex < newRestriction.getSizeArgsBlock(blockIndex); paramIndex++) {
+
+                    // Get type of the param
+                    String paramTemplate = newRestriction.askParameter(blockIndex, paramIndex);
+                    System.out.println("Enter the parameter" + " " + paramTemplate);
+
+                    // Check that param in String can be casted as correct Type
+                    String argGiven = getInput();
+
+                    while (!newRestriction.checkParam(blockIndex, paramIndex, argGiven)) {
+                        System.out.println("Enter a valid parameter (" + paramTemplate + ")");
+                        argGiven = getInput();
                     }
-                    new_restr.setParameter(blockIndex, params.toArray());
+
+                    // Add to params array (to update later)
+                    params.add(argGiven);
                 }
-                Restrictions.getInstance().addApplied(new_restr);
+
+                newRestriction.setParameter(blockIndex, params.toArray());
             }
-            System.out.println("New restriction applied");
-            restrID = user_input.nextInt();
+            if (Restrictions.getInstance().addApplied(newRestriction)) {
+                System.out.println("New restriction applied\n");
+            }
+            else {
+                System.out.println("Error: Unable to add restriction (already existing restriction)\n");
+            }
         }
-        System.out.println("Change staged!");
     }
 
-    public static void optionError() {
-	    System.out.println("Please enter a valid option (number)!");
-    }
-
-    public static boolean produceFactory() {
+    public boolean produceFactory() {
 
         try {
             Object obj = new JSONParser().parse(new FileReader("json/degreeReal.json"));

@@ -31,8 +31,8 @@ public class Restrictions {
      */
     public boolean addApplied(Restriction restriction) {
 
-        applieds.put(restriction.getName() + " :"+ restriction.getParams(), restriction);
-        return true;
+        Restriction r = applieds.put(restriction.getName() + " (" + restriction.getParams() + ")", restriction);
+        return r == restriction;
     }
 
     public boolean clearApplied() {
@@ -115,7 +115,7 @@ public class Restrictions {
         return applieds.keySet();
     }
 
-    public Set<String> getAvailableRestriccionsNames() {
+    public Set<String> getAvailableRestrictionsNames() {
         return available.keySet();
     }
 

@@ -1,6 +1,7 @@
 package Domain;
 
 import java.util.Date;
+import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.function.Function;
 
@@ -53,38 +54,23 @@ public class Functions {
      * @return true if no classes overlapped at the same classroom, false otherwise.
      */
 
-    public static Out noTwoClassesAtSameHourSameClassroom(In input){
+    public static Out noTwoClassesAtSameHourSameClassroom(In input) {
+
         Schedule s = (Schedule) input.getIn(0);
+
         LinkedHashSet<Class> classes = s.getClasses();
-        for(Class c : classes){
-            DateTime cDT = c.getDateTime();
-            Classroom cClassroom = c.getClassroom();
-            Group cGroup = c.getGroup();
-            // if class c has a classroom and date assigned
-            if(cDT != null && cClassroom != null){
-                String wday = cDT.getWeekday().toString();
-                Integer shour = cDT.getStartHour();
-                Integer duration = cGroup.getDuration();
-                String classroom = cClassroom.getName();
-                // inspect every other class cj
-                for(Class cj : classes){
-                    DateTime cjDT = cj.getDateTime();
-                    Classroom cjClassroom = cj.getClassroom();
-                    Group cjGroup = cj.getGroup();
-                    // possible conflict if both classes have the same classroom and week day
-                    if(c != cj && cjDT != null && cjClassroom != null){
-                        if(wday == cjDT.getWeekday().toString() && classroom == cjClassroom.getName()){
-                            int jShour = cjDT.getStartHour();
-                            int jDuration = cjGroup.getDuration();
-                            //conflict if overlapped
-                            if((jShour >= shour && jShour < shour+duration) ||
-                                    (jShour+jDuration >= shour && jShour+jDuration < shour+duration) ||
-                                    (jShour< shour && jShour+jDuration > shour+duration)) return new Out(Boolean.FALSE);
-                        }
+
+        for (Class ci : classes) {
+            for (Class cj : classes) {
+                if (ci != cj && ci.isOK() && cj.isOK()) {
+                    if (ci.getDateTimeID().equals(cj.getDateTimeID()) &&
+                            ci.getClassroomID().equals(cj.getClassroomID())) {
+                        return new Out(Boolean.FALSE);
                     }
                 }
             }
         }
+
         return new Out(Boolean.TRUE);
     }
 

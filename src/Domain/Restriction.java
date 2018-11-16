@@ -47,10 +47,14 @@ public class Restriction {
 
     public String getParams() {
         StringBuilder s = new StringBuilder();
+        boolean first = true;
         for (Object[] objs : args) {
             for (Object o : objs) {
+                if (!first) {
+                    s.append(' ');
+                }
                 s.append(o);
-                s.append(" ");
+                first = false;
             }
         }
         return s.toString();
@@ -169,6 +173,14 @@ public class Restriction {
     public String askParameter(int blockIndex, int i) {
         Block b = restriccion.get(blockIndex);
         return b.toStringArg(i);
+    }
+
+    public int getNumberOfTotalParams() {
+        int sum = 0;
+        for (Block block : restriccion) {
+            sum += block.argSize();
+        }
+        return sum;
     }
 
     public int getNumberOfBlocks() {

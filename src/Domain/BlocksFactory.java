@@ -9,18 +9,18 @@ public class BlocksFactory {
 
 	public static boolean produce() {
 
-		ArrayList<Pair<String,java.lang.Class>> arrB1 = new ArrayList<Pair<String,java.lang.Class>>();
-		arrB1.add(new Pair<>("WeekDay", String.class));
-		arrB1.add(new Pair<>("Start hour", Integer.class));
-		arrB1.add(new Pair<>("End hour", Integer.class));
-		Block b1 = new Block(Functions::noClassOnDayBetweenSHEH, arrB1);
-		Blocks.getInstance().add("no class between start hour and end hour", b1);
+		ArrayList<Pair<String, java.lang.Class>> argsTemplate1 = new ArrayList<>();
+		argsTemplate1.add(new Pair<>("WeekDay", String.class));
+		argsTemplate1.add(new Pair<>("Start hour", Integer.class));
+		argsTemplate1.add(new Pair<>("End hour", Integer.class));
+		Block blockTemplate1 = new Block(Functions::noClassOnDayBetweenSHEH, argsTemplate1);
+		Blocks.getInstance().add("No class between [Start hour] and [End hour] on [WeekDay]", blockTemplate1);
 
-		/*ArrayList<java.lang.Class> arrB2 = new ArrayList<java.lang.Class>();
-		Block b2 = new Block(Functions::noTwoClassesAtSameHourSameClassroom, arrB2);
-		Blocks.getInstance().add("no overlapping hour and classroom", b2);
+		ArrayList<Pair<String, java.lang.Class>> argsTemplate2 = new ArrayList<>();
+		Block blockTemplate2 = new Block(Functions::noTwoClassesAtSameHourSameClassroom, argsTemplate2);
+		Blocks.getInstance().add("No overlapping hour and classroom", blockTemplate2);
 
-		ArrayList<java.lang.Class> arrB3 = new ArrayList<java.lang.Class>();
+		/*ArrayList<java.lang.Class> arrB3 = new ArrayList<java.lang.Class>();
 		arrB3.add(Integer.class);
 		arrB3.add(Integer.class);;
 		Block b3 = new Block(Functions::everyClassBetweenStartAndEndHour, arrB3);
