@@ -89,6 +89,6 @@ public class Generator {
 			schedule.removeClass(c);
 		}
 
-		return schedules.first() != null ? schedules.first().getScore() : Integer.MIN_VALUE;
+		return schedules.size() > 0 ? schedules.first().getScore() : Integer.MIN_VALUE;
 	}
 }

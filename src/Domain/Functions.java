@@ -305,7 +305,7 @@ public class Functions {
 
             Group g = c.getGroup();
 
-            if(g.getSubject().getName().equals(subj) && c.getDateTime().getAbsEndHour(g.getDuration()) < iniHour) {
+            if(g.getSubject().getName().equals(subj) && c.getDateTime().getStartHour() < iniHour) {
                 return new Out(Boolean.FALSE);
             }
         }
@@ -337,14 +337,17 @@ public class Functions {
      * @return true if no group is overlapped with its own subgroup of a subject.
      */
     public static Out atMostNClassroomsCanBeUsed(In input) {
+
         Schedule s = (Schedule) input.getIn(0);
         Integer max = (Integer) input.getArgs(0);
+
         TreeSet<Class> classes = s.getClasses();
         TreeSet<Classroom> classrooms_used = new TreeSet<>();
+
         for (Class c : classes) {
             classrooms_used.add(c.getClassroom());
         }
-        if(classrooms_used.size() > max) return new Out(Boolean.FALSE);
+        if (classrooms_used.size() > max) return new Out(Boolean.FALSE);
         return new Out(Boolean.TRUE);
     }
 
@@ -357,10 +360,12 @@ public class Functions {
         Integer sh2 = c2.getDateTime().getStartHour();
         Integer eh2 = c2.getDateTime().getEndHour(c2.getGroup().getDuration());
 
-        if (c1.getDateTime().getWeekday().equals(c2.getDateTime().getWeekday())) {
-            return eh1 > sh2 && eh2 > sh1;
+        if (c1.getDateTime().getWeekday().ordinal() == c2.getDateTime().getWeekday().ordinal()) {
+            return eh1 > sh2 && sh1 < eh2;
         }
-        return true;
+        else {
+            return false;
+        }
     }
 
 }

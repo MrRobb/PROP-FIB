@@ -42,6 +42,9 @@ public class Groups {
 	}
 
 	public Group get(Integer id) {
+		if (id.equals(invalidID)) {
+			return null;
+		}
 		return groups.get(id);
 	}
 
