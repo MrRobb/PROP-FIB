@@ -8,14 +8,10 @@ import javafx.scene.control.SplitMenuButton;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class ChoosingJSON implements Initializable {
+public class ChoosingJSON {
     public SplitMenuButton fileMenuButton;
     public Button btnFIBComplete;
     public Button btnFIBMand;
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-
-    }
 
     public void pressFIBcompletedButton(Event e){
 

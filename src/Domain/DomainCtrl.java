@@ -526,4 +526,8 @@ public class DomainCtrl {
         }
     }
 
+    public ArrayList<String> getSubjects(){
+        return Subjects.getInstance().getAllKeys();
+    }
+
 }
