@@ -1,8 +1,6 @@
 package Domain;
 
-import java.util.Date;
-import java.util.Iterator;
-import java.util.LinkedHashSet;
+import java.util.*;
 import java.util.function.Function;
 
 public class Functions {
@@ -23,7 +21,7 @@ public class Functions {
         Integer startHour = (Integer) input.getArgs(1);
         Integer endHour = (Integer) input.getArgs(2);
 
-        LinkedHashSet<Class> classes = s.getClasses();
+        TreeSet<Class> classes = s.getClasses();
 
         for (Class c : classes) {
             if (c.isOK()) {
@@ -58,7 +56,7 @@ public class Functions {
 
         Schedule s = (Schedule) input.getIn(0);
 
-        LinkedHashSet<Class> classes = s.getClasses();
+        TreeSet<Class> classes = s.getClasses();
 
         for (Class ci : classes) {
             for (Class cj : classes) {
@@ -88,7 +86,7 @@ public class Functions {
         Integer startHour = (Integer) input.getArgs(0);
         Integer endHour = (Integer) input.getArgs(1);
 
-        LinkedHashSet<Class> classes = s.getClasses();
+        TreeSet<Class> classes = s.getClasses();
 
         for (Class c : classes) {
 
@@ -102,29 +100,7 @@ public class Functions {
         return new Out(Boolean.TRUE);
     }
 
-    /**
-     * Checks that all groups must belong to a certain type
-     * @param input in[0] The schedule we want to check.     *
-     *              args[0] The type of group
-     * @return true if all groups have this type.
-     */
-    public static Out allGroupMustHaveType(In input) {
 
-        Schedule s = (Schedule) input.getIn(0);
-        String type = (String) input.getArgs(0);
-
-        LinkedHashSet<Class> classes = s.getClasses();
-
-        for (Class c : classes) {
-            Group g = c.getGroup();
-
-            if (!g.hasType(type)) {
-                return new Out(Boolean.FALSE);
-            }
-        }
-
-        return new Out(Boolean.TRUE);
-    }
 
     /**
      * Checks that all classrooms must have a certain equipment (extra)
@@ -132,19 +108,15 @@ public class Functions {
      *              args[0] The extra
      * @return true if all classroom have this extra
      */
-    public static Out allClassroomMustHaveExtra(In input) {
+    public static Out allGroupMustHaveClassromWithExtra(In input) {
 
         Schedule s = (Schedule) input.getIn(0);
-
         String extra = (String) input.getArgs(0);
-
-        LinkedHashSet<Class> classes = s.getClasses();
-
+        String type = (String) input.getArgs(1);
+        TreeSet<Class> classes = s.getClasses();
         for (Class c : classes) {
-
             Classroom cl = c.getClassroom();
-
-            if (!cl.hasExtra(extra)) {
+            if (!cl.hasExtra(extra) && c.getGroup().hasType(type)) {
                 return new Out(Boolean.FALSE);
             }
         }
@@ -161,7 +133,7 @@ public class Functions {
         Schedule s = (Schedule) input.getIn(0);
         Integer n = (Integer) input.getArgs(0);
         Integer minHour = (Integer) input.getArgs(1);
-        LinkedHashSet<Class> classes = s.getClasses();
+        TreeSet<Class> classes = s.getClasses();
         for (Class c : classes) {
             ArrayList<Class> groups = new ArrayList<>();
             if(c.getGroup().getLevel() == 0){
@@ -184,7 +156,7 @@ public class Functions {
 
         Schedule s = (Schedule) input.getIn(0);
 
-        LinkedHashSet<Class> classes = s.getClasses();
+        TreeSet<Class> classes = s.getClasses();
 
         for (Class c : classes) {
             Group g = c.getGroup();
@@ -226,7 +198,7 @@ public class Functions {
         String givenS = (String) input.getArgs(0);
         String givenT = (String) input.getArgs(1);
 
-        LinkedHashSet<Class> classes = s.getClasses();
+        TreeSet<Class> classes = s.getClasses();
 
         for(Class c1 : classes){
 
@@ -267,7 +239,7 @@ public class Functions {
 
         Schedule s = (Schedule) input.getIn(0);
 
-        LinkedHashSet<Class> classes = s.getClasses();
+        TreeSet<Class> classes = s.getClasses();
 
         for (Class c : classes) {
 
@@ -301,17 +273,55 @@ public class Functions {
         String subj = (String) input.getArgs(0);
         Integer iniHour = (Integer) input.getArgs(1);
 
-        LinkedHashSet<Class> classes = s.getClasses();
+        TreeSet<Class> classes = s.getClasses();
 
         for(Class c : classes) {
 
             Group g = c.getGroup();
 
-            if(g.getSubject().getName().equals(subj) && c.getDateTime().getAbsEndHour(g.getDuration()) < iniHour) {
+            if(g.getSubject().getName().equals(subj) && c.getDateTime().getStartHour() < iniHour) {
                 return new Out(Boolean.FALSE);
             }
         }
         
+        return new Out(Boolean.TRUE);
+    }
+
+
+    /**
+     * Checks that a group must be assigned to a classroom with enough capacity
+     * @param input in[0] The schedule we want to check.
+     * @return true if no group is overlapped with its own subgroup of a subject.
+     */
+    public static Out groupFitsInClassroom(In input) {
+        Schedule s = (Schedule) input.getIn(0);
+        TreeSet<Class> classes = s.getClasses();
+        for (Class c : classes) {
+            Integer groupCap = c.getGroup().getCapacity();
+            Integer ccap = c.getClassroom().getCapacity();
+            if(ccap < groupCap) return new Out(Boolean.FALSE);
+        }
+        return new Out(Boolean.TRUE);
+    }
+
+
+    /**
+     * Checks that a group must be assigned to a classroom with enough capacity
+     * @param input in[0] The schedule we want to check.
+     * @return true if no group is overlapped with its own subgroup of a subject.
+     */
+    public static Out atMostNClassroomsCanBeUsed(In input) {
+
+        Schedule s = (Schedule) input.getIn(0);
+        Integer max = (Integer) input.getArgs(0);
+
+        TreeSet<Class> classes = s.getClasses();
+        TreeSet<Classroom> classrooms_used = new TreeSet<>();
+
+        for (Class c : classes) {
+            classrooms_used.add(c.getClassroom());
+        }
+        if (classrooms_used.size() > max) return new Out(Boolean.FALSE);
         return new Out(Boolean.TRUE);
     }
 
@@ -324,10 +334,12 @@ public class Functions {
         Integer sh2 = c2.getDateTime().getStartHour();
         Integer eh2 = c2.getDateTime().getEndHour(c2.getGroup().getDuration());
 
-        if (c1.getDateTime().getWeekday().equals(c2.getDateTime().getWeekday())) {
-            return eh1 > sh2 && eh2 > sh1;
+        if (c1.getDateTime().getWeekday().ordinal() == c2.getDateTime().getWeekday().ordinal()) {
+            return eh1 > sh2 && sh1 < eh2;
         }
-        return true;
+        else {
+            return false;
+        }
     }
 
 }

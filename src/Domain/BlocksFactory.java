@@ -32,15 +32,13 @@ public class BlocksFactory {
 		Block b4 = new Block(Functions::groupOfATypeMustBeSetBefore, arrB4);
 		Blocks.getInstance().add("Every group of [Subject] with [Type] must be set before the other groups of the same subject with other types", b4);
 
-		ArrayList<Pair<String,java.lang.Class>> arrB5 = new ArrayList<>();
-		arrB5.add(new Pair<>("Type of group (ex: " + Degree.getInstance().getTypeOfGroups().get(0) + ")",String.class));
-		Block b5 = new Block(Functions::allGroupMustHaveType, arrB5);
-		Blocks.getInstance().add("All the group must have a [Type]", b5);
 
 		ArrayList<Pair<String,java.lang.Class>> arrB6 = new ArrayList<>();
 		arrB6.add(new Pair<>("Extra (ex: " + Classrooms.getInstance().getExtras().first() + ")",String.class));
-		Block b6 = new Block(Functions::allClassroomMustHaveExtra, arrB6);
-		Blocks.getInstance().add("Every classroom must have a certain [Extra]", b6);
+		arrB6.add(new Pair<>("Type of group (ex: " + Degree.getInstance().getTypeOfGroups().get(0) + ")",String.class));
+		Block b6 = new Block(Functions::allGroupMustHaveClassromWithExtra, arrB6);
+		Blocks.getInstance().add("Every group of [Type] must be assigned to a class with [Extra]", b6);
+
 
 		ArrayList<Pair<String,java.lang.Class>> arrB7 = new ArrayList<>();
 		Block b7 = new Block(Functions::noGroupSubGroupOverlapped, arrB7);
@@ -55,6 +53,15 @@ public class BlocksFactory {
 		arrB9.add(new Pair<>("Hour (ex: 8)",Integer.class));
 		Block b9 = new Block(Functions::subjectMustBeSetAlwaysAfterHour, arrB9);
 		Blocks.getInstance().add("[Subject] must be set after [Hour]", b9);
+
+		ArrayList<Pair<String,java.lang.Class>> arrB10 = new ArrayList<>();
+		Block b10 = new Block(Functions::groupFitsInClassroom, arrB10);
+		Blocks.getInstance().add("All groups capacity must fit in classroom", b10);
+
+		ArrayList<Pair<String,java.lang.Class>> arrB11 = new ArrayList<>();
+		arrB11.add(new Pair<>("Max number of classrooms (ex: 15)",Integer.class));
+		Block b11 = new Block(Functions::atMostNClassroomsCanBeUsed, arrB11);
+		Blocks.getInstance().add("At most [Max] classrooms can be used", b11);
 
 		return true;
 	}

@@ -28,9 +28,9 @@ public class Generator {
 	 */
 	public TreeSet<Schedule> generate() {
 
-		LinkedHashMap<Integer, Group> groups = new LinkedHashMap<>(Groups.getInstance().get());
-		LinkedHashMap<Integer, DateTime> dates = new LinkedHashMap<>(DateTimes.getInstance().get());
-		LinkedHashMap<String, Classroom> classrooms = new LinkedHashMap<>(Classrooms.getInstance().get());
+		TreeMap<Integer, Group> groups = new TreeMap<>(Groups.getInstance().get());
+		TreeMap<Integer, DateTime> dates = new TreeMap<>(DateTimes.getInstance().get());
+		TreeMap<String, Classroom> classrooms = new TreeMap<>(Classrooms.getInstance().get());
 
 		TreeSet<Schedule> schedules = new TreeSet<>();
 		Schedule schedule = new Schedule(dates.keySet(), classrooms.keySet());
@@ -47,7 +47,7 @@ public class Generator {
 	/*
 	 * Helpers
 	 */
-	private Integer generateSchedules(TreeSet<Schedule> schedules, Schedule schedule, LinkedHashMap<Integer, Group> groups, Iterator<Map.Entry<Integer, Group>> it) {
+	private Integer generateSchedules(TreeSet<Schedule> schedules, Schedule schedule, TreeMap<Integer, Group> groups, Iterator<Map.Entry<Integer, Group>> it) {
 
 		if (!it.hasNext()) {
 			schedules.add(new Schedule(schedule));
@@ -89,6 +89,6 @@ public class Generator {
 			schedule.removeClass(c);
 		}
 
-		return schedules.first() != null ? schedules.first().getScore() : Integer.MIN_VALUE;
+		return schedules.size() > 0 ? schedules.first().getScore() : Integer.MIN_VALUE;
 	}
 }

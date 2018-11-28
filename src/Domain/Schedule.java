@@ -9,9 +9,9 @@ public class Schedule implements Comparable<Schedule> {
      * Attributes
      */
 
-    private LinkedHashSet<Class> classes;
+    private TreeSet<Class> classes;
     private int score = 0;
-    private TreeSet<ScheduleKey> keys = null;
+    private TreeSet<ScheduleKey> keys;
 
     /**
      * Constructors / Destructors
@@ -19,7 +19,7 @@ public class Schedule implements Comparable<Schedule> {
 
     public Schedule(Set<Integer> dates, Set<String> classrooms) {
 
-        classes = new LinkedHashSet<>(Groups.getInstance().size());
+        classes = new TreeSet<>();
 
         keys = new TreeSet<>();
         for (String classroom : classrooms) {
@@ -30,7 +30,7 @@ public class Schedule implements Comparable<Schedule> {
     }
 
     public Schedule(Schedule schedule) {
-        this.classes = new LinkedHashSet<>(schedule.classes);
+        this.classes = new TreeSet<>(schedule.classes);
         this.score = schedule.getScore();
         this.keys = new TreeSet<>(schedule.keys);
     }
@@ -38,7 +38,7 @@ public class Schedule implements Comparable<Schedule> {
     /**
      * Consultants
      */
-    public LinkedHashSet<Class> getClasses() {
+    public TreeSet<Class> getClasses() {
         return classes;
     }
 
@@ -122,8 +122,7 @@ public class Schedule implements Comparable<Schedule> {
      * Modifiers
      */
     public boolean addClass(Class c) {
-        classes.add(c);
-        return true;
+        return classes.add(c);
     }
 
     public boolean removeClass(Class c) {
@@ -169,7 +168,8 @@ public class Schedule implements Comparable<Schedule> {
             schedule.append(c.toString())
                     .append('\n');
         }
-
         return schedule.toString();
     }
+
+
 }

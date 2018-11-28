@@ -1,17 +1,17 @@
 package Domain;
 
-import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.TreeMap;
 
 public class Groups {
 
 	public static Integer invalidID = -1;
 	private static Groups instance = null;
 
-	private LinkedHashMap<Integer, Group> groups;
+	private TreeMap<Integer, Group> groups;
 
 	private Groups() {
-		groups = new LinkedHashMap<>(0);
+		groups = new TreeMap<>();
 	}
 
 	public static Groups getInstance() {
@@ -42,6 +42,9 @@ public class Groups {
 	}
 
 	public Group get(Integer id) {
+		if (id.equals(invalidID)) {
+			return null;
+		}
 		return groups.get(id);
 	}
 
@@ -62,7 +65,7 @@ public class Groups {
 		return Groups.invalidID;
 	}
 
-	public LinkedHashMap<Integer, Group> get() {
+	public TreeMap<Integer, Group> get() {
 		return groups;
 	}
 

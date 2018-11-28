@@ -492,7 +492,7 @@ public class DomainCtrl {
             System.out.println("New degree created: " + Degree.getInstance().getName());
             System.out.println("*************************");
             System.out.println(Groups.getInstance().size() + " groups generated:");
-            LinkedHashMap<Integer, Group> allGroups = Groups.getInstance().get();
+            TreeMap<Integer, Group> allGroups = Groups.getInstance().get();
             for (Map.Entry<Integer, Group> g : allGroups.entrySet()) {
                 System.out.println(g.getValue().getSubject().getName() + " " + g.getValue().getName() + " " + g.getValue().getTypes());
             }
