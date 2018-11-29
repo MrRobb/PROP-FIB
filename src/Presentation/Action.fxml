@@ -6,11 +6,18 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Presentation.Action">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Presentation.Action">
     <children>
-        <VBox layoutX="89.0" layoutY="173.0" prefHeight="200.0" prefWidth="638.0">
+        <VBox layoutX="86.0" layoutY="92.0" prefHeight="525.0" spacing="20.0">
             <children>
-                <Button fx:id="btnConsult" mnemonicParsing="false" onAction="#changeScreenButtonConsultPressed" text="Consult information imported " />
+                <Button fx:id="btnConsult" mnemonicParsing="false" onAction="#changeScreenButtonConsultPressed" prefHeight="51.0" prefWidth="356.0" text="Consult information imported " />
+            <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="355.0" text="Modify Restrictions" />
+            <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="355.0" text="Show saved schedules" />
+            <Separator prefWidth="200.0" />
+            <Button mnemonicParsing="false" prefHeight="56.0" prefWidth="355.0" style="-fx-background-color: rgb(200,75,50);" text="Delete saved schedules" textFill="WHITE" />
+            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="356.0" style="-fx-background-color: rgb(25,200,250); -fx-border-radius: 5 5 5 5;" text="Generate" textFill="WHITE" />
+            <Separator prefWidth="200.0" />
+            <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="356.0" text="Log out" />
             </children>
         </VBox>
     </children>
