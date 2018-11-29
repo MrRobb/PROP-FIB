@@ -19,4 +19,21 @@ public class PresentationCtrl {
     public ArrayList<String> getSubjects(){
         return DomainCtrl.getInstance().getSubjects();
     }
+
+    public Boolean produce(Integer file){
+        DomainCtrl.getInstance().produceFactory(file);
+        return true;
+    }
+
+    public Integer getNumberOfSubjects(){
+        return DomainCtrl.getInstance().getNumberOfSubjects();
+    }
+
+    public Integer getNumberOfGroups(){
+        return DomainCtrl.getInstance().getNumberOfGroups();
+    }
+
+    public Integer getNumberOfClassrooms(){
+        return DomainCtrl.getInstance().getNumberOfClassrooms();
+    }
 }

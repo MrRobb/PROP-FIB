@@ -4,6 +4,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.Accordion?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
@@ -20,7 +21,7 @@
                   <Insets bottom="15.0" />
                </VBox.margin></Label>
             <Separator prefWidth="200.0" />
-            <SplitMenuButton id="fileMenuButton" mnemonicParsing="false" text="File">
+            <SplitMenuButton fx:id="fileMenuButton" mnemonicParsing="false" text="File">
               <items>
                 <MenuItem id="btnFIBComplete" fx:id="btnFIBComplete" mnemonicParsing="false" onAction="#pressFIBcompletedButton" text="FIB (Complete)" />
                 <MenuItem fx:id="btnFIBMand" mnemonicParsing="false" onAction="#pressFIBmandButton" text="FIB (Only mandatory)" />

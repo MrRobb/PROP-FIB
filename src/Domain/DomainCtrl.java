@@ -29,9 +29,9 @@ public class DomainCtrl {
     public void menu() {
 
         // Ask for JSON
-        if (!produceFactory()) {
-            return;
-        }
+        //if (!produceFactory()) {
+        //    return;
+        //}
 
         while (true) {
 
@@ -438,7 +438,7 @@ public class DomainCtrl {
         }
     }
 
-    public boolean produceFactory() {
+    public boolean produceFactory(int option) {
 
         try {
             System.out.println("What scenery do you want to load?");
@@ -446,7 +446,7 @@ public class DomainCtrl {
             System.out.println("1. Simple scenery (json/degreeEasy.json)");
             System.out.println("2. Full scenery (json/degreeReal.json)");
 
-            int option = getInputAsInt(0, 2);
+            //int option = getInputAsInt(0, 2);
             System.out.println();
 
             String filePath;
@@ -528,6 +528,18 @@ public class DomainCtrl {
 
     public ArrayList<String> getSubjects(){
         return Subjects.getInstance().getAllKeys();
+    }
+
+    public Integer getNumberOfSubjects(){
+        return Subjects.getInstance().size();
+    }
+
+    public Integer getNumberOfGroups(){
+        return Groups.getInstance().size();
+    }
+
+    public Integer getNumberOfClassrooms(){
+        return Classrooms.getInstance().size();
     }
 
 }
