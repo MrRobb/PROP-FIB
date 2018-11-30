@@ -1,0 +1,33 @@
+#btnConsult, #btnModifyRestrictions,#btnShowSavesSchedules,#btnLogOut{
+    -fx-background-color: "white";
+    -fx-border-radius: 20px;
+    -fx-background-radius: 20px;
+}
+
+#btnConsult:hover,#btnModifyRestrictions:hover,#btnShowSavesSchedules:hover,#btnLogOut:hover{
+    -fx-background-color: rgb(222, 223, 223);
+    -fx-border-radius: 20px;
+    -fx-background-radius: 20px;
+}
+
+#btnDeleteSchedules{
+    -fx-background-color: rgb(214, 67, 52);
+    -fx-border-radius: 20px;
+    -fx-background-radius: 20px;
+}
+#btnDeleteSchedules:hover{
+    -fx-background-color: rgb(207, 98, 81);
+    -fx-border-radius: 20px;
+    -fx-background-radius: 20px;
+}
+
+#btnGenerate{
+    -fx-background-color: rgb(9, 208, 251);
+    -fx-border-radius: 20px;
+    -fx-background-radius: 20px;
+}
+#btnGenerate:hover{
+    -fx-background-color: rgb(55, 168, 232);
+    -fx-border-radius: 20px;
+    -fx-background-radius: 20px;
+}

@@ -10,14 +10,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa2f1aa1-9b69-405b-87b4-eb516390aa6d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Presentation/PairNumberGroup.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/DomainCtrl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/DomainCtrl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Groups.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Groups.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Presentation/Action.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation/Action.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Presentation/Action.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation/Action.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Presentation/ConsultingData.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation/ConsultingData.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Presentation/ConsultingData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation/ConsultingData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Presentation/PairNumberClassroom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation/PairNumberClassroom.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Presentation/PresentationCtrl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation/PresentationCtrl.java" afterDir="false" />
     </list>
     <list id="2359001d-d985-4a8b-8ebc-422acdf50f2f" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -163,11 +159,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DomainCtrl.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DomainCtrl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Domain/DomainCtrl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="455">
-              <caret line="552" column="40" selection-start-line="552" selection-start-column="40" selection-end-line="552" selection-end-column="40" />
+            <state relative-caret-position="365">
+              <caret line="547" column="38" lean-forward="true" selection-start-line="547" selection-start-column="38" selection-end-line="547" selection-end-column="38" />
               <folding>
                 <element signature="method#getInstance#0;class#DomainCtrl#0" />
                 <element signature="method#getInputAsInt#0;class#DomainCtrl#0" />
@@ -195,11 +191,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ConsultingData.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ConsultingData.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Presentation/ConsultingData.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="581">
-              <caret line="114" column="1" lean-forward="true" selection-start-line="114" selection-start-column="1" selection-end-line="114" selection-end-column="1" />
+            <state relative-caret-position="455">
+              <caret line="43" column="10" selection-start-line="43" selection-start-column="10" selection-end-line="43" selection-end-column="10" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -207,19 +203,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PairNumberGroup.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Presentation/PairNumberGroup.java">
+      <file leaf-file-name="Action.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Presentation/Action.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="28" column="21" selection-start-line="28" selection-start-column="21" selection-end-line="28" selection-end-column="21" />
+            <state relative-caret-position="360">
+              <caret line="34" column="62" lean-forward="true" selection-start-line="34" selection-start-column="62" selection-end-line="34" selection-end-column="62" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ConsultingData.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Presentation/ConsultingData.fxml">
-          <provider selected="true" editor-type-id="text-editor" />
-          <provider editor-type-id="JavaFX-Scene-Builder" />
+      <file leaf-file-name="ChoosingJSON.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Presentation/ChoosingJSON.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="262">
+              <caret line="17" column="32" lean-forward="true" selection-start-line="17" selection-start-column="32" selection-end-line="17" selection-end-column="32" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -315,7 +320,6 @@
         <option value="$PROJECT_DIR$/src/Presentation/main.fxml" />
         <option value="$PROJECT_DIR$/src/Presentation/Main.fxml" />
         <option value="$PROJECT_DIR$/src/Presentation/Action.fxml" />
-        <option value="$PROJECT_DIR$/src/Presentation/Action.java" />
         <option value="$PROJECT_DIR$/src/Presentation/ChoosingJSON.fxml" />
         <option value="$PROJECT_DIR$/src/Presentation/ChoosingJSON.java" />
         <option value="$PROJECT_DIR$/src/Presentation/PairNumberSubject.java" />
@@ -324,8 +328,10 @@
         <option value="$PROJECT_DIR$/src/Domain/Groups.java" />
         <option value="$PROJECT_DIR$/src/Presentation/PairNumberGroup.java" />
         <option value="$PROJECT_DIR$/src/Presentation/PresentationCtrl.java" />
-        <option value="$PROJECT_DIR$/src/Presentation/ConsultingData.java" />
         <option value="$PROJECT_DIR$/src/Domain/DomainCtrl.java" />
+        <option value="$PROJECT_DIR$/src/Presentation/main.css" />
+        <option value="$PROJECT_DIR$/src/Presentation/Action.java" />
+        <option value="$PROJECT_DIR$/src/Presentation/ConsultingData.java" />
       </list>
     </option>
   </component>
@@ -635,7 +641,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1933" height="1053" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3291815" />
@@ -645,7 +650,7 @@
       <window_info anchor="right" id="Capture Analysis" order="5" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" weight="0.32921174" />
       <window_info anchor="right" id="Maven Projects" order="7" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.33156216" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.33156216" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.3291815" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32857144" />
       <window_info id="Capture Tool" order="6" />
@@ -727,13 +732,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Domain/DateTimesFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_191/src.zip!/java/util/ArrayList.java" />
     <entry file="file://$PROJECT_DIR$/src/Domain/Restriction.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -932,16 +930,6 @@
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Presentation/ChoosingJSON.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1098">
-          <caret line="76" selection-start-line="76" selection-end-line="76" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Presentation/Action.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -954,16 +942,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="18">
           <caret line="2578" selection-start-line="2578" selection-end-line="2578" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Presentation/Action.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="558">
-          <caret line="31" selection-start-line="31" selection-end-line="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1031,19 +1009,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Presentation/PairNumberGroup.java">
+    <entry file="file://$PROJECT_DIR$/src/Domain/DomainCtrl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="28" column="21" selection-start-line="28" selection-start-column="21" selection-end-line="28" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Presentation/ConsultingData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="581">
-          <caret line="114" column="1" lean-forward="true" selection-start-line="114" selection-start-column="1" selection-end-line="114" selection-end-column="1" />
+        <state relative-caret-position="365">
+          <caret line="547" column="38" lean-forward="true" selection-start-line="547" selection-start-column="38" selection-end-line="547" selection-end-column="38" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="method#getInstance#0;class#DomainCtrl#0" />
+            <element signature="method#getInputAsInt#0;class#DomainCtrl#0" />
+            <element signature="e#16096#16097#0" expanded="true" />
+            <element signature="e#16148#16149#0" expanded="true" />
+            <element signature="e#16189#16190#0" expanded="true" />
+            <element signature="e#16239#16240#0" expanded="true" />
+            <element signature="e#16284#16285#0" expanded="true" />
+            <element signature="e#16338#16339#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1059,19 +1037,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Domain/DomainCtrl.java">
+    <entry file="file://$PROJECT_DIR$/src/Presentation/PairNumberGroup.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="28" column="21" selection-start-line="28" selection-start-column="21" selection-end-line="28" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Presentation/main.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Presentation/ChoosingJSON.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="17" column="32" lean-forward="true" selection-start-line="17" selection-start-column="32" selection-end-line="17" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Presentation/Action.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="34" column="62" lean-forward="true" selection-start-line="34" selection-start-column="62" selection-end-line="34" selection-end-column="62" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Presentation/ConsultingData.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="455">
-          <caret line="552" column="40" selection-start-line="552" selection-start-column="40" selection-end-line="552" selection-end-column="40" />
+          <caret line="43" column="10" selection-start-line="43" selection-start-column="10" selection-end-line="43" selection-end-column="10" />
           <folding>
-            <element signature="method#getInstance#0;class#DomainCtrl#0" />
-            <element signature="method#getInputAsInt#0;class#DomainCtrl#0" />
-            <element signature="e#16096#16097#0" expanded="true" />
-            <element signature="e#16148#16149#0" expanded="true" />
-            <element signature="e#16189#16190#0" expanded="true" />
-            <element signature="e#16239#16240#0" expanded="true" />
-            <element signature="e#16284#16285#0" expanded="true" />
-            <element signature="e#16338#16339#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

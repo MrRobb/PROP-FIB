@@ -11,9 +11,12 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 
@@ -29,10 +32,16 @@ public class ConsultingData implements Initializable {
     @FXML private TableView<PairNumberSubject> subjectTable;
     @FXML private TableView<PairNumberClassroom> classroomTable;
     @FXML private TableView<PairNumberGroup> groupTable;
+    @FXML private Button backToAction;
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        Image image = new Image(getClass().getResourceAsStream("back.png"));
+        ImageView imageView = new ImageView(image);
+        imageView.setFitHeight(10);
+        imageView.setFitWidth(10);
+        //backToAction.setGraphic(new ImageView(image));
         // Subjects information
         ArrayList<String> subjects = PresentationCtrl.getInstance().getSubjects();
         ArrayList<PairNumberSubject> list = new ArrayList<>();

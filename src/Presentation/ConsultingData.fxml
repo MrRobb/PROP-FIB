@@ -50,7 +50,7 @@
       </TabPane>
       <ToolBar layoutX="1.0" layoutY="-13.0" prefHeight="55.0" prefWidth="934.0">
         <items>
-          <Button mnemonicParsing="false" onAction="#changeScreenButtonBackPressed" text="&lt;-" />
+          <Button fx:id="backToAction" mnemonicParsing="false" onAction="#changeScreenButtonBackPressed" text="&lt;-" />
             <Label alignment="CENTER" contentDisplay="CENTER" text="Degree Information" textAlignment="CENTER">
                <padding>
                   <Insets left="15.0" />
