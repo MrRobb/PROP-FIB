@@ -39,9 +39,9 @@ public class ConsultingData implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         Image image = new Image(getClass().getResourceAsStream("back.png"));
         ImageView imageView = new ImageView(image);
-        imageView.setFitHeight(10);
-        imageView.setFitWidth(10);
-        //backToAction.setGraphic(new ImageView(image));
+        imageView.setFitHeight(15);
+        imageView.setFitWidth(15);
+        backToAction.setGraphic(imageView);
         // Subjects information
         ArrayList<String> subjects = PresentationCtrl.getInstance().getSubjects();
         ArrayList<PairNumberSubject> list = new ArrayList<>();

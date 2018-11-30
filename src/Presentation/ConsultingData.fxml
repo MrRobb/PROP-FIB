@@ -7,7 +7,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="562.0" prefWidth="934.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Presentation.ConsultingData">
+<AnchorPane prefHeight="562.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Presentation.ConsultingData">
    <children>
       <TabPane layoutX="39.0" layoutY="87.0" prefHeight="409.0" prefWidth="859.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
@@ -48,9 +48,9 @@
             </Tab>
         </tabs>
       </TabPane>
-      <ToolBar layoutX="1.0" layoutY="-13.0" prefHeight="55.0" prefWidth="934.0">
+      <ToolBar layoutX="2.0" prefHeight="35.0" prefWidth="934.0">
         <items>
-          <Button fx:id="backToAction" mnemonicParsing="false" onAction="#changeScreenButtonBackPressed" text="&lt;-" />
+          <Button fx:id="backToAction" alignment="CENTER" mnemonicParsing="false" onAction="#changeScreenButtonBackPressed" textOverrun="CLIP" />
             <Label alignment="CENTER" contentDisplay="CENTER" text="Degree Information" textAlignment="CENTER">
                <padding>
                   <Insets left="15.0" />

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Presentation.RestrictionView">
+   <children>
+      <ToolBar layoutX="1.0" prefHeight="59.0" prefWidth="1040.0">
+        <items>
+          <Button fx:id="backToAction" mnemonicParsing="false" onAction="#BackPressed" />
+        </items>
+      </ToolBar>
+      <HBox layoutX="9.0" layoutY="59.0" prefHeight="659.0" prefWidth="1031.0">
+         <children>
+            <VBox prefHeight="490.0" prefWidth="222.0">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </VBox>
+            <Separator orientation="VERTICAL" prefHeight="200.0" />
+            <VBox prefHeight="659.0" prefWidth="802.0">
+               <children>
+                  <VBox prefHeight="490.0" prefWidth="571.0">
+                     <children>
+                        <Label text="Restrictions applied" />
+                        <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                           <content>
+                              <ListView maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="178.0" prefWidth="781.0" />
+                           </content>
+                        </ScrollPane>
+                        <Separator prefWidth="200.0" />
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Button mnemonicParsing="false" prefHeight="39.0" prefWidth="189.0" text="Delete Restriction">
+                                 <HBox.margin>
+                                    <Insets left="20.0" top="10.0" />
+                                 </HBox.margin>
+                              </Button>
+                           </children>
+                        </HBox>
+                        <Label text="Restrictions available" />
+                        <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                           <content>
+                              <ListView maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="177.0" prefWidth="780.0" />
+                           </content>
+                        </ScrollPane>
+                     </children>
+                  </VBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Button mnemonicParsing="false" prefHeight="39.0" prefWidth="191.0" text="Add Restriction">
+                           <HBox.margin>
+                              <Insets left="20.0" top="10.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>
