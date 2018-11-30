@@ -40,4 +40,6 @@ public class PresentationCtrl {
     public ArrayList<ArrayList<String>> getClassroomInfo(){ return DomainCtrl.getInstance().getClassroomInfo(); }
 
     public ArrayList<ArrayList<String>> getGroupsInfo(){ return DomainCtrl.getInstance().getGroupInfo(); }
+
+    public ArrayList<String> getAvailableRestrictions(){ return DomainCtrl.getInstance().getAvailableRestrictions(); }
 }

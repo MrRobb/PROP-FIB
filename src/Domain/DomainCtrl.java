@@ -571,4 +571,15 @@ public class DomainCtrl {
         }
         return gr;
     }
+
+    public ArrayList<String> getAvailableRestrictions(){
+        ArrayList<String> restrictions = new ArrayList<>();
+        Set<String> available = Restrictions.getInstance().getAvailableRestrictionsNames();
+        for (String s : available) {
+            restrictions.add(s);
+        }
+        return restrictions;
+    }
+
+
 }
