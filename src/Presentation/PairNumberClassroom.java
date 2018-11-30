@@ -10,4 +10,16 @@ public class PairNumberClassroom {
         this.name = name;
         this.extras = ex;
     }
+
+    public Integer getI() {
+        return i;
+    }
+
+    public String getExtras() {
+        return extras;
+    }
+
+    public String getName() {
+        return name;
+    }
 }

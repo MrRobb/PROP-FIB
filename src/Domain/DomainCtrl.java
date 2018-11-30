@@ -542,4 +542,33 @@ public class DomainCtrl {
         return Classrooms.getInstance().size();
     }
 
+    public ArrayList<ArrayList<String>> getClassroomInfo(){
+        ArrayList<ArrayList<String>> cl = new ArrayList<>();
+        ArrayList<String> rooms = Classrooms.getInstance().getAllKeys();
+        for (String classID : rooms) {
+            ArrayList<String> clInfo = new ArrayList<>();
+            clInfo.add(classID);
+            ArrayList<String> extras = Classrooms.getInstance().get(classID).getExtras();
+
+            String str = String.join(", ", extras);
+            clInfo.add(str);
+            cl.add(clInfo);
+        }
+        return cl;
+    }
+
+    public ArrayList<ArrayList<String>> getGroupInfo(){
+        ArrayList<ArrayList<String>> gr = new ArrayList<>();
+        ArrayList<Integer> groups = Groups.getInstance().getAllKeys();
+        for (Integer groupID : groups) {
+            ArrayList<String> grInfo = new ArrayList<>();
+            grInfo.add(Groups.getInstance().get(groupID).getSubject().getName());
+            grInfo.add(Groups.getInstance().get(groupID).getName());
+            ArrayList<String> types = Groups.getInstance().get(groupID).getTypes();
+            String ty = String.join(", ", types);
+            grInfo.add(ty);
+            gr.add(grInfo);
+        }
+        return gr;
+    }
 }

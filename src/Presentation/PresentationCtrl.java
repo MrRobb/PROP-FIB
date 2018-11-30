@@ -36,4 +36,8 @@ public class PresentationCtrl {
     public Integer getNumberOfClassrooms(){
         return DomainCtrl.getInstance().getNumberOfClassrooms();
     }
+
+    public ArrayList<ArrayList<String>> getClassroomInfo(){ return DomainCtrl.getInstance().getClassroomInfo(); }
+
+    public ArrayList<ArrayList<String>> getGroupsInfo(){ return DomainCtrl.getInstance().getGroupInfo(); }
 }

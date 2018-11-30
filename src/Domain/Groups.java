@@ -1,5 +1,6 @@
 package Domain;
 
+import java.util.ArrayList;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -63,6 +64,14 @@ public class Groups {
 			}
 		}
 		return Groups.invalidID;
+	}
+
+	public ArrayList<Integer> getAllKeys(){
+		ArrayList<Integer>groupsKeys = new ArrayList<>();
+		for (Map.Entry<Integer, Group> value : groups.entrySet()) {
+			groupsKeys.add(value.getKey());
+		}
+		return  groupsKeys;
 	}
 
 	public TreeMap<Integer, Group> get() {
