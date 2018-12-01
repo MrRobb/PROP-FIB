@@ -24,15 +24,18 @@
                   <Insets top="10.0" />
                </VBox.margin>
             </Label>
-            <TableView prefHeight="200.0" prefWidth="200.0" />
+            <TableView onMouseClicked="#tableCellClicked" prefHeight="200.0" prefWidth="200.0" />
             <HBox prefHeight="100.0" prefWidth="200.0" />
             <Label text="Available Restrictions">
                <font>
                   <Font name="Segoe UI Semilight" size="18.0" />
                </font>
             </Label>
-            <TableView fx:id="availableRestrictionsTable" prefHeight="200.0" prefWidth="200.0" />
-            <HBox prefHeight="100.0" prefWidth="200.0" />
+            <TableView fx:id="availableRestrictionsTable" onMouseClicked="#tableCellClicked" prefHeight="200.0" prefWidth="200.0" />
+            <HBox fx:id="applyingBox" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="applyRestriction" mnemonicParsing="false" onAction="#applyRestrictionPressed" onMouseClicked="#applyRestrictionPressed" text="Apply restriction" />
+               </children></HBox>
          </children>
       </VBox>
    </center>

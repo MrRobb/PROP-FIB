@@ -542,6 +542,10 @@ public class DomainCtrl {
         return Classrooms.getInstance().size();
     }
 
+    public ArrayList<String> getGroupTypes(){ return Degree.getInstance().getTypeOfGroups(); }
+
+    public TreeSet<String> getAllExtras(){ return Classrooms.getInstance().getExtras(); }
+
     public ArrayList<ArrayList<String>> getClassroomInfo(){
         ArrayList<ArrayList<String>> cl = new ArrayList<>();
         ArrayList<String> rooms = Classrooms.getInstance().getAllKeys();
@@ -579,6 +583,60 @@ public class DomainCtrl {
             restrictions.add(s);
         }
         return restrictions;
+    }
+
+    public void applyRestriction(Integer id){
+        Set<String> available = Restrictions.getInstance().getAvailableRestrictionsNames();
+        int i = 1;
+        HashMap<Integer, String> map = new HashMap<>();
+        for (String s : available) {
+            System.out.println(i + ". " + s);
+            map.put(i, s);
+            i++;
+        }
+        Restriction av = Restrictions.getInstance().getAvailableRestriction(map.get(id));
+        if (av != null) {
+
+            // Available -> Applied
+            Restriction newRestriction = av.clone();
+
+            // Ask parameters if any
+            System.out.println("This restriction has " + newRestriction.getNumberOfTotalParams() + " parameters");
+
+            // For each block
+            for (int blockIndex = 0; blockIndex < newRestriction.getNumberOfBlocks(); blockIndex++) {
+
+                ArrayList<Object> params = new ArrayList<>();
+
+                // Ask for every parameter
+                for (int paramIndex = 0; paramIndex < newRestriction.getSizeArgsBlock(blockIndex); paramIndex++) {
+
+                    // Get type of the param
+                    String paramTemplate = newRestriction.askParameter(blockIndex, paramIndex);
+                    System.out.println("Enter the parameter" + " " + paramTemplate);
+
+                    // Check that param in String can be casted as correct Type
+                    String argGiven = getInput();
+
+                    while (!newRestriction.checkParam(blockIndex, paramIndex, argGiven)) {
+                        System.out.println("Enter a valid parameter (" + paramTemplate + ")");
+                        argGiven = getInput();
+                    }
+
+                    // Add to params array (to update later)
+                    params.add(argGiven);
+                }
+
+                newRestriction.setParameter(blockIndex, params.toArray());
+            }
+            if (Restrictions.getInstance().addApplied(newRestriction)) {
+                System.out.println("New restriction applied\n");
+            }
+            else {
+                System.out.println("Error: Unable to add restriction (already existing restriction)\n");
+            }
+        }
+
     }
 
 

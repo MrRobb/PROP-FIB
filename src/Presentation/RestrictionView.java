@@ -1,5 +1,7 @@
 package Presentation;
 
+import Domain.Subject;
+import Domain.Subjects;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -9,22 +11,22 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class RestrictionView implements Initializable {
     @FXML private Button backToAction;
     @FXML private TableView<PairNumberRestriction> availableRestrictionsTable;
+    @FXML private Button applyRestriction;
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -34,6 +36,8 @@ public class RestrictionView implements Initializable {
         imageView.setFitHeight(15);
         imageView.setFitWidth(15);
         backToAction.setGraphic(imageView);
+
+        applyRestriction.setDisable(true);
 
         ArrayList<String> availableRestrictions = PresentationCtrl.getInstance().getAvailableRestrictions();
         ArrayList<PairNumberRestriction> list = new ArrayList<>();
@@ -60,4 +64,25 @@ public class RestrictionView implements Initializable {
         window.setScene(ViewScene);
         window.show();
     }
+
+
+    public void tableCellClicked(){
+        applyRestriction.setDisable(false);
+    }
+
+    public void applyRestrictionPressed(ActionEvent event) throws IOException{
+        if(availableRestrictionsTable.getSelectionModel().getSelectedItem() != null){
+            PairNumberRestriction p = availableRestrictionsTable.getSelectionModel().getSelectedItem();
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("ApplyingRestriction.fxml"));
+            Parent ViewParent = loader.load();
+            Scene ViewScene = new Scene(ViewParent);
+            ApplyingRestriction controller = loader.getController();
+            controller.initData(p);
+            Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+            window.setScene(ViewScene);
+            window.show();
+        }
+    }
+
 }

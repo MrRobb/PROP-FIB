@@ -1,7 +1,6 @@
 package Presentation;
 
 
-import Domain.In;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -121,4 +120,5 @@ public class ConsultingData implements Initializable {
         window.setScene(ViewScene);
         window.show();
     }
+
 }
