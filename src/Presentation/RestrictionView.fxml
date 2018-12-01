@@ -24,8 +24,11 @@
                   <Insets top="10.0" />
                </VBox.margin>
             </Label>
-            <TableView onMouseClicked="#tableCellClicked" prefHeight="200.0" prefWidth="200.0" />
-            <HBox prefHeight="100.0" prefWidth="200.0" />
+            <TableView fx:id="appliedRestrictionsTable" onMouseClicked="#tableCellClicked" prefHeight="200.0" prefWidth="200.0" />
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="deleteRestriction" mnemonicParsing="false" onAction="#deletePressed" text="Delete restriction" />
+               </children></HBox>
             <Label text="Available Restrictions">
                <font>
                   <Font name="Segoe UI Semilight" size="18.0" />

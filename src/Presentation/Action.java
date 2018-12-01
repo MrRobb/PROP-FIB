@@ -47,6 +47,10 @@ public class Action implements Initializable {
         alert.showAndWait();
     }
 
+    public void generatePressed(ActionEvent event){
+        PresentationCtrl.getInstance().generate();
+    }
+
 
 
     @Override

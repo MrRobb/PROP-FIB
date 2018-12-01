@@ -15,7 +15,7 @@
             <Button fx:id="btnShowSavesSchedules" mnemonicParsing="false" prefHeight="51.0" prefWidth="649.0" stylesheets="@main.css" text="Show saved schedules" />
             <Separator prefWidth="200.0" />
             <Button fx:id="btnDeleteSchedules" mnemonicParsing="false" onAction="#ButtonDeleteSchedulesPressed" prefHeight="56.0" prefWidth="723.0" stylesheets="@main.css" text="Delete saved schedules" textFill="WHITE" />
-            <Button fx:id="btnGenerate" mnemonicParsing="false" prefHeight="50.0" prefWidth="687.0" stylesheets="@main.css" text="Generate" textFill="WHITE" />
+            <Button fx:id="btnGenerate" mnemonicParsing="false" onAction="#generatePressed" prefHeight="50.0" prefWidth="687.0" stylesheets="@main.css" text="Generate" textFill="WHITE" />
             <Separator prefWidth="200.0" />
             <Button fx:id="btnLogOut" mnemonicParsing="false" prefHeight="51.0" prefWidth="718.0" stylesheets="@main.css" text="Log out" />
             </children>

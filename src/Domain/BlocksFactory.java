@@ -37,7 +37,7 @@ public class BlocksFactory {
 		arrB6.add(new Pair<>("Extra (ex: " + Classrooms.getInstance().getExtras().first() + ")",String.class));
 		arrB6.add(new Pair<>("Type of group (ex: " + Degree.getInstance().getTypeOfGroups().get(0) + ")",String.class));
 		Block b6 = new Block(Functions::allGroupMustHaveClassromWithExtra, arrB6);
-		Blocks.getInstance().add("Every group of [Type] must be assigned to a class with [Extra]", b6);
+		Blocks.getInstance().add("To a class with [Extra] must be assigned a group of [Type]", b6);
 
 
 		ArrayList<Pair<String,java.lang.Class>> arrB7 = new ArrayList<>();

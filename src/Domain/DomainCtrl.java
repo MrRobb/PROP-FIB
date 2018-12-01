@@ -585,44 +585,28 @@ public class DomainCtrl {
         return restrictions;
     }
 
-    public void applyRestriction(Integer id){
-        Set<String> available = Restrictions.getInstance().getAvailableRestrictionsNames();
-        int i = 1;
-        HashMap<Integer, String> map = new HashMap<>();
-        for (String s : available) {
-            System.out.println(i + ". " + s);
-            map.put(i, s);
-            i++;
+    public ArrayList<String> getAppliedRestrictions(){
+        ArrayList<String> restrictions = new ArrayList<>();
+        Set<String> applied = Restrictions.getInstance().getAppliedRestrictionNames();
+        for(String s : applied){
+            restrictions.add(s);
         }
-        Restriction av = Restrictions.getInstance().getAvailableRestriction(map.get(id));
-        if (av != null) {
+        return  restrictions;
+    }
 
+    public Boolean applyRestriction(String id, ArrayList<String> args){
+            Restriction av = Restrictions.getInstance().getAvailableRestriction(id);
             // Available -> Applied
             Restriction newRestriction = av.clone();
-
-            // Ask parameters if any
-            System.out.println("This restriction has " + newRestriction.getNumberOfTotalParams() + " parameters");
 
             // For each block
             for (int blockIndex = 0; blockIndex < newRestriction.getNumberOfBlocks(); blockIndex++) {
 
                 ArrayList<Object> params = new ArrayList<>();
-
                 // Ask for every parameter
                 for (int paramIndex = 0; paramIndex < newRestriction.getSizeArgsBlock(blockIndex); paramIndex++) {
-
-                    // Get type of the param
-                    String paramTemplate = newRestriction.askParameter(blockIndex, paramIndex);
-                    System.out.println("Enter the parameter" + " " + paramTemplate);
-
                     // Check that param in String can be casted as correct Type
-                    String argGiven = getInput();
-
-                    while (!newRestriction.checkParam(blockIndex, paramIndex, argGiven)) {
-                        System.out.println("Enter a valid parameter (" + paramTemplate + ")");
-                        argGiven = getInput();
-                    }
-
+                    String argGiven = args.get(paramIndex);
                     // Add to params array (to update later)
                     params.add(argGiven);
                 }
@@ -630,14 +614,29 @@ public class DomainCtrl {
                 newRestriction.setParameter(blockIndex, params.toArray());
             }
             if (Restrictions.getInstance().addApplied(newRestriction)) {
-                System.out.println("New restriction applied\n");
+                return true;
             }
             else {
                 System.out.println("Error: Unable to add restriction (already existing restriction)\n");
+                return false;
             }
-        }
-
     }
 
+    public Boolean deleteAppliedRestriction(String id) {
+        if (Restrictions.getInstance().deleteApplied(id)) {
+            System.out.println();
 
+            Set<String> applied = Restrictions.getInstance().getAppliedRestrictionNames();
+            for (String s: applied) {
+                System.out.println(s);
+            }
+            System.out.println();
+            return true;
+        }
+        else {
+            System.out.println("Error while deleting");
+            System.out.println();
+            return false;
+        }
+    }
 }

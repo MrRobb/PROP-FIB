@@ -32,7 +32,7 @@
             </Button>
          </left>
          <right>
-            <Button mnemonicParsing="false" text="Add" BorderPane.alignment="CENTER">
+            <Button fx:id="addRes" mnemonicParsing="false" onAction="#addPressed" text="Add" BorderPane.alignment="CENTER">
                <BorderPane.margin>
                   <Insets right="30.0" />
                </BorderPane.margin>

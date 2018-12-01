@@ -9,10 +9,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import javafx.scene.control.TextFormatter;
+import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import javafx.util.converter.NumberStringConverter;
@@ -25,16 +22,17 @@ public class ApplyingRestriction implements Initializable {
 
     @FXML private HBox applyingBox;
     @FXML private Label restrictionInfo;
+    @FXML private Button addRes;
     private PairNumberRestriction p;
 
-
+    @Override
+    public void initialize(URL location, ResourceBundle resources) { }
 
 
     public void initData(PairNumberRestriction pn){
         p = pn;
         restrictionInfo.setText(p.getName());
 
-        int restrID = p.getI();
         String restriction = p.getName();
         List<String> rest = new ArrayList<>(Arrays.asList(restriction.split(" ")));
 
@@ -108,15 +106,60 @@ public class ApplyingRestriction implements Initializable {
     }
 
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-    }
-
     public void cancelPressed(ActionEvent event) throws IOException {
         Parent ViewParent = FXMLLoader.load(getClass().getResource("RestrictionView.fxml"));
         Scene ViewScene = new Scene(ViewParent);
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         window.setScene(ViewScene);
         window.show();
+    }
+
+    private Boolean allFieldsAreFilled(){
+        for(Node node : applyingBox.getChildren()){
+            if(node instanceof TextField){
+                if(((TextField) node).getText().trim().isEmpty()) return false;
+            }
+            else if(node instanceof ComboBox){
+                if(((ComboBox) node).getSelectionModel().isEmpty()) return false;
+            }
+        }
+        return true;
+    }
+
+
+    public void addPressed(ActionEvent event) throws IOException{
+        if(!allFieldsAreFilled()){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Error");
+            alert.setHeaderText("All fields must be entered");
+            alert.setContentText("Please check that all fields are entered correctly and try again.");
+            alert.showAndWait();
+        }
+        else{
+            ArrayList<String> args = new ArrayList<>();
+            for(Node node : applyingBox.getChildren()){
+                if(node instanceof TextField){
+                    args.add(((TextField) node).getText());
+                }
+                else if(node instanceof ComboBox){
+                    args.add(((ComboBox) node).getSelectionModel().getSelectedItem().toString());
+                }
+            }
+
+            if(PresentationCtrl.getInstance().applyRestriction(p.getName(),args)){
+                Parent ViewParent = FXMLLoader.load(getClass().getResource("RestrictionView.fxml"));
+                Scene ViewScene = new Scene(ViewParent);
+                Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+                window.setScene(ViewScene);
+                window.show();
+            }
+            else{
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Error");
+                alert.setHeaderText("Restrictions already exists");
+                alert.setContentText("Please enter a new restriction.");
+                alert.showAndWait();
+            }
+        }
     }
 }

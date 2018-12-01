@@ -25,7 +25,9 @@ import java.util.*;
 public class RestrictionView implements Initializable {
     @FXML private Button backToAction;
     @FXML private TableView<PairNumberRestriction> availableRestrictionsTable;
+    @FXML private TableView<PairNumberRestriction> appliedRestrictionsTable;
     @FXML private Button applyRestriction;
+    @FXML private Button deleteRestriction;
 
 
     @Override
@@ -55,6 +57,24 @@ public class RestrictionView implements Initializable {
         ObservableList<PairNumberRestriction> data1 = FXCollections.observableArrayList(list);
         availableRestrictionsTable.setItems(data1);
 
+
+        ArrayList<String> appliedRestrictions = PresentationCtrl.getInstance().getAppliedRestrictions();
+        ArrayList<PairNumberRestriction> list1 = new ArrayList<>();
+        TableColumn<PairNumberRestriction,Integer> numRCol1 = new TableColumn<>("Number");
+        TableColumn<PairNumberRestriction,String> nameRCol1 = new TableColumn<>("Restriction");
+        appliedRestrictionsTable.getColumns().addAll(numRCol1,nameRCol1);
+        numRCol1.setCellValueFactory(new PropertyValueFactory<>("i"));
+        nameRCol1.setCellValueFactory(new PropertyValueFactory<>("name"));
+
+        Integer j = 1;
+        for(String r : appliedRestrictions){
+            list1.add(new PairNumberRestriction(j,r));
+            j++;
+        }
+        ObservableList<PairNumberRestriction> data2 = FXCollections.observableArrayList(list1);
+        appliedRestrictionsTable.setItems(data2);
+
+
     }
 
     public void BackPressed(ActionEvent event) throws IOException {
@@ -82,6 +102,14 @@ public class RestrictionView implements Initializable {
             Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
             window.setScene(ViewScene);
             window.show();
+        }
+    }
+
+    public void deletePressed() {
+        if(appliedRestrictionsTable.getSelectionModel().getSelectedItem() != null){
+            PairNumberRestriction p = appliedRestrictionsTable.getSelectionModel().getSelectedItem();
+            PresentationCtrl.getInstance().deleteAppliedRestriction(p.getName());
+            appliedRestrictionsTable.getItems().remove(p);
         }
     }
 
