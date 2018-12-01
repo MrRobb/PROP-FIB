@@ -24,10 +24,18 @@ public class Action implements Initializable {
     @FXML private Button btnDeleteSchedules;
 
     public void ButtonConsultPressed(ActionEvent event) throws IOException {
-        Parent ConsultViewParent = FXMLLoader.load(getClass().getResource("ConsultingData.fxml"));
-        Scene consultViewScene = new Scene(ConsultViewParent);
+        Parent ViewParent = FXMLLoader.load(getClass().getResource("ConsultingData.fxml"));
+        Scene ViewScene = new Scene(ViewParent);
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-        window.setScene(consultViewScene);
+        window.setScene(ViewScene);
+        window.show();
+    }
+
+    public void ButtonRestrictions(ActionEvent event) throws IOException {
+        Parent ViewParent = FXMLLoader.load(getClass().getResource("RestrictionView.fxml"));
+        Scene ViewScene = new Scene(ViewParent);
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        window.setScene(ViewScene);
         window.show();
     }
 
@@ -37,6 +45,10 @@ public class Action implements Initializable {
         alert.setHeaderText("Do you really want to delete all schedules?");
         alert.setContentText("This action is not reversible, all data will be lost.");
         alert.showAndWait();
+    }
+
+    public void generatePressed(ActionEvent event){
+        PresentationCtrl.getInstance().generate();
     }
 
 

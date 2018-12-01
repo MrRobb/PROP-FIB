@@ -6,18 +6,18 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Presentation.Action">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Presentation.Action">
     <children>
-        <VBox layoutX="86.0" layoutY="92.0" prefHeight="525.0" spacing="20.0">
+        <VBox layoutX="86.0" layoutY="92.0" prefHeight="525.0" prefWidth="636.0" spacing="20.0">
             <children>
-                <Button id="btnConsult" fx:id="btnConsult" mnemonicParsing="false" onAction="#ButtonConsultPressed" prefHeight="51.0" prefWidth="356.0" stylesheets="@main.css" text="Consult information imported " />
-            <Button fx:id="btnModifyRestrictions" mnemonicParsing="false" prefHeight="51.0" prefWidth="355.0" stylesheets="@main.css" text="Modify Restrictions" />
-            <Button fx:id="btnShowSavesSchedules" mnemonicParsing="false" prefHeight="51.0" prefWidth="355.0" stylesheets="@main.css" text="Show saved schedules" />
+                <Button id="btnConsult" fx:id="btnConsult" mnemonicParsing="false" onAction="#ButtonConsultPressed" prefHeight="51.0" prefWidth="639.0" stylesheets="@main.css" text="Consult information imported " />
+            <Button fx:id="btnModifyRestrictions" mnemonicParsing="false" onAction="#ButtonRestrictions" prefHeight="51.0" prefWidth="646.0" stylesheets="@main.css" text="Modify Restrictions" />
+            <Button fx:id="btnShowSavesSchedules" mnemonicParsing="false" prefHeight="51.0" prefWidth="649.0" stylesheets="@main.css" text="Show saved schedules" />
             <Separator prefWidth="200.0" />
-            <Button fx:id="btnDeleteSchedules" mnemonicParsing="false" onAction="#ButtonDeleteSchedulesPressed" prefHeight="56.0" prefWidth="355.0" stylesheets="@main.css" text="Delete saved schedules" textFill="WHITE" />
-            <Button fx:id="btnGenerate" mnemonicParsing="false" prefHeight="50.0" prefWidth="356.0" stylesheets="@main.css" text="Generate" textFill="WHITE" />
+            <Button fx:id="btnDeleteSchedules" mnemonicParsing="false" onAction="#ButtonDeleteSchedulesPressed" prefHeight="56.0" prefWidth="723.0" stylesheets="@main.css" text="Delete saved schedules" textFill="WHITE" />
+            <Button fx:id="btnGenerate" mnemonicParsing="false" onAction="#generatePressed" prefHeight="50.0" prefWidth="687.0" stylesheets="@main.css" text="Generate" textFill="WHITE" />
             <Separator prefWidth="200.0" />
-            <Button fx:id="btnLogOut" mnemonicParsing="false" prefHeight="51.0" prefWidth="356.0" stylesheets="@main.css" text="Log out" />
+            <Button fx:id="btnLogOut" mnemonicParsing="false" prefHeight="51.0" prefWidth="718.0" stylesheets="@main.css" text="Log out" />
             </children>
         </VBox>
     </children>

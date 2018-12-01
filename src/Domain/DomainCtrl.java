@@ -542,6 +542,10 @@ public class DomainCtrl {
         return Classrooms.getInstance().size();
     }
 
+    public ArrayList<String> getGroupTypes(){ return Degree.getInstance().getTypeOfGroups(); }
+
+    public TreeSet<String> getAllExtras(){ return Classrooms.getInstance().getExtras(); }
+
     public ArrayList<ArrayList<String>> getClassroomInfo(){
         ArrayList<ArrayList<String>> cl = new ArrayList<>();
         ArrayList<String> rooms = Classrooms.getInstance().getAllKeys();
@@ -570,5 +574,69 @@ public class DomainCtrl {
             gr.add(grInfo);
         }
         return gr;
+    }
+
+    public ArrayList<String> getAvailableRestrictions(){
+        ArrayList<String> restrictions = new ArrayList<>();
+        Set<String> available = Restrictions.getInstance().getAvailableRestrictionsNames();
+        for (String s : available) {
+            restrictions.add(s);
+        }
+        return restrictions;
+    }
+
+    public ArrayList<String> getAppliedRestrictions(){
+        ArrayList<String> restrictions = new ArrayList<>();
+        Set<String> applied = Restrictions.getInstance().getAppliedRestrictionNames();
+        for(String s : applied){
+            restrictions.add(s);
+        }
+        return  restrictions;
+    }
+
+    public Boolean applyRestriction(String id, ArrayList<String> args){
+            Restriction av = Restrictions.getInstance().getAvailableRestriction(id);
+            // Available -> Applied
+            Restriction newRestriction = av.clone();
+
+            // For each block
+            for (int blockIndex = 0; blockIndex < newRestriction.getNumberOfBlocks(); blockIndex++) {
+
+                ArrayList<Object> params = new ArrayList<>();
+                // Ask for every parameter
+                for (int paramIndex = 0; paramIndex < newRestriction.getSizeArgsBlock(blockIndex); paramIndex++) {
+                    // Check that param in String can be casted as correct Type
+                    String argGiven = args.get(paramIndex);
+                    // Add to params array (to update later)
+                    params.add(argGiven);
+                }
+
+                newRestriction.setParameter(blockIndex, params.toArray());
+            }
+            if (Restrictions.getInstance().addApplied(newRestriction)) {
+                return true;
+            }
+            else {
+                System.out.println("Error: Unable to add restriction (already existing restriction)\n");
+                return false;
+            }
+    }
+
+    public Boolean deleteAppliedRestriction(String id) {
+        if (Restrictions.getInstance().deleteApplied(id)) {
+            System.out.println();
+
+            Set<String> applied = Restrictions.getInstance().getAppliedRestrictionNames();
+            for (String s: applied) {
+                System.out.println(s);
+            }
+            System.out.println();
+            return true;
+        }
+        else {
+            System.out.println("Error while deleting");
+            System.out.println();
+            return false;
+        }
     }
 }

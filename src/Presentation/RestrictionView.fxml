@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="795.0" prefWidth="1139.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Presentation.RestrictionView">
+   <left>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
+   </left>
+   <center>
+      <VBox prefHeight="724.0" prefWidth="911.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Applied Restrictions">
+               <font>
+                  <Font name="Segoe UI Semilight" size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Label>
+            <TableView fx:id="appliedRestrictionsTable" onMouseClicked="#tableCellClicked" prefHeight="200.0" prefWidth="200.0" />
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="deleteRestriction" mnemonicParsing="false" onAction="#deletePressed" text="Delete restriction" />
+               </children></HBox>
+            <Label text="Available Restrictions">
+               <font>
+                  <Font name="Segoe UI Semilight" size="18.0" />
+               </font>
+            </Label>
+            <TableView fx:id="availableRestrictionsTable" onMouseClicked="#tableCellClicked" prefHeight="200.0" prefWidth="200.0" />
+            <HBox fx:id="applyingBox" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="applyRestriction" mnemonicParsing="false" onAction="#applyRestrictionPressed" onMouseClicked="#applyRestrictionPressed" text="Apply restriction" />
+               </children></HBox>
+         </children>
+      </VBox>
+   </center>
+   <top>
+      <ToolBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <items>
+          <Button fx:id="backToAction" mnemonicParsing="false" onAction="#BackPressed" />
+        </items>
+      </ToolBar>
+   </top>
+   <right>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
+   </right>
+</BorderPane>

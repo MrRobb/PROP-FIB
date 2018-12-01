@@ -3,6 +3,7 @@ package Presentation;
 import Domain.DomainCtrl;
 
 import java.util.ArrayList;
+import java.util.TreeSet;
 
 public class PresentationCtrl {
     private static PresentationCtrl instance = null;
@@ -16,9 +17,7 @@ public class PresentationCtrl {
         return instance;
     }
 
-    public ArrayList<String> getSubjects(){
-        return DomainCtrl.getInstance().getSubjects();
-    }
+    public ArrayList<String> getSubjects(){ return DomainCtrl.getInstance().getSubjects(); }
 
     public Boolean produce(Integer file){
         DomainCtrl.getInstance().produceFactory(file);
@@ -40,4 +39,22 @@ public class PresentationCtrl {
     public ArrayList<ArrayList<String>> getClassroomInfo(){ return DomainCtrl.getInstance().getClassroomInfo(); }
 
     public ArrayList<ArrayList<String>> getGroupsInfo(){ return DomainCtrl.getInstance().getGroupInfo(); }
+
+    public ArrayList<String> getAvailableRestrictions(){ return DomainCtrl.getInstance().getAvailableRestrictions(); }
+
+    public ArrayList<String> getAppliedRestrictions(){ return DomainCtrl.getInstance().getAppliedRestrictions(); }
+
+    public ArrayList<String> getGroupTypes(){ return DomainCtrl.getInstance().getGroupTypes(); }
+
+    public TreeSet<String> getAllExtras(){ return DomainCtrl.getInstance().getAllExtras(); }
+
+    public Boolean applyRestriction(String id, ArrayList<String> args){
+        return DomainCtrl.getInstance().applyRestriction(id,args);
+    }
+
+    public Boolean deleteAppliedRestriction(String id) {
+        return DomainCtrl.getInstance().deleteAppliedRestriction(id);
+    }
+
+    public void generate(){ DomainCtrl.getInstance().generateSchedule(); }
 }

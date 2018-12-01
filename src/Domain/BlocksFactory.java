@@ -14,7 +14,7 @@ public class BlocksFactory {
 		arrB1.add(new Pair<>("Start hour (ex: 8)", Integer.class));
 		arrB1.add(new Pair<>("End hour (ex: 16)", Integer.class));
 		Block b1 = new Block(Functions::noClassOnDayBetweenSHEH, arrB1);
-		Blocks.getInstance().add("No class between [Start hour] and [End hour] on [WeekDay]", b1);
+		Blocks.getInstance().add("No class between [StartHour] and [EndHour] on [WeekDay]", b1);
 
 		ArrayList<Pair<String,java.lang.Class>> arrB2 = new ArrayList<>();
 		Block b2 = new Block(Functions::noTwoClassesAtSameHourSameClassroom, arrB2);
@@ -24,7 +24,7 @@ public class BlocksFactory {
 		arrB3.add(new Pair<>("Start hour (ex: 13)",Integer.class));
 		arrB3.add(new Pair<>("End hour (ex: 16)", Integer.class));
 		Block b3 = new Block(Functions::everyClassBetweenStartAndEndHour, arrB3);
-		Blocks.getInstance().add("Every class must be between [Start hour] and [End hour]", b3);
+		Blocks.getInstance().add("Every class must be between [StartHour] and [EndHour]", b3);
 
 		ArrayList<Pair<String,java.lang.Class>> arrB4 = new ArrayList<>();
 		arrB4.add(new Pair<>("Subject (ex: " + Subjects.getInstance().getAllKeys().get(0) + ")", String.class));
@@ -37,7 +37,7 @@ public class BlocksFactory {
 		arrB6.add(new Pair<>("Extra (ex: " + Classrooms.getInstance().getExtras().first() + ")",String.class));
 		arrB6.add(new Pair<>("Type of group (ex: " + Degree.getInstance().getTypeOfGroups().get(0) + ")",String.class));
 		Block b6 = new Block(Functions::allGroupMustHaveClassromWithExtra, arrB6);
-		Blocks.getInstance().add("Every group of [Type] must be assigned to a class with [Extra]", b6);
+		Blocks.getInstance().add("To a class with [Extra] must be assigned a group of [Type]", b6);
 
 
 		ArrayList<Pair<String,java.lang.Class>> arrB7 = new ArrayList<>();
@@ -61,7 +61,7 @@ public class BlocksFactory {
 		ArrayList<Pair<String,java.lang.Class>> arrB11 = new ArrayList<>();
 		arrB11.add(new Pair<>("Max number of classrooms (ex: 15)",Integer.class));
 		Block b11 = new Block(Functions::atMostNClassroomsCanBeUsed, arrB11);
-		Blocks.getInstance().add("At most [Max] classrooms can be used", b11);
+		Blocks.getInstance().add("At most [Int] classrooms can be used", b11);
 
 		return true;
 	}
