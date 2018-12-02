@@ -9,7 +9,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="795.0" prefWidth="1139.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Presentation.RestrictionView">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="653.0" prefWidth="915.0" style="-fx-background-color: &quot;white&quot;;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Presentation.RestrictionView">
    <left>
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
    </left>
@@ -21,7 +21,7 @@
                   <Font name="Segoe UI Semilight" size="18.0" />
                </font>
                <VBox.margin>
-                  <Insets top="10.0" />
+                  <Insets bottom="5.0" top="20.0" />
                </VBox.margin>
             </Label>
             <TableView fx:id="appliedRestrictionsTable" onMouseClicked="#tableCellClicked" prefHeight="200.0" prefWidth="200.0" />
@@ -33,6 +33,9 @@
                <font>
                   <Font name="Segoe UI Semilight" size="18.0" />
                </font>
+               <padding>
+                  <Insets bottom="10.0" />
+               </padding>
             </Label>
             <TableView fx:id="availableRestrictionsTable" onMouseClicked="#tableCellClicked" prefHeight="200.0" prefWidth="200.0" />
             <HBox fx:id="applyingBox" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">

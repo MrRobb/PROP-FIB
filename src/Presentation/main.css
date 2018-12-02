@@ -1,4 +1,4 @@
-#btnConsult, #btnModifyRestrictions,#btnShowSavesSchedules,#btnLogOut{
+#btnConsult, #btnModifyRestrictions,#btnShowSavesSchedules,#btnLogOut,#btnGenerate,#btnDeleteSchedules{
     -fx-background-color: "white";
     -fx-border-radius: 20px;
     -fx-background-radius: 20px;
@@ -10,24 +10,25 @@
     -fx-background-radius: 20px;
 }
 
-#btnDeleteSchedules{
-    -fx-background-color: rgb(214, 67, 52);
-    -fx-border-radius: 20px;
-    -fx-background-radius: 20px;
-}
 #btnDeleteSchedules:hover{
+	-fx-text-fill: rgb(255, 255, 255);
     -fx-background-color: rgb(207, 98, 81);
     -fx-border-radius: 20px;
     -fx-background-radius: 20px;
 }
 
-#btnGenerate{
-    -fx-background-color: rgb(9, 208, 251);
+#btnGenerate:hover{
+    -fx-background-color: rgb(55, 168, 232);
+    -fx-text-fill: rgb(255, 255, 255);
     -fx-border-radius: 20px;
     -fx-background-radius: 20px;
 }
-#btnGenerate:hover{
-    -fx-background-color: rgb(55, 168, 232);
-    -fx-border-radius: 20px;
-    -fx-background-radius: 20px;
+
+.table-view{
+    -fx-base: rgb(255,255,255);
+    -fx-control-inner-background: rgb(255,255,255);
+    -fx-background-color:transparent;
+    -fx-table-cell-border-color: transparent;
+    -fx-padding: 1;
+    -fx-selection-bar-non-focused: rgb(220,220,220) ;   
 }
