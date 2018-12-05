@@ -1,24 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Presentation.Action">
-    <children>
-        <VBox layoutX="86.0" layoutY="92.0" prefHeight="525.0" prefWidth="636.0" spacing="20.0">
-            <children>
-                <Button id="btnConsult" fx:id="btnConsult" mnemonicParsing="false" onAction="#ButtonConsultPressed" prefHeight="51.0" prefWidth="639.0" stylesheets="@main.css" text="Consult information imported " />
-            <Button fx:id="btnModifyRestrictions" mnemonicParsing="false" onAction="#ButtonRestrictions" prefHeight="51.0" prefWidth="646.0" stylesheets="@main.css" text="Modify Restrictions" />
-            <Button fx:id="btnShowSavesSchedules" mnemonicParsing="false" prefHeight="51.0" prefWidth="649.0" stylesheets="@main.css" text="Show saved schedules" />
-            <Separator prefWidth="200.0" />
-            <Button fx:id="btnDeleteSchedules" mnemonicParsing="false" onAction="#ButtonDeleteSchedulesPressed" prefHeight="56.0" prefWidth="723.0" stylesheets="@main.css" text="Delete saved schedules" textFill="WHITE" />
-            <Button fx:id="btnGenerate" mnemonicParsing="false" onAction="#generatePressed" prefHeight="50.0" prefWidth="687.0" stylesheets="@main.css" text="Generate" textFill="WHITE" />
-            <Separator prefWidth="200.0" />
-            <Button fx:id="btnLogOut" mnemonicParsing="false" prefHeight="51.0" prefWidth="718.0" stylesheets="@main.css" text="Log out" />
-            </children>
-        </VBox>
-    </children>
-</AnchorPane>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="653.0" prefWidth="915.0" style="-fx-background-color: rgb(255,255,255);" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Presentation.Action">
+   <center>
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="30.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Schedule Generator">
+               <font>
+                  <Font name="Segoe UI Light" size="40.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnConsult" mnemonicParsing="false" onAction="#ButtonConsultPressed" prefHeight="51.0" prefWidth="348.0" stylesheets="@main.css" text="Consult imported information">
+               <font>
+                  <Font name="Segoe UI Semilight" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnModifyRestrictions" mnemonicParsing="false" onAction="#ButtonRestrictions" prefHeight="51.0" prefWidth="348.0" stylesheets="@main.css" text="Edit restrictions">
+               <font>
+                  <Font name="Segoe UI Semilight" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnShowSavesSchedules" mnemonicParsing="false" prefHeight="51.0" prefWidth="348.0" stylesheets="@main.css" text="Show schedules">
+               <font>
+                  <Font name="Segoe UI Semilight" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnDeleteSchedules" mnemonicParsing="false" onAction="#ButtonDeleteSchedulesPressed" prefHeight="51.0" prefWidth="346.0" stylesheets="@main.css" text="Delete all schedules">
+               <font>
+                  <Font name="Segoe UI Semilight" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnGenerate" mnemonicParsing="false" onAction="#generatePressed" prefHeight="51.0" prefWidth="351.0" stylesheets="@main.css" text="Generate">
+               <font>
+                  <Font name="Segoe UI Semilight" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnLogOut" mnemonicParsing="false" prefHeight="51.0" prefWidth="351.0" stylesheets="@main.css" text="Log out">
+               <font>
+                  <Font name="Segoe UI Semilight" size="18.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+   </center>
+   <left>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
+   </left>
+   <right>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
+   </right>
+</BorderPane>
