@@ -1,9 +1,10 @@
 #btnConsult,
 #btnModifyRestrictions,
-#btnShowSavesSchedules,
+#btnShowSavedSchedules,
 #btnLogOut,
 #btnGenerate,
-#btnDeleteSchedules
+#btnDeleteSchedules,
+#btnImportSchedules
 {
     -fx-background-color: rgb(210, 210, 210);;
     -fx-border-radius: 20px;
@@ -12,8 +13,9 @@
 
 #btnConsult:hover,
 #btnModifyRestrictions:hover,
-#btnShowSavesSchedules:hover,
-#btnLogOut:hover
+#btnShowSavedSchedules:hover,
+#btnLogOut:hover,
+#btnImportSchedules:hover
 {
     -fx-background-color: rgb(222, 223, 223);
     -fx-border-radius: 20px;

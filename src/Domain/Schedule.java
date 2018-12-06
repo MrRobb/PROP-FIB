@@ -174,7 +174,7 @@ public class Schedule implements Comparable<Schedule> {
         return schedule.toString();
     }
 
-    public JSONArray toJSONArray(){
+    public JSONObject toJSONObject(){
         JSONArray sch = new JSONArray();
         for(Class c : classes){
             JSONObject cl = new JSONObject();
@@ -186,7 +186,9 @@ public class Schedule implements Comparable<Schedule> {
             cl.put("group", c.getGroup().getName());
             sch.add(cl);
         }
-        return sch;
+        JSONObject o = new JSONObject();
+        o.put("classes",sch);
+        return o;
     }
 
 

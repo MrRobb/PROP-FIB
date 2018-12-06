@@ -228,7 +228,7 @@ public class DomainCtrl {
     }
 
     public boolean saveSchedule(Schedule s) {
-        JSONArray json = s.toJSONArray();
+        JSONObject json = s.toJSONObject();
 
         try {
             Object read = new JSONParser().parse(new FileReader("json/savedSchedules.json"));
@@ -246,7 +246,9 @@ public class DomainCtrl {
             e.printStackTrace();
 
             try (FileWriter file = new FileWriter("json/savedSchedules.json")) {
-                file.write(json.toJSONString());
+                JSONArray ja = new JSONArray();
+                ja.add(json);
+                file.write(ja.toJSONString());
                 System.out.println("Creating new JSON!");
                 return Schedules.getInstance().addSchedule(s);
             }
@@ -260,14 +262,7 @@ public class DomainCtrl {
 
         public boolean clearSavedSchedules() {
 
-        // Ask for saving
-        System.out.println("Are you sure you want to delete ALL saved schedules?");
-        System.out.println("1. Yes");
-        System.out.println("2. No");
-
-        // Get yes / no
-        int option = getInputAsInt(1, 2);
-        System.out.println();
+        int option = 1;
 
         if (option == 1) {
             boolean ok = Schedules.getInstance().clear();
@@ -483,32 +478,32 @@ public class DomainCtrl {
 
 
             SubjectsFactory.produce(subjts);
-            System.out.println("*************************");
+            /*System.out.println("*************************");
             System.out.println(Subjects.getInstance().size() + " subjects generated:");
             ArrayList<String> subjs = Subjects.getInstance().getAllKeys();
             for (String subID : subjs) {
                 System.out.println(subID);
             }
-            System.out.println("*************************");
+            System.out.println("*************************");*/
 
             DegreesFactory.produce(degname, ncredits, gtypes, grps);
-            System.out.println("New degree created: " + Degree.getInstance().getName());
+            /*System.out.println("New degree created: " + Degree.getInstance().getName());
             System.out.println("*************************");
-            System.out.println(Groups.getInstance().size() + " groups generated:");
-            TreeMap<Integer, Group> allGroups = Groups.getInstance().get();
+            System.out.println(Groups.getInstance().size() + " groups generated:");*/
+            /*TreeMap<Integer, Group> allGroups = Groups.getInstance().get();
             for (Map.Entry<Integer, Group> g : allGroups.entrySet()) {
                 System.out.println(g.getValue().getSubject().getName() + " " + g.getValue().getName() + " " + g.getValue().getTypes());
             }
-            System.out.println("*************************");
+            System.out.println("*************************");*/
 
             ClassroomsFactory.produce(cls);
-            System.out.println(Classrooms.getInstance().size() + " classrooms produced:");
+            /*System.out.println(Classrooms.getInstance().size() + " classrooms produced:");
             ArrayList<String> rooms = Classrooms.getInstance().getAllKeys();
             for (String classID : rooms) {
                 System.out.println(classID);
             }
             System.out.println("*************************");
-            System.out.println();
+            System.out.println();*/
 
             DateTimesFactory.produce();
             BlocksFactory.produce();
@@ -641,5 +636,51 @@ public class DomainCtrl {
             System.out.println();
             return false;
         }
+    }
+
+    public Boolean importSchedules(String path){
+        try {
+            Object obj = new JSONParser().parse(new FileReader(path));
+            JSONArray ja = (JSONArray) obj;
+            for(Object s : ja){
+
+                JSONObject schedule = (JSONObject) s;
+                JSONArray classes = (JSONArray) schedule.get("classes");
+                Iterator it = classes.iterator();
+
+                TreeMap<Integer, DateTime> dates = new TreeMap<>(DateTimes.getInstance().get());
+                TreeMap<String, Classroom> classrooms = new TreeMap<>(Classrooms.getInstance().get());
+                Schedule sch = new Schedule(dates.keySet(), classrooms.keySet());
+
+                while(it.hasNext()){
+                    Class classToAdd = new Class();
+                    JSONObject c = (JSONObject) it.next();
+
+                    Classroom classroom = Classrooms.getInstance().get( (String) c.get("classroom") );
+                    int groupID = Groups.getInstance().getIDfromNameAndSubject((String) c.get("group"), (String) c.get("subject"));
+                    Group group = Groups.getInstance().get(groupID);
+                    DateTime.WeekDay wd = DateTime.WeekDay.valueOf(c.get("day").toString()) ;
+                    Integer h = (int)(long) c.get("startHour");
+                    DateTime dt = new DateTime(wd,h);
+                    int dateTimeID = DateTimes.getInstance().getID(dt);
+
+                    classToAdd.setDateTimeID(dateTimeID);
+                    classToAdd.setGroup(group);
+                    classToAdd.setClassroom(classroom);
+                    sch.addClass(classToAdd);
+                }
+                Schedules.getInstance().addSchedule(sch);
+            }
+            return true;
+
+        }
+        catch (IOException | ParseException e) {
+            e.printStackTrace();
+            return false;
+        }
+        catch (Exception e){
+            return false;
+        }
+
     }
 }

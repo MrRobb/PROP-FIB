@@ -1,6 +1,8 @@
 package Presentation;
 
 import Domain.DomainCtrl;
+import com.sun.org.apache.xpath.internal.operations.Bool;
+import org.json.simple.JSONArray;
 
 import java.util.ArrayList;
 import java.util.TreeSet;
@@ -56,5 +58,11 @@ public class PresentationCtrl {
     }
 
     public void generate(){ DomainCtrl.getInstance().generateSchedule(); }
+
+    public Boolean deleteSchedules(){ return DomainCtrl.getInstance().clearSavedSchedules(); }
+
+    public void showSavedSchedules(){ DomainCtrl.getInstance().showSavedSchedules();}
+
+    public Boolean importSchedules(String path){ return DomainCtrl.getInstance().importSchedules(path); }
 
 }

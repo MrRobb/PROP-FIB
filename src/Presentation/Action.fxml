@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
@@ -7,10 +8,9 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="653.0" prefWidth="915.0" style="-fx-background-color: rgb(255,255,255);" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Presentation.Action">
    <center>
-      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="30.0" BorderPane.alignment="CENTER">
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="30.0" stylesheets="@main.css" BorderPane.alignment="CENTER">
          <children>
             <Label text="Schedule Generator">
                <font>
@@ -27,7 +27,12 @@
                   <Font name="Segoe UI Semilight" size="18.0" />
                </font>
             </Button>
-            <Button fx:id="btnShowSavesSchedules" mnemonicParsing="false" prefHeight="51.0" prefWidth="348.0" stylesheets="@main.css" text="Show schedules">
+            <Button fx:id="btnShowSavedSchedules" mnemonicParsing="false" onAction="#showSavedSchedulesPressed" prefHeight="34.0" prefWidth="348.0" stylesheets="@main.css" text="Show saved schedules">
+               <font>
+                  <Font name="Segoe UI Semilight" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnImportSchedules" mnemonicParsing="false" onAction="#importPressed" prefHeight="67.0" prefWidth="347.0" stylesheets="@main.css" text="Import schedules">
                <font>
                   <Font name="Segoe UI Semilight" size="18.0" />
                </font>
@@ -56,4 +61,21 @@
    <right>
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
    </right>
+   <bottom>
+      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+   </bottom>
+   <top>
+      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Logged as an admin">
+               <font>
+                  <Font name="Segoe UI Light" size="12.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="15.0" top="15.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+      </HBox>
+   </top>
 </BorderPane>
