@@ -1,6 +1,9 @@
 package Domain;
 
 import javafx.util.Pair;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+
 import java.util.*;
 
 public class Schedule implements Comparable<Schedule> {
@@ -169,6 +172,21 @@ public class Schedule implements Comparable<Schedule> {
                     .append('\n');
         }
         return schedule.toString();
+    }
+
+    public JSONArray toJSONArray(){
+        JSONArray sch = new JSONArray();
+        for(Class c : classes){
+            JSONObject cl = new JSONObject();
+            cl.put("day", c.getDateTime().getWeekday().toString());
+            cl.put("startHour", c.getDateTime().getStartHour());
+            cl.put("endHour", c.getDateTime().getEndHour(c.getGroup().getDuration()));
+            cl.put("classroom", c.getClassroom().getName());
+            cl.put("subject", c.getGroup().getSubject().getName());
+            cl.put("group", c.getGroup().getName());
+            sch.add(cl);
+        }
+        return sch;
     }
 
 

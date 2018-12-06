@@ -1,5 +1,7 @@
 package Domain;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
 
@@ -196,6 +198,7 @@ public class DomainCtrl {
             if (option == 1) {
                 if (saveSchedule(s)) {
                     System.out.println("Schedule saved successfully");
+
                 }
                 else {
                     System.out.println("Failed while saving!");
@@ -225,10 +228,37 @@ public class DomainCtrl {
     }
 
     public boolean saveSchedule(Schedule s) {
-        return Schedules.getInstance().addSchedule(s);
+        JSONArray json = s.toJSONArray();
+
+        try {
+            Object read = new JSONParser().parse(new FileReader("json/savedSchedules.json"));
+            JSONArray readArray = (JSONArray) read;
+            readArray.add(json);
+            System.out.println("Archivo encontrado!");
+
+            try (FileWriter file = new FileWriter("json/savedSchedules.json")) {
+                file.write(readArray.toJSONString());
+                System.out.println("Archivo encontrado added!");
+                return Schedules.getInstance().addSchedule(s);
+            }
+        }
+        catch (IOException | ParseException e) {
+            e.printStackTrace();
+
+            try (FileWriter file = new FileWriter("json/savedSchedules.json")) {
+                file.write(json.toJSONString());
+                System.out.println("Archivo nuevo!");
+                return Schedules.getInstance().addSchedule(s);
+            }
+            catch (IOException e1) {
+                e1.printStackTrace();
+                return false;
+            }
+        }
     }
 
-    public boolean clearSavedSchedules() {
+
+        public boolean clearSavedSchedules() {
 
         // Ask for saving
         System.out.println("Are you sure you want to delete ALL saved schedules?");
