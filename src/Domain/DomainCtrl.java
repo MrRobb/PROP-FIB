@@ -234,11 +234,11 @@ public class DomainCtrl {
             Object read = new JSONParser().parse(new FileReader("json/savedSchedules.json"));
             JSONArray readArray = (JSONArray) read;
             readArray.add(json);
-            System.out.println("Archivo encontrado!");
+            System.out.println("File found!");
 
             try (FileWriter file = new FileWriter("json/savedSchedules.json")) {
                 file.write(readArray.toJSONString());
-                System.out.println("Archivo encontrado added!");
+                System.out.println("Schedule added to the JSON!");
                 return Schedules.getInstance().addSchedule(s);
             }
         }
@@ -247,7 +247,7 @@ public class DomainCtrl {
 
             try (FileWriter file = new FileWriter("json/savedSchedules.json")) {
                 file.write(json.toJSONString());
-                System.out.println("Archivo nuevo!");
+                System.out.println("Creating new JSON!");
                 return Schedules.getInstance().addSchedule(s);
             }
             catch (IOException e1) {

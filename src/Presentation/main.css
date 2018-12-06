@@ -49,3 +49,7 @@
 .center {
     background-color: #ff0000;
 }
+
+.cols{
+    -fx-alignment: BASELINE_CENTER;
+}

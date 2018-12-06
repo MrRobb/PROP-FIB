@@ -50,6 +50,8 @@ public class ConsultingData implements Initializable {
         subjectTable.getColumns().addAll(numSCol,nameSCol);
         numSCol.setCellValueFactory(new PropertyValueFactory<>("i"));
         nameSCol.setCellValueFactory(new PropertyValueFactory<>("name"));
+        numSCol.getStyleClass().add("cols");
+        nameSCol.getStyleClass().add("cols");
 
         Integer j = 1;
         for(String s : subjects){
@@ -71,6 +73,9 @@ public class ConsultingData implements Initializable {
         numCCol.setCellValueFactory(new PropertyValueFactory<>("i"));
         nameCCol.setCellValueFactory(new PropertyValueFactory<>("name"));
         extrasCCol.setCellValueFactory(new PropertyValueFactory<>("extras"));
+        numCCol.getStyleClass().add("cols");
+        nameCCol.getStyleClass().add("cols");
+        extrasCCol.getStyleClass().add("cols");
 
 
         Integer k = 1;
@@ -98,6 +103,10 @@ public class ConsultingData implements Initializable {
         subjGCol.setCellValueFactory(new PropertyValueFactory<>("subj"));
         nameGCol.setCellValueFactory(new PropertyValueFactory<>("name"));
         typesGCol.setCellValueFactory(new PropertyValueFactory<>("types"));
+        numGCol.getStyleClass().add("cols");
+        subjGCol.getStyleClass().add("cols");
+        typesGCol.getStyleClass().add("cols");
+        nameGCol.getStyleClass().add("cols");
 
 
         Integer l = 1;
