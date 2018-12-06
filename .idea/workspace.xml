@@ -6,13 +6,16 @@
     </artifacts-to-build>
   </component>
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/Presentation/ChoosingJSON.fxml" line="41" />
+    <bookmark url="file://$PROJECT_DIR$/src/Presentation/ChoosingJSON.fxml" line="50" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa2f1aa1-9b69-405b-87b4-eb516390aa6d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/Presentation/GeneratingSchedules.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation/GeneratingSchedules.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Presentation/GeneratingSchedules.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation/GeneratingSchedules.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Presentation/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/DomainCtrl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/DomainCtrl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Presentation/ChoosingJSON.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation/ChoosingJSON.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Presentation/ChoosingJSON.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation/ChoosingJSON.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Presentation/PresentationCtrl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation/PresentationCtrl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Presentation/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation/main.css" afterDir="false" />
     </list>
     <list id="2359001d-d985-4a8b-8ebc-422acdf50f2f" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -28,14 +31,73 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Presentation/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="14" column="5" lean-forward="true" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+            <state relative-caret-position="216">
+              <caret line="18" selection-start-line="18" selection-end-line="18" />
               <folding>
                 <element signature="e#289#290#0" expanded="true" />
-                <element signature="e#318#319#0" expanded="true" />
+                <element signature="e#317#318#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Presentation/ChoosingJSON.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="252">
+              <caret line="31" column="59" lean-forward="true" selection-start-line="31" selection-start-column="59" selection-end-line="31" selection-end-column="59" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Presentation/Action.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="28" column="8" selection-start-line="28" selection-start-column="8" selection-end-line="28" selection-end-column="79" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Domain/DomainCtrl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="425">
+              <caret line="482" column="39" lean-forward="true" selection-start-line="482" selection-start-column="39" selection-end-line="482" selection-end-column="39" />
+              <folding>
+                <element signature="e#15999#16000#0" expanded="true" />
+                <element signature="e#16057#16058#0" expanded="true" />
+                <element signature="e#16100#16101#0" expanded="true" />
+                <element signature="e#16152#16153#0" expanded="true" />
+                <element signature="e#16193#16194#0" expanded="true" />
+                <element signature="e#16243#16244#0" expanded="true" />
+                <element signature="e#16288#16289#0" expanded="true" />
+                <element signature="e#16342#16343#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Presentation/main.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="342">
+              <caret line="19" column="32" lean-forward="true" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Presentation/PresentationCtrl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="515">
+              <caret line="51" column="5" lean-forward="true" selection-start-line="51" selection-start-column="5" selection-end-line="51" selection-end-column="5" />
+              <folding>
+                <element signature="e#531#532#0" expanded="true" />
+                <element signature="e#592#593#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -131,8 +193,6 @@
         <option value="$PROJECT_DIR$/src/Presentation/main.fxml" />
         <option value="$PROJECT_DIR$/src/Presentation/Main.fxml" />
         <option value="$PROJECT_DIR$/src/Presentation/Action.fxml" />
-        <option value="$PROJECT_DIR$/src/Presentation/ChoosingJSON.fxml" />
-        <option value="$PROJECT_DIR$/src/Presentation/ChoosingJSON.java" />
         <option value="$PROJECT_DIR$/src/Presentation/PairNumberSubject.java" />
         <option value="$PROJECT_DIR$/src/Presentation/PairNumberClassroom.java" />
         <option value="$PROJECT_DIR$/src/Domain/Groups.java" />
@@ -146,26 +206,27 @@
         <option value="$PROJECT_DIR$/src/Presentation/ApplyingRestriction.java" />
         <option value="$PROJECT_DIR$/src/Domain/BlocksFactory.java" />
         <option value="$PROJECT_DIR$/src/Presentation/RestrictionView.java" />
-        <option value="$PROJECT_DIR$/src/Presentation/PresentationCtrl.java" />
         <option value="$PROJECT_DIR$/src/Presentation/Action.java" />
-        <option value="$PROJECT_DIR$/src/Domain/DomainCtrl.java" />
-        <option value="$PROJECT_DIR$/src/Presentation/main.css" />
         <option value="$PROJECT_DIR$/src/Presentation/UserSelectionMenu.java" />
         <option value="$PROJECT_DIR$/src/Presentation/Main.java" />
+        <option value="$PROJECT_DIR$/src/Presentation/main.css" />
+        <option value="$PROJECT_DIR$/src/Domain/DomainCtrl.java" />
+        <option value="$PROJECT_DIR$/src/Presentation/PresentationCtrl.java" />
+        <option value="$PROJECT_DIR$/src/Presentation/ChoosingJSON.java" />
+        <option value="$PROJECT_DIR$/src/Presentation/ChoosingJSON.fxml" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="x" value="-12" />
-    <option name="y" value="-12" />
-    <option name="width" value="1944" />
-    <option name="height" value="1044" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="width" value="3840" />
+    <option name="height" value="2160" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -182,13 +243,18 @@
               <item name="PROP-FIB" type="b2602c69:ProjectViewProjectNode" />
               <item name="PROP-FIB" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Domain" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PROP-FIB" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PROP-FIB" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Presentation" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="Course" />
     </panes>
@@ -196,12 +262,12 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543934816835" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544089442143" />
+    <property name="last_opened_file_path" value="C:/Program Files (x86)/Oracle/JavaFX Scene Builder 2.0/JavaFX Scene Builder 2.0.exe" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="preferences.intentionPowerPack" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
@@ -352,6 +418,7 @@
       <updated>1540360625072</updated>
       <workItem from="1543933283569" duration="271000" />
       <workItem from="1543934274604" duration="435000" />
+      <workItem from="1544084190499" duration="5004000" />
     </task>
     <servers />
   </component>
@@ -388,7 +455,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="706000" />
+    <option name="totallyTimeSpent" value="5710000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -400,10 +467,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
+    <frame x="-6" y="-6" width="1933" height="1053" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26373628" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23573333" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -411,11 +478,10 @@
       <window_info id="Learn" order="5" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Favorites" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Database Changes" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32943678" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.33469388" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.21885157" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3997833" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3291815" />
@@ -426,8 +492,7 @@
       <window_info anchor="bottom" id="Run with VisualVM" order="11" />
       <window_info anchor="bottom" id="Debug with VisualVM" order="12" />
       <window_info anchor="bottom" id="Docker" order="13" show_stripe_button="false" />
-      <window_info anchor="right" id="Maven" />
-      <window_info anchor="right" id="Database" />
+      <window_info anchor="bottom" id="Database Changes" order="14" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.2496617" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -436,6 +501,8 @@
       <window_info anchor="right" id="Capture Analysis" order="5" />
       <window_info anchor="right" id="Theme Preview" order="6" />
       <window_info anchor="right" id="Maven Projects" order="7" />
+      <window_info anchor="right" id="Maven" order="8" />
+      <window_info anchor="right" id="Database" order="9" />
     </layout>
     <layout-to-restore>
       <window_info id="Designer" order="0" />
@@ -545,13 +612,6 @@
     <entry file="file://$PROJECT_DIR$/src/Presentation/sample.java" />
     <entry file="file://$PROJECT_DIR$/src/Presentation/Main.fxml" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/javafx-src.zip!/com/sun/javafx/application/LauncherImpl.java" />
-    <entry file="file://$PROJECT_DIR$/src/Presentation/ChoosingJSON.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="5" column="32" selection-start-line="5" selection-start-column="32" selection-end-line="5" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/javafx-src.zip!/javafx/fxml/FXMLLoader.java" />
     <entry file="file://$PROJECT_DIR$/src/Domain/Classroom.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -599,13 +659,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
           <caret line="4" selection-start-line="4" selection-end-line="13" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Presentation/ConsultingData.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="9" column="248" selection-start-line="9" selection-start-column="248" selection-end-line="9" selection-end-column="248" />
         </state>
       </provider>
     </entry>
@@ -665,13 +718,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Presentation/ChoosingJSON.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="56" column="12" lean-forward="true" selection-start-line="56" selection-start-column="12" selection-end-line="60" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Domain/BlocksFactory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="396">
@@ -686,24 +732,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Domain/DomainCtrl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="9120">
-          <caret line="631" column="13" selection-start-line="631" selection-start-column="13" selection-end-line="631" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Presentation/ConsultingData.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1395">
           <caret line="114" selection-start-line="114" selection-end-line="114" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Presentation/Action.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="50" column="50" selection-start-line="50" selection-start-column="50" selection-end-line="50" selection-end-column="50" />
         </state>
       </provider>
     </entry>
@@ -721,13 +753,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Presentation/PresentationCtrl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="53" selection-start-line="53" selection-end-line="53" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Presentation/RestrictionView.java">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -742,13 +767,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Presentation/main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="25" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Presentation/GeneratingSchedules.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -756,21 +774,80 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/javafx-src.zip!/javafx/application/Application.java">
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/javafx-src.zip!/javafx/application/Application.java" />
+    <entry file="file://$PROJECT_DIR$/src/Presentation/Action.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="520">
-          <caret line="222" column="23" selection-start-line="222" selection-start-column="23" selection-end-line="222" selection-end-column="23" />
+        <state relative-caret-position="270">
+          <caret line="28" column="8" selection-start-line="28" selection-start-column="8" selection-end-line="28" selection-end-column="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Presentation/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="19" column="32" lean-forward="true" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="32" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Presentation/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="14" column="5" lean-forward="true" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+        <state relative-caret-position="216">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
           <folding>
             <element signature="e#289#290#0" expanded="true" />
-            <element signature="e#318#319#0" expanded="true" />
+            <element signature="e#317#318#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Presentation/PresentationCtrl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="515">
+          <caret line="51" column="5" lean-forward="true" selection-start-line="51" selection-start-column="5" selection-end-line="51" selection-end-column="5" />
+          <folding>
+            <element signature="e#531#532#0" expanded="true" />
+            <element signature="e#592#593#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Domain/DomainCtrl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="482" column="39" lean-forward="true" selection-start-line="482" selection-start-column="39" selection-end-line="482" selection-end-column="39" />
+          <folding>
+            <element signature="e#15999#16000#0" expanded="true" />
+            <element signature="e#16057#16058#0" expanded="true" />
+            <element signature="e#16100#16101#0" expanded="true" />
+            <element signature="e#16152#16153#0" expanded="true" />
+            <element signature="e#16193#16194#0" expanded="true" />
+            <element signature="e#16243#16244#0" expanded="true" />
+            <element signature="e#16288#16289#0" expanded="true" />
+            <element signature="e#16342#16343#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Presentation/ConsultingData.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="9" column="286" selection-start-line="9" selection-start-column="244" selection-end-line="9" selection-end-column="286" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Presentation/ChoosingJSON.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="14" column="246" selection-start-line="14" selection-start-column="246" selection-end-line="14" selection-end-column="246" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Presentation/ChoosingJSON.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="31" column="59" lean-forward="true" selection-start-line="31" selection-start-column="59" selection-end-line="31" selection-end-column="59" />
         </state>
       </provider>
     </entry>

@@ -438,36 +438,9 @@ public class DomainCtrl {
         }
     }
 
-    public boolean produceFactory(int option) {
+    public boolean produceFactory(String filePath) {
 
         try {
-            System.out.println("What scenery do you want to load?");
-            System.out.println("0. Exit");
-            System.out.println("1. Simple scenery (json/degreeEasy.json)");
-            System.out.println("2. Full scenery (json/degreeReal.json)");
-
-            //int option = getInputAsInt(0, 2);
-            System.out.println();
-
-            String filePath;
-
-            switch (option) {
-                case 0:
-                    return false;
-
-                case 1:
-                    filePath = "json/degreeEasy.json";
-                    break;
-
-                case 2:
-                    filePath = "json/degreeReal.json";
-                    break;
-
-                default:
-                    optionError();
-                    return false;
-            }
-
             Object obj = new JSONParser().parse(new FileReader(filePath));
             JSONArray ja = (JSONArray) obj;
             JSONObject jo = (JSONObject) ja.get(0);
@@ -515,7 +488,7 @@ public class DomainCtrl {
         }
         catch (IOException | ParseException e) {
 
-            System.out.println("Error while loading JSON, make sure it is inside the json folder");
+            System.out.println("Error while loading JSON, make sure the you have selected the right file");
             System.out.println();
 
             e.printStackTrace();

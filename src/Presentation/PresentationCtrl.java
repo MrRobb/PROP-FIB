@@ -19,9 +19,8 @@ public class PresentationCtrl {
 
     public ArrayList<String> getSubjects(){ return DomainCtrl.getInstance().getSubjects(); }
 
-    public Boolean produce(Integer file){
-        DomainCtrl.getInstance().produceFactory(file);
-        return true;
+    public Boolean produce(String file){
+        return DomainCtrl.getInstance().produceFactory(file);
     }
 
     public Integer getNumberOfSubjects(){
@@ -57,4 +56,5 @@ public class PresentationCtrl {
     }
 
     public void generate(){ DomainCtrl.getInstance().generateSchedule(); }
+
 }
