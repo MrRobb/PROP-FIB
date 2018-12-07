@@ -8,46 +8,46 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="653.0" prefWidth="915.0" style="-fx-background-color: rgb(255,255,255);" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Presentation.Action">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="653.0" prefWidth="915.0" style="-fx-background-color: rgb(255,255,255);" stylesheets="@main.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Presentation.Action">
    <center>
-      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="30.0" stylesheets="@main.css" BorderPane.alignment="CENTER">
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="20.0" stylesheets="@main.css" BorderPane.alignment="CENTER">
          <children>
             <Label text="Schedule Generator">
                <font>
                   <Font name="Segoe UI Light" size="40.0" />
                </font>
             </Label>
-            <Button fx:id="btnConsult" mnemonicParsing="false" onAction="#ButtonConsultPressed" prefHeight="51.0" prefWidth="348.0" stylesheets="@main.css" text="Consult imported information">
+            <Button fx:id="btnConsult" mnemonicParsing="false" onAction="#ButtonConsultPressed" prefHeight="50.0" prefWidth="350.0" stylesheets="@main.css" text="Consult imported information">
                <font>
                   <Font name="Segoe UI Semilight" size="18.0" />
                </font>
             </Button>
-            <Button fx:id="btnModifyRestrictions" mnemonicParsing="false" onAction="#ButtonRestrictions" prefHeight="51.0" prefWidth="348.0" stylesheets="@main.css" text="Edit restrictions">
+            <Button fx:id="btnModifyRestrictions" mnemonicParsing="false" onAction="#ButtonRestrictions" prefHeight="50.0" prefWidth="350.0" stylesheets="@main.css" text="Edit restrictions">
                <font>
                   <Font name="Segoe UI Semilight" size="18.0" />
                </font>
             </Button>
-            <Button fx:id="btnShowSavedSchedules" mnemonicParsing="false" onAction="#showSavedSchedulesPressed" prefHeight="34.0" prefWidth="348.0" stylesheets="@main.css" text="Show saved schedules">
+            <Button fx:id="btnShowSavedSchedules" mnemonicParsing="false" onAction="#showSavedSchedulesPressed" prefHeight="50.0" prefWidth="350.0" stylesheets="@main.css" text="Show saved schedules">
                <font>
                   <Font name="Segoe UI Semilight" size="18.0" />
                </font>
             </Button>
-            <Button fx:id="btnImportSchedules" mnemonicParsing="false" onAction="#importPressed" prefHeight="67.0" prefWidth="347.0" stylesheets="@main.css" text="Import schedules">
+            <Button fx:id="btnImportSchedules" mnemonicParsing="false" onAction="#importPressed" prefHeight="50.0" prefWidth="350.0" stylesheets="@main.css" text="Import schedules">
                <font>
                   <Font name="Segoe UI Semilight" size="18.0" />
                </font>
             </Button>
-            <Button fx:id="btnDeleteSchedules" mnemonicParsing="false" onAction="#ButtonDeleteSchedulesPressed" prefHeight="51.0" prefWidth="346.0" stylesheets="@main.css" text="Delete all schedules">
+            <Button fx:id="btnDeleteSchedules" mnemonicParsing="false" onAction="#ButtonDeleteSchedulesPressed" prefHeight="50.0" prefWidth="350.0" stylesheets="@main.css" text="Delete all schedules">
                <font>
                   <Font name="Segoe UI Semilight" size="18.0" />
                </font>
             </Button>
-            <Button fx:id="btnGenerate" mnemonicParsing="false" onAction="#generatePressed" prefHeight="51.0" prefWidth="351.0" stylesheets="@main.css" text="Generate">
+            <Button fx:id="btnGenerate" mnemonicParsing="false" onAction="#generatePressed" prefHeight="50.0" prefWidth="350.0" stylesheets="@main.css" text="Generate">
                <font>
                   <Font name="Segoe UI Semilight" size="18.0" />
                </font>
             </Button>
-            <Button fx:id="btnLogOut" mnemonicParsing="false" prefHeight="51.0" prefWidth="351.0" stylesheets="@main.css" text="Log out">
+            <Button fx:id="btnLogOut" mnemonicParsing="false" onAction="#logOutPressed" prefHeight="50.0" prefWidth="350.0" styleClass="btn" stylesheets="@main.css" text="Log out">
                <font>
                   <Font name="Segoe UI Semilight" size="18.0" />
                </font>
@@ -62,7 +62,7 @@
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
    </right>
    <bottom>
-      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+      <HBox prefHeight="70.0" prefWidth="915.0" BorderPane.alignment="CENTER" />
    </bottom>
    <top>
       <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">

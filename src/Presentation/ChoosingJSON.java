@@ -1,5 +1,6 @@
 package Presentation;
 
+import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -9,6 +10,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.SplitMenuButton;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.scene.control.Alert;
@@ -21,6 +24,7 @@ import java.util.ResourceBundle;
 
 public class ChoosingJSON implements Initializable{
     public Button fileMenuButton;
+    public Button back;
 
 
     public void pressOpenButton(Event event) throws IOException {
@@ -53,8 +57,21 @@ public class ChoosingJSON implements Initializable{
         }
     }
 
+    public void backpressed(ActionEvent event) throws IOException {
+        Parent ViewParent = FXMLLoader.load(getClass().getResource("UserSelection.fxml"));
+        Scene ViewScene = new Scene(ViewParent);
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        window.setScene(ViewScene);
+        window.show();
+    }
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        Image image = new Image(getClass().getResourceAsStream("back.png"));
+        ImageView imageView = new ImageView(image);
+        imageView.setFitHeight(15);
+        imageView.setFitWidth(15);
+        back.setGraphic(imageView);
     }
 }

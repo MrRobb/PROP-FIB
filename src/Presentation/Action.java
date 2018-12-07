@@ -96,6 +96,14 @@ public class Action implements Initializable {
         PresentationCtrl.getInstance().showSavedSchedules();
     }
 
+    public void logOutPressed(ActionEvent event) throws IOException {
+        Parent ViewParent = FXMLLoader.load(getClass().getResource("UserSelection.fxml"));
+        Scene ViewScene = new Scene(ViewParent);
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        window.setScene(ViewScene);
+        window.show();
+    }
+
 
 
     @Override
