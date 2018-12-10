@@ -9,7 +9,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="653.0" prefWidth="915.0" style="-fx-background-color: &quot;white&quot;;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Presentation.RestrictionView">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="653.0" prefWidth="915.0" style="-fx-background-color: &quot;white&quot;;" stylesheets="@main.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Presentation.RestrictionView">
    <left>
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
    </left>
@@ -27,7 +27,7 @@
             <TableView fx:id="appliedRestrictionsTable" onMouseClicked="#tableCellClicked" prefHeight="200.0" prefWidth="200.0" />
             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Button fx:id="deleteRestriction" mnemonicParsing="false" onAction="#deletePressed" text="Delete restriction" />
+                  <Button fx:id="deleteRestriction" mnemonicParsing="false" onAction="#deletePressed" styleClass="btn" text="Delete restriction" />
                </children></HBox>
             <Label text="Available Restrictions">
                <font>
@@ -40,7 +40,7 @@
             <TableView fx:id="availableRestrictionsTable" onMouseClicked="#tableCellClicked" prefHeight="200.0" prefWidth="200.0" />
             <HBox fx:id="applyingBox" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Button fx:id="applyRestriction" mnemonicParsing="false" onAction="#applyRestrictionPressed" onMouseClicked="#applyRestrictionPressed" text="Apply restriction" />
+                  <Button fx:id="applyRestriction" mnemonicParsing="false" onAction="#applyRestrictionPressed" onMouseClicked="#applyRestrictionPressed" styleClass="btn" text="Apply restriction" />
                </children></HBox>
          </children>
       </VBox>

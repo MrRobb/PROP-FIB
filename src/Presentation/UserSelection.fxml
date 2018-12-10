@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="653.0" prefWidth="931.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Presentation.UserSelection">
+   <top>
+      <Label text="SCHEDULE GENERATOR" BorderPane.alignment="CENTER">
+         <font>
+            <Font name="Segoe UI Semilight" size="36.0" />
+         </font>
+         <BorderPane.margin>
+            <Insets top="40.0" />
+         </BorderPane.margin>
+      </Label>
+   </top>
+   <left>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
+   </left>
+   <right>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
+   </right>
+   <center>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Log in as:">
+               <font>
+                  <Font name="Segoe UI" size="14.0" />
+               </font>
+            </Label>
+            <VBox alignment="CENTER_LEFT" prefHeight="429.0" prefWidth="181.0">
+               <children>
+                  <RadioButton fx:id="user" mnemonicParsing="false" onAction="#radioSelected" text=" User">
+                     <padding>
+                        <Insets bottom="10.0" />
+                     </padding>
+                     <font>
+                        <Font name="Segoe UI Semilight" size="14.0" />
+                     </font>
+                     <toggleGroup>
+                        <ToggleGroup fx:id="radioGroup" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="admin" mnemonicParsing="false" onAction="#radioSelected" text=" Administrator" toggleGroup="$radioGroup">
+                     <padding>
+                        <Insets top="10.0" />
+                     </padding>
+                     <font>
+                        <Font name="Segoe UI Semilight" size="14.0" />
+                     </font>
+                  </RadioButton>
+               </children>
+               <HBox.margin>
+                  <Insets left="60.0" />
+               </HBox.margin>
+            </VBox>
+         </children>
+         <padding>
+            <Insets bottom="30.0" />
+         </padding>
+      </HBox>
+   </center>
+   <bottom>
+      <Button fx:id="login" mnemonicParsing="false" onAction="#loginPressed" styleClass="btn" stylesheets="@main.css" text="Log in" BorderPane.alignment="CENTER_RIGHT">
+         <BorderPane.margin>
+            <Insets bottom="50.0" right="50.0" />
+         </BorderPane.margin>
+      </Button>
+   </bottom>
+</BorderPane>

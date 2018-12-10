@@ -25,14 +25,14 @@
    <bottom>
       <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <left>
-            <Button mnemonicParsing="false" onAction="#cancelPressed" text="Cancel" BorderPane.alignment="CENTER">
+            <Button mnemonicParsing="false" onAction="#cancelPressed" styleClass="btn" stylesheets="@main.css" text="Cancel" BorderPane.alignment="CENTER">
                <BorderPane.margin>
                   <Insets left="30.0" />
                </BorderPane.margin>
             </Button>
          </left>
          <right>
-            <Button fx:id="addRes" mnemonicParsing="false" onAction="#addPressed" text="Add" BorderPane.alignment="CENTER">
+            <Button fx:id="addRes" mnemonicParsing="false" onAction="#addPressed" styleClass="btn" stylesheets="@main.css" text="Add" BorderPane.alignment="CENTER">
                <BorderPane.margin>
                   <Insets right="30.0" />
                </BorderPane.margin>
