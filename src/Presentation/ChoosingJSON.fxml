@@ -13,21 +13,10 @@
 <?import javafx.scene.layout.VBox?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="653.0" prefWidth="915.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Presentation.ChoosingJSON">
-   <top>
-      <ToolBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-        <items>
-          <Button fx:id="back" mnemonicParsing="false" onAction="#backpressed">
-               <font>
-                  <Font name="Segoe UI Semilight" size="14.0" />
-               </font>
-            </Button>
-        </items>
-      </ToolBar>
-   </top>
    <center>
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="30.0" BorderPane.alignment="CENTER">
          <children>
-            <Label contentDisplay="CENTER" text="Choose the JSON file you want to load.">
+            <Label prefHeight="73.0" prefWidth="715.0" text="Welcome to Schedule Generator. First of all, choose the JSON file that contains the degree information." textAlignment="CENTER" wrapText="true">
                <font>
                   <Font name="Segoe UI Semilight" size="18.0" />
                </font>
@@ -37,6 +26,9 @@
                <font>
                   <Font name="Segoe UI" size="18.0" />
                </font>
+               <VBox.margin>
+                  <Insets top="15.0" />
+               </VBox.margin>
             </Button>
          </children>
       </VBox>
