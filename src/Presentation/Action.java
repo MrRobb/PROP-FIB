@@ -27,8 +27,12 @@ public class Action implements Initializable {
     @FXML private Button btnImportSchedules;
 
     public void ButtonConsultPressed(ActionEvent event) throws IOException {
-        Parent ViewParent = FXMLLoader.load(getClass().getResource("ConsultingData.fxml"));
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("ConsultingData.fxml"));
+        Parent ViewParent = loader.load();
         Scene ViewScene = new Scene(ViewParent);
+        ConsultingData controller = loader.getController();
+        controller.initData("admin");
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         window.setScene(ViewScene);
         window.show();

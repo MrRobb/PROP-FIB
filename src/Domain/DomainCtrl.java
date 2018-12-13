@@ -639,6 +639,7 @@ public class DomainCtrl {
     }
 
     public Boolean importSchedules(String path){
+        System.out.println(path);
         try {
             Object obj = new JSONParser().parse(new FileReader(path));
             JSONArray ja = (JSONArray) obj;

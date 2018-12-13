@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
@@ -8,7 +9,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="653.0" prefWidth="931.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Presentation.UserSelection">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="653.0" prefWidth="931.0" stylesheets="@main.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Presentation.UserSelection">
    <top>
       <Label text="SCHEDULE GENERATOR" BorderPane.alignment="CENTER">
          <font>
@@ -66,10 +67,19 @@
       </HBox>
    </center>
    <bottom>
-      <Button fx:id="login" mnemonicParsing="false" onAction="#loginPressed" styleClass="btn" stylesheets="@main.css" text="Log in" BorderPane.alignment="CENTER_RIGHT">
-         <BorderPane.margin>
-            <Insets bottom="50.0" right="50.0" />
-         </BorderPane.margin>
-      </Button>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="650.0" BorderPane.alignment="TOP_LEFT">
+         <children>
+            <Button mnemonicParsing="false" onAction="#exit" styleClass="btn, exit" text="Exit" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="login" cacheShape="false" contentDisplay="CENTER" mnemonicParsing="false" onAction="#loginPressed" styleClass="btn" stylesheets="@main.css" text="Log in" textAlignment="JUSTIFY">
+               <font>
+                  <Font name="Segoe UI" size="18.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
    </bottom>
 </BorderPane>

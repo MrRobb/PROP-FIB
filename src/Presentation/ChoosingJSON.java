@@ -24,7 +24,6 @@ import java.util.ResourceBundle;
 
 public class ChoosingJSON implements Initializable{
     public Button fileMenuButton;
-    public Button back;
 
 
     public void pressOpenButton(Event event) throws IOException {
@@ -43,7 +42,7 @@ public class ChoosingJSON implements Initializable{
             alert.setContentText(s + " subjects, " + g + " groups and " + c + " classrooms generated.");
             alert.showAndWait();
 
-            Parent ActionParent = FXMLLoader.load(getClass().getResource("Action.fxml"));
+            Parent ActionParent = FXMLLoader.load(getClass().getResource("UserSelection.fxml"));
             Scene actionViewScene = new Scene(ActionParent);
             Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
             window.setScene(actionViewScene);
@@ -57,21 +56,9 @@ public class ChoosingJSON implements Initializable{
         }
     }
 
-    public void backpressed(ActionEvent event) throws IOException {
-        Parent ViewParent = FXMLLoader.load(getClass().getResource("UserSelection.fxml"));
-        Scene ViewScene = new Scene(ViewParent);
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-        window.setScene(ViewScene);
-        window.show();
-    }
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        Image image = new Image(getClass().getResourceAsStream("back.png"));
-        ImageView imageView = new ImageView(image);
-        imageView.setFitHeight(15);
-        imageView.setFitWidth(15);
-        back.setGraphic(imageView);
     }
 }

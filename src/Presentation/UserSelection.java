@@ -40,19 +40,23 @@ public class UserSelection implements Initializable {
     public void loginPressed(ActionEvent event) throws IOException {
         String op = radioGroup.getSelectedToggle().toString();
         if(op.equals("RadioButton[id=admin, styleClass=radio-button]' Administrator'")){
-            Parent ViewParent = FXMLLoader.load(getClass().getResource("ChoosingJSON.fxml"));
+            Parent ViewParent = FXMLLoader.load(getClass().getResource("Action.fxml"));
             Scene ViewScene = new Scene(ViewParent);
             Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
             window.setScene(ViewScene);
             window.show();
         }
-        else{
+        else {
             Parent ViewParent = FXMLLoader.load(getClass().getResource("ActionUser.fxml"));
             Scene ViewScene = new Scene(ViewParent);
-            Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
             window.setScene(ViewScene);
             window.show();
         }
 
+    }
+
+    public void exit(){
+        System.exit(0);
     }
 }

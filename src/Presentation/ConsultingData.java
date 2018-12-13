@@ -32,6 +32,7 @@ public class ConsultingData implements Initializable {
     @FXML private TableView<PairNumberClassroom> classroomTable;
     @FXML private TableView<PairNumberGroup> groupTable;
     @FXML private Button backToAction;
+    private String user;
 
 
     @Override
@@ -123,11 +124,25 @@ public class ConsultingData implements Initializable {
 
 
     public void changeScreenButtonBackPressed(ActionEvent event) throws IOException {
-        Parent ViewParent = FXMLLoader.load(getClass().getResource("Action.fxml"));
-        Scene ViewScene = new Scene(ViewParent);
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-        window.setScene(ViewScene);
-        window.show();
+        if(user == "user"){
+            Parent ViewParent = FXMLLoader.load(getClass().getResource("ActionUser.fxml"));
+            Scene ViewScene = new Scene(ViewParent);
+            Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+            window.setScene(ViewScene);
+            window.show();
+        }
+        else{
+            Parent ViewParent = FXMLLoader.load(getClass().getResource("Action.fxml"));
+            Scene ViewScene = new Scene(ViewParent);
+            Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+            window.setScene(ViewScene);
+            window.show();
+        }
+
+    }
+
+    public void initData(String u){
+        user = u;
     }
 
 }
