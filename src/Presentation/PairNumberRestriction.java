@@ -36,12 +36,15 @@ public class PairNumberRestriction implements Comparable<PairNumberRestriction> 
         this.mandatory = mandatory;
     }
 
+
     @Override
     public int compareTo(PairNumberRestriction r){
         if(this.mandatory.isDisable() && !r.mandatory.isDisable()) return -1;
         else if(!this.mandatory.isDisable() && r.mandatory.isDisable()) return 1;
         else{
-            return this.name.compareTo(r.name);
+            if(!this.getMandatory().isSelected() && r.getMandatory().isSelected()) return -1;
+            else if(this.getMandatory().isSelected() && !r.getMandatory().isSelected()) return 1;
+            else return this.name.compareTo(r.name);
         }
     }
 }
