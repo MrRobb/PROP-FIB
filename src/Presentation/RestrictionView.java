@@ -62,13 +62,25 @@ public class RestrictionView implements Initializable {
         ArrayList<PairNumberRestriction> list1 = new ArrayList<>();
         TableColumn<PairNumberRestriction,Integer> numRCol1 = new TableColumn<>("Number");
         TableColumn<PairNumberRestriction,String> nameRCol1 = new TableColumn<>("Restriction");
-        appliedRestrictionsTable.getColumns().addAll(numRCol1,nameRCol1);
+        TableColumn<PairNumberRestriction,CheckBox> prefCol = new TableColumn<>("Preference");
+        appliedRestrictionsTable.getColumns().addAll(numRCol1,nameRCol1,prefCol);
         numRCol1.setCellValueFactory(new PropertyValueFactory<>("i"));
         nameRCol1.setCellValueFactory(new PropertyValueFactory<>("name"));
+        prefCol.setCellValueFactory(new PropertyValueFactory<>("mandatory"));
 
         Integer j = 1;
         for(String r : appliedRestrictions){
-            list1.add(new PairNumberRestriction(j,r));
+            boolean e = PresentationCtrl.getInstance().isRestrictionEditable(r);
+            CheckBox cb = new CheckBox();
+            if(e){
+                cb.setSelected(false);
+                cb.setDisable(false);
+            }
+            else{
+                cb.setSelected(false);
+                cb.setDisable(true);
+            }
+            list1.add(new PairNumberRestriction(j,r,cb));
             j++;
         }
         ObservableList<PairNumberRestriction> data2 = FXCollections.observableArrayList(list1);

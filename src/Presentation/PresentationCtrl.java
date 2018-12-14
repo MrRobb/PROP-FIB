@@ -65,4 +65,11 @@ public class PresentationCtrl {
 
     public Boolean importSchedules(String path){ return DomainCtrl.getInstance().importSchedules(path); }
 
+    public Boolean isRestrictionEditable(String s) {
+        return DomainCtrl.getInstance().isRestrictionEditable(s);
+    }
+
+    public Boolean updateScore(String res, int score){
+        return DomainCtrl.getInstance().updateScore(res,score);
+    }
 }
