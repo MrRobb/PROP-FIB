@@ -684,4 +684,14 @@ public class DomainCtrl {
         }
 
     }
+
+    public Boolean isRestrictionEditable(String res){
+        Restriction r = Restrictions.getInstance().getAppliedRestriccion(res);
+        return r.getEditable();
+    }
+
+    public Boolean updateScore(String res, int score){
+        Restrictions.getInstance().getAppliedRestriccion(res).setScore(score);
+        return true;
+    }
 }

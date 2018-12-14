@@ -18,6 +18,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.*;
@@ -58,21 +59,41 @@ public class RestrictionView implements Initializable {
         availableRestrictionsTable.setItems(data1);
 
 
+
         ArrayList<String> appliedRestrictions = PresentationCtrl.getInstance().getAppliedRestrictions();
         ArrayList<PairNumberRestriction> list1 = new ArrayList<>();
         TableColumn<PairNumberRestriction,Integer> numRCol1 = new TableColumn<>("Number");
         TableColumn<PairNumberRestriction,String> nameRCol1 = new TableColumn<>("Restriction");
-        appliedRestrictionsTable.getColumns().addAll(numRCol1,nameRCol1);
+        TableColumn<PairNumberRestriction,CheckBox> prefCol = new TableColumn<>("Preference");
+        appliedRestrictionsTable.getColumns().addAll(numRCol1,nameRCol1,prefCol);
         numRCol1.setCellValueFactory(new PropertyValueFactory<>("i"));
         nameRCol1.setCellValueFactory(new PropertyValueFactory<>("name"));
+        prefCol.setCellValueFactory(new PropertyValueFactory<>("mandatory"));
+
 
         Integer j = 1;
         for(String r : appliedRestrictions){
-            list1.add(new PairNumberRestriction(j,r));
+            boolean e = PresentationCtrl.getInstance().isRestrictionEditable(r);
+            CheckBox cb = new CheckBox();
+            if(e){
+                cb.setSelected(false);
+                cb.setDisable(false);
+            }
+            else{
+                cb.setSelected(false);
+                cb.setDisable(true);
+            }
+            list1.add(new PairNumberRestriction(j,r,cb));
             j++;
+        }
+
+        Collections.sort(list1);
+        for(int i = 0; i < list1.size(); ++i){
+            list1.get(i).setI(i+1);
         }
         ObservableList<PairNumberRestriction> data2 = FXCollections.observableArrayList(list1);
         appliedRestrictionsTable.setItems(data2);
+
 
 
     }
@@ -88,6 +109,14 @@ public class RestrictionView implements Initializable {
 
     public void tableCellClicked(){
         applyRestriction.setDisable(false);
+    }
+
+    public void tableCellClickedApplied(){
+        if(appliedRestrictionsTable.getSelectionModel().getSelectedItem() != null) {
+            PairNumberRestriction p = appliedRestrictionsTable.getSelectionModel().getSelectedItem();
+            if (p.getMandatory().isDisable()) deleteRestriction.setDisable(true);
+            else deleteRestriction.setDisable(false);
+        }
     }
 
     public void applyRestrictionPressed(ActionEvent event) throws IOException{
@@ -110,6 +139,14 @@ public class RestrictionView implements Initializable {
             PairNumberRestriction p = appliedRestrictionsTable.getSelectionModel().getSelectedItem();
             PresentationCtrl.getInstance().deleteAppliedRestriction(p.getName());
             appliedRestrictionsTable.getItems().remove(p);
+            List<PairNumberRestriction> list = appliedRestrictionsTable.getItems();
+            Collections.sort(list);
+            for(int i = 0; i < list.size(); ++i){
+                list.get(i).setI(i+1);
+            }
+            ObservableList<PairNumberRestriction> data = FXCollections.observableArrayList(list);
+            appliedRestrictionsTable.setItems(data);
+
         }
     }
 

@@ -16,6 +16,7 @@ public class Restriction {
     private ArrayList<Object[]> args;
     private int score = 0;
     private boolean mandatory = true;
+    private Boolean editable = true;
 
     public Restriction(String name) {
         this.name = name;
@@ -30,6 +31,16 @@ public class Restriction {
         this.score = score;
         this.mandatory = mandatory;
     }
+
+    public Restriction(String name, ArrayList<Block> restriccion, ArrayList<Object[]> args, int score, boolean mandatory, boolean e) {
+        this.name = name;
+        this.restriccion = restriccion;
+        this.args = args;
+        this.score = score;
+        this.mandatory = mandatory;
+        this.editable = e;
+    }
+
 
     public boolean add(String blockName) {
 
@@ -97,6 +108,10 @@ public class Restriction {
     public String getName() {
         return name;
     }
+
+    public Boolean getEditable(){ return editable;}
+
+    public void setEditable(boolean e){ editable = e; }
 
     public boolean isMandatory() {
         return mandatory;
@@ -209,7 +224,9 @@ public class Restriction {
                 (ArrayList<Block>) this.restriccion.clone(),
                 (ArrayList<Object[]>) this.args.clone(),
                 this.score,
-                this.mandatory
+                this.mandatory,
+                this.editable
+
         );
     }
 }
