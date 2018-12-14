@@ -20,6 +20,7 @@ public class RestrictionsFactory {
 			if (ok) ok = Restrictions.getInstance().addAvailable(restriction);
 		}
 		Restrictions.getInstance().getAvailableRestriction("No overlapping at the same hour and classroom").setEditable(false);
+		Restrictions.getInstance().addApplied(Restrictions.getInstance().getAvailableRestriction("No overlapping at the same hour and classroom"));
 		return ok;
 	}
 
