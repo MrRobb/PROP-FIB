@@ -9,14 +9,14 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="653.0" prefWidth="931.0" stylesheets="@main.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Presentation.UserSelection">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="653.0" prefWidth="931.0" style="-fx-background-color: rgb(255,255,255);" stylesheets="@main.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Presentation.UserSelection">
    <top>
-      <Label text="SCHEDULE GENERATOR" BorderPane.alignment="CENTER">
+      <Label fx:id="title" text="SCHEDULE GENERATOR" BorderPane.alignment="CENTER">
          <font>
             <Font name="Segoe UI Semilight" size="36.0" />
          </font>
          <BorderPane.margin>
-            <Insets top="40.0" />
+            <Insets top="60.0" />
          </BorderPane.margin>
       </Label>
    </top>

@@ -73,3 +73,12 @@
     -fx-background-color: rgb(232, 101, 72);
     -fx-text-fill: rgb(255, 255, 255);
 }
+
+@font-face {
+    font-family: 'Amethyst';
+    src: url('../../fonts/Amethyst.ttf');
+}
+
+.title {
+    -fx-font-family: "Amethyst";
+}

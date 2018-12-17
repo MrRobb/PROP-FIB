@@ -8,6 +8,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.stage.Stage;
@@ -23,6 +24,7 @@ public class UserSelection implements Initializable {
     @FXML private RadioButton admin;
     @FXML private Button login;
     @FXML private ToggleGroup radioGroup;
+    @FXML private Label title;
 
 
     @Override
@@ -30,6 +32,7 @@ public class UserSelection implements Initializable {
         login.setDisable(true);
         user.setToggleGroup(radioGroup);
         admin.setToggleGroup(radioGroup);
+        title.getStyleClass().add("title");
     }
 
     public void radioSelected(){

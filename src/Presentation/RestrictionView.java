@@ -34,7 +34,6 @@ public class RestrictionView implements Initializable {
     @FXML private TableView<PairNumberRestriction> appliedRestrictionsTable;
     @FXML private Button applyRestriction;
     @FXML private Button deleteRestriction;
-    public ObservableList<PairNumberRestriction> pdata;
 
     private static final DataFormat SERIALIZED_MIME_TYPE = new DataFormat("application/x-java-serialized-object");
 
@@ -59,6 +58,12 @@ public class RestrictionView implements Initializable {
         numRCol.setCellValueFactory(new PropertyValueFactory<>("i"));
         nameRCol.setCellValueFactory(new PropertyValueFactory<>("name"));
 
+        numRCol.prefWidthProperty().bind(availableRestrictionsTable.widthProperty().multiply(0.09));
+        nameRCol.prefWidthProperty().bind(availableRestrictionsTable.widthProperty().multiply(0.87));
+        nameRCol.setResizable(false);
+        numRCol.setResizable(false);
+        numRCol.getStyleClass().add("cols");
+
         Integer k = 1;
         for(String r : availableRestrictions){
             list.add(new PairNumberRestriction(k,r));
@@ -67,7 +72,7 @@ public class RestrictionView implements Initializable {
         ObservableList<PairNumberRestriction> data1 = FXCollections.observableArrayList(list);
         availableRestrictionsTable.setItems(data1);
 
-
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
 
         ArrayList<String> appliedRestrictions = PresentationCtrl.getInstance().getAppliedRestrictions();
         ArrayList<PairNumberRestriction> list1 = new ArrayList<>();
@@ -79,18 +84,27 @@ public class RestrictionView implements Initializable {
         nameRCol1.setCellValueFactory(new PropertyValueFactory<>("name"));
         prefCol.setCellValueFactory(new PropertyValueFactory<>("mandatory"));
 
-        /*prefCol.setCellFactory(CheckBoxTableCell.forTableColumn((Callback<Integer, ObservableValue<Boolean>>) param -> {
-            List<PairNumberRestriction> list2 = appliedRestrictionsTable.getItems();
-            Collections.sort(list2);
-            for(int i = 0; i < list2.size(); ++i){
-                list2.get(i).setI(i+1);
+        numRCol1.prefWidthProperty().bind(availableRestrictionsTable.widthProperty().multiply(0.09));
+        nameRCol1.prefWidthProperty().bind(availableRestrictionsTable.widthProperty().multiply(0.75));
+        prefCol.prefWidthProperty().bind(availableRestrictionsTable.widthProperty().multiply(0.1));
+        nameRCol1.setResizable(false);
+        numRCol1.setResizable(false);
+        prefCol.setResizable(false);
+        numRCol1.getStyleClass().add("cols");
+        prefCol.getStyleClass().add("cols");
+
+
+        EventHandler eh = (EventHandler<ActionEvent>) event -> {
+            if (event.getSource() instanceof CheckBox) {
+                CheckBox chk = (CheckBox) event.getSource();
+                if(chk.isSelected()) PresentationCtrl.getInstance().setAppliedRestriction(true,chk.getId());
+                else PresentationCtrl.getInstance().setAppliedRestriction(false,chk.getId());
+                List<PairNumberRestriction> listR = appliedRestrictionsTable.getItems();
+                Collections.sort(listR);
+                ObservableList<PairNumberRestriction> data = FXCollections.observableArrayList(listR);
+                appliedRestrictionsTable.setItems(data);
             }
-            ObservableList<PairNumberRestriction> data = FXCollections.observableArrayList(list2);
-            appliedRestrictionsTable.setItems(data);
-
-            return (ObservableValue<Boolean>) pdata.get(param);
-        }));*/
-
+        };
 
 
 
@@ -98,8 +112,10 @@ public class RestrictionView implements Initializable {
         for(String r : appliedRestrictions){
             boolean e = PresentationCtrl.getInstance().isRestrictionEditable(r);
             CheckBox cb = new CheckBox();
+            cb.setOnAction(eh);
+            cb.setId(r);
             if(e){
-                cb.setSelected(false);
+                cb.setSelected(PresentationCtrl.getInstance().getAppliedRestriction(r));
                 cb.setDisable(false);
             }
             else{

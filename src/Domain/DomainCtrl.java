@@ -694,4 +694,10 @@ public class DomainCtrl {
         Restrictions.getInstance().getAppliedRestriccion(res).setScore(score);
         return true;
     }
+
+    public void setAppliedRestriction(Boolean b, String res) {
+        Restriction r = Restrictions.getInstance().getAppliedRestriccion(res);
+        r.setCheckedOnAppliedTable(b);
+    }
+    public Boolean getAppliedRestriction(String res){ return Restrictions.getInstance().getAppliedRestriccion(res).getCheckedOnAppliedTable(); }
 }
