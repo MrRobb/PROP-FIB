@@ -2,9 +2,11 @@ package Presentation;
 
 import Domain.Subject;
 import Domain.Subjects;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -12,11 +14,14 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.CheckBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.*;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 
 
 import java.io.IOException;
@@ -29,6 +34,9 @@ public class RestrictionView implements Initializable {
     @FXML private TableView<PairNumberRestriction> appliedRestrictionsTable;
     @FXML private Button applyRestriction;
     @FXML private Button deleteRestriction;
+
+    private static final DataFormat SERIALIZED_MIME_TYPE = new DataFormat("application/x-java-serialized-object");
+
 
 
     @Override
@@ -50,6 +58,12 @@ public class RestrictionView implements Initializable {
         numRCol.setCellValueFactory(new PropertyValueFactory<>("i"));
         nameRCol.setCellValueFactory(new PropertyValueFactory<>("name"));
 
+        numRCol.prefWidthProperty().bind(availableRestrictionsTable.widthProperty().multiply(0.09));
+        nameRCol.prefWidthProperty().bind(availableRestrictionsTable.widthProperty().multiply(0.87));
+        nameRCol.setResizable(false);
+        numRCol.setResizable(false);
+        numRCol.getStyleClass().add("cols");
+
         Integer k = 1;
         for(String r : availableRestrictions){
             list.add(new PairNumberRestriction(k,r));
@@ -58,7 +72,7 @@ public class RestrictionView implements Initializable {
         ObservableList<PairNumberRestriction> data1 = FXCollections.observableArrayList(list);
         availableRestrictionsTable.setItems(data1);
 
-
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
 
         ArrayList<String> appliedRestrictions = PresentationCtrl.getInstance().getAppliedRestrictions();
         ArrayList<PairNumberRestriction> list1 = new ArrayList<>();
@@ -70,13 +84,38 @@ public class RestrictionView implements Initializable {
         nameRCol1.setCellValueFactory(new PropertyValueFactory<>("name"));
         prefCol.setCellValueFactory(new PropertyValueFactory<>("mandatory"));
 
+        numRCol1.prefWidthProperty().bind(availableRestrictionsTable.widthProperty().multiply(0.09));
+        nameRCol1.prefWidthProperty().bind(availableRestrictionsTable.widthProperty().multiply(0.75));
+        prefCol.prefWidthProperty().bind(availableRestrictionsTable.widthProperty().multiply(0.1));
+        nameRCol1.setResizable(false);
+        numRCol1.setResizable(false);
+        prefCol.setResizable(false);
+        numRCol1.getStyleClass().add("cols");
+        prefCol.getStyleClass().add("cols");
+
+
+        EventHandler eh = (EventHandler<ActionEvent>) event -> {
+            if (event.getSource() instanceof CheckBox) {
+                CheckBox chk = (CheckBox) event.getSource();
+                if(chk.isSelected()) PresentationCtrl.getInstance().setAppliedRestriction(true,chk.getId());
+                else PresentationCtrl.getInstance().setAppliedRestriction(false,chk.getId());
+                List<PairNumberRestriction> listR = appliedRestrictionsTable.getItems();
+                Collections.sort(listR);
+                ObservableList<PairNumberRestriction> data = FXCollections.observableArrayList(listR);
+                appliedRestrictionsTable.setItems(data);
+            }
+        };
+
+
 
         Integer j = 1;
         for(String r : appliedRestrictions){
             boolean e = PresentationCtrl.getInstance().isRestrictionEditable(r);
             CheckBox cb = new CheckBox();
+            cb.setOnAction(eh);
+            cb.setId(r);
             if(e){
-                cb.setSelected(false);
+                cb.setSelected(PresentationCtrl.getInstance().getAppliedRestriction(r));
                 cb.setDisable(false);
             }
             else{
@@ -93,6 +132,69 @@ public class RestrictionView implements Initializable {
         }
         ObservableList<PairNumberRestriction> data2 = FXCollections.observableArrayList(list1);
         appliedRestrictionsTable.setItems(data2);
+
+
+
+
+        appliedRestrictionsTable.setRowFactory(tv -> {
+            TableRow<PairNumberRestriction> row = new TableRow<>();
+
+            row.setOnDragDetected(event -> {
+                PairNumberRestriction rest = row.getItem();
+                if (!row.isEmpty() && rest.getMandatory().isSelected()) {
+                    Integer index = row.getIndex();
+                    Dragboard db = row.startDragAndDrop(TransferMode.MOVE);
+                    db.setDragView(row.snapshot(null, null));
+                    ClipboardContent cc = new ClipboardContent();
+                    cc.put(SERIALIZED_MIME_TYPE, index);
+                    db.setContent(cc);
+                    event.consume();
+                }
+            });
+
+            row.setOnDragOver(event -> {
+                Dragboard db = event.getDragboard();
+                if (db.hasContent(SERIALIZED_MIME_TYPE)) {
+                    if (row.getIndex() != ((Integer)db.getContent(SERIALIZED_MIME_TYPE)).intValue()) {
+                        if(row.getItem().getMandatory().isSelected()) {
+                            event.acceptTransferModes(TransferMode.COPY_OR_MOVE);
+                            event.consume();
+                        }
+                    }
+                }
+            });
+
+            row.setOnDragDropped(event -> {
+                Dragboard db = event.getDragboard();
+                if (db.hasContent(SERIALIZED_MIME_TYPE)) {
+                    int draggedIndex = (Integer) db.getContent(SERIALIZED_MIME_TYPE);
+                    PairNumberRestriction draggedRest = appliedRestrictionsTable.getItems().remove(draggedIndex);
+
+                    int dropIndex ;
+
+                    if (row.isEmpty() || row.getItem().getMandatory().isDisable()
+                        || !row.getItem().getMandatory().isSelected()) {
+                        dropIndex = appliedRestrictionsTable.getItems().size() ;
+                    }
+                    else {
+                        dropIndex = row.getIndex();
+                    }
+
+
+                    appliedRestrictionsTable.getItems().add(dropIndex, draggedRest);
+
+                    event.setDropCompleted(true);
+                    appliedRestrictionsTable.getSelectionModel().select(dropIndex);
+                    event.consume();
+                }
+            });
+
+            return row ;
+        });
+
+
+
+
 
 
 

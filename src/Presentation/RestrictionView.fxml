@@ -37,7 +37,10 @@
                   <Insets bottom="10.0" />
                </padding>
             </Label>
-            <TableView fx:id="availableRestrictionsTable" onMouseClicked="#tableCellClicked" prefHeight="200.0" prefWidth="200.0" />
+            <TableView fx:id="availableRestrictionsTable" onMouseClicked="#tableCellClicked" prefHeight="200.0" prefWidth="200.0">
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy></TableView>
             <HBox fx:id="applyingBox" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
                <children>
                   <Button fx:id="applyRestriction" mnemonicParsing="false" onAction="#applyRestrictionPressed" onMouseClicked="#applyRestrictionPressed" styleClass="btn" text="Apply restriction" />
@@ -48,7 +51,7 @@
    <top>
       <ToolBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <items>
-          <Button fx:id="backToAction" mnemonicParsing="false" onAction="#BackPressed" />
+          <Button fx:id="backToAction" mnemonicParsing="false" onAction="#BackPressed" styleClass="btnback" translateX="10.0" />
         </items>
       </ToolBar>
    </top>

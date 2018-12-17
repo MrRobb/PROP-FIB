@@ -72,4 +72,8 @@ public class PresentationCtrl {
     public Boolean updateScore(String res, int score){
         return DomainCtrl.getInstance().updateScore(res,score);
     }
+
+    public void setAppliedRestriction(Boolean b, String res) { DomainCtrl.getInstance().setAppliedRestriction(b,res); }
+
+    public Boolean getAppliedRestriction(String res){ return DomainCtrl.getInstance().getAppliedRestriction(res); }
 }

@@ -2,19 +2,18 @@ package Presentation;
 
 import javafx.event.ActionEvent;
 import javafx.event.Event;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.SplitMenuButton;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.text.Font;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 
 import java.io.File;
@@ -24,6 +23,7 @@ import java.util.ResourceBundle;
 
 public class ChoosingJSON implements Initializable{
     public Button fileMenuButton;
+    @FXML private Label title;
 
 
     public void pressOpenButton(Event event) throws IOException {
@@ -60,5 +60,6 @@ public class ChoosingJSON implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        title.getStyleClass().add("title");
     }
 }

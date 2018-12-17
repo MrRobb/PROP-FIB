@@ -1,5 +1,6 @@
 package Domain;
 
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import javafx.util.Pair;
 
 import java.lang.reflect.InvocationTargetException;
@@ -17,6 +18,7 @@ public class Restriction {
     private int score = 0;
     private boolean mandatory = true;
     private Boolean editable = true;
+    private Boolean checkedOnAppliedTable = false;
 
     public Restriction(String name) {
         this.name = name;
@@ -216,6 +218,9 @@ public class Restriction {
         Block b = restriccion.get(blockIndex);
         return b.argSize();
     }
+
+    public Boolean getCheckedOnAppliedTable(){ return checkedOnAppliedTable; }
+    public void setCheckedOnAppliedTable(Boolean b){ checkedOnAppliedTable = b; }
 
     @Override
     protected Restriction clone() {
