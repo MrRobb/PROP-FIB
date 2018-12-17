@@ -7,7 +7,7 @@
 #btnImportSchedules,
 .btn
 {
-    -fx-background-color: rgb(210, 210, 210);;
+    -fx-background-color: rgb(210, 210, 210);
     -fx-border-radius: 20px;
     -fx-background-radius: 20px;
 }
@@ -81,4 +81,13 @@
 
 .title {
     -fx-font-family: "Amethyst";
+}
+
+.btnback{
+    -fx-background-radius: 50px;
+    -fx-background-color: rgb(210, 210, 210);
+}
+
+.btnback:hover{
+    -fx-background-color: rgb(220,220,220);
 }

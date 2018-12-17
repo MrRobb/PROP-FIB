@@ -156,8 +156,10 @@ public class RestrictionView implements Initializable {
                 Dragboard db = event.getDragboard();
                 if (db.hasContent(SERIALIZED_MIME_TYPE)) {
                     if (row.getIndex() != ((Integer)db.getContent(SERIALIZED_MIME_TYPE)).intValue()) {
-                        event.acceptTransferModes(TransferMode.COPY_OR_MOVE);
-                        event.consume();
+                        if(row.getItem().getMandatory().isSelected()) {
+                            event.acceptTransferModes(TransferMode.COPY_OR_MOVE);
+                            event.consume();
+                        }
                     }
                 }
             });
@@ -177,6 +179,7 @@ public class RestrictionView implements Initializable {
                     else {
                         dropIndex = row.getIndex();
                     }
+
 
                     appliedRestrictionsTable.getItems().add(dropIndex, draggedRest);
 

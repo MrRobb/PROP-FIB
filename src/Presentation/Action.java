@@ -9,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.DialogPane;
 import javafx.scene.control.Label;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -61,6 +62,7 @@ public class Action implements Initializable {
             alert2.setHeaderText("Successful");
             alert2.setContentText("All schedules have been deleted.");
             alert2.showAndWait();
+
         }
         else{
             Alert alert2 = new Alert(Alert.AlertType.ERROR);
