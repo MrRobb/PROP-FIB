@@ -10,9 +10,9 @@ public class BlocksFactory {
 	public static boolean produce() {
 
 		ArrayList<Pair<String,java.lang.Class>> arrB1 = new ArrayList<>();
-		arrB1.add(new Pair<>("WeekDay (ex: Monday)", DateTime.WeekDay.class));
 		arrB1.add(new Pair<>("Start hour (ex: 8)", Integer.class));
 		arrB1.add(new Pair<>("End hour (ex: 16)", Integer.class));
+		arrB1.add(new Pair<>("WeekDay (ex: Monday)", DateTime.WeekDay.class));
 		Block b1 = new Block(Functions::noClassOnDayBetweenSHEH, arrB1);
 		Blocks.getInstance().add("No class between [StartHour] and [EndHour] on [WeekDay]", b1);
 

@@ -87,7 +87,7 @@ public class RestrictionView implements Initializable {
         numRCol1.prefWidthProperty().bind(availableRestrictionsTable.widthProperty().multiply(0.09));
         nameRCol1.prefWidthProperty().bind(availableRestrictionsTable.widthProperty().multiply(0.75));
         prefCol.prefWidthProperty().bind(availableRestrictionsTable.widthProperty().multiply(0.1));
-        nameRCol1.setResizable(false);
+        nameRCol1.setResizable(true);
         numRCol1.setResizable(false);
         prefCol.setResizable(false);
         numRCol1.getStyleClass().add("cols");
