@@ -54,6 +54,7 @@ public class ApplyingRestriction implements Initializable {
                 else if (s.equals("[WeekDay]")) {
                     cb = new ComboBox<>(FXCollections.observableArrayList(
                             "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"));
+                    cb.setPromptText("WeekDay");
                     applyingBox.getChildren().add(cb);
                 }
 

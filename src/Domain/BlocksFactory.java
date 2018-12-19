@@ -10,9 +10,9 @@ public class BlocksFactory {
 	public static boolean produce() {
 
 		ArrayList<Pair<String,java.lang.Class>> arrB1 = new ArrayList<>();
-		arrB1.add(new Pair<>("WeekDay (ex: Monday)", DateTime.WeekDay.class));
 		arrB1.add(new Pair<>("Start hour (ex: 8)", Integer.class));
 		arrB1.add(new Pair<>("End hour (ex: 16)", Integer.class));
+		arrB1.add(new Pair<>("WeekDay (ex: Monday)", DateTime.WeekDay.class));
 		Block b1 = new Block(Functions::noClassOnDayBetweenSHEH, arrB1);
 		Blocks.getInstance().add("No class between [StartHour] and [EndHour] on [WeekDay]", b1);
 
@@ -56,7 +56,7 @@ public class BlocksFactory {
 
 		ArrayList<Pair<String,java.lang.Class>> arrB10 = new ArrayList<>();
 		Block b10 = new Block(Functions::groupFitsInClassroom, arrB10);
-		Blocks.getInstance().add("All groups capacity must fit in classroom", b10);
+		Blocks.getInstance().add("All groups must fit in a classroom", b10);
 
 		ArrayList<Pair<String,java.lang.Class>> arrB11 = new ArrayList<>();
 		arrB11.add(new Pair<>("Max number of classrooms (ex: 15)",Integer.class));
