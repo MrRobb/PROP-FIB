@@ -1,7 +1,10 @@
 package Domain;
 
+import javafx.util.Pair;
+
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Set;
 
 public class Restrictions {
@@ -30,8 +33,12 @@ public class Restrictions {
         Modifiers
      */
     public boolean addApplied(Restriction restriction) {
-
-        if (restriction.getTotalNumOfArgs() != 0) applieds.put(restriction.getName() + " -> "+ restriction.getParams(), restriction);
+        if (restriction.getTotalNumOfArgs() != 0) {
+            for(Map.Entry<String, Restriction> r : applieds.entrySet()){
+                if(restriction.equals(r)) return false;
+            }
+            applieds.put(restriction.getName() + " -> "+ restriction.getParams(), restriction);
+        }
         else   applieds.put(restriction.getName(), restriction);
         return true;
     }

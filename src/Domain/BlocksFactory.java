@@ -56,7 +56,7 @@ public class BlocksFactory {
 
 		ArrayList<Pair<String,java.lang.Class>> arrB10 = new ArrayList<>();
 		Block b10 = new Block(Functions::groupFitsInClassroom, arrB10);
-		Blocks.getInstance().add("All groups capacity must fit in classroom", b10);
+		Blocks.getInstance().add("All groups must fit in a classroom", b10);
 
 		ArrayList<Pair<String,java.lang.Class>> arrB11 = new ArrayList<>();
 		arrB11.add(new Pair<>("Max number of classrooms (ex: 15)",Integer.class));

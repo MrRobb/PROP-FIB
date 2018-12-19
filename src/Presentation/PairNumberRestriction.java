@@ -10,7 +10,7 @@ public class PairNumberRestriction implements Comparable<PairNumberRestriction> 
     private Integer i = 0;
     private String name = "";
     private CheckBox mandatory;
-    private BooleanProperty checked;
+
 
     public PairNumberRestriction(Integer i, String name){
         this.i = i;
@@ -21,7 +21,6 @@ public class PairNumberRestriction implements Comparable<PairNumberRestriction> 
         this.i = i;
         this.name = name;
         this.mandatory = mand;
-        this.checked = new SimpleBooleanProperty(false);
     }
 
     public Integer getI(){return i; }
@@ -40,7 +39,6 @@ public class PairNumberRestriction implements Comparable<PairNumberRestriction> 
         this.mandatory = mandatory;
     }
 
-    public BooleanProperty getChecked(){ return checked; }
 
 
     @Override

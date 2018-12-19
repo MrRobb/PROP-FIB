@@ -1,5 +1,6 @@
 package Presentation;
 
+import Domain.DomainCtrl;
 import Domain.Subject;
 import Domain.Subjects;
 import javafx.beans.value.ObservableValue;
@@ -201,6 +202,17 @@ public class RestrictionView implements Initializable {
     }
 
     public void BackPressed(ActionEvent event) throws IOException {
+        // before going back, we update the scores of the preferences
+        int score = 10;
+        List<PairNumberRestriction> list = appliedRestrictionsTable.getItems();
+        for(PairNumberRestriction p : list){
+            if(p.getMandatory().isSelected()){
+                String id = p.getName();
+                PresentationCtrl.getInstance().updateScore(id,score);
+                if(score > 1) --score;
+            }
+        }
+
         Parent ViewParent = FXMLLoader.load(getClass().getResource("Action.fxml"));
         Scene ViewScene = new Scene(ViewParent);
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
