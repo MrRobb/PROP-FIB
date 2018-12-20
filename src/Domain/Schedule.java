@@ -1,12 +1,11 @@
 package Domain;
 
-import javafx.util.Pair;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import java.util.*;
 
-public class Schedule implements Comparable<Schedule> {
+class Schedule implements Comparable<Schedule> {
 
     /**
      * Attributes
@@ -141,7 +140,7 @@ public class Schedule implements Comparable<Schedule> {
         return true;
     }
 
-    public TreeSet<ScheduleKey> getAvailableSlots() {
+    public TreeSet<ScheduleKey> getAvailableSlots(int duracion) {
         TreeSet<ScheduleKey> slots = new TreeSet<>(keys);
 
         for (Class c : classes) {
@@ -152,6 +151,14 @@ public class Schedule implements Comparable<Schedule> {
                 slots.remove(new ScheduleKey(DateTimes.getInstance().getID(date), c.getClassroomID()));
                 date = DateTimes.getInstance().next(date);
             }
+        }
+
+        DateTime last = DateTimes.getInstance().lastPossible();
+        for (int i = 0; i < duracion; i++) {
+
+            slots.removeIf((ScheduleKey slot) -> DateTimes.getInstance().get(slot.getKey()).equals(last));
+
+            last.setDateTime(DateTimes.getInstance().prev(last));
         }
 
         return slots;

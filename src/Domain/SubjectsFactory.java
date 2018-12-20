@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 
-public class SubjectsFactory {
+class SubjectsFactory {
 
     public static boolean produce(JSONArray subjs) {
         Subjects.getInstance().clear();

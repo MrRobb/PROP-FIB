@@ -6,7 +6,7 @@ package Domain;
 
 import java.util.ArrayList;
 
-public class Group implements Comparable<Group> {
+class Group implements Comparable<Group> {
 
 	/**
 	 * Attributes

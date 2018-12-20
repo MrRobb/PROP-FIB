@@ -4,11 +4,9 @@
 
 package Domain;
 
-public class DateTime implements Comparable<DateTime> {
+class DateTime implements Comparable<DateTime> {
 
-
-
-	/**
+    /**
 	 * Data Structures
 	 */
 
@@ -39,6 +37,11 @@ public class DateTime implements Comparable<DateTime> {
 	/**
 	 * Getters / Setters
 	 */
+
+	public void setDateTime(DateTime prev) {
+		this.hour = prev.hour;
+		this.weekday = prev.weekday;
+	}
 
 	public WeekDay getWeekday() {
 		return this.weekday;
@@ -87,26 +90,20 @@ public class DateTime implements Comparable<DateTime> {
 
 	@Override
 	public String toString() {
-		StringBuilder d = new StringBuilder();
 
-		d.append(getWeekday());
-		d.append(" ");
-		d.append(getStartHour());
-		d.append(":00");
-
-		return d.toString();
+		return getWeekday() +
+				" " +
+				getStartHour() +
+				":00";
 	}
 
 	public String toString(int duration) {
-		StringBuilder d = new StringBuilder();
 
-		d.append(getWeekday());
-		d.append(" ");
-		d.append(getStartHour());
-		d.append(":00" + " - ");
-		d.append(getEndHour(duration));
-		d.append(":00");
-
-		return d.toString();
+		return getWeekday() +
+				" " +
+				getStartHour() +
+				":00" + " - " +
+				getEndHour(duration) +
+				":00";
 	}
 }

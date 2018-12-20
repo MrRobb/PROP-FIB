@@ -4,13 +4,9 @@ import com.sun.org.apache.xpath.internal.operations.Bool;
 import javafx.util.Pair;
 
 import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Objects;
-import java.util.function.Function;
 
-public class Restriction {
+class Restriction {
 
     private String name;
     private ArrayList<Block> restriccion;
@@ -223,7 +219,7 @@ public class Restriction {
     public void setCheckedOnAppliedTable(Boolean b){ checkedOnAppliedTable = b; }
 
     @Override
-    protected Restriction clone() {
+    protected Restriction clone() throws CloneNotSupportedException {
         return new Restriction(
                 this.name,
                 (ArrayList<Block>) this.restriccion.clone(),

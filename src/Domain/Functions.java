@@ -1,9 +1,8 @@
 package Domain;
 
 import java.util.*;
-import java.util.function.Function;
 
-public class Functions {
+class Functions {
     /**
      * Checks that there is no class on week day Day between startHour and endHour.
      * @param input in[0] The schedule we want to check.

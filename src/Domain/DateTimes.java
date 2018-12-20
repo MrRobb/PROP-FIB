@@ -1,9 +1,10 @@
 package Domain;
 
+import java.util.Date;
 import java.util.Map;
 import java.util.TreeMap;
 
-public class DateTimes {
+class DateTimes {
 
 	public static Integer invalidID = -1;
 	private static DateTimes instance = null;
@@ -92,6 +93,25 @@ public class DateTimes {
 		}
 
 		return nextValue;
+	}
+
+	public DateTime prev(DateTime datetime) {
+
+		DateTime.WeekDay weekday = datetime.getWeekday();
+		Integer hour = datetime.getStartHour();
+		DateTime prevValue = new DateTime(weekday, hour);
+
+		if (prevValue.equals(firstPossible())) {
+			return null;
+		}
+		else {
+			if (hour == 0) {
+				prevValue.setWeekday(DateTime.WeekDay.values()[weekday.ordinal() - 1]);
+			}
+			prevValue.setStartHour((--hour) % 24);
+		}
+
+		return prevValue;
 	}
 
 	public DateTime last() {

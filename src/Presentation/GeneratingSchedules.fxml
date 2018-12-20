@@ -16,32 +16,62 @@
 <?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.collections.FXCollections?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Presentation.UserSelectionMenu">
+<AnchorPane prefHeight="505.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Presentation.GeneratingSchedules">
     <children>
-        <TreeTableView layoutX="80.0" layoutY="-12.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="90.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="100.0">
-            <columns>
-                <TreeTableColumn prefWidth="110.0" text="Monday" />
-                <TreeTableColumn prefWidth="110.0" text="Tuesday" />
-                <TreeTableColumn prefWidth="110.0" text="Wednesday" />
-                <TreeTableColumn prefWidth="110.0" text="Thursday" />
-                <TreeTableColumn prefWidth="110.0" text="Friday" />
-            </columns>
-        </TreeTableView>
         <Button layoutX="354.0" layoutY="27.0" mnemonicParsing="false" text="&gt;" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0" />
         <Button layoutX="317.0" layoutY="27.0" mnemonicParsing="false" text="&lt;" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0" />
-      <ComboBox layoutX="420.0" layoutY="72.0" prefWidth="150.0" promptText="Classroom" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="60.0">
+      <ComboBox fx:id="classroomComboBox" layoutX="420.0" layoutY="72.0" onAction="#changeClassroom" prefWidth="150.0" promptText="Classroom" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="60.0">
         <items>
-            <FXCollections fx:factory="observableArrayList">
-                <String fx:value="A5101" />
-                <String fx:value="A5102" />
-                <String fx:value="A5201" />
-                <String fx:value="A5202" />
-            </FXCollections>
         </items>
       </ComboBox>
-      <ProgressBar layoutX="20.0" layoutY="372.0" prefWidth="200.0" progress="0.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
-      <Label layoutX="20.0" layoutY="353.0" text="Exploring alternative schedules..." AnchorPane.bottomAnchor="45.0" AnchorPane.leftAnchor="10.0" />
-      <Label layoutX="30.0" layoutY="363.0" text="9 seconds remaining" textFill="#8d8d8d" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="0.0" />
+      <ProgressBar fx:id="progressBar" layoutX="20.0" layoutY="372.0" prefWidth="200.0" progress="0.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+      <Label fx:id="progressLabel" layoutX="20.0" layoutY="353.0" text="Exploring alternative schedules..." AnchorPane.bottomAnchor="45.0" AnchorPane.leftAnchor="10.0" />
+      <Label fx:id="secondsLabel" layoutX="30.0" layoutY="363.0" text="9 seconds remaining" textFill="#8d8d8d" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="0.0" />
+      <ScrollPane fx:id="scrollPane" fitToWidth="true" AnchorPane.bottomAnchor="90.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="100.0">
+        <content>
+          <AnchorPane fx:id="anchorPane" minHeight="0.0" minWidth="0.0">
+               <children>
+                  <GridPane fx:id="schedulePane" alignment="CENTER" gridLinesVisible="true" style="-fx-alignment: CENTER;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <columnConstraints>
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                  </GridPane>
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
     </children>
     <padding>
         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />

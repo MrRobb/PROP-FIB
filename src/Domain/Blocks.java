@@ -2,9 +2,8 @@ package Domain;
 
 import java.util.HashMap;
 import java.util.Set;
-import java.util.function.Function;
 
-public class Blocks {
+class Blocks {
 
     public static String invalidID = "";
     private static Blocks instance = null;

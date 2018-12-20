@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * @author Alberto Gimenez Aragon
  */
-public class Classroom implements Comparable<Classroom> {
+class Classroom implements Comparable<Classroom> {
 
 	/**
 	 * Attributes

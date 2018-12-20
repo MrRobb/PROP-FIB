@@ -1,6 +1,7 @@
 package Presentation;
 
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -19,7 +20,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class Action implements Initializable {
+public class ActionAdmin implements Initializable {
     @FXML private Button btnConsult;
     @FXML private Button btnGenerate;
     @FXML private Button btnLogOut;
@@ -73,8 +74,12 @@ public class Action implements Initializable {
         }
     }
 
-    public void generatePressed(ActionEvent event){
-        PresentationCtrl.getInstance().generate();
+    public void generatePressed(ActionEvent event) throws IOException {
+        Parent ViewParent = FXMLLoader.load(getClass().getResource("GeneratingSchedules.fxml"));
+        Scene ViewScene = new Scene(ViewParent);
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        window.setScene(ViewScene);
+        window.show();
     }
 
     public Boolean importPressed(){
@@ -82,6 +87,7 @@ public class Action implements Initializable {
         chooser.setTitle("Open File");
         File file = chooser.showOpenDialog(new Stage());
         String path = file.getPath();
+
         if(PresentationCtrl.getInstance().importSchedules(path)){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Successful");
@@ -100,8 +106,12 @@ public class Action implements Initializable {
         }
     }
 
-    public void showSavedSchedulesPressed(){
-        PresentationCtrl.getInstance().showSavedSchedules();
+    public void showSavedSchedulesPressed(ActionEvent event) throws IOException {
+        Parent ViewParent = FXMLLoader.load(getClass().getResource("GeneratingSchedules.fxml"));
+        Scene ViewScene = new Scene(ViewParent);
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        window.setScene(ViewScene);
+        window.show();
     }
 
     public void logOutPressed(ActionEvent event) throws IOException {

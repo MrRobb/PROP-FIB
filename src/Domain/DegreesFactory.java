@@ -9,7 +9,7 @@ import org.json.simple.JSONObject;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class DegreesFactory {
+class DegreesFactory {
 
 	public static boolean produce(String degname, Integer ncredits, JSONArray gtypes, JSONArray grps) {
 

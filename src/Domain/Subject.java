@@ -1,15 +1,11 @@
 package Domain;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-
 /**
  * @author Alberto Gimenez Aragon
  */
 
 
-public class Subject {
+class Subject {
 
     /**
      * Attributes

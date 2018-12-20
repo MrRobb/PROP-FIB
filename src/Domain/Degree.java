@@ -2,7 +2,7 @@ package Domain;
 
 import java.util.ArrayList;
 
-public class Degree {
+class Degree {
 
     /**
      * Attributes

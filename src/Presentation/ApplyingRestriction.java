@@ -82,9 +82,7 @@ public class ApplyingRestriction implements Initializable {
                 else if(s.equals("[Extra]")){
                     TreeSet<String> e = PresentationCtrl.getInstance().getAllExtras();
                     ArrayList<String> ex = new ArrayList<>();
-                    for(String extra : e){
-                        ex.add(extra);
-                    }
+                    ex.addAll(e);
                     ObservableList<String> t = FXCollections.observableArrayList(ex);
                     cb = new ComboBox<>(t);
                     cb.setPromptText(s.substring(1, s.length() - 1));

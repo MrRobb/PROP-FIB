@@ -1,6 +1,6 @@
 package Domain;
 
-public class DateTimesFactory {
+class DateTimesFactory {
 
 	public static boolean produce() {
 

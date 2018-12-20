@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Map;
 import java.util.TreeMap;
 
-public class Groups {
+class Groups {
 
 	public static Integer invalidID = -1;
 	private static Groups instance = null;
