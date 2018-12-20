@@ -41,6 +41,15 @@ class Schedules {
 		}
 	}
 
+	public boolean removeSchedule(Schedule schedule) {
+		if (schedule == null) {
+			return false;
+		}
+		else {
+			return schedules.remove(schedule);
+		}
+	}
+
 	public Schedule get(Integer index) {
 		if (0 <= index && index < schedules.size()) {
 			return (Schedule) schedules.toArray()[index];
