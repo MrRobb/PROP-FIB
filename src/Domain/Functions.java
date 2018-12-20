@@ -123,11 +123,6 @@ class Functions {
         return new Out(Boolean.TRUE);
     }
 
-    /**
-     * Checks that two groups of the same level with the same name cannot be overlapped.
-     * @param input in[0] The schedule we want to check.
-     * @return true if no group is overlapped with a group of the same level and name.
-     */
     /*public static Out ifSubjHasMoreThanNGroupsThenAfternoon (In input) {
         Schedule s = (Schedule) input.getIn(0);
         Integer n = (Integer) input.getArgs(0);

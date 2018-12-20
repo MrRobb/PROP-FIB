@@ -33,26 +33,29 @@ class Generator {
 		TreeSet<Schedule> schedules = new TreeSet<>();
 		Schedule schedule = new Schedule(dates.keySet(), classrooms.keySet());
 
-		//try {
-			generateSchedules(schedules, schedule, groups, groups.entrySet().iterator());
+		try {
+			generateSchedules(schedules, schedule, groups.entrySet().iterator());
 			return schedules;
-		//}
-		//catch (Exception e) {
-			//System.out.println("Exception in restrictions");
-			//return new TreeSet<>();
-		//}
+		}
+		catch (Exception e) {
+			System.out.println("Exception in restrictions");
+			return new TreeSet<>();
+		}
 	}
 
 	/*
 	 * Helpers
 	 */
-	private Integer generateSchedules(TreeSet<Schedule> schedules, Schedule schedule, TreeMap<Integer, Group> groups, Iterator<Map.Entry<Integer, Group>> it) {
+	private Integer generateSchedules(TreeSet<Schedule> schedules, Schedule schedule, Iterator<Map.Entry<Integer, Group>> it) {
 
 		if (!it.hasNext()) {
-			schedules.add(new Schedule(schedule));
+			Schedule saveMe = new Schedule(schedule);
+			schedules.add(saveMe);
+			Schedules.getInstance().addSchedule(saveMe);
 
 			if (schedules.size() > Schedules.getMaxSize()) {
 				schedules.pollLast();
+				Schedules.getInstance().removeSchedule(saveMe);
 			}
 
 			if (schedules.size() == Schedules.getMaxSize() && schedules.last().getScore() == Schedules.getMaxScore()) {
@@ -63,7 +66,6 @@ class Generator {
 		}
 
 		Map.Entry<Integer, Group> entry = it.next();
-		Integer id = entry.getKey();
 		Group group = entry.getValue();
 
 		System.out.println(schedule.getAvailableSlots(group.getDuration()).size());
@@ -75,18 +77,11 @@ class Generator {
 			c.setDateTimeID(slot.getKey());
 			c.setClassroomID(slot.getValue());
 
-			if (slot.getKey() == null) {
-				System.out.println("NULL");
-			}
-			if (slot.getValue() == null) {
-				System.out.println("NULL");
-			}
-
 			schedule.addClass(c);
 
 			if (Restrictions.getInstance().Check(schedule)) {
 
-				Integer score = generateSchedules(schedules, schedule, groups, it);
+				Integer score = generateSchedules(schedules, schedule, it);
 
 				if (score == null) {
 					// We have filled all of the schedules necessary

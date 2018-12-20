@@ -10,19 +10,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa2f1aa1-9b69-405b-87b4-eb516390aa6d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/json/savedSchedules.json" beforeDir="false" afterPath="$PROJECT_DIR$/json/savedSchedules.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/DateTimes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/DateTimes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Restriction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Restriction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Restrictions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Restrictions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Presentation/ActionAdmin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation/ActionAdmin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Presentation/ActionUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation/ActionUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Presentation/ApplyingRestriction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation/ApplyingRestriction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Presentation/ChoosingJSON.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation/ChoosingJSON.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Presentation/ConsultingData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation/ConsultingData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Presentation/GeneratingSchedules.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation/GeneratingSchedules.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Presentation/PairNumberRestriction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation/PairNumberRestriction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Presentation/RestrictionView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation/RestrictionView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/DateTime.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/DateTime.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/DomainCtrl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/DomainCtrl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Functions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Functions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Generator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Generator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Group.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Group.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Schedules.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Schedules.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Presentation/PresentationCtrl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation/PresentationCtrl.java" afterDir="false" />
     </list>
     <list id="2359001d-d985-4a8b-8ebc-422acdf50f2f" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -47,7 +41,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Presentation/ApplyingRestriction.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="210">
@@ -61,6 +55,51 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="148">
               <caret line="36" column="96" lean-forward="true" selection-start-line="36" selection-start-column="96" selection-end-line="36" selection-end-column="96" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Presentation/PresentationCtrl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="355">
+              <caret line="164" column="53" selection-start-line="164" selection-start-column="53" selection-end-line="164" selection-end-column="53" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Domain/Restriction.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="126" column="19" selection-start-line="126" selection-start-column="19" selection-end-line="126" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Domain/DomainCtrl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="112">
+              <caret line="201" column="27" selection-start-line="201" selection-start-column="19" selection-end-line="201" selection-end-column="27" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Domain/Generator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="376">
+              <caret line="57" column="45" lean-forward="true" selection-start-line="57" selection-start-column="45" selection-end-line="57" selection-end-column="45" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Domain/Schedules.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="491">
+              <caret line="48" column="46" selection-start-line="48" selection-start-column="46" selection-end-line="48" selection-end-column="46" />
             </state>
           </provider>
         </entry>
@@ -79,7 +118,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>setPara</find>
       <find>del</find>
       <find>e</find>
       <find>easy</find>
@@ -109,6 +147,7 @@
       <find>prod</find>
       <find>sort</find>
       <find>scor</find>
+      <find>savesche</find>
     </findStrings>
     <replaceStrings>
       <replace>Classrooms</replace>
@@ -125,7 +164,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Domain/ClassroomsFactory.java" />
         <option value="$PROJECT_DIR$/src/Domain/DateTimesFactory.java" />
         <option value="$PROJECT_DIR$/src/Domain/Degree.java" />
         <option value="$PROJECT_DIR$/src/Domain/DegreesFactory.java" />
@@ -141,7 +179,6 @@
         <option value="$PROJECT_DIR$/src/Domain/DateTime.java" />
         <option value="$PROJECT_DIR$/src/Domain/Schedule.java" />
         <option value="$PROJECT_DIR$/src/Domain/DateTimes.java" />
-        <option value="$PROJECT_DIR$/src/Domain/Generator.java" />
         <option value="$PROJECT_DIR$/src/Domain/Functions.java" />
         <option value="$PROJECT_DIR$/src/Presentation/main.fxml" />
         <option value="$PROJECT_DIR$/src/Presentation/Main.fxml" />
@@ -162,7 +199,6 @@
         <option value="$PROJECT_DIR$/src/Presentation/ActionUser.fxml" />
         <option value="$PROJECT_DIR$/src/Presentation/Main.java" />
         <option value="$PROJECT_DIR$/src/Domain/Restriction.java" />
-        <option value="$PROJECT_DIR$/src/Presentation/PresentationCtrl.java" />
         <option value="$PROJECT_DIR$/src/Presentation/ChoosingJSON.java" />
         <option value="$PROJECT_DIR$/src/Presentation/UserSelection.java" />
         <option value="$PROJECT_DIR$/src/Presentation/ActionUser.java" />
@@ -172,10 +208,13 @@
         <option value="$PROJECT_DIR$/src/Presentation/PairNumberRestriction.java" />
         <option value="$PROJECT_DIR$/src/Domain/RestrictionsFactory.java" />
         <option value="$PROJECT_DIR$/src/Domain/BlocksFactory.java" />
-        <option value="$PROJECT_DIR$/src/Domain/DomainCtrl.java" />
         <option value="$PROJECT_DIR$/src/Domain/Restrictions.java" />
         <option value="$PROJECT_DIR$/src/Presentation/RestrictionView.java" />
         <option value="$PROJECT_DIR$/src/Presentation/ApplyingRestriction.java" />
+        <option value="$PROJECT_DIR$/src/Presentation/PresentationCtrl.java" />
+        <option value="$PROJECT_DIR$/src/Domain/DomainCtrl.java" />
+        <option value="$PROJECT_DIR$/src/Domain/Generator.java" />
+        <option value="$PROJECT_DIR$/src/Domain/Schedules.java" />
       </list>
     </option>
   </component>
@@ -231,7 +270,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545048466577" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545336912797" />
     <property name="last_opened_file_path" value="C:/Program Files (x86)/Oracle/JavaFX Scene Builder 2.0/JavaFX Scene Builder 2.0.exe" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -409,7 +448,7 @@
       <workItem from="1545075553457" duration="606000" />
       <workItem from="1545161100400" duration="3006000" />
       <workItem from="1545203590593" duration="4696000" />
-      <workItem from="1545333617324" duration="1547000" />
+      <workItem from="1545333617324" duration="2830000" />
     </task>
     <servers />
   </component>
@@ -446,7 +485,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="71860000" />
+    <option name="totallyTimeSpent" value="73143000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -459,8 +498,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21672772" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21672772" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -468,7 +508,7 @@
       <window_info id="Learn" order="5" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Favorites" order="7" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Inspection Results" visible="true" weight="0.32959184" />
+      <window_info anchor="bottom" id="Inspection Results" visible="true" weight="0.32959184" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32943678" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.777551" />
@@ -507,18 +547,6 @@
           <line>13</line>
           <properties />
           <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Domain/Generator.java</url>
-          <line>78</line>
-          <properties />
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Domain/Generator.java</url>
-          <line>81</line>
-          <properties />
-          <option name="timeStamp" value="11" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Domain/Schedule.java</url>
@@ -763,16 +791,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Domain/Schedules.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="11" column="25" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
-          <folding>
-            <element signature="e#236#237#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Presentation/PairNumberRestriction.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="576">
@@ -791,34 +809,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
           <caret line="28" column="1" selection-start-line="28" selection-start-column="1" selection-end-line="28" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Presentation/PresentationCtrl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="66" selection-start-line="66" selection-end-line="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Domain/DomainCtrl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8730">
-          <caret line="611" column="59" selection-start-line="611" selection-start-column="59" selection-end-line="611" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Domain/Restriction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3195">
-          <caret line="213" column="5" selection-start-line="213" selection-start-column="5" selection-end-line="213" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Domain/Generator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="870">
-          <caret line="58" column="28" selection-start-line="58" selection-start-column="28" selection-end-line="58" selection-end-column="28" />
         </state>
       </provider>
     </entry>
@@ -857,6 +847,41 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="83" column="23" selection-start-line="83" selection-start-column="23" selection-end-line="83" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Domain/Restriction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="126" column="19" selection-start-line="126" selection-start-column="19" selection-end-line="126" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Presentation/PresentationCtrl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="355">
+          <caret line="164" column="53" selection-start-line="164" selection-start-column="53" selection-end-line="164" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Domain/DomainCtrl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="201" column="27" selection-start-line="201" selection-start-column="19" selection-end-line="201" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Domain/Generator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="376">
+          <caret line="57" column="45" lean-forward="true" selection-start-line="57" selection-start-column="45" selection-end-line="57" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Domain/Schedules.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="491">
+          <caret line="48" column="46" selection-start-line="48" selection-start-column="46" selection-end-line="48" selection-end-column="46" />
         </state>
       </provider>
     </entry>

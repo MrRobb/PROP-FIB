@@ -172,45 +172,7 @@ public class DomainCtrl {
         PresentationCtrl.getInstance().setProgress(0);
 
         // Generate
-        TreeSet<Schedule> schedules = Generator.getInstance().generate();
-
-        System.out.println("Finished generating");
-        System.out.println();
-
-        if (schedules.isEmpty()) {
-            System.out.println("Unable to generate any schedule with the actual restrictions\n");
-            return;
-        }
-
-        int i = 1;
-        for (Schedule s : schedules) {
-
-            // Show schedule
-            System.out.println("Schedule " + i);
-            System.out.println(s.toString());
-
-            // Ask for saving
-            System.out.println("Do you want to save this schedule?");
-            System.out.println("1. Yes");
-            System.out.println("2. No");
-
-            // Get yes / no
-            //int option = getInputAsInt(1, 2);
-            int option = 1;
-            System.out.println();
-
-            if (option == 1) {
-                if (saveSchedule(s)) {
-                    System.out.println("Schedule saved successfully");
-
-                }
-                else {
-                    System.out.println("Failed while saving!");
-                }
-                System.out.println();
-            }
-
-        }
+        Generator.getInstance().generate();
 
         PresentationCtrl.getInstance().setProgress(100);
         PresentationCtrl.getInstance().endGenerating();

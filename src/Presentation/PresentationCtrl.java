@@ -1,9 +1,13 @@
 package Presentation;
 
 import Domain.DomainCtrl;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonBar;
+import javafx.scene.control.ButtonType;
 import org.json.simple.JSONArray;
 
 import java.util.ArrayList;
+import java.util.Optional;
 import java.util.TreeSet;
 
 public class PresentationCtrl {
@@ -148,5 +152,25 @@ public class PresentationCtrl {
 
     public Boolean importSchedules(String path) {
         return DomainCtrl.getInstance().importSchedules(path);
+    }
+
+    public int getYesNo(String title, String header, String content) {
+
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle(title);
+        alert.setHeaderText(header);
+        alert.setContentText(content);
+
+        ButtonType buttonTypeOne = new ButtonType("Yes");
+        ButtonType buttonTypeTwo = new ButtonType("No");
+
+        alert.getButtonTypes().setAll(buttonTypeOne, buttonTypeTwo);
+
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.isPresent() && result.get() == buttonTypeOne){
+            return 1;
+        } else {
+            return 2;
+        }
     }
 }

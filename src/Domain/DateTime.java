@@ -1,7 +1,3 @@
-/**
- * Made by: Roberto
- */
-
 package Domain;
 
 class DateTime implements Comparable<DateTime> {

@@ -1,7 +1,3 @@
-/**
- * Made by: Roberto
- */
-
 package Domain;
 
 import java.util.ArrayList;
