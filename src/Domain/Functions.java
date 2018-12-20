@@ -1,8 +1,9 @@
 package Domain;
 
 import java.util.*;
+import java.util.function.Function;
 
-class Functions {
+public class Functions {
     /**
      * Checks that there is no class on week day Day between startHour and endHour.
      * @param input in[0] The schedule we want to check.
@@ -123,6 +124,11 @@ class Functions {
         return new Out(Boolean.TRUE);
     }
 
+    /**
+     * Checks that two groups of the same level with the same name cannot be overlapped.
+     * @param input in[0] The schedule we want to check.
+     * @return true if no group is overlapped with a group of the same level and name.
+     */
     /*public static Out ifSubjHasMoreThanNGroupsThenAfternoon (In input) {
         Schedule s = (Schedule) input.getIn(0);
         Integer n = (Integer) input.getArgs(0);
@@ -277,7 +283,7 @@ class Functions {
                 return new Out(Boolean.FALSE);
             }
         }
-        
+
         return new Out(Boolean.TRUE);
     }
 
@@ -335,5 +341,112 @@ class Functions {
             return false;
         }
     }
+
+    /**
+     * Checks that at most we have N groups of certain týpe of a subject
+     * @param input in[0] The schedule we want to check
+     *              args[0] The subject
+     *              args[1] The type
+     *              args[2] The N
+     * @return true if at most we have N subgroup of a specific subject.
+     */
+    public static Out atMostNGroupsOfSubjectOfTypeA(In input) {
+
+        Schedule s = (Schedule) input.getIn(0);
+        String subj = (String) input.getArgs(0);
+        String type = (String) input.getArgs(1);
+        Integer max = (Integer) input.getArgs(2);
+
+        TreeSet<Class> classes = s.getClasses();
+        TreeSet<Class> subgroups = new TreeSet<>();
+
+        for (Class c : classes) {
+            String sName = c.getGroup().getSubject().getName();
+            if (sName.equals(subj) && c.getGroup().hasType(type)) {
+                subgroups.add(c);
+            }
+        }
+        if (subgroups.size() > max) return new Out(Boolean.FALSE);
+        return new Out(Boolean.TRUE);
+    }
+
+    /**
+     * Checks that we don't use a given classroom
+     * @param input in[0] The schedule we want to check
+     *              args[0] The classroom
+     * @return true if we don't have any class in that classroom
+     */
+    public static Out notUsedClassroom(In input) {
+        Schedule s = (Schedule) input.getIn(0);
+        String prohibitedClassroom = (String) input.getArgs(0);
+
+        TreeSet<Class> classes = s.getClasses();
+        for (Class c : classes) {
+            String classroom = c.getClassroom().getName();
+            if (classroom.equals(prohibitedClassroom)) {
+                return new Out(Boolean.FALSE);
+            }
+        }
+        return new Out(Boolean.TRUE);
+    }
+
+    /**
+     * Checks that we don't have any group of the given subject
+     * @param input in[0] The schedule we want to check
+     *              args[0] The subject
+     * @return true if we don't have any class of that subject
+     */
+    public static Out notAsignedSubject(In input) {
+        Schedule s = (Schedule) input.getIn(0);
+        String prohibitedSubject = (String) input.getArgs(0);
+
+        TreeSet<Class> classes = s.getClasses();
+        for (Class c : classes) {
+            String subject = c.getGroup().getSubject().getName();
+            if (subject.equals(prohibitedSubject)) {
+                return new Out(Boolean.FALSE);
+            }
+        }
+        return new Out(Boolean.TRUE);
+    }
+
+    /**
+     * Checks that the given subject of a certain type is not assigned to the given classroom
+     * @param input in[0] The schedule we want to check.
+     *              args[0] The subject
+     *              args[1] The type
+     *              args[2] The classroom
+     * @return true if the there aren't any subject of that group assigned to that classroom
+     */
+    public static Out subjectCantBeAssignedToClassroom(In input) {
+
+        Schedule s = (Schedule) input.getIn(0);
+        String subjectName = (String) input.getArgs(0);
+        String type = (String) input.getArgs(1);
+        String classroom = (String) input.getArgs(2);
+
+        TreeSet<Class> classes = s.getClasses();
+
+        for (Class c : classes) {
+            String cl = c.getClassroom().getName();
+            String subj = c.getGroup().getSubject().getName();
+
+            if (cl.equals(classroom) && subj.equals(subjectName) && c.getGroup().hasType(type)) {
+                return new Out(Boolean.FALSE);
+            }
+        }
+        return new Out(Boolean.TRUE);
+    }
+
+
+
+
+
+
+
+
+
+
+
 
 }

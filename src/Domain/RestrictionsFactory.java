@@ -1,8 +1,9 @@
 package Domain;
 
+import java.util.ArrayList;
 import java.util.Set;
 
-class RestrictionsFactory {
+public class RestrictionsFactory {
 
 	public static boolean produce() {
 
@@ -18,11 +19,15 @@ class RestrictionsFactory {
 			if (ok) ok = restriction.setScore(1);
 			if (ok) ok = Restrictions.getInstance().addAvailable(restriction);
 		}
+
 		Restrictions.getInstance().getAvailableRestriction("No overlapping at the same hour and classroom").setEditable(false);
 		Restrictions.getInstance().addApplied(Restrictions.getInstance().getAvailableRestriction("No overlapping at the same hour and classroom"));
 
 		Restrictions.getInstance().getAvailableRestriction("All groups must fit in a classroom").setEditable(false);
 		Restrictions.getInstance().addApplied(Restrictions.getInstance().getAvailableRestriction("All groups must fit in a classroom"));
+
+		Restrictions.getInstance().getAvailableRestriction("No overlapping between group and its subgroups").setEditable(false);
+		Restrictions.getInstance().addApplied(Restrictions.getInstance().getAvailableRestriction("No overlapping between group and its subgroups"));
 		return ok;
 	}
 

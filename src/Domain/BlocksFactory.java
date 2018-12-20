@@ -3,8 +3,9 @@ package Domain;
 import javafx.util.Pair;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
-class BlocksFactory {
+public class BlocksFactory {
 
 	public static boolean produce() {
 
@@ -61,6 +62,23 @@ class BlocksFactory {
 		arrB11.add(new Pair<>("Max number of classrooms (ex: 15)",Integer.class));
 		Block b11 = new Block(Functions::atMostNClassroomsCanBeUsed, arrB11);
 		Blocks.getInstance().add("At most [Int] classrooms can be used", b11);
+
+		ArrayList<Pair<String,java.lang.Class>> arrB12 = new ArrayList<>();
+		arrB12.add(new Pair<>("Subject (ex: " + Subjects.getInstance().getAllKeys().get(0) + ")", String.class));
+		arrB12.add(new Pair<>("Type of group (ex: " + Degree.getInstance().getTypeOfGroups().get(0) + ")", String.class));
+		arrB12.add(new Pair<>("Max number of groups of the given subject and given type", Integer.class));
+		Block b12 = new Block(Functions::atMostNGroupsOfSubjectOfTypeA, arrB12);
+		Blocks.getInstance().add("At most [Int] groups of [Subject] of [Type] ", b12);
+
+		ArrayList<Pair<String,java.lang.Class>> arrB13 = new ArrayList<>();
+		arrB13.add(new Pair<>("Classroom (ex: " + Classrooms.getInstance().getAllKeys().get(0) + ")", String.class));
+		Block b13 = new Block(Functions::notUsedClassroom, arrB13);
+		Blocks.getInstance().add("[Classroom] can't be used", b13);
+
+		ArrayList<Pair<String,java.lang.Class>> arrB14 = new ArrayList<>();
+		arrB14.add(new Pair<>("Subject (ex: " + Subjects.getInstance().getAllKeys().get(0) + ")", String.class));
+		Block b14 = new Block(Functions::notAsignedSubject, arrB14);
+		Blocks.getInstance().add("[Subject] can't be used", b14);
 
 		return true;
 	}
