@@ -1,10 +1,8 @@
 package Domain;
 
-import com.sun.xml.internal.ws.api.message.ExceptionHasMessage;
-import javafx.util.Pair;
 import java.util.*;
 
-public class Generator {
+class Generator {
 
 	private static Generator instance = null;
 
@@ -35,13 +33,14 @@ public class Generator {
 		TreeSet<Schedule> schedules = new TreeSet<>();
 		Schedule schedule = new Schedule(dates.keySet(), classrooms.keySet());
 
-		try {
+		//try {
 			generateSchedules(schedules, schedule, groups, groups.entrySet().iterator());
 			return schedules;
-		}
-		catch (Exception e) {
-			return new TreeSet<>();
-		}
+		//}
+		//catch (Exception e) {
+			//System.out.println("Exception in restrictions");
+			//return new TreeSet<>();
+		//}
 	}
 
 	/*
@@ -67,12 +66,21 @@ public class Generator {
 		Integer id = entry.getKey();
 		Group group = entry.getValue();
 
-		for (ScheduleKey slot : schedule.getAvailableSlots()) {
+		System.out.println(schedule.getAvailableSlots(group.getDuration()).size());
+
+		for (ScheduleKey slot : schedule.getAvailableSlots(group.getDuration())) {
 
 			Class c = new Class();
 			c.setGroup(group);
 			c.setDateTimeID(slot.getKey());
 			c.setClassroomID(slot.getValue());
+
+			if (slot.getKey() == null) {
+				System.out.println("NULL");
+			}
+			if (slot.getValue() == null) {
+				System.out.println("NULL");
+			}
 
 			schedule.addClass(c);
 

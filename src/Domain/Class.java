@@ -3,7 +3,7 @@ package Domain;
 /**
  * @author Roberto Ariosa Hernandez
  */
-public class Class implements Comparable<Class> {
+class Class implements Comparable<Class> {
 
 	/**
 	 * Attributes
@@ -209,16 +209,13 @@ public class Class implements Comparable<Class> {
 
 	@Override
 	public String toString() {
-		StringBuilder c = new StringBuilder();
 
-		c.append(getDateTime().toString(getGroup().getDuration()));
-		c.append(" ");
-		c.append(getClassroom().toString());
-		c.append(" ");
-		c.append(getGroup().getSubject().toString());
-		c.append(" ");
-		c.append(getGroup().toString());
-
-		return c.toString();
+		return getDateTime().toString(getGroup().getDuration()) +
+				" " +
+				getClassroom().toString() +
+				" " +
+				getGroup().getSubject().toString() +
+				" " +
+				getGroup().toString();
 	}
 }

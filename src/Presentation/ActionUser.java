@@ -1,6 +1,7 @@
 package Presentation;
 
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -12,6 +13,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import org.json.simple.JSONArray;
 
 import java.io.File;
 import java.io.IOException;
@@ -33,8 +35,12 @@ public class ActionUser implements Initializable {
         title.getStyleClass().add("title");
     }
 
-    public void showSavedSchedulesPressed(){
-        PresentationCtrl.getInstance().showSavedSchedules();
+    public void showSavedSchedulesPressed(ActionEvent event) throws IOException {
+        Parent ViewParent = FXMLLoader.load(getClass().getResource("GeneratingSchedules.fxml"));
+        Scene ViewScene = new Scene(ViewParent);
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        window.setScene(ViewScene);
+        window.show();
     }
 
     public void logOutPressed(ActionEvent event) throws IOException {

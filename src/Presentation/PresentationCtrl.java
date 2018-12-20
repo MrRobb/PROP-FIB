@@ -1,7 +1,6 @@
 package Presentation;
 
 import Domain.DomainCtrl;
-import com.sun.org.apache.xpath.internal.operations.Bool;
 import org.json.simple.JSONArray;
 
 import java.util.ArrayList;
@@ -9,27 +8,36 @@ import java.util.TreeSet;
 
 public class PresentationCtrl {
     private static PresentationCtrl instance = null;
+    private Object window = null;
 
     private PresentationCtrl() {}
 
     public static PresentationCtrl getInstance() {
         if (instance == null) {
             instance = new PresentationCtrl();
+            DomainCtrl.getInstance();
         }
         return instance;
     }
 
-    public ArrayList<String> getSubjects(){ return DomainCtrl.getInstance().getSubjects(); }
+    public boolean setWindow(Object window) {
+        this.window = window;
+        return true;
+    }
 
-    public Boolean produce(String file){
+    public ArrayList<String> getSubjects() {
+        return DomainCtrl.getInstance().getSubjects();
+    }
+
+    public Boolean produce(String file) {
         return DomainCtrl.getInstance().produceFactory(file);
     }
 
-    public Integer getNumberOfSubjects(){
+    public Integer getNumberOfSubjects() {
         return DomainCtrl.getInstance().getNumberOfSubjects();
     }
 
-    public Integer getNumberOfGroups(){
+    public Integer getNumberOfGroups() {
         return DomainCtrl.getInstance().getNumberOfGroups();
     }
 
@@ -37,19 +45,47 @@ public class PresentationCtrl {
         return DomainCtrl.getInstance().getNumberOfClassrooms();
     }
 
-    public ArrayList<ArrayList<String>> getClassroomInfo(){ return DomainCtrl.getInstance().getClassroomInfo(); }
+    public Integer getNumberOfSchedules() {
+        return DomainCtrl.getInstance().getNumberOfSchedules();
+    }
 
-    public ArrayList<ArrayList<String>> getGroupsInfo(){ return DomainCtrl.getInstance().getGroupInfo(); }
+    public JSONArray getSavedSchedules() {
+        return DomainCtrl.getInstance().getSavedSchedules();
+    }
 
-    public ArrayList<String> getAvailableRestrictions(){ return DomainCtrl.getInstance().getAvailableRestrictions(); }
+    public ArrayList<String> getUsedClassroomNames(int iSchedule) {
+        return DomainCtrl.getInstance().getUsedClassroomNames(iSchedule);
+    }
 
-    public ArrayList<String> getAppliedRestrictions(){ return DomainCtrl.getInstance().getAppliedRestrictions(); }
+    public ArrayList<String> getClassroomNames() {
+        return DomainCtrl.getInstance().getClassroomNames();
+    }
 
-    public ArrayList<String> getGroupTypes(){ return DomainCtrl.getInstance().getGroupTypes(); }
+    public ArrayList<ArrayList<String>> getClassroomInfo() {
+        return DomainCtrl.getInstance().getClassroomInfo();
+    }
 
-    public TreeSet<String> getAllExtras(){ return DomainCtrl.getInstance().getAllExtras(); }
+    public ArrayList<ArrayList<String>> getGroupsInfo() {
+        return DomainCtrl.getInstance().getGroupInfo();
+    }
 
-    public Boolean applyRestriction(String id, ArrayList<String> args){
+    public ArrayList<String> getAvailableRestrictions() {
+        return DomainCtrl.getInstance().getAvailableRestrictions();
+    }
+
+    public ArrayList<String> getAppliedRestrictions() {
+        return DomainCtrl.getInstance().getAppliedRestrictions();
+    }
+
+    public ArrayList<String> getGroupTypes() {
+        return DomainCtrl.getInstance().getGroupTypes();
+    }
+
+    public TreeSet<String> getAllExtras() {
+        return DomainCtrl.getInstance().getAllExtras();
+    }
+
+    public Boolean applyRestriction(String id, ArrayList<String> args) {
         return DomainCtrl.getInstance().applyRestriction(id,args);
     }
 
@@ -57,13 +93,42 @@ public class PresentationCtrl {
         return DomainCtrl.getInstance().deleteAppliedRestriction(id);
     }
 
-    public void generate(){ DomainCtrl.getInstance().generateSchedule(); }
+    public void generate() {
+        DomainCtrl.getInstance().generateSchedule();
+    }
 
-    public Boolean deleteSchedules(){ return DomainCtrl.getInstance().clearSavedSchedules(); }
+    public boolean startGenerating() {
+        try {
+            GeneratingSchedules generatingWindow = (GeneratingSchedules)window;
+            return generatingWindow.startExploring();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 
-    public void showSavedSchedules(){ DomainCtrl.getInstance().showSavedSchedules();}
+    public boolean endGenerating() {
+        try {
+            GeneratingSchedules generatingWindow = (GeneratingSchedules)window;
+            return generatingWindow.endExploring();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 
-    public Boolean importSchedules(String path){ return DomainCtrl.getInstance().importSchedules(path); }
+    public boolean setProgress(int progress) {
+        try {
+            GeneratingSchedules generatingWindow = (GeneratingSchedules)window;
+            return generatingWindow.setProgress(progress);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 
     public Boolean isRestrictionEditable(String s) {
         return DomainCtrl.getInstance().isRestrictionEditable(s);
@@ -76,4 +141,12 @@ public class PresentationCtrl {
     public void setAppliedRestriction(Boolean b, String res) { DomainCtrl.getInstance().setAppliedRestriction(b,res); }
 
     public Boolean getAppliedRestriction(String res){ return DomainCtrl.getInstance().getAppliedRestriction(res); }
+    
+    public Boolean deleteSchedules() {
+        return DomainCtrl.getInstance().clearSavedSchedules();
+    }
+
+    public Boolean importSchedules(String path) {
+        return DomainCtrl.getInstance().importSchedules(path);
+    }
 }

@@ -2,7 +2,7 @@ package Domain;
 
 import java.util.*;
 
-public class Classrooms {
+class Classrooms {
 
 	public static String invalidID = "";
 	private static Classrooms instance = null;

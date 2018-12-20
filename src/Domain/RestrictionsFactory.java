@@ -1,9 +1,8 @@
 package Domain;
 
-import java.util.ArrayList;
 import java.util.Set;
 
-public class RestrictionsFactory {
+class RestrictionsFactory {
 
 	public static boolean produce() {
 

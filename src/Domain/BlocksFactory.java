@@ -3,9 +3,8 @@ package Domain;
 import javafx.util.Pair;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
-public class BlocksFactory {
+class BlocksFactory {
 
 	public static boolean produce() {
 

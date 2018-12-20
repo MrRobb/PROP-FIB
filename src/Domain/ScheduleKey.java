@@ -2,7 +2,9 @@ package Domain;
 
 import javafx.util.Pair;
 
-public class ScheduleKey extends Pair<Integer, String> implements Comparable<ScheduleKey> {
+import java.util.Objects;
+
+class ScheduleKey extends Pair<Integer, String> implements Comparable<ScheduleKey> {
 
 	/**
 	 * Creates a new pair
@@ -16,10 +18,23 @@ public class ScheduleKey extends Pair<Integer, String> implements Comparable<Sch
 
 	@Override
 	public int compareTo(ScheduleKey other) {
-		if (!this.getKey().equals(other.getKey())) {
-			return this.getKey().compareTo(other.getKey());
+
+		if (!Objects.equals(this.getValue(), other.getValue())) {
+			return this.getValue().compareTo(other.getValue());
 		}
 
-		return this.getValue().compareTo(other.getValue());
+		return this.getKey().compareTo(other.getKey());
 	}
+
+	/*
+	@Override
+	public int compareTo(ScheduleKey other) {
+
+		if (!this.getValue().equals(other.getValue())) {
+			return this.getValue().compareTo(other.getValue());
+		}
+
+		return this.getKey().compareTo(other.getKey());
+	}
+	*/
 }

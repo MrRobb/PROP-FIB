@@ -1,8 +1,11 @@
 package Domain;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+
 import java.util.*;
 
-public class Schedules {
+class Schedules {
 
 	private static Schedules instance = null;
 	private static Integer maxSize = 1;
@@ -82,5 +85,25 @@ public class Schedules {
 	@Override
 	public Object clone() throws CloneNotSupportedException {
 		throw new CloneNotSupportedException();
+	}
+
+    public JSONArray toJSONArray() {
+		JSONArray schedules = new JSONArray();
+
+		for (int i = 0; i < Schedules.getInstance().size(); i++) {
+			Schedule schedule_i = Schedules.getInstance().get(i);
+			schedules.add(schedule_i.toJSONObject());
+		}
+
+		return schedules;
+	}
+
+	public JSONObject toJSONObject(String key) {
+		JSONArray schedules_array = toJSONArray();
+		JSONObject schedules_obj = new JSONObject();
+
+		schedules_obj.put(key, schedules_array);
+
+		return schedules_obj;
 	}
 }

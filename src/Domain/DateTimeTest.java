@@ -1,8 +1,10 @@
-package test;
+package Domain;
 
 import Domain.*;
+
 import static org.junit.Assert.*;
-import org.junit.Test;
+
+
 
 public class DateTimeTest {
 

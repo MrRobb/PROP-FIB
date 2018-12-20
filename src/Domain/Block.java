@@ -1,30 +1,25 @@
 package Domain;
 
-import com.sun.org.apache.xpath.internal.compiler.FunctionTable;
-import com.sun.org.apache.xpath.internal.operations.Bool;
 import javafx.util.Pair;
-import jdk.nashorn.internal.ir.FunctionCall;
 
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.LinkedHashSet;
 import java.util.function.Function;
 
-public class Block implements Function<In,Out>{
+class Block implements Function<In,Out>{
 
     private Function<In, Out> function;
     private ArrayList<Pair<String, java.lang.Class>> args;
 
-    public Block (Function<In, Out> function,  ArrayList<Pair<String, java.lang.Class>> args) {
+    Block(Function<In, Out> function, ArrayList<Pair<String, java.lang.Class>> args) {
         this.function = function;
         this.args = args;
     }
 
-    public ArrayList<Pair<String, java.lang.Class>> getArgs () {
+    ArrayList<Pair<String, java.lang.Class>> getArgs() {
         return args;
     }
 
-    public String toStringArgs() {
+    String toStringArgs() {
         StringBuilder s = new StringBuilder();
         if (args != null) {
             int i = 0;
@@ -39,7 +34,7 @@ public class Block implements Function<In,Out>{
         return s.toString();
     }
 
-    public String toStringArg(int i) {
+    String toStringArg(int i) {
         StringBuilder s = new StringBuilder();
         if (args != null) {
             Pair<String, java.lang.Class> arg = args.get(i);
@@ -54,7 +49,7 @@ public class Block implements Function<In,Out>{
         return s.toString();
     }
 
-    public int argSize() {
+    int argSize() {
         return args.size();
     }
 

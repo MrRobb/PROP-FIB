@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-public class Restrictions {
+class Restrictions {
 
     private HashMap<String, Restriction> applieds;
     private HashMap<String, Restriction> available;

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Subjects {
+class Subjects {
 
     public static String invalidID = "";
     private static Subjects instance = null;

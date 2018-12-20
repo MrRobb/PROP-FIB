@@ -1,10 +1,10 @@
 package Domain;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
 
+import Presentation.PresentationCtrl;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -168,6 +168,9 @@ public class DomainCtrl {
 
         System.out.println("Starting to generate...");
 
+        PresentationCtrl.getInstance().startGenerating();
+        PresentationCtrl.getInstance().setProgress(0);
+
         // Generate
         TreeSet<Schedule> schedules = Generator.getInstance().generate();
 
@@ -192,7 +195,8 @@ public class DomainCtrl {
             System.out.println("2. No");
 
             // Get yes / no
-            int option = getInputAsInt(1, 2);
+            //int option = getInputAsInt(1, 2);
+            int option = 1;
             System.out.println();
 
             if (option == 1) {
@@ -208,6 +212,12 @@ public class DomainCtrl {
 
         }
 
+        PresentationCtrl.getInstance().setProgress(100);
+        PresentationCtrl.getInstance().endGenerating();
+    }
+
+    public JSONArray getSavedSchedules() {
+        return Schedules.getInstance().toJSONArray();
     }
 
     public void showSavedSchedules() {
@@ -423,7 +433,12 @@ public class DomainCtrl {
         if (available != null) {
 
             // Available -> Applied
-            Restriction newRestriction = available.clone();
+            Restriction newRestriction = null;
+            try {
+                newRestriction = available.clone();
+            } catch (CloneNotSupportedException e) {
+                e.printStackTrace();
+            }
 
             // Ask parameters if any
             System.out.println("This restriction has " + newRestriction.getNumberOfTotalParams() + " parameters");
@@ -476,35 +491,9 @@ public class DomainCtrl {
             JSONArray gtypes = (JSONArray) jo.get("groupTypes");
             JSONArray grps = (JSONArray) jo.get("groups");
 
-
             SubjectsFactory.produce(subjts);
-            /*System.out.println("*************************");
-            System.out.println(Subjects.getInstance().size() + " subjects generated:");
-            ArrayList<String> subjs = Subjects.getInstance().getAllKeys();
-            for (String subID : subjs) {
-                System.out.println(subID);
-            }
-            System.out.println("*************************");*/
-
             DegreesFactory.produce(degname, ncredits, gtypes, grps);
-            /*System.out.println("New degree created: " + Degree.getInstance().getName());
-            System.out.println("*************************");
-            System.out.println(Groups.getInstance().size() + " groups generated:");*/
-            /*TreeMap<Integer, Group> allGroups = Groups.getInstance().get();
-            for (Map.Entry<Integer, Group> g : allGroups.entrySet()) {
-                System.out.println(g.getValue().getSubject().getName() + " " + g.getValue().getName() + " " + g.getValue().getTypes());
-            }
-            System.out.println("*************************");*/
-
             ClassroomsFactory.produce(cls);
-            /*System.out.println(Classrooms.getInstance().size() + " classrooms produced:");
-            ArrayList<String> rooms = Classrooms.getInstance().getAllKeys();
-            for (String classID : rooms) {
-                System.out.println(classID);
-            }
-            System.out.println("*************************");
-            System.out.println();*/
-
             DateTimesFactory.produce();
             BlocksFactory.produce();
             RestrictionsFactory.produce();
@@ -512,14 +501,14 @@ public class DomainCtrl {
             return true;
         }
         catch (IOException | ParseException e) {
-
+            // Error reading JSON
             System.out.println("Error while loading JSON, make sure the you have selected the right file");
             System.out.println();
-
             e.printStackTrace();
             return false;
         }
         catch (Exception e) {
+            // Unknown error
             return false;
         }
     }
@@ -540,9 +529,26 @@ public class DomainCtrl {
         return Classrooms.getInstance().size();
     }
 
+    public Integer getNumberOfSchedules() {
+        return Schedules.getInstance().size();
+    }
+
     public ArrayList<String> getGroupTypes(){ return Degree.getInstance().getTypeOfGroups(); }
 
     public TreeSet<String> getAllExtras(){ return Classrooms.getInstance().getExtras(); }
+
+    public ArrayList<String> getUsedClassroomNames(int iSchedule) {
+        TreeSet<String> classrooms = new TreeSet<>();
+        TreeSet<Class> classes = Schedules.getInstance().get(iSchedule).getClasses();
+        for (Class c : classes) {
+            classrooms.add(c.getClassroomID());
+        }
+        return new ArrayList<>(classrooms);
+    }
+
+    public ArrayList<String> getClassroomNames() {
+        return Classrooms.getInstance().getAllKeys();
+    }
 
     public ArrayList<ArrayList<String>> getClassroomInfo(){
         ArrayList<ArrayList<String>> cl = new ArrayList<>();
@@ -575,29 +581,28 @@ public class DomainCtrl {
     }
 
     public ArrayList<String> getAvailableRestrictions(){
-        ArrayList<String> restrictions = new ArrayList<>();
         Set<String> available = Restrictions.getInstance().getAvailableRestrictionsNames();
-        for (String s : available) {
-            restrictions.add(s);
-        }
+        ArrayList<String> restrictions = new ArrayList<>(available);
         return restrictions;
     }
 
     public ArrayList<String> getAppliedRestrictions(){
-        ArrayList<String> restrictions = new ArrayList<>();
         Set<String> applied = Restrictions.getInstance().getAppliedRestrictionNames();
-        for(String s : applied){
-            restrictions.add(s);
-        }
+        ArrayList<String> restrictions = new ArrayList<>(applied);
         return  restrictions;
     }
 
     public Boolean applyRestriction(String id, ArrayList<String> args){
             Restriction av = Restrictions.getInstance().getAvailableRestriction(id);
             // Available -> Applied
-            Restriction newRestriction = av.clone();
+        Restriction newRestriction = null;
+        try {
+            newRestriction = av.clone();
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
 
-            // For each block
+        // For each block
             for (int blockIndex = 0; blockIndex < newRestriction.getNumberOfBlocks(); blockIndex++) {
 
                 ArrayList<Object> params = new ArrayList<>();

@@ -1,6 +1,6 @@
 package Domain;
 
-public class In {
+class In {
 
 	private Object[] in;
 	private Object[] args;

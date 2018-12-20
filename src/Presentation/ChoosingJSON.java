@@ -1,6 +1,5 @@
 package Presentation;
 
-import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -21,7 +20,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class ChoosingJSON implements Initializable{
+public class ChoosingJSON implements Initializable {
     public Button fileMenuButton;
     @FXML private Label title;
 
@@ -36,6 +35,9 @@ public class ChoosingJSON implements Initializable{
             int s = PresentationCtrl.getInstance().getNumberOfSubjects();
             int g = PresentationCtrl.getInstance().getNumberOfGroups();
             int c = PresentationCtrl.getInstance().getNumberOfClassrooms();
+
+
+
             Alert alert = new Alert(AlertType.INFORMATION);
             alert.setTitle("Successful");
             alert.setHeaderText("File imported successfully");
