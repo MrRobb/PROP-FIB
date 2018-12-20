@@ -1,9 +1,5 @@
 package Presentation;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
-import javafx.beans.property.BooleanProperty;
-import javafx.beans.property.SimpleBooleanProperty;
-import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
 
 public class PairNumberRestriction implements Comparable<PairNumberRestriction> {

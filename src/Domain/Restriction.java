@@ -1,8 +1,5 @@
 package Domain;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
-import javafx.util.Pair;
-
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 
