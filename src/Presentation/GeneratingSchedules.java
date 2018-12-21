@@ -21,6 +21,8 @@ import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.stage.FileChooser;
@@ -35,6 +37,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.concurrent.CountDownLatch;
 
@@ -106,6 +109,8 @@ public class GeneratingSchedules implements Initializable {
         }
     }
 
+
+
     @Override
     public synchronized void initialize(URL location, ResourceBundle resources) {
 
@@ -116,6 +121,13 @@ public class GeneratingSchedules implements Initializable {
         progressLabel.setText("");
         progressBar.setVisible(false);
         scheduleNumber.setText("No schedule generated yet");
+
+        javafx.scene.image.Image image = new Image(getClass().getResourceAsStream("back.png"));
+        ImageView imageView = new ImageView(image);
+        imageView.setFitHeight(15);
+        imageView.setFitWidth(15);
+        backToMenu.setGraphic(imageView);
+
     }
 
     public synchronized boolean startExploring() {

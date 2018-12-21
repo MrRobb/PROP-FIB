@@ -213,4 +213,6 @@ public class PresentationCtrl {
     public ReadOnlyDoubleProperty progressProperty() {
         return progress;
     }
+
+    public Boolean setMaxSchedules(int n){ return DomainCtrl.getInstance().setMaxSchedules(n); }
 }

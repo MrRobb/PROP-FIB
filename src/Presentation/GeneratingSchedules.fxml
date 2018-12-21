@@ -16,16 +16,16 @@
 <?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.collections.FXCollections?>
 
-<AnchorPane prefHeight="700.0" prefWidth="915.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Presentation.GeneratingSchedules">
+<AnchorPane prefHeight="700.0" prefWidth="915.0" stylesheets="@main.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Presentation.GeneratingSchedules">
     <children>
       <VBox alignment="CENTER" prefHeight="27.0" prefWidth="100.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="20.0">
          <children>
-            <Button fx:id="saveSchedule" mnemonicParsing="false" onAction="#saveSchedule" text="Save schedule..." />
+            <Button fx:id="saveSchedule" mnemonicParsing="false" onAction="#saveSchedule" styleClass="btn" text="Save schedule..." />
          </children>
       </VBox>
-      <Button fx:id="backToMenu" layoutX="30.0" layoutY="25.0" mnemonicParsing="false" onAction="#backToMenu" text="Back" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0" />
-        <Button fx:id="nextSchedule" layoutX="354.0" layoutY="27.0" mnemonicParsing="false" onAction="#nextSchedule" text="Next schedule &gt;" AnchorPane.bottomAnchor="80.0" AnchorPane.rightAnchor="20.0" />
-        <Button fx:id="previousSchedule" layoutX="317.0" layoutY="27.0" mnemonicParsing="false" onAction="#previousSchedule" text="&lt; Previous schedule" AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="20.0" />
+      <Button fx:id="backToMenu" layoutX="30.0" layoutY="25.0" mnemonicParsing="false" onAction="#backToMenu" styleClass="btn" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0" />
+        <Button fx:id="nextSchedule" layoutX="354.0" layoutY="27.0" mnemonicParsing="false" onAction="#nextSchedule" styleClass="btn" text="Next schedule &gt;" AnchorPane.bottomAnchor="80.0" AnchorPane.rightAnchor="20.0" />
+        <Button fx:id="previousSchedule" layoutX="317.0" layoutY="27.0" mnemonicParsing="false" onAction="#previousSchedule" styleClass="btn" text="&lt; Previous schedule" AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="20.0" />
       <ComboBox fx:id="classroomComboBox" layoutX="420.0" layoutY="72.0" onAction="#changeClassroom" prefWidth="150.0" promptText="Classroom" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="30.0">
         <items>
         </items>
