@@ -166,16 +166,8 @@ public class DomainCtrl {
 
     public void generateSchedule() {
 
-        System.out.println("Starting to generate...");
-
-        PresentationCtrl.getInstance().startGenerating();
-        PresentationCtrl.getInstance().setProgress(0);
-
         // Generate
         Generator.getInstance().generate();
-
-        PresentationCtrl.getInstance().setProgress(100);
-        PresentationCtrl.getInstance().endGenerating();
     }
 
     public JSONArray getSavedSchedules() {
@@ -232,23 +224,17 @@ public class DomainCtrl {
     }
 
 
-        public boolean clearSavedSchedules() {
+    public boolean clearSavedSchedules() {
 
-        int option = 1;
-
-        if (option == 1) {
-            boolean ok = Schedules.getInstance().clear();
-            if (ok) {
-                System.out.println("Deleted successfully");
-            }
-            else {
-                System.out.println("Error while deleting");
-            }
-            System.out.println();
-            return ok;
+        boolean ok = Schedules.getInstance().clear();
+        if (ok) {
+            System.out.println("Deleted successfully");
         }
-
-        return false;
+        else {
+            System.out.println("Error while deleting");
+        }
+        System.out.println();
+        return ok;
     }
 
     public void selectRestrictions() {
@@ -501,9 +487,11 @@ public class DomainCtrl {
 
     public ArrayList<String> getUsedClassroomNames(int iSchedule) {
         TreeSet<String> classrooms = new TreeSet<>();
-        TreeSet<Class> classes = Schedules.getInstance().get(iSchedule).getClasses();
-        for (Class c : classes) {
-            classrooms.add(c.getClassroomID());
+        if (0 <= iSchedule && iSchedule < Schedules.getInstance().size()) {
+            TreeSet<Class> classes = Schedules.getInstance().get(iSchedule).getClasses();
+            for (Class c : classes) {
+                classrooms.add(c.getClassroomID());
+            }
         }
         return new ArrayList<>(classrooms);
     }

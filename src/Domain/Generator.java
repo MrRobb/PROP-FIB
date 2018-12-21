@@ -1,5 +1,7 @@
 package Domain;
 
+import Presentation.PresentationCtrl;
+
 import java.util.*;
 
 class Generator {
@@ -34,7 +36,7 @@ class Generator {
 		Schedule schedule = new Schedule(dates.keySet(), classrooms.keySet());
 
 		try {
-			generateSchedules(schedules, schedule, groups.entrySet().iterator());
+			generateSchedules(schedules, schedule, groups.entrySet().iterator(), 0, groups.size());
 			return schedules;
 		}
 		catch (Exception e) {
@@ -46,7 +48,7 @@ class Generator {
 	/*
 	 * Helpers
 	 */
-	private Integer generateSchedules(TreeSet<Schedule> schedules, Schedule schedule, Iterator<Map.Entry<Integer, Group>> it) {
+	private boolean generateSchedules(TreeSet<Schedule> schedules, Schedule schedule, Iterator<Map.Entry<Integer, Group>> it, int current, int groups) {
 
 		if (!it.hasNext()) {
 			Schedule saveMe = new Schedule(schedule);
@@ -58,17 +60,11 @@ class Generator {
 				Schedules.getInstance().removeSchedule(saveMe);
 			}
 
-			if (schedules.size() == Schedules.getMaxSize() && schedules.last().getScore() == Schedules.getMaxScore()) {
-				return null;
-			}
-
-			return schedule.getScore();
+			return schedules.size() == Schedules.getMaxSize() && schedules.last().getScore() == Schedules.getMaxScore();
 		}
 
 		Map.Entry<Integer, Group> entry = it.next();
 		Group group = entry.getValue();
-
-		System.out.println(schedule.getAvailableSlots(group.getDuration()).size());
 
 		for (ScheduleKey slot : schedule.getAvailableSlots(group.getDuration())) {
 
@@ -78,20 +74,21 @@ class Generator {
 			c.setClassroomID(slot.getValue());
 
 			schedule.addClass(c);
+			PresentationCtrl.getInstance().setProgress((double)current / (double)groups);
 
 			if (Restrictions.getInstance().Check(schedule)) {
 
-				Integer score = generateSchedules(schedules, schedule, it);
+				boolean finish = generateSchedules(schedules, schedule, it, current + 1, groups);
 
-				if (score == null) {
+				if (finish) {
 					// We have filled all of the schedules necessary
-					return schedules.first() != null ? schedules.first().getScore() : Integer.MIN_VALUE;
+					return true;
 				}
 			}
 
 			schedule.removeClass(c);
 		}
 
-		return schedules.size() > 0 ? schedules.first().getScore() : Integer.MIN_VALUE;
+		return false;
 	}
 }

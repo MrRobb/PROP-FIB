@@ -13,6 +13,7 @@ import javafx.scene.control.Label;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
+import javax.swing.text.View;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -73,11 +74,13 @@ public class ActionAdmin implements Initializable {
     }
 
     public void generatePressed(ActionEvent event) throws IOException {
-        Parent ViewParent = FXMLLoader.load(getClass().getResource("GeneratingSchedules.fxml"));
-        Scene ViewScene = new Scene(ViewParent);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("GeneratingSchedules.fxml"));
+        Scene viewScene = new Scene(loader.load());
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-        window.setScene(ViewScene);
+        window.setScene(viewScene);
+        GeneratingSchedules controller = loader.getController();
         window.show();
+        controller.enableGeneration();
     }
 
     public Boolean importPressed(){

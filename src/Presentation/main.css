@@ -89,11 +89,48 @@
     -fx-font-family: "Amethyst";
 }
 
-.btnback{
+.btnback {
     -fx-background-radius: 50px;
     -fx-background-color: rgb(210, 210, 210);
 }
 
-.btnback:hover{
+.btnback:hover {
     -fx-background-color: rgb(220,220,220);
+}
+
+.classTile {
+    -fx-background-color: lightgrey;
+    -fx-border-width: 1.5;
+    -fx-background-radius: 8;
+}
+
+.classTile:hover {
+    -fx-border-width: 2;
+}
+
+.classTile:pressed {
+    -fx-border-width: 3;
+}
+
+.transparentTile {
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+    -fx-background-radius: 0;
+    -fx-background-color: trasparent;
+}
+
+.transparentTile:hover {
+    -fx-background-color: lightgrey;
+}
+
+.transparentTile:focused {
+    -fx-border-color: transparent, black;
+    -fx-border-width: 1, 1;
+    -fx-border-radius: 0, 0;
+    -fx-border-insets: 1 1 1 1, 0;
+}
+
+.transparentTile:pressed {
+    -fx-background-color: black;
+    -fx-text-fill: white;
 }

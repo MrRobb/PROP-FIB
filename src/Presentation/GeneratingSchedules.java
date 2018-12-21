@@ -6,18 +6,28 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.concurrent.Service;
 import javafx.concurrent.Task;
+import javafx.concurrent.WorkerStateEvent;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.HPos;
 import javafx.geometry.Pos;
 import javafx.geometry.VPos;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.util.Pair;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+import java.awt.*;
+import java.io.File;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Objects;
@@ -26,21 +36,65 @@ import java.util.concurrent.CountDownLatch;
 
 import static java.lang.Math.max;
 import static java.lang.Math.min;
+import static java.lang.Thread.yield;
 
 public class GeneratingSchedules implements Initializable {
 
     @FXML private ProgressBar progressBar;
     @FXML private Label progressLabel;
     @FXML private Label secondsLabel;
-
     @FXML private GridPane schedulePane;
-    @FXML private AnchorPane anchorPane;
-    @FXML private ScrollPane scrollPane;
-
     @FXML private ComboBox classroomComboBox;
 
     private boolean isExploring = false;
     private int iSchedule = -1;
+    private Tile selectedNode = null;
+
+    class Tile extends Button {
+
+        public Tile() {
+            super();
+
+            getStylesheets().add(getClass().getResource("main.css").toExternalForm());
+            setAlignment(Pos.CENTER);
+            addClass(null);
+
+            setOnMouseClicked(e -> {
+
+                // Is a current class (set as selected node)
+                if (getText() != null) {
+                    selectedNode = this;
+                }
+
+                // Is empty (move selected node to empty)
+                else {
+                    if (selectedNode != null) {
+                        this.addClass(selectedNode.getText());
+                        selectedNode.addClass(null);
+                        selectedNode = null;
+                    }
+                }
+            });
+        }
+
+        public void addClass(String classname) {
+
+            setText(classname);
+
+            if (classname != null) {
+                getStyleClass().clear();
+                getStyleClass().add("classTile");
+            }
+            else {
+                getStyleClass().clear();
+                getStyleClass().add("transparentTile");
+            }
+
+            GridPane.setFillHeight(this, true);
+            GridPane.setFillWidth(this, true);
+            setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+        }
+    }
 
     @Override
     public synchronized void initialize(URL location, ResourceBundle resources) {
@@ -52,34 +106,9 @@ public class GeneratingSchedules implements Initializable {
         secondsLabel.setText("");
         progressLabel.setText("");
         progressBar.setVisible(false);
-
-        // Launch generate
-        Service<Void> service = new Service<Void>() {
-            @Override
-            protected Task<Void> createTask() {
-                return new Task<Void>() {
-                    @Override
-                    protected Void call() throws Exception {
-                        //Background work
-                        final CountDownLatch latch = new CountDownLatch(1);
-                        Platform.runLater(() -> {
-                            try{
-                                PresentationCtrl.getInstance().generate();
-                            } finally {
-                                latch.countDown();
-                            }
-                        });
-                        latch.await();
-                        //Keep with the background work
-                        return null;
-                    }
-                };
-            }
-        };
-        service.start();
     }
 
-    public synchronized boolean setProgress(int progress) {
+    public synchronized boolean setProgress(double progress) {
         if (!isExploring) {
             return false;
         }
@@ -123,35 +152,10 @@ public class GeneratingSchedules implements Initializable {
         classroomComboBox.setItems(classList);
 
         // Show
+        classroomComboBox.setValue(classList.get(0));
         ShowSchedule(0);
 
         return true;
-    }
-
-    private Pair<Integer, Integer> GetScheduleSize(JSONObject schedule) {
-
-        // Get classes of schedule
-        JSONArray classesJSON = (JSONArray) schedule.get("classes");
-        int min = 23;
-        int max = 0;
-
-        // List classes
-        for (Object classObj : classesJSON)
-        {
-            JSONObject classJSON = (JSONObject) classObj;
-            int startHour = (int)(long)classJSON.get("startHour");
-            int endHour = (int)(long)classJSON.get("endHour");
-            if (endHour < startHour) {
-                max = 23;
-                min = min(min, endHour);
-            }
-            else {
-                min = min(min, startHour);
-                max = max(max, endHour);
-            }
-        }
-
-        return new Pair<>(min, max);
     }
 
     private int getDayIndex(String day) {
@@ -208,6 +212,8 @@ public class GeneratingSchedules implements Initializable {
             Label dayName = new Label(getDayName(j));
             dayName.setAlignment(Pos.CENTER);
             schedulePane.add(dayName, j, 0);
+            GridPane.setFillHeight(dayName, true);
+            GridPane.setFillWidth(dayName, true);
         }
 
         // Create rows
@@ -215,12 +221,21 @@ public class GeneratingSchedules implements Initializable {
             Label hourName = new Label(Integer.toString(i - 1));
             hourName.setAlignment(Pos.CENTER);
             schedulePane.add(hourName, 0, i);
+            GridPane.setFillHeight(hourName, true);
+            GridPane.setFillWidth(hourName, true);
         }
 
         // Get classes of schedule
         JSONArray schedulesJSON = PresentationCtrl.getInstance().getSavedSchedules();
         JSONObject schedule = (JSONObject) schedulesJSON.get(index);
         JSONArray classesJSON = (JSONArray) schedule.get("classes");
+
+        // Default tiles
+        for (int i = 1; i < 25; i++) {
+            for (int j = 1; j < 6; j++) {
+                schedulePane.add(new Tile(), j, i);
+            }
+        }
 
         // Add classes
         for (Object classObj : classesJSON)
@@ -236,16 +251,11 @@ public class GeneratingSchedules implements Initializable {
             int dayIndex = getDayIndex(day);
             int hourIndex = hour + 1;
 
-            System.out.println(classroom);
-            if (classroomComboBox.getValue() != null) {
-                System.out.println("Classroom: " + (String)classroomComboBox.getValue());
-            }
-            else {
-                System.out.println("null");
-            }
-
-            if (Objects.equals(classroom, (String) classroomComboBox.getValue())) {
-                schedulePane.add(new Button(subject + " " + group), dayIndex, hourIndex);
+            if (Objects.equals(classroom, classroomComboBox.getValue())) {
+                Tile tile = getTile(schedulePane, dayIndex, hourIndex);
+                if (tile != null) {
+                    tile.addClass(subject + " " + group);
+                }
             }
         }
 
@@ -257,7 +267,56 @@ public class GeneratingSchedules implements Initializable {
         return true;
     }
 
+    private Tile getTile(GridPane schedulePane, int dayIndex, int hourIndex) {
+
+        for (Node children : schedulePane.getChildren().filtered(
+                (node) -> node.getClass() == Tile.class)
+        ) {
+            Integer col = GridPane.getColumnIndex(children);
+            Integer row = GridPane.getRowIndex(children);
+            if (col == dayIndex && row == hourIndex) {
+                return (Tile) children;
+            }
+        }
+
+        return null;
+    }
+
     public void changeClassroom(ActionEvent event) {
         ShowSchedule(iSchedule);
+    }
+
+    public void enableGeneration() {
+        // Launch generate
+
+        PresentationCtrl.getInstance().startGenerating();
+        PresentationCtrl.getInstance().setProgress(-1);
+
+        Service service = new Service<Void>() {
+            @Override
+            protected Task<Void> createTask() {
+                Task task = new Task<Void>() {
+                    @Override
+                    public Void call() {
+                        PresentationCtrl.getInstance().progressProperty().addListener(
+                                (obs, oldProgress, newProgress) ->
+                                updateProgress(newProgress.doubleValue(), 1)
+                        );
+                        PresentationCtrl.getInstance().generate();
+                        return null;
+                    }
+                };
+
+                task.setOnSucceeded(event -> {
+                    PresentationCtrl.getInstance().endGenerating();
+                });
+
+                return task;
+            }
+        };
+
+        progressBar.progressProperty().bind(service.progressProperty());
+
+        new Thread(service::start).start();
     }
 }
