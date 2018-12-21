@@ -88,15 +88,24 @@ public class ActionAdmin implements Initializable {
             if(!PresentationCtrl.getInstance().setMaxSchedules(Integer.parseInt(result.get()))){
                 System.out.println("Error when parsing");
             }
+            else{
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("GeneratingSchedules.fxml"));
+                Scene viewScene = new Scene(loader.load());
+                Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+                window.setScene(viewScene);
+                GeneratingSchedules controller = loader.getController();
+                window.show();
+                controller.enableGeneration();
+            }
+        }
+        else if (!isInteger(result.get())){
+            Alert alert2 = new Alert(Alert.AlertType.ERROR);
+            alert2.setTitle("Alert");
+            alert2.setHeaderText("Error");
+            alert2.setContentText("Please enter a number bigger than 0");
+            alert2.showAndWait();
         }
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("GeneratingSchedules.fxml"));
-        Scene viewScene = new Scene(loader.load());
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-        window.setScene(viewScene);
-        GeneratingSchedules controller = loader.getController();
-        window.show();
-        controller.enableGeneration();
     }
 
     public Boolean importPressed(){
@@ -153,10 +162,10 @@ public class ActionAdmin implements Initializable {
     private static boolean isInteger(String s, int radix) {
         if(s.isEmpty()) return false;
         for(int i = 0; i < s.length(); i++) {
-            if(i == 0 && s.charAt(i) == '-') {
+            /*if(i == 0 && s.charAt(i) == '-') {
                 if(s.length() == 1) return false;
                 else continue;
-            }
+            }*/
             if(Character.digit(s.charAt(i),radix) < 0) return false;
         }
         return true;

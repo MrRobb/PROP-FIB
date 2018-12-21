@@ -662,4 +662,6 @@ public class DomainCtrl {
     public Boolean getAppliedRestriction(String res){ return Restrictions.getInstance().getAppliedRestriccion(res).getCheckedOnAppliedTable(); }
 
     public Boolean setMaxSchedules(int n){ return Schedules.setMaxSize(n); }
+
+    public Boolean deleteSchedule(int i){ return Schedules.getInstance().deleteSchedule(i); }
 }

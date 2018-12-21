@@ -57,6 +57,7 @@ public class GeneratingSchedules implements Initializable {
     @FXML private Button nextSchedule;
     @FXML private Button backToMenu;
     @FXML private Button saveSchedule;
+    @FXML private Button deleteSchedule;
 
     private boolean isExploring = false;
     private int iSchedule = -1;
@@ -372,5 +373,25 @@ public class GeneratingSchedules implements Initializable {
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         window.setScene(ViewScene);
         window.show();
+    }
+
+    public void deleteSchedule(ActionEvent event){
+        Boolean b = PresentationCtrl.getInstance().deleteSchedule(iSchedule);
+        PresentationCtrl.getInstance().updateNumberOfSchedules();
+
+        // Load classrooms
+        ArrayList<String> classrooms = PresentationCtrl.getInstance().getUsedClassroomNames(0);
+        ObservableList<String> classList = FXCollections.observableArrayList(classrooms);
+        classroomComboBox.setItems(classList);
+
+        // Select classroom
+        if (classList.size() > 0) {
+            classroomComboBox.setValue(classList.get(0));
+        }
+
+        // Show
+        iSchedule--;
+        ShowSchedule(iSchedule);
+
     }
 }
