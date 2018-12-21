@@ -67,12 +67,14 @@ public class GeneratingSchedules implements Initializable {
 
     class Tile extends Button {
 
+        JSONObject classJSON = null;
+
         public Tile() {
             super();
 
             getStylesheets().add(getClass().getResource("main.css").toExternalForm());
             setAlignment(Pos.CENTER);
-            addClass(null);
+            addClass(null, null);
 
             setOnMouseClicked(e -> {
 
@@ -84,16 +86,18 @@ public class GeneratingSchedules implements Initializable {
                 // Is empty (move selected node to empty)
                 else {
                     if (selectedNode != null) {
-                        this.addClass(selectedNode.getText());
-                        selectedNode.addClass(null);
+
+                        PresentationCtrl.getInstance().moveClass(selectedNode.classJSON, this.classJSON, iSchedule);
                         selectedNode = null;
+                        ShowSchedule(iSchedule);
                     }
                 }
             });
         }
 
-        public void addClass(String classname) {
+        public void addClass(String classname, JSONObject classJSON) {
 
+            this.classJSON = classJSON;
             setText(classname);
 
             if (classname != null) {
@@ -250,7 +254,13 @@ public class GeneratingSchedules implements Initializable {
         // Default tiles
         for (int i = 1; i < 25; i++) {
             for (int j = 1; j < 6; j++) {
-                schedulePane.add(new Tile(), j, i);
+                int id = PresentationCtrl.getInstance().getDateTimeID(i-1, getDayName(j));
+                JSONObject json = new JSONObject();
+                json.put("datetimeID", id);
+                Tile tile = new Tile();
+                tile.classJSON = json;
+                schedulePane.add(tile, j, i);
+
             }
         }
 
@@ -276,7 +286,7 @@ public class GeneratingSchedules implements Initializable {
             if (Objects.equals(classroom, classroomComboBox.getValue())) {
                 Tile tile = getTile(schedulePane, dayIndex, hourIndex, duracion);
                 if (tile != null) {
-                    tile.addClass(subject + " " + group);
+                    tile.addClass(subject + " " + group, classJSON);
                 }
             }
         }
@@ -302,7 +312,7 @@ public class GeneratingSchedules implements Initializable {
             if (col == dayIndex && row == hourIndex) {
                 tile = (Tile) children;
             }
-            else if (col == dayIndex && hourIndex <= row && row <= hourIndex + duracion) {
+            else if (col == dayIndex && hourIndex <= row && row < hourIndex + duracion) {
                 schedulePane.getChildren().remove(children);
             }
         }

@@ -213,6 +213,9 @@ class Schedule implements Comparable<Schedule> {
         JSONArray sch = new JSONArray();
         for(Class c : classes){
             JSONObject cl = new JSONObject();
+            cl.put("datetimeID", c.getDateTimeID());
+            cl.put("classroomID", c.getClassroomID());
+            cl.put("groupID", c.getGroupID());
             cl.put("day", c.getDateTime().getWeekday().toString());
             cl.put("startHour", c.getDateTime().getStartHour());
             cl.put("endHour", c.getDateTime().getEndHour(c.getGroup().getDuration()));

@@ -712,4 +712,27 @@ public class DomainCtrl {
     public void setProgress(double progress) {
         PresentationCtrl.getInstance().setProgress(progress);
     }
+
+    public boolean moveClass(JSONObject oldC, JSONObject newC, int iSchedule) {
+        if (0 <= iSchedule && iSchedule < Schedules.getInstance().size()) {
+
+            Schedule schedule = Schedules.getInstance().get(iSchedule);
+            for (Class c : schedule.getClasses()) {
+                if (c.getDateTimeID() == (int)oldC.get("datetimeID") &&
+                    c.getGroupID() == (int)oldC.get("groupID") &&
+                        Objects.equals(c.getClassroomID(), (String) oldC.get("classroomID"))
+                ) {
+                    c.setDateTimeID((int)newC.get("datetimeID"));
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public int getDateTimeID(int hour, String day) {
+
+        DateTime date = new DateTime(DateTime.WeekDay.valueOf(day), hour);
+        return DateTimes.getInstance().getID(date);
+    }
 }

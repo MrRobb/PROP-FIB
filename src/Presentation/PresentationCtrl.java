@@ -8,6 +8,7 @@ import javafx.beans.property.*;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Optional;
@@ -226,4 +227,11 @@ public class PresentationCtrl {
 
     public Boolean deleteSchedule(int i){ return DomainCtrl.getInstance().deleteSchedule(i); }
 
+    public boolean moveClass(JSONObject oldC, JSONObject newC, int iSchedule) {
+        return DomainCtrl.getInstance().moveClass(oldC, newC, iSchedule);
+    }
+
+    public int getDateTimeID(int hour, String day) {
+        return DomainCtrl.getInstance().getDateTimeID(hour, day);
+    }
 }
