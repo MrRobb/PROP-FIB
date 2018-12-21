@@ -87,6 +87,36 @@ public class BlocksFactory {
 		Block b15 = new Block(Functions::subjectCantBeAssignedToClassroom, arrB15);
 		Blocks.getInstance().add("[Subject] of [Type] can't be in [Classroom]", b15);
 
+		ArrayList<Pair<String,java.lang.Class>> arrB16 = new ArrayList<>();
+		arrB16.add(new Pair<>("Max number of total hour (ex: 15)",Integer.class));
+		Block b16 = new Block(Functions::noOverpassNHourTotal, arrB16);
+		Blocks.getInstance().add("At most [Int] different hours in the schedule", b16);
+
+		ArrayList<Pair<String,java.lang.Class>> arrB17 = new ArrayList<>();
+		arrB17.add(new Pair<>("Max number of hour in a day(ex: 15)",Integer.class));
+		Block b17 = new Block(Functions::noOverpassNHourAllDays, arrB17);
+		Blocks.getInstance().add("At most [Int] hours in a day", b17);
+
+		ArrayList<Pair<String,java.lang.Class>> arrB18 = new ArrayList<>();
+		arrB18.add(new Pair<>("Subject (ex: " + Subjects.getInstance().getAllKeys().get(0) + ")", String.class));
+		arrB18.add(new Pair<>("Type of group (ex: " + Degree.getInstance().getTypeOfGroups().get(0) + ")", String.class));
+		arrB18.add(new Pair<>("Extra (ex: " + Classrooms.getInstance().getExtras().first() + ")",String.class));
+		Block b18 = new Block(Functions::noGroupOfSubjectOfTypeWithExtra, arrB15);
+		Blocks.getInstance().add("[Subject] of [Type] can't be in classroom with [Extra]", b18);
+
+		ArrayList<Pair<String,java.lang.Class>> arrB19 = new ArrayList<>();
+		arrB19.add(new Pair<>("Start hour (ex: 13)",Integer.class));
+		arrB19.add(new Pair<>("End hour (ex: 16)", Integer.class));
+		arrB19.add(new Pair<>("Min capacity (ex: 40)",Integer.class));
+		Block b19 = new Block(Functions::noLessCapacityOfGroupsBetweenSHEH, arrB19);
+		Blocks.getInstance().add("No class between [StartHour] and [EndHour] with less than [Int]", b19);
+
+		ArrayList<Pair<String,java.lang.Class>> arrB20 = new ArrayList<>();
+		arrB20.add(new Pair<>("The max free places in a classroom (ex: 5)",Integer.class));
+		Block b20 = new Block(Functions::noMoreFreeCapacityBetweenGroupAndClassroom, arrB20);
+		Blocks.getInstance().add("Difference between classroom capacity and group capacity no higher than [Int]", b20);
+
+
 
 		return true;
 	}
