@@ -20,11 +20,8 @@ import java.util.ResourceBundle;
 
 public class ActionUser implements Initializable {
     @FXML private Button btnConsult;
-    @FXML private Button btnGenerate;
     @FXML private Button btnLogOut;
-    @FXML private Button btnModifyRestrictions;
     @FXML private Button btnShowSavedSchedules;
-    @FXML private Button btnDeleteSchedules;
     @FXML private Button btnImportSchedules;
     @FXML private Label title;
 

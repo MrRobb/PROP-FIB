@@ -80,6 +80,14 @@ public class BlocksFactory {
 		Block b14 = new Block(Functions::notAsignedSubject, arrB14);
 		Blocks.getInstance().add("[Subject] can't be used", b14);
 
+		ArrayList<Pair<String,java.lang.Class>> arrB15 = new ArrayList<>();
+		arrB15.add(new Pair<>("Subject (ex: " + Subjects.getInstance().getAllKeys().get(0) + ")", String.class));
+		arrB15.add(new Pair<>("Type of group (ex: " + Degree.getInstance().getTypeOfGroups().get(0) + ")", String.class));
+		arrB15.add(new Pair<>("Classroom (ex: " + Classrooms.getInstance().getAllKeys().get(0) + ")", String.class));
+		Block b15 = new Block(Functions::subjectCantBeAssignedToClassroom, arrB15);
+		Blocks.getInstance().add("[Subject] of [Type] can't be in [Classroom]", b15);
+
+
 		return true;
 	}
 

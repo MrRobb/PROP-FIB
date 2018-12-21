@@ -49,7 +49,7 @@ public class ActionAdmin implements Initializable {
         window.show();
     }
 
-    public void ButtonDeleteSchedulesPressed(ActionEvent event){
+        public void ButtonDeleteSchedulesPressed(ActionEvent event){
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Alert");
         alert.setHeaderText("Do you really want to delete all schedules?");
