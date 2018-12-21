@@ -1,5 +1,8 @@
 package Domain;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 
@@ -64,6 +67,18 @@ class Restriction {
             }
         }
         return s.toString();
+    }
+
+    public JSONObject toJSONObject(){
+        JSONObject restr = new JSONObject();
+        restr.put("name", this.getName());
+        JSONArray arguments = new JSONArray();
+        for (Object o : args.get(0)) {
+            if (o instanceof Integer) arguments.add(String.valueOf(o));
+            else arguments.add(o);
+        }
+        restr.put("arguments", arguments);
+        return restr;
     }
 
     public boolean apply(In input) {
@@ -227,6 +242,8 @@ class Restriction {
 
         );
     }
+
+
 }
 
 

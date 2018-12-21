@@ -1,5 +1,8 @@
 package Domain;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -153,6 +156,14 @@ class Restrictions {
         }
 
         return sum;
+    }
+
+    public JSONArray editableAppliedsToJSONObject(){
+        JSONArray restrictions = new JSONArray();
+        for(Restriction r: applieds.values()){
+            if (r.getEditable() == true) restrictions.add(r.toJSONObject());
+        }
+        return restrictions;
     }
 
     @Override
