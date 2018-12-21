@@ -235,10 +235,7 @@
         <option value="$PROJECT_DIR$/src/Domain/Restrictions.java" />
         <option value="$PROJECT_DIR$/src/Presentation/RestrictionView.java" />
         <option value="$PROJECT_DIR$/src/Presentation/ApplyingRestriction.java" />
-        <option value="$PROJECT_DIR$/src/Domain/Schedules.java" />
         <option value="$PROJECT_DIR$/src/Presentation/ActionAdmin.java" />
-        <option value="$PROJECT_DIR$/src/Domain/DomainCtrl.java" />
-        <option value="$PROJECT_DIR$/src/Presentation/PresentationCtrl.java" />
         <option value="$PROJECT_DIR$/src/Domain/Generator.java" />
         <option value="$PROJECT_DIR$/src/Domain/Schedules.java" />
         <option value="$PROJECT_DIR$/src/Presentation/UserSelection.java" />
@@ -518,7 +515,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="92826000" />
+    <option name="totallyTimeSpent" value="97155000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">

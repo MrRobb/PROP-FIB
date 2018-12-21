@@ -19,8 +19,8 @@ class Schedules {
 	public static Schedules getInstance() {
 		if (instance == null) {
 			instance = new Schedules();
+			DomainCtrl.getInstance().updateNumberOfSchedules();
 		}
-
 		return instance;
 	}
 
@@ -37,7 +37,11 @@ class Schedules {
 			return false;
 		}
 		else {
-			return schedules.add(schedule);
+			boolean ok = schedules.add(schedule);
+			if (ok) {
+				DomainCtrl.getInstance().updateNumberOfSchedules();
+			}
+			return ok;
 		}
 	}
 
@@ -46,7 +50,11 @@ class Schedules {
 			return false;
 		}
 		else {
-			return schedules.remove(schedule);
+			boolean ok = schedules.remove(schedule);
+			if (ok) {
+				DomainCtrl.getInstance().updateNumberOfSchedules();
+			}
+			return ok;
 		}
 	}
 
@@ -88,6 +96,7 @@ class Schedules {
 
 	public boolean clear() {
 		schedules.clear();
+		DomainCtrl.getInstance().updateNumberOfSchedules();
 		return true;
 	}
 

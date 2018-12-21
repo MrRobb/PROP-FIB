@@ -174,6 +174,10 @@ public class DomainCtrl {
         return Schedules.getInstance().toJSONArray();
     }
 
+    public void updateNumberOfSchedules() {
+        PresentationCtrl.getInstance().updateNumberOfSchedules();
+    }
+
     public void showSavedSchedules() {
 
         int nSchedules = Schedules.getInstance().size();
@@ -191,16 +195,17 @@ public class DomainCtrl {
         }
     }
 
-    public boolean saveSchedule(Schedule s) {
+    public boolean saveSchedule(int iSchedule, String filepath) {
+        Schedule s = Schedules.getInstance().get(iSchedule);
         JSONObject json = s.toJSONObject();
 
         try {
-            Object read = new JSONParser().parse(new FileReader("json/savedSchedules.json"));
+            Object read = new JSONParser().parse(new FileReader(filepath));
             JSONArray readArray = (JSONArray) read;
             readArray.add(json);
             System.out.println("File found!");
 
-            try (FileWriter file = new FileWriter("json/savedSchedules.json")) {
+            try (FileWriter file = new FileWriter(filepath)) {
                 file.write(readArray.toJSONString());
                 System.out.println("Schedule added to the JSON!");
                 return Schedules.getInstance().addSchedule(s);
@@ -209,7 +214,7 @@ public class DomainCtrl {
         catch (IOException | ParseException e) {
             e.printStackTrace();
 
-            try (FileWriter file = new FileWriter("json/savedSchedules.json")) {
+            try (FileWriter file = new FileWriter(filepath)) {
                 JSONArray ja = new JSONArray();
                 ja.add(json);
                 file.write(ja.toJSONString());

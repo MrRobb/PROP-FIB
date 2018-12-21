@@ -1,6 +1,5 @@
 package Presentation;
 
-import Domain.DomainCtrl;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -10,24 +9,29 @@ import javafx.concurrent.WorkerStateEvent;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.HPos;
 import javafx.geometry.Pos;
 import javafx.geometry.VPos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import javafx.util.Pair;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import java.awt.*;
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Objects;
@@ -42,13 +46,19 @@ public class GeneratingSchedules implements Initializable {
 
     @FXML private ProgressBar progressBar;
     @FXML private Label progressLabel;
-    @FXML private Label secondsLabel;
     @FXML private GridPane schedulePane;
     @FXML private ComboBox classroomComboBox;
+
+    @FXML private Label scheduleNumber;
+    @FXML private Button previousSchedule;
+    @FXML private Button nextSchedule;
+    @FXML private Button backToMenu;
+    @FXML private Button saveSchedule;
 
     private boolean isExploring = false;
     private int iSchedule = -1;
     private Tile selectedNode = null;
+    private boolean user = false;
 
     class Tile extends Button {
 
@@ -103,27 +113,9 @@ public class GeneratingSchedules implements Initializable {
         PresentationCtrl.getInstance().setWindow(this);
 
         // Show default text
-        secondsLabel.setText("");
         progressLabel.setText("");
         progressBar.setVisible(false);
-    }
-
-    public synchronized boolean setProgress(double progress) {
-        if (!isExploring) {
-            return false;
-        }
-
-        progressBar.setProgress(progress);
-        return true;
-    }
-
-    public synchronized boolean setRemainingSeconds(int seconds) {
-        if (!isExploring) {
-            return false;
-        }
-
-        secondsLabel.setText(seconds + "seconds remaining");
-        return true;
+        scheduleNumber.setText("No schedule generated yet");
     }
 
     public synchronized boolean startExploring() {
@@ -151,9 +143,14 @@ public class GeneratingSchedules implements Initializable {
         ObservableList<String> classList = FXCollections.observableArrayList(classrooms);
         classroomComboBox.setItems(classList);
 
+        // Select classroom
+        if (classList.size() > 0) {
+            classroomComboBox.setValue(classList.get(0));
+        }
+
         // Show
-        classroomComboBox.setValue(classList.get(0));
-        ShowSchedule(0);
+        iSchedule = 0;
+        ShowSchedule(iSchedule);
 
         return true;
     }
@@ -199,13 +196,14 @@ public class GeneratingSchedules implements Initializable {
     private boolean ShowSchedule(int index) {
 
         // Error checking
-        if (index < 0 || DomainCtrl.getInstance().getNumberOfSchedules() <= index) {
+        if (index < 0 || PresentationCtrl.getInstance().getNumberOfSchedules() <= index) {
             return false;
         }
 
         iSchedule = index;
-
         schedulePane.getChildren().retainAll(schedulePane.getChildren().get(0));
+
+        scheduleNumber.setText((iSchedule + 1) + " of " + PresentationCtrl.getInstance().getNumberOfSchedules());
 
         // Create columns
         for (int j = 0; j < 6; j++) {
@@ -318,5 +316,49 @@ public class GeneratingSchedules implements Initializable {
         progressBar.progressProperty().bind(service.progressProperty());
 
         new Thread(service::start).start();
+    }
+
+    public void previousSchedule(ActionEvent event) {
+        if (0 <= iSchedule - 1 && iSchedule - 1 < PresentationCtrl.getInstance().getNumberOfSchedules()) {
+            iSchedule--;
+            classroomComboBox.getSelectionModel().clearSelection();
+            ShowSchedule(iSchedule);
+        }
+    }
+
+    public void nextSchedule(ActionEvent event) {
+        if (0 <= iSchedule + 1 && iSchedule + 1 < PresentationCtrl.getInstance().getNumberOfSchedules()) {
+            iSchedule++;
+            classroomComboBox.getSelectionModel().clearSelection();
+            ShowSchedule(iSchedule);
+        }
+    }
+
+    public void saveSchedule(ActionEvent event) {
+
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Save schedule");
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("JSON (with schedules)", "*.json"),
+                new FileChooser.ExtensionFilter("All files", "*.*")
+        );
+        File file = fileChooser.showSaveDialog(window);
+        if (file != null) {
+            PresentationCtrl.getInstance().saveSchedule(iSchedule, file.getPath());
+        }
+    }
+
+    public void backToMenu(ActionEvent event) {
+        Parent ViewParent = null;
+        try {
+            ViewParent = FXMLLoader.load(getClass().getResource(user ? "ActionUser.fxml" : "Action.fxml"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Scene ViewScene = new Scene(ViewParent);
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        window.setScene(ViewScene);
+        window.show();
     }
 }

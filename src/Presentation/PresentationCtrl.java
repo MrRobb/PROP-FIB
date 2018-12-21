@@ -4,10 +4,7 @@ import Domain.DomainCtrl;
 import javafx.beans.binding.Bindings;
 import javafx.beans.binding.DoubleBinding;
 import javafx.beans.binding.DoubleExpression;
-import javafx.beans.property.DoubleProperty;
-import javafx.beans.property.Property;
-import javafx.beans.property.ReadOnlyDoubleProperty;
-import javafx.beans.property.ReadOnlyDoubleWrapper;
+import javafx.beans.property.*;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import org.json.simple.JSONArray;
@@ -21,6 +18,7 @@ public class PresentationCtrl {
     private static PresentationCtrl instance = null;
     private Object window = null;
     private final ReadOnlyDoubleWrapper progress = new ReadOnlyDoubleWrapper();
+    private final ReadOnlyIntegerWrapper nSchedules = new ReadOnlyIntegerWrapper();
 
     private PresentationCtrl() {
     }
@@ -59,7 +57,14 @@ public class PresentationCtrl {
     }
 
     public Integer getNumberOfSchedules() {
-        return DomainCtrl.getInstance().getNumberOfSchedules();
+        return nSchedules.getValue();
+    }
+
+    public boolean saveSchedule(int iSchedule, String filepath) {
+        if (0 <= iSchedule && iSchedule <= DomainCtrl.getInstance().getNumberOfSchedules()) {
+            return DomainCtrl.getInstance().saveSchedule(iSchedule, filepath);
+        }
+        return false;
     }
 
     public JSONArray getSavedSchedules() {
@@ -155,6 +160,11 @@ public class PresentationCtrl {
         }
     }
     */
+
+    public boolean updateNumberOfSchedules() {
+        this.nSchedules.set(DomainCtrl.getInstance().getNumberOfSchedules());
+        return true;
+    }
 
     public Boolean isRestrictionEditable(String s) {
         return DomainCtrl.getInstance().isRestrictionEditable(s);
