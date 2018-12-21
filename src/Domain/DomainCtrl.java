@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.*;
 
 import Presentation.PresentationCtrl;
+import netscape.javascript.JSObject;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -661,11 +662,54 @@ public class DomainCtrl {
     }
     public Boolean getAppliedRestriction(String res){ return Restrictions.getInstance().getAppliedRestriccion(res).getCheckedOnAppliedTable(); }
 
+    public Boolean setMaxSchedules(int n){ return Schedules.setMaxSize(n); }
+
+    public Boolean saveAppliedRestrictions(String filepath) {
+        JSONArray json = Restrictions.getInstance().editableAppliedsToJSONObject();
+        try (FileWriter file = new FileWriter(filepath)) {
+            file.write(json.toJSONString());
+            System.out.println("Restrictions added to the JSON!");
+            return true;
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public Boolean importRestrictions(String filepath) {
+        System.out.println(filepath);
+        try {
+            Object obj = new JSONParser().parse(new FileReader(filepath));
+            JSONArray ja = (JSONArray) obj;
+            for(Object objRestr : ja) {
+                JSONObject jObjRestr = (JSONObject) objRestr;
+                String name = (String) jObjRestr.get("name");
+                Restriction restriction = new Restriction(name);
+                restriction.add(name);
+                restriction.setScore(1);
+                ArrayList<Object> params = new ArrayList<>();
+                JSONArray jArgs = (JSONArray) jObjRestr.get("arguments");
+                for (Object objArg : jArgs) {
+                    params.add(objArg);
+                }
+                restriction.setParameter(0, params.toArray());
+                Restrictions.getInstance().addApplied(restriction);
+            }
+            return true;
+        }
+        catch (IOException | ParseException e) {
+            e.printStackTrace();
+            return false;
+        }
+        catch (Exception e){
+            return false;
+        }
+    }
+
+    public Boolean deleteSchedule(int i){ return Schedules.getInstance().deleteSchedule(i); }
+
     public void setProgress(double progress) {
         PresentationCtrl.getInstance().setProgress(progress);
     }
-
-    public Boolean setMaxSchedules(int n){ return Schedules.setMaxSize(n); }
-
-    public Boolean deleteSchedule(int i){ return Schedules.getInstance().deleteSchedule(i); }
 }

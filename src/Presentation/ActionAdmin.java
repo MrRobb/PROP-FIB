@@ -29,7 +29,46 @@ public class ActionAdmin implements Initializable {
     @FXML private Button btnShowSavedSchedules;
     @FXML private Button btnDeleteSchedules;
     @FXML private Button btnImportSchedules;
+    @FXML private Button btnImportRestrictions;
+    @FXML private Button btnSaveRestrictions;
     @FXML private Label title;
+
+    public void saveRestrictionsPressed(ActionEvent event) throws IOException {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Save the applied restrictions");
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("JSON (with restrictions)", "*.json"),
+                new FileChooser.ExtensionFilter("All files", "*.*")
+        );
+        File file = fileChooser.showSaveDialog(window);
+        if (file != null) {
+            PresentationCtrl.getInstance().saveAppliedRestrictions(file.getPath());
+        }
+    }
+
+    public void importRestrictionPressed(ActionEvent event) throws IOException {
+        FileChooser chooser = new FileChooser();
+        chooser.setTitle("Open File");
+        File file = chooser.showOpenDialog(new Stage());
+        String path = file.getPath();
+
+        if(PresentationCtrl.getInstance().importRestrictions(path)){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Successful");
+            alert.setHeaderText("Successful");
+            alert.setContentText("File imported.");
+            alert.showAndWait();
+        }
+        else{
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Error");
+            alert.setHeaderText("Error");
+            alert.setContentText("Could not import file. Make sure that you are importing a valid file.");
+            alert.showAndWait();
+        }
+
+    }
 
     public void ButtonConsultPressed(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader();
@@ -162,12 +201,15 @@ public class ActionAdmin implements Initializable {
     private static boolean isInteger(String s, int radix) {
         if(s.isEmpty()) return false;
         for(int i = 0; i < s.length(); i++) {
-            /*if(i == 0 && s.charAt(i) == '-') {
+            if(i == 0 && s.charAt(i) == '-') {
                 if(s.length() == 1) return false;
                 else continue;
-            }*/
+            }
             if(Character.digit(s.charAt(i),radix) < 0) return false;
         }
         return true;
     }
+
+
+
 }
