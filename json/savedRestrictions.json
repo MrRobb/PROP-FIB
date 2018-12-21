@@ -1,1 +1,1 @@
-[{"name":"[Subject] must be set after [Hour]","arguments":["PRO1","2"]}]
+[{"name":"At most [Int] classrooms can be used","arguments":["25"]}]
