@@ -138,3 +138,7 @@
 .restricitionFail{
   -fx-border-color: rgb(255, 144, 151);
 }
+
+.mygridStyle Line {
+  -fx-stroke   : transparent;
+}
