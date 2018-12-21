@@ -115,7 +115,18 @@ public class GeneratingSchedules implements Initializable {
         // Show default text
         progressLabel.setText("");
         progressBar.setVisible(false);
-        scheduleNumber.setText("No schedule generated yet");
+
+        int nSchedules = PresentationCtrl.getInstance().getNumberOfSchedules();
+        if (nSchedules > 0) {
+            // Show
+            iSchedule = 0;
+            loadClassrooms(iSchedule);
+            ShowSchedule(iSchedule);
+        }
+        else {
+            saveSchedule.setDisable(false);
+            scheduleNumber.setText("No schedule generated yet");
+        }
     }
 
     public synchronized boolean startExploring() {
@@ -138,19 +149,16 @@ public class GeneratingSchedules implements Initializable {
         isExploring = false;
         progressLabel.setText("Finished exploring");
 
-        // Load classrooms
-        ArrayList<String> classrooms = PresentationCtrl.getInstance().getUsedClassroomNames(0);
-        ObservableList<String> classList = FXCollections.observableArrayList(classrooms);
-        classroomComboBox.setItems(classList);
-
-        // Select classroom
-        if (classList.size() > 0) {
-            classroomComboBox.setValue(classList.get(0));
+        if (PresentationCtrl.getInstance().getNumberOfSchedules() <= 0) {
+            saveSchedule.setDisable(false);
+            scheduleNumber.setText("No schedule generated yet");
         }
-
-        // Show
-        iSchedule = 0;
-        ShowSchedule(iSchedule);
+        else {
+            // Show
+            iSchedule = 0;
+            loadClassrooms(iSchedule);
+            ShowSchedule(iSchedule);
+        }
 
         return true;
     }
@@ -336,6 +344,10 @@ public class GeneratingSchedules implements Initializable {
 
     public void saveSchedule(ActionEvent event) {
 
+        if (PresentationCtrl.getInstance().getNumberOfSchedules() <= 0) {
+            return;
+        }
+
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Save schedule");
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -360,5 +372,18 @@ public class GeneratingSchedules implements Initializable {
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         window.setScene(ViewScene);
         window.show();
+    }
+
+    private void loadClassrooms(int iSchedule) {
+
+        // Load classrooms
+        ArrayList<String> classrooms = PresentationCtrl.getInstance().getUsedClassroomNames(0);
+        ObservableList<String> classList = FXCollections.observableArrayList(classrooms);
+        classroomComboBox.setItems(classList);
+
+        // Select classroom
+        if (classList.size() > 0) {
+            classroomComboBox.setValue(classList.get(0));
+        }
     }
 }

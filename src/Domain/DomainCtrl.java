@@ -660,4 +660,8 @@ public class DomainCtrl {
         r.setCheckedOnAppliedTable(b);
     }
     public Boolean getAppliedRestriction(String res){ return Restrictions.getInstance().getAppliedRestriccion(res).getCheckedOnAppliedTable(); }
+
+    public void setProgress(double progress) {
+        PresentationCtrl.getInstance().setProgress(progress);
+    }
 }

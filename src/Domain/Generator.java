@@ -1,7 +1,5 @@
 package Domain;
 
-import Presentation.PresentationCtrl;
-
 import java.util.*;
 
 class Generator {
@@ -37,6 +35,7 @@ class Generator {
 
 		try {
 			generateSchedules(schedules, schedule, groups.entrySet().iterator(), 0, groups.size());
+			DomainCtrl.getInstance().setProgress(1.0);
 			return schedules;
 		}
 		catch (Exception e) {
@@ -74,7 +73,7 @@ class Generator {
 			c.setClassroomID(slot.getValue());
 
 			schedule.addClass(c);
-			PresentationCtrl.getInstance().setProgress((double)current / (double)groups);
+			DomainCtrl.getInstance().setProgress((double)current / (double)groups);
 
 			if (Restrictions.getInstance().Check(schedule)) {
 
