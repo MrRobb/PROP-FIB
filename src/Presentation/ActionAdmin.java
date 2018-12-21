@@ -124,7 +124,7 @@ public class ActionAdmin implements Initializable {
     }
 
     public void showSavedSchedulesPressed(ActionEvent event) throws IOException {
-        Parent ViewParent = FXMLLoader.load(getClass().getResource("GeneratingSchedules.fxml"));
+        Parent ViewParent = FXMLLoader.load(getClass().getResource("ConsultingSchedules.fxml"));
         Scene ViewScene = new Scene(ViewParent);
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         window.setScene(ViewScene);

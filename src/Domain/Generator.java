@@ -59,6 +59,8 @@ class Generator {
 				Schedule last = schedules.pollLast();
 				Schedules.getInstance().removeSchedule(last);
 			}
+			System.out.println(schedules.size() + " " + Schedules.getMaxSize());
+
 
 			return schedules.size() >= Schedules.getMaxSize() && schedules.last().getScore() >= Schedules.getMaxScore();
 		}
