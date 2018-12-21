@@ -129,6 +129,7 @@ public class ConsultingData implements Initializable {
             Scene ViewScene = new Scene(ViewParent);
             Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
             window.setScene(ViewScene);
+            window.setTitle("User panel");
             window.show();
         }
         else{
@@ -136,6 +137,7 @@ public class ConsultingData implements Initializable {
             Scene ViewScene = new Scene(ViewParent);
             Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
             window.setScene(ViewScene);
+            window.setTitle("Administrator panel");
             window.show();
         }
 

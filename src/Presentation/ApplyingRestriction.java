@@ -109,6 +109,7 @@ public class ApplyingRestriction implements Initializable {
         Scene ViewScene = new Scene(ViewParent);
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         window.setScene(ViewScene);
+        window.setTitle("Restriction modification");
         window.show();
     }
 
@@ -149,6 +150,7 @@ public class ApplyingRestriction implements Initializable {
                 Scene ViewScene = new Scene(ViewParent);
                 Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
                 window.setScene(ViewScene);
+                window.setTitle("Restriction modification");
                 window.show();
             }
             else{

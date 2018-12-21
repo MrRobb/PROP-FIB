@@ -26,15 +26,14 @@ public class ChoosingJSON implements Initializable {
         FileChooser chooser = new FileChooser();
         chooser.setTitle("Open File");
         File file = chooser.showOpenDialog(new Stage());
-        if (file == null) {
-            return;
-        }
         String path = file.getPath();
 
         if (PresentationCtrl.getInstance().produce(path)) {
             int s = PresentationCtrl.getInstance().getNumberOfSubjects();
             int g = PresentationCtrl.getInstance().getNumberOfGroups();
             int c = PresentationCtrl.getInstance().getNumberOfClassrooms();
+
+
 
             Alert alert = new Alert(AlertType.INFORMATION);
             alert.setTitle("Successful");

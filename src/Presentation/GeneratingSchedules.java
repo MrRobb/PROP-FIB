@@ -128,6 +128,19 @@ public class GeneratingSchedules implements Initializable {
         imageView.setFitHeight(15);
         imageView.setFitWidth(15);
         backToMenu.setGraphic(imageView);
+
+
+        int nSchedules = PresentationCtrl.getInstance().getNumberOfSchedules();
+        if (nSchedules > 0) {
+            // Show
+            iSchedule = 0;
+            loadClassrooms(iSchedule);
+            ShowSchedule(iSchedule);
+        }
+        else {
+            saveSchedule.setDisable(false);
+            scheduleNumber.setText("No schedule generated yet");
+        }
     }
 
     public synchronized boolean startExploring() {
@@ -204,20 +217,10 @@ public class GeneratingSchedules implements Initializable {
 
     private boolean ShowSchedule(int index) {
 
-        if (PresentationCtrl.getInstance().getNumberOfSchedules() == 0) {
-            scrollPane.setVisible(false);
-            saveSchedule.setDisable(true);
-            deleteSchedule.setDisable(true);
-        }
-
         // Error checking
         if (index < 0 || PresentationCtrl.getInstance().getNumberOfSchedules() <= index) {
             return false;
         }
-
-        scrollPane.setVisible(true);
-        saveSchedule.setDisable(false);
-        deleteSchedule.setDisable(user);
 
         iSchedule = index;
         schedulePane.getChildren().retainAll(schedulePane.getChildren().get(0));
@@ -263,18 +266,13 @@ public class GeneratingSchedules implements Initializable {
             String group = (String) classJSON.get("group");
             String day = (String) classJSON.get("day");
             String classroom = (String) classJSON.get("classroom");
-            int startHour = (int) classJSON.get("startHour");
-            int endHour = (int) classJSON.get("endHour");
-            if (endHour < startHour) {
-                endHour += 24;
-            }
-            int duracion = Math.abs(endHour - startHour);
+            int hour = (int) classJSON.get("startHour");
 
             int dayIndex = getDayIndex(day);
-            int hourIndex = startHour + 1;
+            int hourIndex = hour + 1;
 
             if (Objects.equals(classroom, classroomComboBox.getValue())) {
-                Tile tile = getTile(schedulePane, dayIndex, hourIndex, duracion);
+                Tile tile = getTile(schedulePane, dayIndex, hourIndex);
                 if (tile != null) {
                     tile.addClass(subject + " " + group);
                 }
@@ -289,30 +287,19 @@ public class GeneratingSchedules implements Initializable {
         return true;
     }
 
-    private Tile getTile(GridPane schedulePane, int dayIndex, int hourIndex, int duracion) {
-
-        Tile tile = null;
+    private Tile getTile(GridPane schedulePane, int dayIndex, int hourIndex) {
 
         for (Node children : schedulePane.getChildren().filtered(
                 (node) -> node.getClass() == Tile.class)
         ) {
             Integer col = GridPane.getColumnIndex(children);
             Integer row = GridPane.getRowIndex(children);
-
             if (col == dayIndex && row == hourIndex) {
-                tile = (Tile) children;
-            }
-            else if (col == dayIndex && hourIndex <= row && row <= hourIndex + duracion) {
-                schedulePane.getChildren().remove(children);
+                return (Tile) children;
             }
         }
 
-        schedulePane.getChildren().remove(tile);
-
-        Tile formatted = new Tile();
-        schedulePane.add(formatted, dayIndex, hourIndex, 1, duracion);
-
-        return formatted;
+        return null;
     }
 
     public void changeClassroom(ActionEvent event) {
@@ -398,6 +385,8 @@ public class GeneratingSchedules implements Initializable {
         Scene ViewScene = new Scene(ViewParent);
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         window.setScene(ViewScene);
+        if (user) window.setTitle("User panel");
+        else window.setTitle("Administrator panel");
         window.show();
     }
 
@@ -405,11 +394,19 @@ public class GeneratingSchedules implements Initializable {
         Boolean b = PresentationCtrl.getInstance().deleteSchedule(iSchedule);
         PresentationCtrl.getInstance().updateNumberOfSchedules();
 
+        // Load classrooms
+        ArrayList<String> classrooms = PresentationCtrl.getInstance().getUsedClassroomNames(0);
+        ObservableList<String> classList = FXCollections.observableArrayList(classrooms);
+        classroomComboBox.setItems(classList);
+
+        // Select classroom
+        if (classList.size() > 0) {
+            classroomComboBox.setValue(classList.get(0));
+        }
+
         // Show
         iSchedule--;
         if(iSchedule == -1) iSchedule = 0;
-
-        loadClassrooms(iSchedule);
 
         if(PresentationCtrl.getInstance().getNumberOfSchedules() == 0){
             scrollPane.setVisible(false);
@@ -420,15 +417,8 @@ public class GeneratingSchedules implements Initializable {
 
     private void loadClassrooms(int iSchedule) {
 
-        if (PresentationCtrl.getInstance().getNumberOfSchedules() > 0) {
-            classroomComboBox.setDisable(false);
-        }
-        else {
-            classroomComboBox.setDisable(true);
-        }
-
         // Load classrooms
-        ArrayList<String> classrooms = PresentationCtrl.getInstance().getUsedClassroomNames(iSchedule);
+        ArrayList<String> classrooms = PresentationCtrl.getInstance().getUsedClassroomNames(0);
         ObservableList<String> classList = FXCollections.observableArrayList(classrooms);
         classroomComboBox.setItems(classList);
 
@@ -438,28 +428,7 @@ public class GeneratingSchedules implements Initializable {
         }
     }
 
-    public boolean setUser(boolean isUser) {
-        this.user = isUser;
-
-        int nSchedules = PresentationCtrl.getInstance().getNumberOfSchedules();
-
-        iSchedule = 0;
-        loadClassrooms(iSchedule);
-        ShowSchedule(iSchedule);
-
-        if (user) {
-
-            if (nSchedules <= 0) {
-                scheduleNumber.setText("No schedules to show");
-            }
-        }
-        else {
-
-            if (nSchedules <= 0) {
-                scheduleNumber.setText("No schedule generated yet");
-            }
-        }
-
-        return true;
+    public void setUser(Boolean b) {
+        user = b;
     }
 }

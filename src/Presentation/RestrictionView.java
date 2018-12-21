@@ -210,6 +210,7 @@ public class RestrictionView implements Initializable {
         Scene ViewScene = new Scene(ViewParent);
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         window.setScene(ViewScene);
+        window.setTitle("Administrator panel");
         window.show();
     }
 
@@ -237,6 +238,7 @@ public class RestrictionView implements Initializable {
             controller.initData(p);
             Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
             window.setScene(ViewScene);
+            window.setTitle("Apply restriction");
             window.show();
         }
     }
