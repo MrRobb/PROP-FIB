@@ -64,9 +64,9 @@ public class BlocksFactory {
 		Blocks.getInstance().add("At most [Int] classrooms can be used", b11);
 
 		ArrayList<Pair<String,java.lang.Class>> arrB12 = new ArrayList<>();
+		arrB12.add(new Pair<>("Max number of groups of the given subject and given type", Integer.class));
 		arrB12.add(new Pair<>("Subject (ex: " + Subjects.getInstance().getAllKeys().get(0) + ")", String.class));
 		arrB12.add(new Pair<>("Type of group (ex: " + Degree.getInstance().getTypeOfGroups().get(0) + ")", String.class));
-		arrB12.add(new Pair<>("Max number of groups of the given subject and given type", Integer.class));
 		Block b12 = new Block(Functions::atMostNGroupsOfSubjectOfTypeA, arrB12);
 		Blocks.getInstance().add("At most [Int] groups of [Subject] of [Type] ", b12);
 
