@@ -10,15 +10,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa2f1aa1-9b69-405b-87b4-eb516390aa6d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/Domain/DomainCtrl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/DomainCtrl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Schedules.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Schedules.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Presentation/ActionAdmin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation/ActionAdmin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Presentation/ActionUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation/ActionUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Presentation/ConsultingSchedules.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation/ConsultingSchedules.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Presentation/ConsultingSchedules.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation/ConsultingSchedules.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Presentation/GeneratingSchedules.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation/GeneratingSchedules.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Presentation/GeneratingSchedules.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation/GeneratingSchedules.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Presentation/PresentationCtrl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation/PresentationCtrl.java" afterDir="false" />
     </list>
     <list id="2359001d-d985-4a8b-8ebc-422acdf50f2f" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -34,11 +27,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Presentation/ActionUser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="35" column="42" lean-forward="true" selection-start-line="35" selection-start-column="42" selection-end-line="35" selection-end-column="42" />
+            <state relative-caret-position="-203">
+              <caret line="45" column="90" lean-forward="true" selection-start-line="45" selection-start-column="90" selection-end-line="45" selection-end-column="90" />
             </state>
           </provider>
         </entry>
@@ -59,8 +52,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Presentation/GeneratingSchedules.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="389" column="9" lean-forward="true" selection-start-line="389" selection-start-column="9" selection-end-line="389" selection-end-column="9" />
+            <state relative-caret-position="450">
+              <caret line="393" column="8" lean-forward="true" selection-start-line="393" selection-start-column="8" selection-end-line="393" selection-end-column="42" />
             </state>
           </provider>
         </entry>
@@ -102,11 +95,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Presentation/ConsultingSchedules.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="342" column="22" selection-start-line="342" selection-start-column="22" selection-end-line="342" selection-end-column="22" />
+            <state relative-caret-position="306">
+              <caret line="338" column="42" selection-start-line="338" selection-start-column="42" selection-end-line="338" selection-end-column="42" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#9332#9333#0" expanded="true" />
@@ -124,6 +117,19 @@
             </state>
           </provider>
           <provider editor-type-id="JavaFX-Scene-Builder" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Presentation/ConsultingData.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="497">
+              <caret line="143" column="16" selection-start-line="143" selection-start-column="16" selection-end-line="143" selection-end-column="16" />
+              <folding>
+                <element signature="e#5762#5763#0" expanded="true" />
+                <element signature="e#5786#5787#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -236,9 +242,9 @@
         <option value="$PROJECT_DIR$/src/Presentation/ActionAdmin.java" />
         <option value="$PROJECT_DIR$/src/Domain/Schedules.java" />
         <option value="$PROJECT_DIR$/src/Presentation/ConsultingSchedules.fxml" />
+        <option value="$PROJECT_DIR$/src/Presentation/ActionUser.java" />
         <option value="$PROJECT_DIR$/src/Presentation/GeneratingSchedules.java" />
         <option value="$PROJECT_DIR$/src/Presentation/ConsultingSchedules.java" />
-        <option value="$PROJECT_DIR$/src/Presentation/ActionUser.java" />
       </list>
     </option>
   </component>
@@ -293,7 +299,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545390430236" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545390673008" />
     <property name="last_opened_file_path" value="C:/Program Files (x86)/Oracle/JavaFX Scene Builder 2.0/JavaFX Scene Builder 2.0.exe" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -472,7 +478,7 @@
       <workItem from="1545161100400" duration="3006000" />
       <workItem from="1545203590593" duration="4696000" />
       <workItem from="1545333617324" duration="2830000" />
-      <workItem from="1545374562870" duration="13779000" />
+      <workItem from="1545374562870" duration="14101000" />
     </task>
     <servers />
   </component>
@@ -509,7 +515,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="110934000" />
+    <option name="totallyTimeSpent" value="111256000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -542,7 +548,7 @@
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32827735" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" weight="0.32921174" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.3291815" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.25894737" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.25893825" />
       <window_info anchor="bottom" id="Run with VisualVM" order="11" />
       <window_info anchor="bottom" id="Debug with VisualVM" order="12" />
       <window_info anchor="bottom" id="Docker" order="13" show_stripe_button="false" />
@@ -820,13 +826,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Presentation/ConsultingData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="39" column="8" lean-forward="true" selection-start-line="39" selection-start-column="8" selection-end-line="43" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/java/util/TreeSet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="738">
@@ -899,29 +898,40 @@
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Presentation/GeneratingSchedules.java">
+    <entry file="file://$PROJECT_DIR$/src/Presentation/ConsultingData.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="389" column="9" lean-forward="true" selection-start-line="389" selection-start-column="9" selection-end-line="389" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Presentation/ConsultingSchedules.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="342" column="22" selection-start-line="342" selection-start-column="22" selection-end-line="342" selection-end-column="22" />
+        <state relative-caret-position="497">
+          <caret line="143" column="16" selection-start-line="143" selection-start-column="16" selection-end-line="143" selection-end-column="16" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#9332#9333#0" expanded="true" />
-            <element signature="e#9371#9372#0" expanded="true" />
+            <element signature="e#5762#5763#0" expanded="true" />
+            <element signature="e#5786#5787#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Presentation/ActionUser.java">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-203">
+          <caret line="45" column="90" lean-forward="true" selection-start-line="45" selection-start-column="90" selection-end-line="45" selection-end-column="90" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Presentation/GeneratingSchedules.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="393" column="8" lean-forward="true" selection-start-line="393" selection-start-column="8" selection-end-line="393" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Presentation/ConsultingSchedules.java">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
-          <caret line="35" column="42" lean-forward="true" selection-start-line="35" selection-start-column="42" selection-end-line="35" selection-end-column="42" />
+          <caret line="338" column="42" selection-start-line="338" selection-start-column="42" selection-end-line="338" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#9332#9333#0" expanded="true" />
+            <element signature="e#9371#9372#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

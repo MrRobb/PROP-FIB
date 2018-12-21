@@ -391,6 +391,7 @@ public class GeneratingSchedules implements Initializable {
 
         // Show
         iSchedule--;
+        if(iSchedule == -1) iSchedule = 0;
         ShowSchedule(iSchedule);
 
     }
