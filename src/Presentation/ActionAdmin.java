@@ -117,7 +117,7 @@ public class ActionAdmin implements Initializable {
     public void generatePressed(ActionEvent event) throws IOException {
         TextInputDialog dialog = new TextInputDialog("");
         dialog.setTitle("Schedules to generate");
-        dialog.setHeaderText("How many schedules do you want to generate?");
+        dialog.setHeaderText("How many new schedules do you want to generate?");
         dialog.setContentText("Please enter the number:");
 
         // Traditional way to get the response value.

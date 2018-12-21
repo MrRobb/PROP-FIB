@@ -134,3 +134,7 @@
     -fx-background-color: black;
     -fx-text-fill: white;
 }
+
+.restricitionFail{
+  -fx-border-color: rgb(255, 144, 151);
+}
