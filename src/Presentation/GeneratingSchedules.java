@@ -58,6 +58,7 @@ public class GeneratingSchedules implements Initializable {
     @FXML private Button backToMenu;
     @FXML private Button saveSchedule;
     @FXML private Button deleteSchedule;
+    @FXML private ScrollPane scrollPane;
 
     private boolean isExploring = false;
     private int iSchedule = -1;
@@ -342,7 +343,7 @@ public class GeneratingSchedules implements Initializable {
     public void previousSchedule(ActionEvent event) {
         if (0 <= iSchedule - 1 && iSchedule - 1 < PresentationCtrl.getInstance().getNumberOfSchedules()) {
             iSchedule--;
-            classroomComboBox.getSelectionModel().clearSelection();
+            loadClassrooms(iSchedule);
             ShowSchedule(iSchedule);
         }
     }
@@ -350,7 +351,7 @@ public class GeneratingSchedules implements Initializable {
     public void nextSchedule(ActionEvent event) {
         if (0 <= iSchedule + 1 && iSchedule + 1 < PresentationCtrl.getInstance().getNumberOfSchedules()) {
             iSchedule++;
-            classroomComboBox.getSelectionModel().clearSelection();
+            loadClassrooms(iSchedule);
             ShowSchedule(iSchedule);
         }
     }
@@ -404,8 +405,12 @@ public class GeneratingSchedules implements Initializable {
         // Show
         iSchedule--;
         if(iSchedule == -1) iSchedule = 0;
-        ShowSchedule(iSchedule);
 
+        if(PresentationCtrl.getInstance().getNumberOfSchedules() == 0){
+            scrollPane.setVisible(false);
+            scheduleNumber.setText("No schedules to show");
+        }
+        else ShowSchedule(iSchedule);
     }
 
     private void loadClassrooms(int iSchedule) {

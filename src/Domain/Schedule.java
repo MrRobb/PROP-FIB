@@ -13,7 +13,7 @@ class Schedule implements Comparable<Schedule> {
 
     private TreeSet<Class> classes;
     private int score = 0;
-    private TreeSet<ScheduleKey> keys;
+    static private TreeSet<ScheduleKey> keys;
 
     /**
      * Constructors / Destructors
@@ -32,9 +32,8 @@ class Schedule implements Comparable<Schedule> {
     }
 
     public Schedule(Schedule schedule) {
-        this.classes = new TreeSet<>(schedule.classes);
+        this.classes = (TreeSet<Class>) schedule.classes.clone();
         this.score = schedule.getScore();
-        this.keys = new TreeSet<>(schedule.keys);
     }
 
     /**
@@ -165,8 +164,37 @@ class Schedule implements Comparable<Schedule> {
     }
 
     @Override
+    public boolean equals(Object obj) {
+        Schedule other = (Schedule)obj;
+        return classes.equals(other.classes);
+    }
+
+    @Override
     public int compareTo(Schedule other) {
-        return this.getScore() - other.getScore();
+        if (this.score != other.score) {
+            return other.score - this.score;
+        }
+        else {
+            Iterator it1 = this.classes.iterator();
+            Iterator it2 = other.classes.iterator();
+
+            while (it1.hasNext() && it2.hasNext()) {
+                Class c1 = (Class)it1.next();
+                Class c2 = (Class)it2.next();
+                int comp = c1.compareTo(c2);
+                if (comp != 0) {
+                    return comp;
+                }
+            }
+
+            if (it1.hasNext()) {
+                return -1;
+            }
+            if (it2.hasNext()) {
+                return 1;
+            }
+            return 0;
+        }
     }
 
     @Override
