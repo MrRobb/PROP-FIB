@@ -60,7 +60,7 @@ class Generator {
 				Schedules.getInstance().removeSchedule(saveMe);
 			}
 
-			return schedules.size() == Schedules.getMaxSize() && schedules.last().getScore() == Schedules.getMaxScore();
+			return schedules.size() >= Schedules.getMaxSize() && schedules.last().getScore() >= Schedules.getMaxScore();
 		}
 
 		Map.Entry<Integer, Group> entry = it.next();
