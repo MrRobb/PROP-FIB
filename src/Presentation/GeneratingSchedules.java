@@ -263,13 +263,18 @@ public class GeneratingSchedules implements Initializable {
             String group = (String) classJSON.get("group");
             String day = (String) classJSON.get("day");
             String classroom = (String) classJSON.get("classroom");
-            int hour = (int) classJSON.get("startHour");
+            int startHour = (int) classJSON.get("startHour");
+            int endHour = (int) classJSON.get("endHour");
+            if (endHour < startHour) {
+                endHour += 24;
+            }
+            int duracion = Math.abs(endHour - startHour);
 
             int dayIndex = getDayIndex(day);
-            int hourIndex = hour + 1;
+            int hourIndex = startHour + 1;
 
             if (Objects.equals(classroom, classroomComboBox.getValue())) {
-                Tile tile = getTile(schedulePane, dayIndex, hourIndex);
+                Tile tile = getTile(schedulePane, dayIndex, hourIndex, duracion);
                 if (tile != null) {
                     tile.addClass(subject + " " + group);
                 }
@@ -284,19 +289,30 @@ public class GeneratingSchedules implements Initializable {
         return true;
     }
 
-    private Tile getTile(GridPane schedulePane, int dayIndex, int hourIndex) {
+    private Tile getTile(GridPane schedulePane, int dayIndex, int hourIndex, int duracion) {
+
+        Tile tile = null;
 
         for (Node children : schedulePane.getChildren().filtered(
                 (node) -> node.getClass() == Tile.class)
         ) {
             Integer col = GridPane.getColumnIndex(children);
             Integer row = GridPane.getRowIndex(children);
+
             if (col == dayIndex && row == hourIndex) {
-                return (Tile) children;
+                tile = (Tile) children;
+            }
+            else if (col == dayIndex && hourIndex <= row && row <= hourIndex + duracion) {
+                schedulePane.getChildren().remove(children);
             }
         }
 
-        return null;
+        schedulePane.getChildren().remove(tile);
+
+        Tile formatted = new Tile();
+        schedulePane.add(formatted, dayIndex, hourIndex, 1, duracion);
+
+        return formatted;
     }
 
     public void changeClassroom(ActionEvent event) {
