@@ -45,6 +45,17 @@ class Schedules {
 		}
 	}
 
+	public Boolean deleteSchedule(int index){
+		int i = 0;
+		for(Schedule s : schedules){
+			if(i == index){
+				return removeSchedule(s);
+			}
+			++i;
+		}
+		return true;
+	}
+
 	public boolean removeSchedule(Schedule schedule) {
 		if (schedule == null) {
 			return false;

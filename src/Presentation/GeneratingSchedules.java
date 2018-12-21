@@ -57,6 +57,7 @@ public class GeneratingSchedules implements Initializable {
     @FXML private Button nextSchedule;
     @FXML private Button backToMenu;
     @FXML private Button saveSchedule;
+    @FXML private Button deleteSchedule;
 
     private boolean isExploring = false;
     private int iSchedule = -1;
@@ -120,7 +121,6 @@ public class GeneratingSchedules implements Initializable {
         // Show default text
         progressLabel.setText("");
         progressBar.setVisible(false);
-        scheduleNumber.setText("No schedule generated yet");
 
         javafx.scene.image.Image image = new Image(getClass().getResourceAsStream("back.png"));
         ImageView imageView = new ImageView(image);
@@ -128,6 +128,18 @@ public class GeneratingSchedules implements Initializable {
         imageView.setFitWidth(15);
         backToMenu.setGraphic(imageView);
 
+
+        int nSchedules = PresentationCtrl.getInstance().getNumberOfSchedules();
+        if (nSchedules > 0) {
+            // Show
+            iSchedule = 0;
+            loadClassrooms(iSchedule);
+            ShowSchedule(iSchedule);
+        }
+        else {
+            saveSchedule.setDisable(false);
+            scheduleNumber.setText("No schedule generated yet");
+        }
     }
 
     public synchronized boolean startExploring() {
@@ -150,19 +162,16 @@ public class GeneratingSchedules implements Initializable {
         isExploring = false;
         progressLabel.setText("Finished exploring");
 
-        // Load classrooms
-        ArrayList<String> classrooms = PresentationCtrl.getInstance().getUsedClassroomNames(0);
-        ObservableList<String> classList = FXCollections.observableArrayList(classrooms);
-        classroomComboBox.setItems(classList);
-
-        // Select classroom
-        if (classList.size() > 0) {
-            classroomComboBox.setValue(classList.get(0));
+        if (PresentationCtrl.getInstance().getNumberOfSchedules() <= 0) {
+            saveSchedule.setDisable(false);
+            scheduleNumber.setText("No schedule generated yet");
         }
-
-        // Show
-        iSchedule = 0;
-        ShowSchedule(iSchedule);
+        else {
+            // Show
+            iSchedule = 0;
+            loadClassrooms(iSchedule);
+            ShowSchedule(iSchedule);
+        }
 
         return true;
     }
@@ -348,6 +357,10 @@ public class GeneratingSchedules implements Initializable {
 
     public void saveSchedule(ActionEvent event) {
 
+        if (PresentationCtrl.getInstance().getNumberOfSchedules() <= 0) {
+            return;
+        }
+
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Save schedule");
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -372,5 +385,39 @@ public class GeneratingSchedules implements Initializable {
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         window.setScene(ViewScene);
         window.show();
+    }
+
+    public void deleteSchedule(ActionEvent event){
+        Boolean b = PresentationCtrl.getInstance().deleteSchedule(iSchedule);
+        PresentationCtrl.getInstance().updateNumberOfSchedules();
+
+        // Load classrooms
+        ArrayList<String> classrooms = PresentationCtrl.getInstance().getUsedClassroomNames(0);
+        ObservableList<String> classList = FXCollections.observableArrayList(classrooms);
+        classroomComboBox.setItems(classList);
+
+        // Select classroom
+        if (classList.size() > 0) {
+            classroomComboBox.setValue(classList.get(0));
+        }
+
+        // Show
+        iSchedule--;
+        if(iSchedule == -1) iSchedule = 0;
+        ShowSchedule(iSchedule);
+
+    }
+
+    private void loadClassrooms(int iSchedule) {
+
+        // Load classrooms
+        ArrayList<String> classrooms = PresentationCtrl.getInstance().getUsedClassroomNames(0);
+        ObservableList<String> classList = FXCollections.observableArrayList(classrooms);
+        classroomComboBox.setItems(classList);
+
+        // Select classroom
+        if (classList.size() > 0) {
+            classroomComboBox.setValue(classList.get(0));
+        }
     }
 }
