@@ -133,7 +133,7 @@ public class ConsultingSchedules implements Initializable {
 
         // Load classrooms
         ArrayList<String> classrooms = PresentationCtrl.getInstance().getUsedClassroomNames(0);
-        ObservableList<String> classList = FXCollections.observableArrayList(classrooms);
+        ObservableList<String> classList = FXCollections.observableArrayList(classrooms);   
         classroomComboBox.setItems(classList);
 
         // Select classroom
