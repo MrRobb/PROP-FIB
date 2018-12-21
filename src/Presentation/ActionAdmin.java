@@ -117,7 +117,7 @@ public class ActionAdmin implements Initializable {
     public void generatePressed(ActionEvent event) throws IOException {
         TextInputDialog dialog = new TextInputDialog("");
         dialog.setTitle("Schedules to generate");
-        dialog.setHeaderText("How many schedules do you want to generate?");
+        dialog.setHeaderText("How many new schedules do you want to generate?");
         dialog.setContentText("Please enter the number:");
 
         // Traditional way to get the response value.
@@ -132,8 +132,9 @@ public class ActionAdmin implements Initializable {
                 Scene viewScene = new Scene(loader.load());
                 Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
                 window.setScene(viewScene);
-                GeneratingSchedules controller = loader.getController();
                 window.show();
+                GeneratingSchedules controller = loader.getController();
+                controller.setUser(false);
                 controller.enableGeneration();
             }
         }
@@ -172,11 +173,14 @@ public class ActionAdmin implements Initializable {
     }
 
     public void showSavedSchedulesPressed(ActionEvent event) throws IOException {
-        Parent ViewParent = FXMLLoader.load(getClass().getResource("ConsultingSchedules.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("GeneratingSchedules.fxml"));
+        Parent ViewParent = loader.load();
         Scene ViewScene = new Scene(ViewParent);
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         window.setScene(ViewScene);
         window.show();
+        GeneratingSchedules controller = loader.getController();
+        controller.setUser(false);
     }
 
     public void logOutPressed(ActionEvent event) throws IOException {
