@@ -98,7 +98,7 @@ public class ActionAdmin implements Initializable {
                 controller.enableGeneration();
             }
         }
-        else if (!isInteger(result.get())){
+        else if (result.isPresent() && !isInteger(result.get())){
             Alert alert2 = new Alert(Alert.AlertType.ERROR);
             alert2.setTitle("Alert");
             alert2.setHeaderText("Error");

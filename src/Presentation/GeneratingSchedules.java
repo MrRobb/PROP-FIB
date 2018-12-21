@@ -342,7 +342,7 @@ public class GeneratingSchedules implements Initializable {
     public void previousSchedule(ActionEvent event) {
         if (0 <= iSchedule - 1 && iSchedule - 1 < PresentationCtrl.getInstance().getNumberOfSchedules()) {
             iSchedule--;
-            classroomComboBox.getSelectionModel().clearSelection();
+            loadClassrooms(iSchedule);
             ShowSchedule(iSchedule);
         }
     }
@@ -350,7 +350,7 @@ public class GeneratingSchedules implements Initializable {
     public void nextSchedule(ActionEvent event) {
         if (0 <= iSchedule + 1 && iSchedule + 1 < PresentationCtrl.getInstance().getNumberOfSchedules()) {
             iSchedule++;
-            classroomComboBox.getSelectionModel().clearSelection();
+            loadClassrooms(iSchedule);
             ShowSchedule(iSchedule);
         }
     }
