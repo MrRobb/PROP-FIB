@@ -79,6 +79,7 @@ public class ActionAdmin implements Initializable {
         controller.initData("admin");
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         window.setScene(ViewScene);
+        window.setTitle("Consulting data");
         window.show();
     }
 
@@ -87,6 +88,7 @@ public class ActionAdmin implements Initializable {
         Scene ViewScene = new Scene(ViewParent);
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         window.setScene(ViewScene);
+        window.setTitle("Restriction modification");
         window.show();
     }
 
@@ -132,6 +134,7 @@ public class ActionAdmin implements Initializable {
                 Scene viewScene = new Scene(loader.load());
                 Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
                 window.setScene(viewScene);
+                window.setTitle("Showing schedule");
                 window.show();
                 GeneratingSchedules controller = loader.getController();
                 controller.setUser(false);
@@ -175,12 +178,14 @@ public class ActionAdmin implements Initializable {
     public void showSavedSchedulesPressed(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("GeneratingSchedules.fxml"));
         Parent ViewParent = loader.load();
+        GeneratingSchedules controller = loader.getController();
+        controller.setUser(false);
         Scene ViewScene = new Scene(ViewParent);
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         window.setScene(ViewScene);
+        window.setTitle("Showing schedule");
         window.show();
-        GeneratingSchedules controller = loader.getController();
-        controller.setUser(false);
+
     }
 
     public void logOutPressed(ActionEvent event) throws IOException {
@@ -188,6 +193,7 @@ public class ActionAdmin implements Initializable {
         Scene ViewScene = new Scene(ViewParent);
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         window.setScene(ViewScene);
+        window.setTitle("User selection");
         window.show();
     }
 

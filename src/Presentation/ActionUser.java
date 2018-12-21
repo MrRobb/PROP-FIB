@@ -31,14 +31,16 @@ public class ActionUser implements Initializable {
     }
 
     public void showSavedSchedulesPressed(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("GeneratingSchedules.fxml"));
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("GeneratingSchedule.fxml"));
         Parent ViewParent = loader.load();
         Scene ViewScene = new Scene(ViewParent);
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-        window.setScene(ViewScene);
-        window.show();
         GeneratingSchedules controller = loader.getController();
         controller.setUser(true);
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        window.setScene(ViewScene);
+        window.setTitle("Showing schedule");
+        window.show();
     }
 
     public void logOutPressed(ActionEvent event) throws IOException {
@@ -46,6 +48,7 @@ public class ActionUser implements Initializable {
         Scene ViewScene = new Scene(ViewParent);
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         window.setScene(ViewScene);
+        window.setTitle("User selection");
         window.show();
     }
 
@@ -81,6 +84,7 @@ public class ActionUser implements Initializable {
         controller.initData("user");
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         window.setScene(ViewScene);
+        window.setTitle("Showing schedule");
         window.show();
     }
 }
