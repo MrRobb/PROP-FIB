@@ -55,11 +55,13 @@ class Generator {
 			Schedules.getInstance().addSchedule(saveMe);
 
 			if (schedules.size() > Schedules.getMaxSize()) {
-				schedules.pollLast();
-				Schedules.getInstance().removeSchedule(saveMe);
+				Schedule last = schedules.pollLast();
+				Schedules.getInstance().removeSchedule(last);
 			}
+			System.out.println(schedules.size() + " " + Schedules.getMaxSize());
 
-			return schedules.size() == Schedules.getMaxSize() && schedules.last().getScore() == Schedules.getMaxScore();
+
+			return schedules.size() >= Schedules.getMaxSize() && schedules.last().getScore() >= Schedules.getMaxScore();
 		}
 
 		Map.Entry<Integer, Group> entry = it.next();

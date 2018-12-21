@@ -664,4 +664,8 @@ public class DomainCtrl {
     public void setProgress(double progress) {
         PresentationCtrl.getInstance().setProgress(progress);
     }
+
+    public Boolean setMaxSchedules(int n){ return Schedules.setMaxSize(n); }
+
+    public Boolean deleteSchedule(int i){ return Schedules.getInstance().deleteSchedule(i); }
 }

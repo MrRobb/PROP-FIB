@@ -182,6 +182,8 @@ public class PresentationCtrl {
         return DomainCtrl.getInstance().clearSavedSchedules();
     }
 
+    public Boolean deleteSchedule(int i){ return DomainCtrl.getInstance().deleteSchedule(i); }
+
     public Boolean importSchedules(String path) {
         return DomainCtrl.getInstance().importSchedules(path);
     }
@@ -213,4 +215,6 @@ public class PresentationCtrl {
     public ReadOnlyDoubleProperty progressProperty() {
         return progress;
     }
+
+    public Boolean setMaxSchedules(int n){ return DomainCtrl.getInstance().setMaxSchedules(n); }
 }

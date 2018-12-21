@@ -31,8 +31,12 @@ public class ActionUser implements Initializable {
     }
 
     public void showSavedSchedulesPressed(ActionEvent event) throws IOException {
-        Parent ViewParent = FXMLLoader.load(getClass().getResource("GeneratingSchedules.fxml"));
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("ConsultingSchedules.fxml"));
+        Parent ViewParent = loader.load();
         Scene ViewScene = new Scene(ViewParent);
+        ConsultingSchedules controller = loader.getController();
+        controller.initUser(1);
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         window.setScene(ViewScene);
         window.show();

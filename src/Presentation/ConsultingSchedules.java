@@ -45,7 +45,7 @@ import static java.lang.Math.max;
 import static java.lang.Math.min;
 import static java.lang.Thread.yield;
 
-public class GeneratingSchedules implements Initializable {
+public class ConsultingSchedules implements Initializable {
 
     @FXML private ProgressBar progressBar;
     @FXML private Label progressLabel;
@@ -113,7 +113,7 @@ public class GeneratingSchedules implements Initializable {
 
 
     @Override
-    public synchronized void initialize(URL location, ResourceBundle resources) {
+    public void initialize(URL location, ResourceBundle resources) {
 
         // Set active view
         PresentationCtrl.getInstance().setWindow(this);
@@ -121,6 +121,7 @@ public class GeneratingSchedules implements Initializable {
         // Show default text
         progressLabel.setText("");
         progressBar.setVisible(false);
+        scheduleNumber.setText("No schedule generated yet");
 
         javafx.scene.image.Image image = new Image(getClass().getResourceAsStream("back.png"));
         ImageView imageView = new ImageView(image);
@@ -128,53 +129,22 @@ public class GeneratingSchedules implements Initializable {
         imageView.setFitWidth(15);
         backToMenu.setGraphic(imageView);
 
+        // Load classrooms
+        ArrayList<String> classrooms = PresentationCtrl.getInstance().getUsedClassroomNames(0);
+        ObservableList<String> classList = FXCollections.observableArrayList(classrooms);
+        classroomComboBox.setItems(classList);
 
-        int nSchedules = PresentationCtrl.getInstance().getNumberOfSchedules();
-        if (nSchedules > 0) {
-            // Show
-            iSchedule = 0;
-            loadClassrooms(iSchedule);
-            ShowSchedule(iSchedule);
+        // Select classroom
+        if (classList.size() > 0) {
+            classroomComboBox.setValue(classList.get(0));
         }
-        else {
-            saveSchedule.setDisable(false);
-            scheduleNumber.setText("No schedule generated yet");
-        }
+
+        // Show
+        iSchedule = 0;
+        ShowSchedule(iSchedule);
+
     }
 
-    public synchronized boolean startExploring() {
-        if (isExploring) {
-            return false;
-        }
-
-        isExploring = true;
-        progressLabel.setText("Exploring schedules...");
-        progressBar.setVisible(true);
-        return true;
-    }
-
-    public synchronized boolean endExploring() {
-        if (!isExploring) {
-            return false;
-        }
-
-        // Finish progress
-        isExploring = false;
-        progressLabel.setText("Finished exploring");
-
-        if (PresentationCtrl.getInstance().getNumberOfSchedules() <= 0) {
-            saveSchedule.setDisable(false);
-            scheduleNumber.setText("No schedule generated yet");
-        }
-        else {
-            // Show
-            iSchedule = 0;
-            loadClassrooms(iSchedule);
-            ShowSchedule(iSchedule);
-        }
-
-        return true;
-    }
 
     private int getDayIndex(String day) {
         if (day.equalsIgnoreCase("Monday")) {
@@ -198,20 +168,20 @@ public class GeneratingSchedules implements Initializable {
     }
 
     private String getDayName(int index) {
-       switch (index) {
-           case 1:
-               return "Monday";
-           case 2:
-               return "Tuesday";
-           case 3:
-               return "Wednesday";
-           case 4:
-               return "Thursday";
-           case 5:
-               return "Friday";
-           default:
-               return "Date";
-       }
+        switch (index) {
+            case 1:
+                return "Monday";
+            case 2:
+                return "Tuesday";
+            case 3:
+                return "Wednesday";
+            case 4:
+                return "Thursday";
+            case 5:
+                return "Friday";
+            default:
+                return "Date";
+        }
     }
 
     private boolean ShowSchedule(int index) {
@@ -305,39 +275,6 @@ public class GeneratingSchedules implements Initializable {
         ShowSchedule(iSchedule);
     }
 
-    public void enableGeneration() {
-        // Launch generate
-
-        PresentationCtrl.getInstance().startGenerating();
-        PresentationCtrl.getInstance().setProgress(-1);
-
-        Service service = new Service<Void>() {
-            @Override
-            protected Task<Void> createTask() {
-                Task task = new Task<Void>() {
-                    @Override
-                    public Void call() {
-                        PresentationCtrl.getInstance().progressProperty().addListener(
-                                (obs, oldProgress, newProgress) ->
-                                updateProgress(newProgress.doubleValue(), 1)
-                        );
-                        PresentationCtrl.getInstance().generate();
-                        return null;
-                    }
-                };
-
-                task.setOnSucceeded(event -> {
-                    PresentationCtrl.getInstance().endGenerating();
-                });
-
-                return task;
-            }
-        };
-
-        progressBar.progressProperty().bind(service.progressProperty());
-
-        new Thread(service::start).start();
-    }
 
     public void previousSchedule(ActionEvent event) {
         if (0 <= iSchedule - 1 && iSchedule - 1 < PresentationCtrl.getInstance().getNumberOfSchedules()) {
@@ -356,10 +293,6 @@ public class GeneratingSchedules implements Initializable {
     }
 
     public void saveSchedule(ActionEvent event) {
-
-        if (PresentationCtrl.getInstance().getNumberOfSchedules() <= 0) {
-            return;
-        }
 
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Save schedule");
@@ -408,16 +341,11 @@ public class GeneratingSchedules implements Initializable {
 
     }
 
-    private void loadClassrooms(int iSchedule) {
+    public void initUser(int u){
+        if(u == 1) {
+            user = true;
+            deleteSchedule.setVisible(false);
 
-        // Load classrooms
-        ArrayList<String> classrooms = PresentationCtrl.getInstance().getUsedClassroomNames(0);
-        ObservableList<String> classList = FXCollections.observableArrayList(classrooms);
-        classroomComboBox.setItems(classList);
-
-        // Select classroom
-        if (classList.size() > 0) {
-            classroomComboBox.setValue(classList.get(0));
         }
     }
 }

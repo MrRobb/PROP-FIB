@@ -10,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextInputDialog;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
@@ -17,6 +18,7 @@ import javax.swing.text.View;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class ActionAdmin implements Initializable {
@@ -74,13 +76,36 @@ public class ActionAdmin implements Initializable {
     }
 
     public void generatePressed(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("GeneratingSchedules.fxml"));
-        Scene viewScene = new Scene(loader.load());
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-        window.setScene(viewScene);
-        GeneratingSchedules controller = loader.getController();
-        window.show();
-        controller.enableGeneration();
+        TextInputDialog dialog = new TextInputDialog("");
+        dialog.setTitle("Schedules to generate");
+        dialog.setHeaderText("How many schedules do you want to generate?");
+        dialog.setContentText("Please enter the number:");
+
+        // Traditional way to get the response value.
+        Optional<String> result = dialog.showAndWait();
+        if (result.isPresent() && isInteger(result.get())){
+            System.out.println(Integer.parseInt(result.get()));
+            if(!PresentationCtrl.getInstance().setMaxSchedules(Integer.parseInt(result.get()))){
+                System.out.println("Error when parsing");
+            }
+            else{
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("GeneratingSchedules.fxml"));
+                Scene viewScene = new Scene(loader.load());
+                Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+                window.setScene(viewScene);
+                GeneratingSchedules controller = loader.getController();
+                window.show();
+                controller.enableGeneration();
+            }
+        }
+        else if (!isInteger(result.get())){
+            Alert alert2 = new Alert(Alert.AlertType.ERROR);
+            alert2.setTitle("Alert");
+            alert2.setHeaderText("Error");
+            alert2.setContentText("Please enter a number bigger than 0");
+            alert2.showAndWait();
+        }
+
     }
 
     public Boolean importPressed(){
@@ -108,7 +133,7 @@ public class ActionAdmin implements Initializable {
     }
 
     public void showSavedSchedulesPressed(ActionEvent event) throws IOException {
-        Parent ViewParent = FXMLLoader.load(getClass().getResource("GeneratingSchedules.fxml"));
+        Parent ViewParent = FXMLLoader.load(getClass().getResource("ConsultingSchedules.fxml"));
         Scene ViewScene = new Scene(ViewParent);
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         window.setScene(ViewScene);
@@ -128,5 +153,21 @@ public class ActionAdmin implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         title.getStyleClass().add("title");
+    }
+
+    private static boolean isInteger(String s) {
+        return isInteger(s,10);
+    }
+
+    private static boolean isInteger(String s, int radix) {
+        if(s.isEmpty()) return false;
+        for(int i = 0; i < s.length(); i++) {
+            /*if(i == 0 && s.charAt(i) == '-') {
+                if(s.length() == 1) return false;
+                else continue;
+            }*/
+            if(Character.digit(s.charAt(i),radix) < 0) return false;
+        }
+        return true;
     }
 }
