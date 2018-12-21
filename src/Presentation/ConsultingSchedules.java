@@ -59,6 +59,8 @@ public class ConsultingSchedules implements Initializable {
     @FXML private Button saveSchedule;
     @FXML private Button deleteSchedule;
 
+    @FXML private ScrollPane scrollPane;
+
     private boolean isExploring = false;
     private int iSchedule = -1;
     private Tile selectedNode = null;
@@ -142,6 +144,11 @@ public class ConsultingSchedules implements Initializable {
         // Show
         iSchedule = 0;
         ShowSchedule(iSchedule);
+
+        if(PresentationCtrl.getInstance().getNumberOfSchedules() == 0){
+            scrollPane.setVisible(false);
+            scheduleNumber.setText("No schedules to show");
+        }
 
     }
 
@@ -337,7 +344,13 @@ public class ConsultingSchedules implements Initializable {
         // Show
         iSchedule--;
         if(iSchedule == -1) iSchedule = 0;
-        ShowSchedule(iSchedule);
+
+        if(PresentationCtrl.getInstance().getNumberOfSchedules() == 0){
+            scrollPane.setVisible(false);
+            scheduleNumber.setText("No schedules to show");
+
+        }
+        else ShowSchedule(iSchedule);
 
     }
 
