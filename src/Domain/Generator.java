@@ -51,6 +51,7 @@ class Generator {
 
 		if (!it.hasNext()) {
 			Schedule saveMe = new Schedule(schedule);
+			Restrictions.getInstance().Check(saveMe);
 			schedules.add(saveMe);
 			Schedules.getInstance().addSchedule(saveMe);
 
@@ -59,7 +60,7 @@ class Generator {
 				Schedules.getInstance().removeSchedule(last);
 			}
 			System.out.println(schedules.size() + " " + Schedules.getMaxSize());
-
+			System.out.println("Scores: " + schedules.first().getScore() + " " + Schedules.getMaxScore());
 
 			return schedules.size() >= Schedules.getMaxSize() && schedules.last().getScore() >= Schedules.getMaxScore();
 		}

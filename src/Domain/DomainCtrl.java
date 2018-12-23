@@ -735,4 +735,16 @@ public class DomainCtrl {
         DateTime date = new DateTime(DateTime.WeekDay.valueOf(day), hour);
         return DateTimes.getInstance().getID(date);
     }
+
+    public boolean getScore(int iSchedule) {
+        if (0 <= iSchedule && iSchedule < Schedules.getInstance().size()) {
+            Schedule s = Schedules.getInstance().get(iSchedule);
+            return Restrictions.getInstance().Check(s);
+        }
+        return false;
+    }
+
+    public void setMandatory(String id, boolean isMandatory) {
+        Restrictions.getInstance().getAppliedRestriccion(id).setMandatory(isMandatory);
+    }
 }

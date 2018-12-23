@@ -16,7 +16,7 @@ public class RestrictionsFactory {
 			Restriction restriction = new Restriction(name);
 
 			if (ok) ok = restriction.add(name);
-			if (ok) ok = restriction.setScore(1);
+			if (ok) ok = restriction.setScore(20);
 			if (ok) ok = Restrictions.getInstance().addAvailable(restriction);
 		}
 

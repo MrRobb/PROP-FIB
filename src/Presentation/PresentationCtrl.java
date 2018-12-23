@@ -234,4 +234,12 @@ public class PresentationCtrl {
     public int getDateTimeID(int hour, String day) {
         return DomainCtrl.getInstance().getDateTimeID(hour, day);
     }
+
+    public boolean getScore(int iSchedule) {
+        return DomainCtrl.getInstance().getScore(iSchedule);
+    }
+
+    public void setMandatory(String id, boolean isMandatory) {
+        DomainCtrl.getInstance().setMandatory(id, isMandatory);
+    }
 }

@@ -164,15 +164,9 @@ class Schedule implements Comparable<Schedule> {
     }
 
     @Override
-    public boolean equals(Object obj) {
-        Schedule other = (Schedule)obj;
-        return classes.equals(other.classes);
-    }
-
-    @Override
     public int compareTo(Schedule other) {
         if (this.score != other.score) {
-            return other.score - this.score;
+            return other.score - this.score; // - antes
         }
         else {
             Iterator it1 = this.classes.iterator();
@@ -188,11 +182,22 @@ class Schedule implements Comparable<Schedule> {
             }
 
             if (it1.hasNext()) {
-                return -1;
+                int i = -1;
+                while (it1.hasNext()) {
+                    it1.next();
+                    i--;
+                }
+                return i;
             }
             if (it2.hasNext()) {
-                return 1;
+                int i = 1;
+                while (it2.hasNext()) {
+                    it2.next();
+                    i++;
+                }
+                return i;
             }
+
             return 0;
         }
     }

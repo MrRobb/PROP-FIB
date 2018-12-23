@@ -185,13 +185,6 @@ public class RestrictionView implements Initializable {
 
             return row ;
         });
-
-
-
-
-
-
-
     }
 
     public void BackPressed(ActionEvent event) throws IOException {
@@ -199,8 +192,13 @@ public class RestrictionView implements Initializable {
         int score = 10;
         List<PairNumberRestriction> list = appliedRestrictionsTable.getItems();
         for(PairNumberRestriction p : list){
-            if(p.getMandatory().isSelected()){
-                String id = p.getName();
+
+            String id = p.getName();
+            boolean isMandatory = !p.getMandatory().isSelected();
+            PresentationCtrl.getInstance().setMandatory(id, isMandatory);
+
+            if (!isMandatory) {
+
                 PresentationCtrl.getInstance().updateScore(id,score);
                 if(score > 1) --score;
             }

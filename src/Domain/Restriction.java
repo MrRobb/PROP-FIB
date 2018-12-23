@@ -11,7 +11,7 @@ class Restriction {
     private String name;
     private ArrayList<Block> restriccion;
     private ArrayList<Object[]> args;
-    private int score = 0;
+    private int score = 20;
     private boolean mandatory = true;
     private Boolean editable = true;
     private Boolean checkedOnAppliedTable = false;

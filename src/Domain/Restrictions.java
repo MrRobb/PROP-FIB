@@ -108,14 +108,9 @@ class Restrictions {
                 schedule.setScore(Integer.MIN_VALUE);
                 return false;
             }
-            else {
-                score -= restriction.getScore();
-            }
-
         }
 
         schedule.setScore(score);
-
         return true;
     }
 
